@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GAROA · Organic Skin Rituals | Rituales de piel con base científica</title>
+<meta name="description" content="GAROA es educación sobre skincare fundada por Sarai Orrego, bioquímica y bióloga molecular. Aprende a entender tu piel, construye tu ritual y cuídate desde el conocimiento.">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/png" href="garoa-flower.png">
+<link rel="canonical" href="https://garoa-skinrituals.com/">
+
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-h7kg02WwHrgqRTrpBHhpN.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+
+<!-- Microsoft Clarity — heatmaps & session recordings -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xknkh18d8a");
+</script>
+
+<!-- PWA -->
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#540B0E">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="GAROA">
+<link rel="apple-touch-icon" href="narciso.garoa.png">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://garoa-skinrituals.com/">
+<meta property="og:title" content="GAROA · Organic Skin Rituals">
+<meta property="og:description" content="Aprende a cuidar tu piel desde el conocimiento, no desde el miedo. Rituales orgánicos con base científica, pensados para tu vida real.">
+<meta property="og:image" content="https://garoa-skinrituals.com/sarai-orrego.jpeg">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="GAROA Organic Skin Rituals">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GAROA · Organic Skin Rituals">
+<meta name="twitter:description" content="Aprende a cuidar tu piel desde el conocimiento, no desde el miedo. Rituales orgánicos con base científica, pensados para tu vida real.">
+<meta name="twitter:image" content="https://garoa-skinrituals.com/sarai-orrego.jpeg">
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --garnet: #540B0E;
+    --cream: #F9F7F6;
+    --pink: #E9D9D6;
+    --dark: #2A1A1B;
+    --text: #3D2B2C;
+    --muted: #8A7070;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--cream);
+    color: var(--text);
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: grid; grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    padding: 24px 48px;
+    background: transparent;
+    transition: background 0.4s;
+  }
+  nav.scrolled { background: var(--cream); border-bottom: 1px solid var(--pink); }
+
+  .nav-links {
+    display: flex; gap: 40px; align-items: center;
+  }
+  .nav-links a {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--text);
+    text-decoration: none; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--garnet); }
+
+  /* Dropdown */
+  .nav-dropdown { position: relative; }
+  .nav-dropdown > a::after { content: ' ▾'; font-size: 0.6rem; letter-spacing: 0; }
+  .dropdown-menu {
+    display: none; position: absolute; top: calc(100% + 16px); left: 0;
+    background: var(--cream); border: 1px solid var(--pink);
+    min-width: 220px; padding: 8px 0; z-index: 200;
+  }
+  .nav-dropdown.active .dropdown-menu { display: block; }
+  .dropdown-menu a {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 12px 24px;
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--text);
+    text-decoration: none; transition: background 0.2s, color 0.2s;
+  }
+  .dropdown-menu a:hover { background: var(--pink); color: var(--garnet); }
+  .badge-pronto {
+    font-size: 0.58rem; font-weight: 400; letter-spacing: 0.08em;
+    color: var(--muted); text-transform: uppercase;
+    border: 1px solid var(--pink); padding: 2px 6px;
+    white-space: nowrap; margin-left: 12px;
+  }
+
+  .nav-logo {
+    text-decoration: none; display: flex; justify-content: center; align-items: center;
+    margin: 0 32px;
+  }
+  .nav-logo img {
+    height: 220px; width: auto; display: block;
+    mix-blend-mode: multiply;
+  }
+
+  .nav-right { display: flex; justify-content: flex-end; align-items: center; }
+  .nav-cta {
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--garnet);
+    text-decoration: none; transition: color 0.2s;
+    border-bottom: 1px solid var(--garnet); padding-bottom: 2px;
+  }
+  .nav-cta:hover { color: var(--dark); border-bottom-color: var(--dark); }
+
+  /* Hamburger */
+  .nav-hamburger {
+    display: none; flex-direction: column; gap: 5px;
+    background: none; border: none; cursor: pointer; padding: 4px;
+  }
+  .nav-hamburger span {
+    display: block; width: 24px; height: 1.5px;
+    background: var(--text); transition: all 0.3s;
+  }
+
+  /* Mobile menu */
+  .mobile-menu {
+    display: none; position: fixed; inset: 0; z-index: 99;
+    background: var(--cream); flex-direction: column;
+    justify-content: center; align-items: center; gap: 8px;
+    padding: 48px 32px;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu-close {
+    position: absolute; top: 24px; right: 24px;
+    background: none; border: none; cursor: pointer;
+    font-size: 1.5rem; color: var(--text);
+  }
+  .mobile-menu a {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem; font-weight: 300; color: var(--dark);
+    text-decoration: none; text-align: center; padding: 12px 0;
+    transition: color 0.2s;
+  }
+  .mobile-menu a:hover { color: var(--garnet); }
+  .mobile-menu .mobile-divider {
+    width: 40px; height: 1px; background: var(--pink); margin: 16px 0;
+  }
+  .mobile-menu .mobile-pronto {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.65rem; color: var(--muted); letter-spacing: 0.2em;
+    text-transform: uppercase; display: block; margin-top: -8px; margin-bottom: 8px;
+  }
+
+  /* Modal */
+  .modal {
+    display: none; position: fixed; inset: 0; z-index: 300;
+    background: rgba(42,26,27,0.7); align-items: center; justify-content: center;
+    padding: 24px;
+  }
+  .modal.open { display: flex; }
+  .modal-inner {
+    background: var(--cream); max-width: 560px; width: 100%;
+    padding: 64px 56px; position: relative;
+  }
+  .modal-close {
+    position: absolute; top: 16px; right: 20px;
+    background: none; border: none; cursor: pointer;
+    font-size: 1.4rem; color: var(--muted); line-height: 1; z-index: 2;
+  }
+  .modal-close:hover { color: var(--garnet); }
+  .modal-badge {
+    font-size: 0.65rem; font-weight: 700; letter-spacing: 0.3em;
+    text-transform: uppercase; color: var(--muted);
+    border: 1px solid var(--pink); padding: 4px 10px;
+    display: inline-block; margin-bottom: 24px;
+  }
+  .modal-inner h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem; font-weight: 300; line-height: 1.2;
+    color: var(--dark); margin-bottom: 20px;
+  }
+  .modal-inner h2 em { font-style: italic; color: var(--garnet); }
+  .modal-inner p {
+    font-size: 0.95rem; line-height: 1.8; color: var(--muted); margin-bottom: 16px;
+  }
+  .modal-inner .btn-primary { margin-top: 8px; }
+
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    text-align: center; padding: 200px 48px 80px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 30% 60%, rgba(233,217,214,0.6) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(84,11,14,0.05) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .hero-eyebrow {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.35em;
+    text-transform: uppercase; color: var(--garnet);
+    margin-bottom: 28px; opacity: 0;
+    animation: fadeUp 0.8s 0.2s forwards;
+  }
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.8rem, 7vw, 5.5rem);
+    font-weight: 300; line-height: 1.1;
+    color: var(--dark); max-width: 820px;
+    opacity: 0; animation: fadeUp 0.9s 0.4s forwards;
+  }
+  .hero-title em { font-style: italic; color: var(--garnet); display: block; }
+  .hero-divider {
+    width: 1px; height: 60px;
+    background: var(--garnet); margin: 36px auto;
+    opacity: 0; animation: fadeUp 0.8s 0.7s forwards;
+  }
+  .hero-sub {
+    font-size: 1.05rem; font-weight: 300; line-height: 1.75;
+    color: var(--muted); max-width: 520px;
+    opacity: 0; animation: fadeUp 0.8s 0.9s forwards;
+  }
+  .hero-cta {
+    margin-top: 48px;
+    opacity: 0; animation: fadeUp 0.8s 1.1s forwards;
+  }
+  .btn-primary {
+    display: inline-block; padding: 16px 48px;
+    background: var(--garnet); color: var(--cream);
+    font-family: 'Lato', sans-serif; font-size: 0.78rem;
+    font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase;
+    text-decoration: none; border: none; cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+  }
+  .btn-primary:hover { background: var(--dark); transform: translateY(-2px); }
+  .btn-ghost {
+    display: inline-block; padding: 15px 48px;
+    background: transparent; color: var(--garnet);
+    font-family: 'Lato', sans-serif; font-size: 0.78rem;
+    font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase;
+    text-decoration: none; border: 1px solid var(--garnet); cursor: pointer;
+    transition: all 0.3s; margin-left: 16px;
+  }
+  .btn-ghost:hover { background: var(--garnet); color: var(--cream); }
+
+  /* ── SECTION BASE ── */
+  section { padding: 100px 48px; }
+  .section-label {
+    font-size: 0.68rem; font-weight: 700; letter-spacing: 0.35em;
+    text-transform: uppercase; color: var(--garnet); margin-bottom: 20px;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 300; line-height: 1.2; color: var(--dark); max-width: 640px;
+  }
+  .section-title em { font-style: italic; color: var(--garnet); }
+
+  /* ── DOLOR ── */
+  .dolor { background: var(--dark); color: var(--cream); }
+  .dolor-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+  }
+  .dolor .section-label { color: var(--pink); }
+  .dolor .section-title { color: var(--cream); max-width: 100%; }
+  .dolor .section-title em { color: var(--pink); }
+  .dolor-lista { margin-top: 40px; list-style: none; }
+  .dolor-lista li {
+    padding: 18px 0; border-bottom: 1px solid rgba(233,217,214,0.15);
+    font-size: 1rem; line-height: 1.7; color: rgba(249,247,246,0.75);
+    padding-left: 24px; position: relative;
+  }
+  .dolor-lista li::before { content: '—'; position: absolute; left: 0; color: var(--pink); }
+  .dolor-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.6rem, 3vw, 2.4rem); font-style: italic;
+    font-weight: 300; line-height: 1.4; color: var(--pink);
+    border-left: 2px solid var(--garnet); padding-left: 32px;
+  }
+
+  /* ── TRANSFORMACION ── */
+  .transicion { max-width: 1100px; margin: 0 auto; }
+  .transicion-header { text-align: center; margin-bottom: 80px; }
+  .cards-grid {
+    display: grid; grid-template-columns: 1fr auto 1fr; gap: 0; align-items: stretch;
+  }
+  .card-antes, .card-despues { padding: 48px 40px; }
+  .card-antes { background: var(--pink); border: 1px solid rgba(84,11,14,0.1); }
+  .card-despues { background: var(--garnet); color: var(--cream); }
+  .card-arrow {
+    display: flex; align-items: center; justify-content: center;
+    padding: 0 32px; background: var(--cream);
+    border-top: 1px solid var(--pink); border-bottom: 1px solid var(--pink);
+  }
+  .card-arrow svg { width: 32px; color: var(--garnet); }
+  .card-tag {
+    font-size: 0.65rem; font-weight: 700; letter-spacing: 0.3em;
+    text-transform: uppercase; margin-bottom: 24px;
+  }
+  .card-antes .card-tag { color: var(--garnet); }
+  .card-despues .card-tag { color: var(--pink); }
+  .card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem; font-weight: 400; line-height: 1.3; margin-bottom: 28px;
+  }
+  .card-antes .card-title { color: var(--dark); }
+  .card-despues .card-title { color: var(--cream); }
+  .feeling-list { list-style: none; }
+  .feeling-list li {
+    padding: 10px 0; border-bottom: 1px solid rgba(84,11,14,0.1);
+    font-size: 0.95rem; line-height: 1.6; padding-left: 20px; position: relative;
+  }
+  .card-despues .feeling-list li { border-bottom-color: rgba(249,247,246,0.15); color: rgba(249,247,246,0.85); }
+  .feeling-list li::before { content: '·'; position: absolute; left: 0; font-size: 1.4rem; line-height: 1.2; }
+  .card-antes .feeling-list li::before { color: var(--garnet); }
+  .card-despues .feeling-list li::before { color: var(--pink); }
+
+  /* ── FRASE CENTRAL ── */
+  .frase-central { background: var(--garnet); text-align: center; padding: 100px 48px; }
+  .frase-central p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 300; font-style: italic;
+    color: var(--cream); line-height: 1.4; max-width: 780px; margin: 0 auto;
+  }
+  .frase-central span { font-style: normal; font-weight: 600; display: block; margin-top: 8px; }
+
+  /* ── SOLUCION ── */
+  .solucion-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: start;
+  }
+  .solucion-texto { padding-top: 8px; }
+  .solucion-texto p { font-size: 1rem; line-height: 1.85; color: var(--muted); margin-top: 24px; }
+  .solucion-texto p strong { color: var(--text); font-weight: 700; }
+  .pilares { margin-top: 48px; list-style: none; }
+  .pilares li {
+    padding: 20px 0; border-bottom: 1px solid var(--pink);
+    display: grid; grid-template-columns: 40px 1fr; gap: 16px; align-items: start;
+  }
+  .pilar-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem; font-weight: 300; color: var(--garnet); padding-top: 2px;
+  }
+  .pilar-content strong {
+    display: block; font-size: 0.9rem; font-weight: 700;
+    letter-spacing: 0.05em; margin-bottom: 4px; color: var(--dark);
+  }
+  .pilar-content span { font-size: 0.9rem; line-height: 1.6; color: var(--muted); }
+  .solucion-caja { background: var(--pink); padding: 48px 40px; border: 1px solid rgba(84,11,14,0.12); }
+  .solucion-caja-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem; font-weight: 300; line-height: 1.3; margin-bottom: 24px; color: var(--dark);
+  }
+  .solucion-caja-title em { font-style: italic; color: var(--garnet); }
+  .solucion-caja p { font-size: 0.95rem; line-height: 1.8; color: var(--text); margin-bottom: 20px; }
+  .solucion-caja-tag {
+    font-size: 0.68rem; font-weight: 700; letter-spacing: 0.3em;
+    text-transform: uppercase; color: var(--garnet); margin-bottom: 16px;
+  }
+
+  /* ── PARA QUIÉN ── */
+  .para-quien { background: var(--dark); color: var(--cream); }
+  .para-quien-inner { max-width: 1100px; margin: 0 auto; text-align: center; }
+  .para-quien .section-label { color: var(--pink); }
+  .para-quien .section-title { color: var(--cream); margin: 0 auto 60px; text-align: center; }
+  .para-quien .section-title em { color: var(--pink); }
+  .perfiles-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 60px;
+  }
+  .perfil {
+    background: rgba(249,247,246,0.04); padding: 40px 32px; text-align: left;
+    border: 1px solid rgba(233,217,214,0.1); transition: background 0.3s;
+  }
+  .perfil:hover { background: rgba(233,217,214,0.08); }
+  .perfil-icon {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem; color: var(--pink); margin-bottom: 16px;
+  }
+  .perfil h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem; font-weight: 400; color: var(--cream); margin-bottom: 12px;
+  }
+  .perfil p { font-size: 0.9rem; line-height: 1.7; color: rgba(249,247,246,0.6); }
+
+  /* ── PRESENTACIÓN ── */
+  .presentacion { background: var(--cream); }
+  .presentacion-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;
+  }
+  .presentacion-foto {
+    position: sticky; top: 100px;
+  }
+  .presentacion-foto img {
+    width: 100%; display: block;
+    object-fit: cover; object-position: center top;
+    filter: sepia(6%) contrast(1.03) brightness(1.01);
+  }
+  .presentacion-texto p {
+    font-size: 1rem; line-height: 1.85; color: var(--muted); margin-top: 20px;
+  }
+  .presentacion-texto p strong { color: var(--text); font-weight: 700; }
+  .presentacion-caja {
+    background: var(--dark); padding: 40px 36px; margin-top: 32px;
+  }
+  .presentacion-caja blockquote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem; font-style: italic; font-weight: 300;
+    line-height: 1.55; color: var(--pink);
+  }
+  .presentacion-caja .firma {
+    display: block; margin-top: 20px;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--muted);
+  }
+  .presentacion-linaje {
+    margin-top: 2px; padding: 28px 36px;
+    border: 1px solid var(--pink); border-top: none;
+  }
+  .presentacion-linaje-title {
+    font-size: 0.68rem; font-weight: 700; letter-spacing: 0.3em;
+    text-transform: uppercase; color: var(--garnet); margin-bottom: 20px;
+  }
+  .linaje-items { list-style: none; }
+  .linaje-items li {
+    padding: 12px 0; border-bottom: 1px solid var(--pink);
+    font-size: 0.9rem; line-height: 1.6; color: var(--text);
+    display: grid; grid-template-columns: 32px 1fr; gap: 16px; align-items: start;
+  }
+  .linaje-items li:last-child { border-bottom: none; }
+  .linaje-key {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem; font-weight: 600; color: var(--garnet);
+  }
+
+  /* ── VALORES ── */
+  .valores { background: var(--dark); color: var(--cream); }
+  .valores-inner { max-width: 1100px; margin: 0 auto; }
+  .valores-header { margin-bottom: 72px; }
+  .valores .section-label { color: var(--pink); }
+  .valores .section-title { color: var(--cream); }
+  .valores .section-title em { color: var(--pink); }
+  .valores-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1px; background: rgba(233,217,214,0.1);
+  }
+  .valor-item {
+    background: var(--dark); padding: 48px 36px; transition: background 0.3s;
+  }
+  .valor-item:hover { background: rgba(233,217,214,0.05); }
+  .valor-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.9rem; font-weight: 300;
+    color: rgba(233,217,214,0.35); letter-spacing: 0.1em;
+    margin-bottom: 20px; display: block;
+  }
+  .valor-nombre {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem; font-weight: 300; font-style: italic;
+    color: var(--pink); line-height: 1.2; margin-bottom: 16px;
+  }
+  .valor-desc { font-size: 0.9rem; line-height: 1.7; color: rgba(249,247,246,0.6); }
+
+  /* ── FRASE FUNDADORA ── */
+  .frase-fundadora { background: var(--pink); padding: 100px 48px; text-align: center; }
+  .frase-fundadora p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+    font-weight: 300; font-style: italic;
+    color: var(--dark); line-height: 1.4; max-width: 760px; margin: 0 auto;
+  }
+  .frase-fundadora span {
+    font-style: normal; font-weight: 600; color: var(--garnet);
+    display: block; margin-top: 8px;
+  }
+
+  /* ── FOTO BANDA ── */
+  /* ratio 1640x2360 → altura al 100% ancho = 143.9vw
+     skip top 25% → start at 36vw; each band = 28vw → contiguous strips */
+  .foto-banda {
+    height: 28vw;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+  }
+  .foto-banda--t1 { background-image: url('banda-sombras.jpg'); background-position: center -36vw; }
+  .foto-banda--t2 { background-image: url('banda-sombras.jpg'); background-position: center -64vw; }
+  .foto-banda--t3 { background-image: url('banda-sombras.jpg'); background-position: center -92vw; }
+  .foto-banda--flor { background-image: url('detalle-flores.jpg'); background-position: center 78%; background-size: cover; }
+
+  /* ── CTA FINAL ── */
+  .cta-final { display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; background: var(--cream); }
+  .cta-foto { overflow: hidden; min-height: 500px; }
+  .cta-foto img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+  .cta-texto { text-align: center; padding: 100px 72px; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+  .cta-texto .section-label { text-align: center; margin-bottom: 24px; }
+  .cta-texto h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 300; line-height: 1.2; color: var(--dark);
+    margin-bottom: 24px;
+  }
+  .cta-texto h2 em { font-style: italic; color: var(--garnet); }
+  .cta-texto p {
+    font-size: 1rem; line-height: 1.75; color: var(--muted);
+    max-width: 400px; margin: 0 auto 40px;
+  }
+  .foto-credit {
+    display: block; margin-top: 10px;
+    font-size: 0.62rem; letter-spacing: 0.18em;
+    color: rgba(249,247,246,0.22);
+    text-transform: uppercase;
+  }
+
+
+  /* ── NEWSLETTER SECTION ── */
+  .newsletter-section {
+    background: var(--dark); color: var(--cream);
+    padding: 100px 48px; text-align: center;
+  }
+  .newsletter-section .section-label { color: var(--pink); }
+  .newsletter-section h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 300; line-height: 1.2;
+    color: var(--cream); margin-bottom: 16px;
+  }
+  .newsletter-section h2 em { font-style: italic; color: var(--pink); }
+  .newsletter-section > p {
+    font-size: 1rem; line-height: 1.75;
+    color: rgba(249,247,246,0.6); max-width: 480px; margin: 0 auto 48px;
+  }
+  .newsletter-form {
+    display: flex; flex-direction: column; gap: 12px;
+    max-width: 440px; margin: 0 auto;
+  }
+  .newsletter-form input {
+    width: 100%; padding: 16px 20px;
+    background: rgba(249,247,246,0.08);
+    border: 1px solid rgba(233,217,214,0.25);
+    font-family: 'Lato', sans-serif;
+    font-size: 0.95rem; font-weight: 300;
+    color: var(--cream); outline: none;
+    transition: border-color 0.2s;
+  }
+  .newsletter-form input::placeholder { color: rgba(249,247,246,0.35); }
+  .newsletter-form input:focus { border-color: var(--pink); }
+  .newsletter-form button {
+    padding: 16px; background: var(--garnet); color: var(--cream);
+    font-family: 'Lato', sans-serif; font-size: 0.78rem;
+    font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase;
+    border: none; cursor: pointer; transition: background 0.3s;
+  }
+  .newsletter-form button:hover { background: var(--pink); color: var(--dark); }
+  .newsletter-success {
+    display: none; color: var(--pink);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem; font-weight: 300; font-style: italic;
+    margin-top: 8px;
+  }
+  .newsletter-lista {
+    margin-top: 32px;
+    font-size: 0.78rem; letter-spacing: 0.1em;
+    color: rgba(249,247,246,0.35);
+  }
+  .newsletter-lista a {
+    color: rgba(233,217,214,0.6); text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .newsletter-lista a:hover { color: var(--pink); }
+  @media (max-width: 768px) {
+    .newsletter-section { padding: 72px 24px; }
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--dark); color: rgba(249,247,246,0.4);
+    text-align: center; padding: 40px 48px;
+    font-size: 0.75rem; letter-spacing: 0.15em;
+  }
+  footer span { color: var(--pink); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .reveal {
+    opacity: 0; transform: translateY(32px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { grid-template-columns: auto 1fr auto; padding: 16px 24px; }
+    .nav-links { display: none; }
+    .nav-right { display: none; }
+    .nav-logo { justify-content: center; }
+    .nav-logo img { height: 140px; }
+    .nav-hamburger { display: flex; }
+  }
+  @media (max-width: 768px) {
+    section { padding: 72px 24px; }
+    .dolor-inner { grid-template-columns: 1fr; gap: 48px; }
+    .cards-grid { grid-template-columns: 1fr; }
+    .card-arrow { display: none; }
+    .solucion-inner { grid-template-columns: 1fr; gap: 48px; }
+    .perfiles-grid { grid-template-columns: 1fr; }
+    .presentacion-inner { grid-template-columns: 1fr; gap: 48px; }
+    .presentacion-foto { position: static; }
+    .valores-grid { grid-template-columns: 1fr; }
+    .btn-ghost { margin-left: 0; margin-top: 12px; }
+    .modal-inner { padding: 48px 24px; }
+    .modal { padding: 16px; align-items: flex-end; }
+    .modal-inner h2 { font-size: 1.8rem; }
+    .foto-banda { height: 50vw; }
+    .foto-banda--t1 { background-position: center -50vw; }
+    .foto-banda--t2 { background-position: center -100vw; }
+    .foto-banda--t3 { background-position: center -150vw; }
+    .foto-banda--flor { background-position: center 78%; }
+    .cta-final { grid-template-columns: 1fr; }
+    .cta-foto { min-height: 300px; }
+    .cta-texto { padding: 72px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-links">
+    <a href="#presentacion">La historia</a>
+    <a href="#valores">Los valores</a>
+    <div class="nav-dropdown" id="navDropdown">
+      <a href="#" onclick="toggleDropdown(event)">Rituales</a>
+      <div class="dropdown-menu">
+        <a href="#" onclick="openModal('asesoria')">Asesoría 1:1 <span class="badge-pronto">Sin plazas</span></a>
+        <a href="#" onclick="openModal('talleres')">Talleres presenciales <span class="badge-pronto">Fechas por definir</span></a>
+      </div>
+    </div>
+  </div>
+  <a href="#" class="nav-logo"><img src="narciso.garoa.png" alt="GAROA Organic Skin Rituals"></a>
+  <div class="nav-right">
+    <a href="newsletter.html" class="nav-cta">Newsletter</a>
+  </div>
+  <button class="nav-hamburger" onclick="toggleMobileMenu()" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" onclick="toggleMobileMenu()">×</button>
+  <a href="#presentacion" onclick="toggleMobileMenu()">La historia</a>
+  <a href="#valores" onclick="toggleMobileMenu()">Los valores</a>
+  <div class="mobile-divider"></div>
+  <a href="#" onclick="toggleMobileMenu();openModal('asesoria')">Asesoría 1:1</a>
+  <span class="mobile-pronto">Sin plazas · Lista de espera abierta</span>
+  <a href="#" onclick="toggleMobileMenu();openModal('talleres')">Talleres presenciales</a>
+  <span class="mobile-pronto">Fechas por definir</span>
+  <div class="mobile-divider"></div>
+  <a href="newsletter.html" onclick="toggleMobileMenu()">Newsletter</a>
+</div>
+
+<!-- MODAL ASESORÍA -->
+<div class="modal" id="modal-asesoria">
+  <div class="modal-inner">
+    <button class="modal-close" onclick="closeModal('asesoria')">×</button>
+    <span class="modal-badge">Sin plazas · Lista de espera abierta</span>
+    <h2>Asesoría <em>1:1</em></h2>
+    <p>Una sesión individual conmigo. Antes de la llamada, completas un test breve de tu piel — tipo, hábitos, ciclo, objetivos. Así llego a nuestra cita conociéndote ya un poco.</p>
+    <p>A partir de ahí, hago un diagnóstico real y construimos juntas un ritual adaptado a ti: los productos concretos que necesitas, el orden, la frecuencia y el porqué de cada paso.</p>
+    <div style="margin:16px 0 14px;border-top:1px solid var(--pink);padding-top:14px">
+      <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--garnet);margin-bottom:12px">Cómo funciona</p>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div style="display:flex;gap:12px;align-items:flex-start">
+          <span style="font-size:0.7rem;font-weight:700;color:var(--garnet);min-width:52px;letter-spacing:0.06em;padding-top:2px">Antes</span>
+          <p style="font-size:0.82rem;line-height:1.6;color:var(--dark);margin:0">Completas un test breve de tu piel — tipo, hábitos, ciclo, objetivos — y firmas el consentimiento de protección de datos. Así llego a nuestra cita conociéndote ya un poco.</p>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start">
+          <span style="font-size:0.7rem;font-weight:700;color:var(--garnet);min-width:52px;letter-spacing:0.06em;padding-top:2px">Sesión</span>
+          <p style="font-size:0.82rem;line-height:1.6;color:var(--dark);margin:0">Videollamada de 45 minutos: repasamos juntas el test, resolvemos dudas y hago el diagnóstico real de tu piel.</p>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start">
+          <span style="font-size:0.7rem;font-weight:700;color:var(--garnet);min-width:52px;letter-spacing:0.06em;padding-top:2px">Después</span>
+          <p style="font-size:0.82rem;line-height:1.6;color:var(--dark);margin:0">Recibes tu ritual personalizado por escrito — rutina AM y PM, productos, frecuencia y el porqué de cada decisión. Después, un acompañamiento de 3 semanas: pruebas la rutina con muestras y cerramos con una videollamada de ajuste.</p>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:0.78rem;color:var(--muted);margin-top:4px">350€ · Disponible para clientas en Península y Baleares.</p>
+    <p style="font-size:0.78rem;color:var(--muted);margin-top:12px;padding-top:12px;border-top:1px solid var(--pink)">Esta asesoría trabaja exclusivamente con cosmética natural y, si es posible, orgánica. Al apuntarte, confirmas que estás dispuesta a construir tu rutina con este enfoque. No se recomiendan productos de cosmética convencional.</p>
+    <a href="/asesoria" class="btn-primary">Quiero saber más</a>
+  </div>
+</div>
+
+<!-- MODAL TALLERES -->
+<div class="modal" id="modal-talleres">
+  <div class="modal-inner">
+    <button class="modal-close" onclick="closeModal('talleres')">×</button>
+    <span class="modal-badge">Próximas fechas por definir</span>
+    <h2>Talleres <em>presenciales</em></h2>
+    <p>Un taller pequeño, con espacio para entender. La primera parte es de conocimiento: explico cómo funciona la piel desde dentro — su estructura, sus mecanismos, por qué reacciona como reacciona — con el rigor científico de mi formación en biología molecular y bioquímica, pero en un lenguaje que se entiende y se puede llevar a casa.</p>
+    <p>La segunda parte es práctica: técnicas de masaje facial y uso de las joyas del tocador — gua sha, ventosas, cepillado en seco — como herramientas de ritual, con su base fisiológica real. Cada asistente se lleva un dossier de referencia para seguir practicando.</p>
+    <p>Grupos reducidos.</p>
+    <a href="/talleres" class="btn-primary">Quiero saber más</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <h1 class="hero-title">
+    Tu piel no necesita<br>más productos.
+    <em>Necesita mejores cuidados.</em>
+  </h1>
+  <div class="hero-divider"></div>
+  <p class="hero-sub">
+    Aprende a cuidarte desde el conocimiento, no desde el miedo. Sin estándares de belleza que no te representan. Sin productos de más. Solo tú y tu piel.
+  </p>
+  <div class="hero-cta">
+    <a href="#solucion" class="btn-primary">Quiero saber más</a>
+  </div>
+</section>
+
+<!-- DOLOR -->
+<section class="dolor">
+  <div class="dolor-inner">
+    <div class="reveal">
+      <p class="section-label">El problema real</p>
+      <h2 class="section-title">La industria lleva años diciéndote que <em>no eres suficiente.</em></h2>
+      <ul class="dolor-lista">
+        <li>Que si tienes arrugas, es un problema que resolver.</li>
+        <li>Que si tu piel no brilla, es porque no usas el sérum correcto.</li>
+        <li>Que envejecer es algo que se puede —y se debe— combatir.</li>
+        <li>Que necesitas doce pasos, cuatro marcas y gastarte un dineral cada mes.</li>
+        <li>Que si no te cuidas "bien", es tu culpa.</li>
+      </ul>
+    </div>
+    <div class="reveal">
+      <p class="dolor-quote">
+        "Y al final acabas con el baño lleno de productos a medias, sin saber qué funciona de verdad, y sintiéndote culpable por no hacerlo mejor."
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- FOTO BANDA · SOMBRAS 1/3 -->
+<div class="foto-banda foto-banda--t1"></div>
+
+<!-- TRANSFORMACION -->
+<section id="transformacion" style="background: var(--cream);">
+  <div class="transicion">
+    <div class="transicion-header reveal">
+      <p class="section-label" style="text-align:center;">El antes y el después</p>
+      <h2 class="section-title" style="margin: 0 auto; text-align:center;">¿Te suena esto?</h2>
+    </div>
+    <div class="cards-grid reveal">
+
+      <div class="card-antes">
+        <p class="card-tag">Antes de GAROA</p>
+        <p class="card-title">"Compro cosas porque me entran ganas, pero luego no las uso o no me funcionan…"</p>
+        <ul class="feeling-list">
+          <li>Abrumada con tanto producto y tanta información</li>
+          <li>Gastando dinero en cosas que no sabes si te van bien</li>
+          <li>Sintiéndote culpable si no tienes energía para tu rutina</li>
+          <li>Comparándote con estándares que no tienen nada que ver contigo</li>
+          <li>Sin entender qué necesita tu piel de verdad</li>
+          <li>Cuidarte se siente como otra tarea más en la lista</li>
+        </ul>
+      </div>
+
+      <div class="card-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </div>
+
+      <div class="card-despues">
+        <p class="card-tag">Después de GAROA</p>
+        <p class="card-title">"Por fin entiendo lo que necesita mi piel, y con mucho menos de lo que pensaba."</p>
+        <ul class="feeling-list">
+          <li>Claridad total: sabes qué usar, cuándo y por qué</li>
+          <li>Tu baño tiene lo que de verdad funciona para ti</li>
+          <li>Cuidarte se convierte en un rato tuyo, no en una obligación</li>
+          <li>Tu piel mejora, y lo notas sin mirar a nadie más</li>
+          <li>Te relacionas con tu piel desde el respeto, no desde la corrección</li>
+          <li>El cuidado se integra en tu vida real, con el tiempo que tienes</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOTO BANDA · SOMBRAS 2/3 -->
+<div class="foto-banda foto-banda--t2"></div>
+
+<!-- FRASE CENTRAL -->
+<div class="frase-central">
+  <p>
+    "Cuidar tu piel no es una obligación ni algo excéntrico.
+    <span>Es un acto de amor."</span>
+  </p>
+</div>
+
+<!-- SOLUCION -->
+<section id="solucion" style="background: var(--cream);">
+  <div class="solucion-inner">
+    <div class="solucion-texto reveal">
+      <p class="section-label">La solución</p>
+      <h2 class="section-title">Rituales de piel que <em>tienen sentido para tu vida.</em></h2>
+      <p>Aquí no te vendo más cosas. Te enseño a entender tu piel desde la base, con criterio científico y sin el ruido de la industria.</p>
+      <p><strong>Porque cuando entiendes lo que hace cada ingrediente, lo que necesita tu piel según la temporada, tu estrés o tu ciclo,</strong> ya no necesitas que nadie te diga qué comprar.</p>
+      <ul class="pilares">
+        <li>
+          <span class="pilar-num">01</span>
+          <div class="pilar-content">
+            <strong>Conocimiento real</strong>
+            <span>Ingredientes activos, formulación, cómo leer una etiqueta. Sin tecnicismos innecesarios.</span>
+          </div>
+        </li>
+        <li>
+          <span class="pilar-num">02</span>
+          <div class="pilar-content">
+            <strong>Ritual, no rutina</strong>
+            <span>Un momento tuyo que se integra en tu día a día sin añadir presión.</span>
+          </div>
+        </li>
+        <li>
+          <span class="pilar-num">03</span>
+          <div class="pilar-content">
+            <strong>Tu piel, no la de nadie más</strong>
+            <span>Personalizado para cómo es tu piel de verdad, no la piel ideal de un anuncio.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="solucion-caja reveal">
+      <p class="solucion-caja-tag">Talleres presenciales · Grupos reducidos</p>
+      <h3 class="solucion-caja-title">Entiende tu piel. <em>Luego, ponla en tus manos.</em></h3>
+      <p>
+        Un taller en dos partes: primero, el conocimiento real — cómo funciona tu piel desde dentro, por qué reacciona como reacciona, qué necesita de verdad. Después, la práctica: masaje facial y las joyas del tocador como herramientas de ritual con base fisiológica.
+      </p>
+      <p>
+        Grupos pequeños. Cada asistente se lleva un dossier para seguir practicando en casa.
+      </p>
+      <button onclick="openModal('talleres')" class="btn-primary" style="margin-top: 8px; border: none; cursor: pointer;">Ver información</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOTO BANDA · SOMBRAS 3/3 -->
+<div class="foto-banda foto-banda--t3"></div>
+
+<!-- PARA QUIÉN -->
+<section class="para-quien">
+  <div class="para-quien-inner">
+    <p class="section-label">¿Esto es para ti?</p>
+    <h2 class="section-title">Si te reconoces en alguna de estas, <em>sí.</em></h2>
+    <div class="perfiles-grid reveal">
+      <div class="perfil">
+        <div class="perfil-icon">I.</div>
+        <h3>Tienes el baño lleno y no sabes qué usar</h3>
+        <p>Compras porque algo te llama la atención o porque lo viste en redes, pero al final no sabes si te funciona o no.</p>
+      </div>
+      <div class="perfil">
+        <div class="perfil-icon">II.</div>
+        <h3>Quieres cuidarte pero sin complicarte la vida</h3>
+        <p>Tienes trabajo, familia, mil cosas. No tienes tiempo para una rutina de veinte minutos que además no entiendes.</p>
+      </div>
+      <div class="perfil">
+        <div class="perfil-icon">III.</div>
+        <h3>Estás harta de la presión de parecer más joven</h3>
+        <p>No quieres "combatir" el tiempo. Quieres cuidarte porque te apetece, no porque la industria te diga que tienes que hacerlo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- PRESENTACIÓN -->
+<section id="presentacion" class="presentacion">
+  <div class="presentacion-inner">
+
+    <div class="presentacion-foto reveal">
+      <img src="sarai-presentacion.jpg" alt="Sarai Orrego, fundadora de GAROA">
+    </div>
+
+    <div class="presentacion-texto reveal">
+      <p class="section-label">La fundadora</p>
+      <h2 class="section-title">Bioquímica. Bióloga molecular. Y alguien que lleva años leyendo lo que pone <em>detrás del bote.</em></h2>
+      <p>Soy Sarai Orrego. Estudié bioquímica y biología molecular, y tengo experiencia real en cosmética. Sé exactamente qué hace cada ingrediente en una fórmula, cómo actúa sobre la piel, qué le puedes pedir y qué no.</p>
+      <p>Lo que para muchas personas es un código ininteligible en la parte de atrás del envase, para mí es información concreta. Y eso cambia completamente cómo te relacionas con lo que te pones en la cara.</p>
+      <p>GAROA nació de ahí: de simplificar las rutinas de quienes no entienden lo que yo sí. Porque <strong>entender lo que usas es el primer paso para dejar de comprar por impulso y empezar a cuidarte de verdad, y eso lo hago por ti.</strong></p>
+      <p>Empiezo con cursos, material digital y herramientas prácticas. Lo que te ofrezco es conocimiento concreto y simple, traducido para ti: saber qué te estás poniendo, por qué, y si de verdad te funciona.</p>
+
+      <div class="presentacion-caja">
+        <blockquote>"La maternidad me empujó a mirar la cosmética de otra manera. De repente necesitaba encontrar la forma de ritualizar en medio del huracán — con menos tiempo, menos energía, y más necesidad que nunca de ese rato para mí. Aprendí a hacerlo. Y ahora estoy aquí para enseñarlo."</blockquote>
+        <span class="firma">Sarai Orrego · Fundadora de GAROA</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALORES -->
+<section id="valores" class="valores">
+  <div class="valores-inner">
+    <div class="valores-header reveal">
+      <p class="section-label">Lo que nos guía</p>
+      <h2 class="section-title">Una marca construida sobre <em>principios, no sobre tendencias.</em></h2>
+    </div>
+    <div class="valores-grid reveal">
+      <div class="valor-item">
+        <span class="valor-num">01</span>
+        <p class="valor-nombre">La pausa</p>
+        <p class="valor-desc">En un mundo que pide velocidad, yo propongo parar. Cuidar la piel es un acto intencional. La Ō lo lleva escrito en el nombre.</p>
+      </div>
+      <div class="valor-item">
+        <span class="valor-num">02</span>
+        <p class="valor-nombre">El origen</p>
+        <p class="valor-desc">Hay algo ancestral en tocarse la cara con las manos. Recupero ese gesto y le devuelvo su peso. El origen importa.</p>
+      </div>
+      <div class="valor-item">
+        <span class="valor-num">03</span>
+        <p class="valor-nombre">La claridad</p>
+        <p class="valor-desc">Ingredientes que se pueden leer, rutinas que tienen sentido, información que no subestima tu inteligencia. Nada de humo.</p>
+      </div>
+      <div class="valor-item">
+        <span class="valor-num">04</span>
+        <p class="valor-nombre">Lo orgánico</p>
+        <p class="valor-desc">Lo orgánico no es solo un certificado. Es una manera de entender qué le pones a la piel: con criterio, con respeto, y sin añadir lo que no necesita.</p>
+      </div>
+      <div class="valor-item">
+        <span class="valor-num">05</span>
+        <p class="valor-nombre">El placer</p>
+        <p class="valor-desc">Cuidarse no es una obligación. Es un rato tuyo. Un ritual que se repite porque quieres, no porque debes.</p>
+      </div>
+      <div class="valor-item">
+        <span class="valor-num">06</span>
+        <p class="valor-nombre">La ciencia</p>
+        <p class="valor-desc">El rigor científico no está reñido con la belleza. Cada ingrediente tiene un porqué. Y lo cuento sin tecnicismos innecesarios.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FRASE FUNDADORA -->
+<div class="frase-fundadora">
+  <p>
+    "Llevo años siendo la persona del grupo a quien llaman cuando no saben si una crema les conviene.
+    <span>Eso es exactamente lo que quiero que sea GAROA."</span>
+  </p>
+</div>
+
+<!-- FOTO BANDA · DETALLE FLORAL -->
+<div class="foto-banda foto-banda--flor"></div>
+
+<!-- CTA FINAL -->
+<section class="cta-final" id="cta">
+  <div class="cta-foto">
+    <img src="sarai-cta.jpg" alt="Sarai Orrego, fundadora de GAROA">
+  </div>
+  <div class="cta-texto">
+    <p class="section-label">El primer paso</p>
+    <h2>Tu piel ya es <em>suficiente.</em><br>Aprende a cuidarla como se merece.</h2>
+    <p>Descubre en 2 minutos el estado de tu barrera cutánea y qué necesita exactamente.</p>
+    <a href="test-barrera.html" class="btn-primary">Hacer el test gratuito</a>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section id="newsletter" class="newsletter-section reveal">
+  <p class="section-label">La Pausa</p>
+  <h2>Educación sobre piel que <em>vale la pena leer.</em></h2>
+  <p>Ingredientes que funcionan, rituales que encajan en tu vida real y la ciencia detrás de lo que te pones en la piel — explicado por alguien que lo ha estudiado de verdad.</p>
+  <form class="newsletter-form" id="newsletterForm">
+    <input type="text" name="nombre" placeholder="Tu nombre" required>
+    <input type="email" name="email" placeholder="Tu email" required>
+    <button type="submit">Suscribirme</button>
+  </form>
+  <p class="newsletter-success" id="newsletterSuccess">Ya estás dentro. Bienvenida a La Pausa.</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>GAROA · Organic Skin Rituals · <span>Tu piel, tu ritual.</span></p>
+  <p style="margin-top:8px;"><a href="mailto:hola@garoa-skinrituals.com" style="color:rgba(249,247,246,0.5); font-size:0.72rem; letter-spacing:0.18em; text-decoration:none;">hola@garoa-skinrituals.com</a></p>
+  <p style="margin-top:12px;">
+    <a href="https://instagram.com/laro_skin_rituals" target="_blank" style="color:rgba(249,247,246,0.5); font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase; text-decoration:none;">Instagram</a>
+  </p>
+  <span class="foto-credit">Fotografía · Verbena Studio</span>
+</footer>
+
+<script>
+  // Nav scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 120);
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(r => observer.observe(r));
+
+  // Dropdown
+  function toggleDropdown(e) {
+    e.preventDefault();
+    document.getElementById('navDropdown').classList.toggle('active');
+  }
+  document.addEventListener('click', (e) => {
+    const d = document.getElementById('navDropdown');
+    if (!d.contains(e.target)) d.classList.remove('active');
+  });
+
+  // Mobile menu
+  function toggleMobileMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+    document.body.style.overflow = document.getElementById('mobileMenu').classList.contains('open') ? 'hidden' : '';
+  }
+
+  // Modals
+  function openModal(id) {
+    document.getElementById('modal-' + id).classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(id) {
+    document.getElementById('modal-' + id).classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.querySelectorAll('.modal').forEach(m => {
+    m.addEventListener('click', (e) => {
+      if (e.target === m) m.classList.remove('open'), document.body.style.overflow = '';
+    });
+  });
+
+  // PWA service worker
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js');
+    });
+  }
+
+  // Newsletter → Kit
+  const nlForm = document.getElementById('newsletterForm');
+  const nlSuccess = document.getElementById('newsletterSuccess');
+  if (nlForm) {
+    nlForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const fd = new FormData(nlForm);
+      const kitData = new FormData();
+      kitData.append('email_address', fd.get('email'));
+      kitData.append('fields[first_name]', fd.get('nombre'));
+      try {
+        await fetch('https://app.convertkit.com/forms/9558956/subscriptions', {
+          method: 'POST',
+          body: kitData,
+          headers: { 'Accept': 'application/json' }
+        });
+      } catch (_) {}
+      nlForm.style.display = 'none';
+      nlSuccess.style.display = 'block';
+    });
+  }
+
+</script>
+</body>
+</html>

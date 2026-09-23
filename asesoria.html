@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Asesoría 1:1 · GAROA Organic Skin Rituals</title>
+<meta name="description" content="Diagnóstico real de piel y ritual personalizado. Una sesión contigo, con base científica y cosmética natural.">
+<link rel="icon" type="image/png" href="narciso.garoa.png">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --garnet: #540B0E;
+    --cream:  #F9F7F6;
+    --pink:   #E9D9D6;
+    --dark:   #2A1A1B;
+    --text:   #3D2B2C;
+    --muted:  #8A7070;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--cream);
+    color: var(--text);
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    min-height: 100vh;
+  }
+
+  header { text-align: center; padding: 48px 24px 0; }
+  header a { display: inline-block; }
+  header img { height: 160px; width: auto; mix-blend-mode: multiply; }
+
+  .back-link {
+    text-align: center;
+    margin-top: 20px;
+  }
+  .back-link a {
+    font-size: 0.68rem; font-weight: 700; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .back-link a:hover { color: var(--garnet); }
+
+  .divider { width: 1px; height: 48px; background: var(--garnet); margin: 40px auto; }
+
+  /* HERO */
+  .hero {
+    text-align: center;
+    padding: 48px 24px 0;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  .page-label {
+    font-size: 0.68rem; font-weight: 700; letter-spacing: 0.35em;
+    text-transform: uppercase; color: var(--garnet);
+    margin-bottom: 20px; display: block;
+  }
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    font-weight: 300; line-height: 1.2; color: var(--dark);
+    margin-bottom: 20px;
+  }
+  h1 em { font-style: italic; color: var(--garnet); }
+  .hero-sub { font-size: 0.95rem; line-height: 1.8; color: var(--muted); }
+
+  /* CONTENT */
+  .content { max-width: 640px; margin: 0 auto; padding: 0 24px; }
+
+  .section-label {
+    font-size: 0.68rem; font-weight: 700; letter-spacing: 0.3em;
+    text-transform: uppercase; color: var(--garnet);
+    margin-bottom: 28px; display: block;
+  }
+
+  /* INTRO */
+  .intro {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+  .intro p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.25rem, 3vw, 1.6rem);
+    font-weight: 300; line-height: 1.5; color: var(--dark);
+  }
+  .intro em { font-style: italic; color: var(--garnet); }
+
+  /* FOTO EDITORIAL */
+  .foto-editorial { margin: 0 0 48px; }
+  .foto-editorial img {
+    width: 100%; display: block; height: 520px;
+    object-fit: cover;
+    filter: sepia(6%) contrast(1.03) brightness(1.01);
+  }
+  .foto-editorial--retrato img { object-position: center 24%; }
+  .foto-editorial--diario img { object-position: center 45%; }
+
+  /* PASOS */
+  .paso {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 20px;
+    padding: 24px 0;
+    border-top: 1px solid var(--pink);
+  }
+  .paso:last-child { border-bottom: 1px solid var(--pink); margin-bottom: 48px; }
+  .paso-etiq {
+    font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--garnet); padding-top: 3px;
+    line-height: 1.4;
+  }
+  .paso-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem; color: rgba(84,11,14,0.2);
+    margin-bottom: 4px;
+  }
+  .paso-body h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem; font-weight: 400;
+    color: var(--dark); margin-bottom: 8px;
+  }
+  .paso-body p { font-size: 0.88rem; line-height: 1.75; color: var(--text); }
+  .paso-body ul { margin-top: 10px; list-style: none; display: flex; flex-direction: column; gap: 6px; }
+  .paso-body li {
+    font-size: 0.86rem; line-height: 1.55; color: var(--text);
+    padding-left: 14px; position: relative;
+  }
+  .paso-body li::before { content: '—'; position: absolute; left: 0; color: var(--garnet); font-size: 0.75rem; }
+
+  /* PARA QUIEN */
+  .para-quien {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 48px;
+  }
+  @media (max-width: 520px) { .para-quien { grid-template-columns: 1fr; } }
+  .pq-bloque { padding: 24px; background: white; border-top: 2px solid var(--garnet); }
+  .pq-titulo {
+    font-size: 0.68rem; font-weight: 700; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--dark); margin-bottom: 16px;
+  }
+  .pq-bloque ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .pq-bloque li {
+    font-size: 0.88rem; line-height: 1.55; color: var(--text);
+    padding-left: 14px; position: relative;
+  }
+  .pq-bloque li::before { content: '—'; position: absolute; left: 0; color: var(--garnet); }
+
+  /* TESTIMONIOS */
+  .testimonios { margin-bottom: 48px; }
+  .testimonio-card {
+    padding: 32px 28px; background: white; border-top: 2px solid var(--garnet);
+    margin-bottom: 16px; position: relative;
+  }
+  .testimonio-card:last-child { margin-bottom: 0; }
+  .testimonio-marca {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 3rem; color: var(--pink); line-height: 1; margin-bottom: 4px;
+  }
+  .testimonio-frase {
+    font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300;
+    font-size: 1.15rem; line-height: 1.55; color: var(--dark); margin-bottom: 16px;
+  }
+  .testimonio-firma {
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--garnet);
+  }
+
+  /* PRECIO */
+  .precio-bloque {
+    text-align: center;
+    padding: 40px 24px;
+    border: 1px solid var(--pink);
+    margin-bottom: 32px;
+  }
+  .precio-etiq {
+    font-size: 0.68rem; font-weight: 700; letter-spacing: 0.3em;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 12px;
+  }
+  .precio-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.2rem; font-weight: 300; color: var(--garnet);
+    line-height: 1; margin-bottom: 12px;
+  }
+  .precio-nota { font-size: 0.82rem; color: var(--muted); line-height: 1.7; }
+
+  /* NOTA */
+  .nota {
+    font-size: 0.8rem; line-height: 1.65; color: var(--muted);
+    padding: 16px 20px;
+    border-left: 2px solid var(--pink);
+    margin-bottom: 48px;
+  }
+
+  /* CTA */
+  .cta-wrap { text-align: center; padding-bottom: 80px; }
+  .badge-estado {
+    display: inline-block;
+    font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--garnet);
+    border: 1px solid var(--garnet);
+    padding: 6px 14px; margin-bottom: 24px;
+  }
+  .btn-primary {
+    display: inline-block;
+    padding: 18px 48px;
+    background: var(--garnet); color: var(--cream);
+    font-family: 'Lato', sans-serif;
+    font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.25em; text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.3s;
+  }
+  .btn-primary:hover { background: var(--dark); }
+
+  footer {
+    background: var(--dark); color: rgba(249,247,246,0.4);
+    text-align: center; padding: 32px 24px;
+    font-size: 0.72rem; letter-spacing: 0.15em;
+  }
+  footer a { color: rgba(249,247,246,0.4); text-decoration: none; }
+  footer a:hover { color: var(--pink); }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="/"><img src="narciso.garoa.png" alt="GAROA Organic Skin Rituals"></a>
+</header>
+<div class="back-link"><a href="/">← Volver a GAROA</a></div>
+
+<div class="hero">
+  <span class="page-label">Asesoría 1:1</span>
+  <h1>Un diagnóstico real.<br><em>Un ritual que es tuyo.</em></h1>
+  <p class="hero-sub">No una lista genérica de productos. Una lectura profunda de tu piel — su historia, sus señales, su contexto — y un ritual construido desde ahí.</p>
+</div>
+
+<div class="divider"></div>
+
+<div class="content">
+
+  <div class="intro">
+    <p>Llevas tiempo buscando el producto correcto.<br><em>Puede que lo que tu piel necesite sea que alguien sepa leerla.</em></p>
+  </div>
+
+  <div class="foto-editorial foto-editorial--retrato">
+    <img src="sarai-retrato-asesoria.jpg" alt="Sarai Orrego, fundadora de GAROA">
+  </div>
+
+  <span class="section-label">Cómo funciona · Un servicio de 3 semanas</span>
+
+  <div class="paso">
+    <div>
+      <div class="paso-num">01</div>
+      <span class="paso-etiq">Antes de<br>la sesión</span>
+    </div>
+    <div class="paso-body">
+      <h3>Al reservar</h3>
+      <p>Completas un test breve de tu piel — tipo, hábitos, ciclo, objetivos — y firmas el consentimiento de protección de datos. Así llego a nuestra cita conociéndote ya un poco, y podemos dedicar el tiempo juntas a lo que de verdad importa.</p>
+    </div>
+  </div>
+
+  <div class="paso">
+    <div>
+      <div class="paso-num">02</div>
+      <span class="paso-etiq">Diagnóstico</span>
+    </div>
+    <div class="paso-body">
+      <h3>Videollamada de 45 minutos</h3>
+      <p>Repasamos juntas lo que me has contado en el test, resolvemos cualquier duda, y hago el diagnóstico real de tu piel — qué le pasa y por qué. Sin prisa, sin interrogatorio: una conversación.</p>
+    </div>
+  </div>
+
+  <div class="paso">
+    <div>
+      <div class="paso-num">03</div>
+      <span class="paso-etiq">Protocolo<br>escrito</span>
+    </div>
+    <div class="paso-body">
+      <h3>Tu ritual por escrito</h3>
+      <p>Después de la sesión, recibes tu ritual personalizado por escrito: rutina AM y PM paso a paso, productos concretos de cosmética natural, marcas, orden de aplicación, frecuencia y el porqué científico de cada decisión. Un documento que es tuyo para consultar siempre que lo necesites.</p>
+    </div>
+  </div>
+
+  <div class="paso">
+    <div>
+      <div class="paso-num">04</div>
+      <span class="paso-etiq">Semanas<br>1 y 2</span>
+    </div>
+    <div class="paso-body">
+      <h3>Pruebas tu ritual nuevo</h3>
+      <p>Te envío muestras de los productos recomendados y, durante las dos primeras semanas, pruebas la rutina completa en tu piel. Los primeros cinco días registras cómo responde en un diario de observación, y tienes seguimiento por mensajería para cualquier duda. Así vemos qué funciona de verdad antes de que compres los productos completos.</p>
+    </div>
+  </div>
+
+  <div class="paso">
+    <div>
+      <div class="paso-num">05</div>
+      <span class="paso-etiq">Semana 3</span>
+    </div>
+    <div class="paso-body">
+      <h3>Videollamada de ajuste</h3>
+      <p>En la última semana, una videollamada de 30 minutos para revisar cómo ha respondido tu piel y afinar lo que no esté funcionando: cambiar un producto, ajustar una frecuencia, resolver una reacción. Sales con tu ritual definitivo por escrito.</p>
+    </div>
+  </div>
+
+  <div class="foto-editorial foto-editorial--diario">
+    <img src="sarai-diario-asesoria.jpg" alt="Diario de 5 días de GAROA junto a los sérums recomendados y la bolsa de tela de la marca">
+  </div>
+
+  <div class="divider"></div>
+
+  <span class="section-label">Para quién es</span>
+  <div class="para-quien">
+    <div class="pq-bloque">
+      <p class="pq-titulo">Esto es para ti si</p>
+      <ul>
+        <li>Llevas tiempo probando productos sin resultados claros</li>
+        <li>Tu piel ha cambiado y no sabes cómo adaptarte</li>
+        <li>Quieres entender lo que le pasa, no solo taparlo</li>
+        <li>Estás dispuesta a apostar por cosmética natural y consciente</li>
+      </ul>
+    </div>
+    <div class="pq-bloque">
+      <p class="pq-titulo">Esto no es para ti si</p>
+      <ul>
+        <li>Buscas recomendaciones de cosmética convencional</li>
+        <li>Quieres resultados inmediatos sin proceso</li>
+        <li>No estás dispuesta a simplificar tu rutina</li>
+      </ul>
+    </div>
+  </div>
+
+  <!--
+    LO QUE DICEN — pendiente de opiniones reales.
+    En cuanto tengas una respuesta real del test de testimonios, pásame la frase/reseña,
+    el nombre (o "Anónimo" si así lo pidió) y descomento este bloque, duplicando
+    .testimonio-card por cada opinión. No activar con texto de ejemplo.
+
+  <span class="section-label">Lo que dicen</span>
+  <div class="testimonios">
+    <div class="testimonio-card">
+      <p class="testimonio-marca">"</p>
+      <p class="testimonio-frase">[Frase o reseña real de la clienta]</p>
+      <p class="testimonio-firma">— [Nombre o "Clienta GAROA"]</p>
+    </div>
+  </div>
+  -->
+
+  <div class="precio-bloque">
+    <p class="precio-etiq">Precio</p>
+    <p class="precio-num">350€</p>
+    <p class="precio-nota">Servicio de 3 semanas. Disponible para clientas en Península y Baleares.<br>Videollamada de diagnóstico · Protocolo escrito · Muestras · Videollamada de ajuste</p>
+  </div>
+
+  <p class="nota">Esta asesoría trabaja exclusivamente con cosmética natural y, si es posible, orgánica. Al apuntarte, confirmas que estás dispuesta a construir tu rutina desde este enfoque. No se recomiendan productos de cosmética convencional.</p>
+
+  <p class="nota">Si al terminar las 3 semanas tu piel necesita algún ajuste adicional, podemos programar sesiones extra de 30 minutos (80€ por sesión), con seguimiento por mensajería incluido hasta la siguiente sesión.</p>
+
+  <div class="cta-wrap">
+    <div class="badge-estado">Sin plazas · Lista de espera abierta</div>
+    <br><br>
+    <a href="/lista-de-espera" class="btn-primary">Apuntarme a la lista de espera</a>
+  </div>
+
+</div>
+
+<footer>
+  <a href="/">GAROA · Organic Skin Rituals</a>
+</footer>
+
+</body>
+</html>
