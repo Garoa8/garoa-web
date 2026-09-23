@@ -1,8 +1,9 @@
-const CACHE = 'garoa-v59';
+const CACHE = 'garoa-v69';
 const URLS = [
   '/',
   '/index.html',
   '/sobre-garoa.html',
+  '/test-barrera.html',
   '/lista-de-espera.html',
   '/asesoria.html',
   '/talleres.html',
@@ -11,7 +12,13 @@ const URLS = [
   '/narciso.garoa.png',
   '/narciso.garoa.cream.png',
   '/garoa-flower.png',
-  '/hero-tonico.jpg'
+  '/hero-tonico.jpg',
+  '/editorial-1.jpg',
+  '/editorial-2.jpg',
+  '/editorial-3.jpg',
+  '/editorial-4.jpg',
+  '/editorial-5.jpg',
+  '/sarai-cepillos-taller.jpg'
 ];
 
 self.addEventListener('install', e => {

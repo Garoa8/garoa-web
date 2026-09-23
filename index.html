@@ -76,9 +76,9 @@
     align-items: center;
     padding: 24px 48px;
     background: transparent;
-    transition: background 0.4s;
+    transition: background 0.4s, padding 0.4s;
   }
-  nav.scrolled { background: var(--cream); border-bottom: 1px solid var(--pink); }
+  nav.scrolled { background: var(--cream); border-bottom: 1px solid var(--pink); padding: 14px 48px; }
 
   .nav-links {
     display: flex; gap: 40px; align-items: center;
@@ -124,7 +124,9 @@
   }
   .nav-logo img {
     height: 220px; width: auto; display: block;
+    transition: height 0.4s;
   }
+  nav.scrolled .nav-logo img { height: 84px; }
   .nav-logo .logo-dark { display: none; mix-blend-mode: multiply; }
   .nav-logo .logo-light { display: block; filter: drop-shadow(0 1px 10px rgba(42,26,27,0.3)); }
   nav.scrolled .nav-logo .logo-light { display: none; }
@@ -163,7 +165,8 @@
     transition: color 0.2s;
   }
   .mobile-menu a:hover { color: var(--pink); }
-  .nav-dropdown-mobile { text-align: left; }
+  .nav-dropdown-mobile { text-align: left; max-width: 3.2cm; }
+  .nav-dropdown-mobile > a { display: block; }
   .nav-dropdown-mobile > a::after { content: ' ▾'; font-size: 1rem; }
   .mobile-submenu {
     display: none; flex-direction: column; align-items: flex-start; gap: 6px;
@@ -199,15 +202,16 @@
     transition: transform 0.5s cubic-bezier(.65,0,.35,1), border-radius 0.5s, box-shadow 0.5s;
   }
   body.menu-open #page-wrap {
-    transform: translate(4cm, 1cm);
+    transform: translate(3.6cm, 1cm);
     border-radius: 20px;
     overflow: hidden;
     box-shadow: -12px 12px 40px rgba(42,26,27,0.3);
   }
   @media (max-width: 768px) {
-    body.menu-open #page-wrap { transform: translate(2.2cm, 0.6cm); border-radius: 14px; }
+    body.menu-open #page-wrap { transform: translate(2cm, 0.6cm); border-radius: 14px; }
     .mobile-menu { padding-left: 20px; }
     .mobile-menu a, .mobile-submenu a { max-width: 2.6cm; }
+    .nav-dropdown-mobile { max-width: 2.6cm; }
   }
 
   /* Modal */
@@ -593,7 +597,7 @@
   .editorial-slide {
     flex: 0 0 auto; width: 320px; aspect-ratio: 4 / 5;
     position: relative; scroll-snap-align: center;
-    border-radius: 4px; overflow: hidden;
+    border-radius: 22px; overflow: hidden;
   }
   .editorial-slide img {
     width: 100%; height: 100%; object-fit: cover; display: block;
@@ -1015,25 +1019,33 @@
 <!-- EDITORIAL -->
 <section class="editorial">
   <div class="editorial-header reveal">
-    <p class="section-label">Editorial</p>
+    <p class="section-label">La colección</p>
     <h2 class="section-title">Instantes que son <em>muy GAROA.</em></h2>
   </div>
   <div class="editorial-track" id="editorialTrack">
+    <div class="editorial-slide">
+      <img src="editorial-5.jpg" alt="Sarai Orrego con una flor silvestre">
+      <p class="editorial-frase">Envejecer reconociéndote cada día.</p>
+    </div>
     <div class="editorial-slide">
       <img src="editorial-1.jpg" alt="Cuchara de jade y flores, ritual GAROA">
       <p class="editorial-frase">El ritual no está en el producto. Está en el gesto de dártelo.</p>
     </div>
     <div class="editorial-slide">
+      <img src="sarai-cepillos-taller.jpg" alt="Cepillado en seco sobre el rostro">
+      <p class="editorial-frase">Un cepillo, 1 minuto, y la piel comienza el día distinto.</p>
+    </div>
+    <div class="editorial-slide">
       <img src="editorial-2.jpg" alt="Manos sujetando herramientas de ritual facial">
-      <p class="editorial-frase">Tus manos ya saben cuidarte. Solo hace falta darles el tiempo.</p>
+      <p class="editorial-frase">Tus manos ya saben cuidarte. Solo hace falta darles la información correcta.</p>
+    </div>
+    <div class="editorial-slide">
+      <img src="editorial-4.jpg" alt="Manos doblando un lienzo de lino blanco">
+      <p class="editorial-frase">Haciendo tu ritual placentero, antes de tocarte la cara, ya has empezado a cuidarte.</p>
     </div>
     <div class="editorial-slide">
       <img src="editorial-3.jpg" alt="Piel al sol, detalle de un tatuaje floral">
       <p class="editorial-frase">La piel se acuerda de todo lo que le haces con calma.</p>
-    </div>
-    <div class="editorial-slide">
-      <img src="editorial-4.jpg" alt="Manos doblando un lienzo de lino blanco">
-      <p class="editorial-frase">Antes de tocarte la cara, ya has empezado a cuidarte.</p>
     </div>
   </div>
   <div class="editorial-controls">
