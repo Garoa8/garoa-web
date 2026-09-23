@@ -1,4 +1,4 @@
-const CACHE = 'garoa-v52';
+const CACHE = 'garoa-v59';
 const URLS = [
   '/',
   '/index.html',
@@ -9,7 +9,9 @@ const URLS = [
   '/calendario.html',
   '/newsletter.html',
   '/narciso.garoa.png',
-  '/garoa-flower.png'
+  '/narciso.garoa.cream.png',
+  '/garoa-flower.png',
+  '/hero-tonico.jpg'
 ];
 
 self.addEventListener('install', e => {

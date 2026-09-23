@@ -133,43 +133,68 @@
   }
   .nav-cta:hover { color: var(--dark); border-bottom-color: var(--dark); }
 
-  /* Hamburger */
-  .nav-hamburger {
-    display: none; flex-direction: column; gap: 5px;
-    background: none; border: none; cursor: pointer; padding: 4px;
-  }
-  .nav-hamburger span {
-    display: block; width: 24px; height: 1.5px;
-    background: var(--text); transition: all 0.3s;
-  }
+  /* Trigger del menú */
+  .nav-menu-trigger { cursor: pointer; }
 
-  /* Mobile menu */
+  /* Menú: panel fijo detrás de la página, siempre ahí. Solo asoma en la
+     franja izquierda que deja libre el desplazamiento de #page-wrap. */
   .mobile-menu {
-    display: none; position: fixed; inset: 0; z-index: 99;
-    background: var(--cream); flex-direction: column;
-    justify-content: center; align-items: center; gap: 8px;
-    padding: 48px 32px;
-  }
-  .mobile-menu.open { display: flex; }
-  .mobile-menu-close {
-    position: absolute; top: 24px; right: 24px;
-    background: none; border: none; cursor: pointer;
-    font-size: 1.5rem; color: var(--text);
+    display: flex; position: fixed; inset: 0; z-index: 1;
+    background: var(--garnet); flex-direction: column;
+    justify-content: center; align-items: flex-start; gap: 10px;
+    padding: 0 0 0 26px;
   }
   .mobile-menu a {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 2rem; font-weight: 300; color: var(--dark);
-    text-decoration: none; text-align: center; padding: 12px 0;
+    font-size: 1.5rem; font-weight: 400; color: var(--cream);
+    text-decoration: none; text-align: left; padding: 4px 0;
+    max-width: 3.2cm; line-height: 1.2;
     transition: color 0.2s;
   }
-  .mobile-menu a:hover { color: var(--garnet); }
-  .mobile-menu .mobile-divider {
-    width: 40px; height: 1px; background: var(--pink); margin: 16px 0;
+  .mobile-menu a:hover { color: var(--pink); }
+  .nav-dropdown-mobile { text-align: left; }
+  .nav-dropdown-mobile > a::after { content: ' ▾'; font-size: 1rem; }
+  .mobile-submenu {
+    display: none; flex-direction: column; align-items: flex-start; gap: 6px;
+    margin-top: 6px;
   }
-  .mobile-menu .mobile-pronto {
+  .nav-dropdown-mobile.active .mobile-submenu { display: flex; }
+  .mobile-submenu a {
     font-family: 'Lato', sans-serif;
-    font-size: 0.65rem; color: var(--muted); letter-spacing: 0.2em;
-    text-transform: uppercase; display: block; margin-top: -8px; margin-bottom: 8px;
+    font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: rgba(249,247,246,0.75);
+    padding: 4px 0; max-width: 3.2cm; line-height: 1.4;
+  }
+  .mobile-submenu a:hover { color: var(--pink); }
+  .mobile-submenu .badge-pronto {
+    display: block; margin: 2px 0 0; color: rgba(249,247,246,0.5);
+    border-color: rgba(233,217,214,0.3); font-size: 0.52rem;
+  }
+  .mobile-menu-close {
+    margin-top: 20px;
+    background: none; border: none; cursor: pointer;
+    font-family: 'Lato', sans-serif; font-size: 0.68rem; font-weight: 700;
+    letter-spacing: 0.15em; text-transform: uppercase; color: rgba(249,247,246,0.6);
+  }
+  .mobile-menu-close:hover { color: var(--pink); }
+
+  /* La página en sí: se desplaza un poco en diagonal para dejar ver el menú */
+  #page-wrap {
+    position: relative; z-index: 2; background: var(--cream);
+    border-radius: 0;
+    box-shadow: none;
+    transition: transform 0.5s cubic-bezier(.65,0,.35,1), border-radius 0.5s, box-shadow 0.5s;
+  }
+  body.menu-open #page-wrap {
+    transform: translate(4cm, 1cm);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: -12px 12px 40px rgba(42,26,27,0.3);
+  }
+  @media (max-width: 768px) {
+    body.menu-open #page-wrap { transform: translate(2.2cm, 0.6cm); border-radius: 14px; }
+    .mobile-menu { padding-left: 20px; }
+    .mobile-menu a, .mobile-submenu a { max-width: 2.6cm; }
   }
 
   /* Modal */
@@ -622,11 +647,9 @@
   /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
     nav { grid-template-columns: auto 1fr auto; padding: 16px 24px; }
-    .nav-links { display: none; }
     .nav-right { display: none; }
     .nav-logo { justify-content: center; }
     .nav-logo img { height: 140px; }
-    .nav-hamburger { display: flex; }
   }
   @media (max-width: 768px) {
     section { padding: 72px 24px; }
@@ -655,41 +678,33 @@
 </head>
 <body>
 
+<!-- MENÚ (panel fijo, siempre detrás de la página) -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="nav-dropdown-mobile" id="navDropdownMobile">
+    <a href="#" onclick="toggleDropdown(event)">Rituales para tu piel</a>
+    <div class="mobile-submenu">
+      <a href="#" onclick="toggleMobileMenu(event);openModal('talleres')">Talleres presenciales <span class="badge-pronto">Fechas por definir</span></a>
+      <a href="#" onclick="toggleMobileMenu(event);openModal('asesoria')">Asesoría 1:1 <span class="badge-pronto">Sin plazas</span></a>
+    </div>
+  </div>
+  <a href="sobre-garoa.html#presentacion" onclick="toggleMobileMenu()">Sobre mí</a>
+  <a href="sobre-garoa.html#valores" onclick="toggleMobileMenu()">Sobre GAROA</a>
+  <button class="mobile-menu-close" onclick="toggleMobileMenu(event)">Cerrar ×</button>
+</div>
+
+<!-- PÁGINA (se desplaza en diagonal al abrir el menú) -->
+<div id="page-wrap">
+
 <!-- NAV -->
 <nav id="nav">
   <div class="nav-links">
-    <a href="sobre-garoa.html">La historia</a>
-    <a href="sobre-garoa.html#valores">Los valores</a>
-    <div class="nav-dropdown" id="navDropdown">
-      <a href="#" onclick="toggleDropdown(event)">Rituales</a>
-      <div class="dropdown-menu">
-        <a href="#" onclick="openModal('asesoria')">Asesoría 1:1 <span class="badge-pronto">Sin plazas</span></a>
-        <a href="#" onclick="openModal('talleres')">Talleres presenciales <span class="badge-pronto">Fechas por definir</span></a>
-      </div>
-    </div>
+    <a href="#" class="nav-menu-trigger" onclick="toggleMobileMenu(event)">Menú</a>
   </div>
-  <a href="#" class="nav-logo"><img src="narciso.garoa.png" alt="GAROA Organic Skin Rituals"></a>
+  <a href="index.html" class="nav-logo"><img src="narciso.garoa.png" alt="GAROA Organic Skin Rituals"></a>
   <div class="nav-right">
     <a href="newsletter.html" class="nav-cta">Newsletter</a>
   </div>
-  <button class="nav-hamburger" onclick="toggleMobileMenu()" aria-label="Menú">
-    <span></span><span></span><span></span>
-  </button>
 </nav>
-
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobileMenu">
-  <button class="mobile-menu-close" onclick="toggleMobileMenu()">×</button>
-  <a href="sobre-garoa.html" onclick="toggleMobileMenu()">La historia</a>
-  <a href="sobre-garoa.html#valores" onclick="toggleMobileMenu()">Los valores</a>
-  <div class="mobile-divider"></div>
-  <a href="#" onclick="toggleMobileMenu();openModal('asesoria')">Asesoría 1:1</a>
-  <span class="mobile-pronto">Sin plazas · Lista de espera abierta</span>
-  <a href="#" onclick="toggleMobileMenu();openModal('talleres')">Talleres presenciales</a>
-  <span class="mobile-pronto">Fechas por definir</span>
-  <div class="mobile-divider"></div>
-  <a href="newsletter.html" onclick="toggleMobileMenu()">Newsletter</a>
-</div>
 
 <!-- MODAL ASESORÍA -->
 <div class="modal" id="modal-asesoria">
@@ -856,6 +871,8 @@
   <span class="foto-credit">Fotografía · Verbena Studio</span>
 </footer>
 
+</div><!-- /page-wrap -->
+
 <script>
   // Nav scroll
   const nav = document.getElementById('nav');
@@ -875,20 +892,16 @@
   }, { threshold: 0.12 });
   reveals.forEach(r => observer.observe(r));
 
-  // Dropdown
+  // Dropdown (Rituales, dentro del menú a pantalla completa)
   function toggleDropdown(e) {
     e.preventDefault();
-    document.getElementById('navDropdown').classList.toggle('active');
+    document.getElementById('navDropdownMobile').classList.toggle('active');
   }
-  document.addEventListener('click', (e) => {
-    const d = document.getElementById('navDropdown');
-    if (!d.contains(e.target)) d.classList.remove('active');
-  });
 
-  // Mobile menu
-  function toggleMobileMenu() {
-    document.getElementById('mobileMenu').classList.toggle('open');
-    document.body.style.overflow = document.getElementById('mobileMenu').classList.contains('open') ? 'hidden' : '';
+  // Menú: la página se encoge para revelarlo
+  function toggleMobileMenu(e) {
+    if (e) e.preventDefault();
+    document.body.classList.toggle('menu-open');
   }
 
   // Modals
