@@ -1,4 +1,4 @@
-const CACHE = 'garoa-v69';
+const CACHE = 'garoa-v73';
 const URLS = [
   '/',
   '/index.html',
