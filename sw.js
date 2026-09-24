@@ -1,4 +1,4 @@
-const CACHE = 'garoa-v73';
+const CACHE = 'garoa-v75';
 const URLS = [
   '/',
   '/index.html',
@@ -18,6 +18,7 @@ const URLS = [
   '/editorial-3.jpg',
   '/editorial-4.jpg',
   '/editorial-5.jpg',
+  '/editorial-6.jpg',
   '/sarai-cepillos-taller.jpg'
 ];
 

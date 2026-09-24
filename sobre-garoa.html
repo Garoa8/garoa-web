@@ -150,7 +150,7 @@
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.5rem; font-weight: 400; color: var(--cream);
     text-decoration: none; text-align: left; padding: 4px 0;
-    max-width: 3.2cm; line-height: 1.2;
+    max-width: 3.2cm; line-height: 1.2; overflow-wrap: break-word;
     transition: color 0.2s;
   }
   .mobile-menu a:hover { color: var(--pink); }
@@ -195,10 +195,11 @@
     box-shadow: -12px 12px 40px rgba(42,26,27,0.3);
   }
   @media (max-width: 768px) {
-    body.menu-open #page-wrap { transform: translate(2cm, 0.6cm); border-radius: 14px; }
-    .mobile-menu { padding-left: 20px; }
-    .mobile-menu a, .mobile-submenu a { max-width: 2.6cm; }
-    .nav-dropdown-mobile { max-width: 2.6cm; }
+    body.menu-open #page-wrap { transform: translate(2.4cm, 0.6cm); border-radius: 14px; }
+    .mobile-menu { padding-left: 16px; }
+    .mobile-menu a { font-size: 1rem; max-width: 2.2cm; }
+    .mobile-submenu a { font-size: 0.6rem; max-width: 2.2cm; }
+    .nav-dropdown-mobile { max-width: 2.2cm; }
   }
 
   /* Modal */
@@ -748,7 +749,7 @@
     <span class="modal-badge">Próximas fechas por definir</span>
     <h2>Talleres <em>presenciales</em></h2>
     <p>Un taller pequeño, con espacio para entender. La primera parte es de conocimiento: explico cómo funciona la piel desde dentro — su estructura, sus mecanismos, por qué reacciona como reacciona — con el rigor científico de mi formación en biología molecular y bioquímica, pero en un lenguaje que se entiende y se puede llevar a casa.</p>
-    <p>La segunda parte es práctica: técnicas de masaje facial y uso de las joyas del tocador — gua sha, ventosas, cepillado en seco — como herramientas de ritual, con su base fisiológica real. Cada asistente se lleva un dossier de referencia para seguir practicando.</p>
+    <p>La segunda parte es práctica: técnicas de masaje facial y el uso de las herramientas de masaje — gua sha, ventosas, cepillado en seco — con su base fisiológica real. Cada asistente se lleva un dossier de referencia para seguir practicando.</p>
     <p>Grupos reducidos.</p>
     <a href="/talleres" class="btn-primary">Quiero saber más</a>
   </div>
