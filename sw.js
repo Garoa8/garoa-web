@@ -1,4 +1,4 @@
-const CACHE = 'garoa-v78';
+const CACHE = 'garoa-v79';
 const URLS = [
   '/',
   '/index.html',
@@ -9,6 +9,8 @@ const URLS = [
   '/talleres.html',
   '/calendario.html',
   '/newsletter.html',
+  '/tienda.html',
+  '/contacto.html',
   '/narciso.garoa.png',
   '/narciso.garoa.cream.png',
   '/garoa-flower.png',
