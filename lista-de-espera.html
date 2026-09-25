@@ -181,8 +181,8 @@
   <div class="page-hero">
     <span class="page-label">Asesoría · Lista de espera</span>
     <h1 class="page-title">Sé la primera<br><em>en saberlo.</em></h1>
-    <p class="page-sub">Las asesorías 1:1 están temporalmente sin plazas.<br>
-    Déjame tus datos y te aviso en cuanto abra nuevas fechas.</p>
+    <p class="page-sub">Las asesorías 1:1 están temporalmente sin plazas. Aquí te apuntas a la lista de espera y a <strong>La Pausa</strong>, la newsletter donde lanzo antes que en ningún otro lugar.<br>
+    Cero spam, mucho cuidado de la piel.</p>
     <div class="divider"></div>
   </div>
 
@@ -218,6 +218,10 @@
         Apuntarme a la lista →
       </button>
 
+      <p class="privacy-note" id="subscribing-msg" style="display:none;">
+        Apuntándote…
+      </p>
+
       <p class="privacy-note">
         Tus datos solo se usan para avisarte cuando haya plazas. Sin spam.
       </p>
@@ -243,6 +247,7 @@
   const mainContent = document.getElementById('main-content');
   const successMsg = document.getElementById('success-msg');
   const errorMsg = document.getElementById('error-msg');
+  const subscribingMsg = document.getElementById('subscribing-msg');
   const btn = document.getElementById('btn-submit');
 
   if (window.location.search.includes('ok=1')) {
@@ -253,6 +258,7 @@
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     errorMsg.style.display = 'none';
+    subscribingMsg.style.display = 'block';
     btn.disabled = true;
     btn.textContent = 'Enviando…';
 
