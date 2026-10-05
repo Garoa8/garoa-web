@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Programa de referidos · GAROA Organic Skin Rituals</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/png" href="narciso.garoa.png">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --garnet: #540B0E;
+    --cream:  #F9F7F6;
+    --pink:   #E9D9D6;
+    --dark:   #2A1A1B;
+    --text:   #3D2B2C;
+    --muted:  #8A7070;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--cream);
+    color: var(--text);
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    min-height: 100vh;
+  }
+
+  header { text-align: center; padding: 48px 24px 0; }
+  header a { display: inline-block; }
+  header img { height: 140px; width: auto; mix-blend-mode: multiply; }
+
+  .back-link { text-align: center; margin-top: 20px; }
+  .back-link a {
+    font-size: 0.68rem; font-weight: 700; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--muted);
+    text-decoration: none; transition: color 0.2s;
+  }
+  .back-link a:hover { color: var(--garnet); }
+
+  .divider { width: 1px; height: 48px; background: var(--garnet); margin: 40px auto; }
+
+  .hero { text-align: center; padding: 48px 24px 0; max-width: 640px; margin: 0 auto; }
+  .page-label {
+    font-size: 0.68rem; font-weight: 700; letter-spacing: 0.35em;
+    text-transform: uppercase; color: var(--garnet);
+    margin-bottom: 20px; display: block;
+  }
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    font-weight: 300; line-height: 1.2; color: var(--dark);
+    margin-bottom: 20px;
+  }
+  h1 em { font-style: italic; color: var(--garnet); }
+  .hero-sub { font-size: 0.95rem; line-height: 1.8; color: var(--muted); max-width: 500px; margin: 0 auto; }
+
+  .content { max-width: 680px; margin: 0 auto; padding: 0 24px 80px; }
+
+  /* Las dos recompensas */
+  .rewards { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  @media (max-width: 560px) { .rewards { grid-template-columns: 1fr; } }
+  .reward {
+    text-align: center; padding: 40px 24px 36px; background: white;
+    border: 1px solid var(--pink); border-top: 2px solid var(--garnet);
+  }
+  .reward-etiq {
+    display: block; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 14px;
+  }
+  .reward-cifra {
+    display: block; font-family: 'Cormorant Garamond', serif;
+    font-size: 3.2rem; font-weight: 300; line-height: 1; color: var(--garnet);
+    margin-bottom: 14px;
+  }
+  .reward-texto { font-size: 0.9rem; line-height: 1.7; color: var(--text); }
+
+  /* Cómo funciona */
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem; font-weight: 300; color: var(--dark);
+    text-align: center; margin: 64px 0 32px;
+  }
+  .section-title em { font-style: italic; color: var(--garnet); }
+  .pasos { list-style: none; border-top: 1px solid var(--pink); }
+  .paso {
+    display: grid; grid-template-columns: 64px 1fr; gap: 16px;
+    padding: 24px 0; border-bottom: 1px solid var(--pink);
+  }
+  .paso-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem; font-weight: 300; color: var(--garnet); line-height: 1.2;
+  }
+  .paso h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem; font-weight: 400; color: var(--dark); margin-bottom: 6px;
+  }
+  .paso p { font-size: 0.9rem; line-height: 1.75; color: var(--muted); }
+  .codigo {
+    font-family: 'Lato', sans-serif; font-weight: 700; letter-spacing: 0.12em;
+    color: var(--garnet); background: var(--pink); padding: 2px 8px;
+  }
+
+  /* Botones */
+  .ctas { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-top: 48px; }
+  .btn {
+    display: inline-block; text-decoration: none; cursor: pointer;
+    font-family: 'Lato', sans-serif; font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    padding: 17px 30px; border: 1px solid var(--garnet);
+    transition: background 0.2s, color 0.2s;
+  }
+  .btn-primary { background: var(--garnet); color: var(--cream); }
+  .btn-primary:hover { background: var(--dark); border-color: var(--dark); }
+  .btn-secondary { background: transparent; color: var(--garnet); }
+  .btn-secondary:hover { background: var(--pink); }
+
+  /* Condiciones */
+  .condiciones {
+    margin-top: 64px; padding: 28px 28px 24px;
+    background: var(--pink);
+  }
+  .condiciones .reward-etiq { color: var(--garnet); }
+  .condiciones ul { list-style: none; }
+  .condiciones li {
+    font-size: 0.82rem; line-height: 1.7; color: var(--text);
+    padding-left: 18px; position: relative; margin-bottom: 6px;
+  }
+  .condiciones li::before { content: '·'; position: absolute; left: 4px; color: var(--garnet); font-weight: 700; }
+
+  footer {
+    background: var(--dark); color: rgba(249,247,246,0.4);
+    text-align: center; padding: 32px 24px;
+    font-size: 0.72rem; letter-spacing: 0.15em;
+  }
+  footer a { color: rgba(249,247,246,0.4); text-decoration: none; }
+  footer a:hover { color: var(--pink); }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="/"><img src="narciso.garoa.png" alt="GAROA Organic Skin Rituals"></a>
+</header>
+<div class="back-link"><a href="/">← Volver a GAROA</a></div>
+
+<div class="hero">
+  <span class="page-label">Programa de referidos</span>
+  <h1>Lo que cuida, se comparte.<br><em>Y se agradece.</em></h1>
+  <p class="hero-sub">Si tu asesoría te ha hecho bien y piensas en alguien a quien también podría ayudarle, me encantará acompañarla. Y quiero darte las gracias por ello.</p>
+</div>
+
+<div class="divider"></div>
+
+<div class="content">
+
+  <div class="rewards">
+    <div class="reward">
+      <span class="reward-etiq">Para tu amiga</span>
+      <span class="reward-cifra">50 €</span>
+      <p class="reward-texto">menos en el precio de su asesoría 1:1.</p>
+    </div>
+    <div class="reward">
+      <span class="reward-etiq">Para ti</span>
+      <span class="reward-cifra">50 €</span>
+      <p class="reward-texto">que te devuelvo de tu propia asesoría, en cuanto ella haga su primera sesión.</p>
+    </div>
+  </div>
+
+  <h2 class="section-title">Cómo <em>funciona</em></h2>
+  <ol class="pasos">
+    <li class="paso">
+      <span class="paso-num">01</span>
+      <div>
+        <h3>Compártelo con ella</h3>
+        <p>Envíale esta página o cuéntale tu experiencia con tus propias palabras.</p>
+      </div>
+    </li>
+    <li class="paso">
+      <span class="paso-num">02</span>
+      <div>
+        <h3>Ella reserva su asesoría</h3>
+        <p>Al reservar, usa el código <span class="codigo">AMIGAGAROA</span> y escribe tu nombre cuando le pregunte quién la recomienda.</p>
+      </div>
+    </li>
+    <li class="paso">
+      <span class="paso-num">03</span>
+      <div>
+        <h3>Yo te devuelvo 50 €</h3>
+        <p>Cuando haya hecho su primera sesión, te reembolso 50 € en el mismo método con el que pagaste tu asesoría. No tienes que hacer nada más.</p>
+      </div>
+    </li>
+  </ol>
+
+  <div class="ctas">
+    <a class="btn btn-primary" id="btn-compartir" href="https://wa.me/?text=Te%20dejo%20el%20programa%20de%20referidos%20de%20GAROA%3A%20https%3A%2F%2Fgaroa-skinrituals.com%2Freferidos.html">Compartir con una amiga</a>
+    <a class="btn btn-secondary" href="https://app.acuityscheduling.com/schedule.php?owner=40227513" target="_blank" rel="noopener">Reservar mi asesoría</a>
+  </div>
+
+  <div class="condiciones">
+    <span class="reward-etiq">Condiciones</span>
+    <ul>
+      <li>Válido para la asesoría 1:1. La persona recomendada tiene que ser clienta nueva.</li>
+      <li>Los 50 € de vuelta son para quien pagó su asesoría. Si la tuya fue un regalo, tu amiga mantiene igualmente su descuento.</li>
+      <li>Una devolución por cada amiga que haga su primera sesión. No hay límite de recomendaciones.</li>
+      <li>El descuento no se acumula con otros códigos.</li>
+      <li>Cualquier duda, escríbeme a <a href="mailto:hola@garoa-skinrituals.com" style="color: var(--garnet);">hola@garoa-skinrituals.com</a>.</li>
+    </ul>
+  </div>
+
+</div>
+
+<footer>
+  <a href="/">GAROA · Organic Skin Rituals</a>
+</footer>
+
+<script>
+  // En móvil usa el menú nativo de compartir; si no existe, se queda el enlace de WhatsApp.
+  const btn = document.getElementById('btn-compartir');
+  if (navigator.share) {
+    btn.addEventListener('click', e => {
+      e.preventDefault();
+      navigator.share({
+        title: 'Programa de referidos · GAROA',
+        text: 'Te dejo el programa de referidos de GAROA:',
+        url: 'https://garoa-skinrituals.com/referidos.html'
+      }).catch(() => {});
+    });
+  }
+</script>
+
+</body>
+</html>
