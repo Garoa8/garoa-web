@@ -47,7 +47,7 @@
 
   .video-wrap {
     width: 100%; max-width: 420px; aspect-ratio: 9 / 16;
-    background: #000; overflow: hidden;
+    background: #000; overflow: hidden; position: relative;
     display: flex; align-items: center; justify-content: center;
   }
   .video-wrap iframe { width: 100%; height: 100%; border: none; display: block; }
@@ -59,16 +59,18 @@
   .aviso a { color: rgba(249,247,246,0.75); }
 
   .banner {
-    width: 100%; max-width: 420px; margin-bottom: 20px;
+    position: absolute; inset: 0; z-index: 5;
     background: var(--pink); color: var(--dark);
-    padding: 20px 48px 20px 22px; position: relative;
-    font-size: 1rem; font-weight: 700; line-height: 1.6;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; padding: 32px 36px;
+    font-size: 1.1rem; font-weight: 700; line-height: 1.6;
   }
   .banner button {
     position: absolute; top: 14px; right: 14px;
     background: none; border: none; color: var(--dark);
-    font-size: 1.5rem; line-height: 1; cursor: pointer; padding: 4px;
+    font-size: 1.8rem; line-height: 1; cursor: pointer; padding: 4px;
   }
+  .banner .pulsa { margin-top: 18px; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.7; }
 
   footer {
     margin-top: auto; padding-top: 48px;
@@ -89,13 +91,13 @@
   <p class="hero-sub">Ponte cómoda, baja el volumen que necesites y empieza cuando quieras.</p>
 </div>
 
-<div class="banner" id="banner">
-  Guarda esta página en favoritos: es tuya para siempre, vuelve cuando quieras.
-  <button onclick="document.getElementById('banner').remove()" aria-label="Cerrar aviso">×</button>
-</div>
-
 <div class="video-wrap" id="videoWrap">
   <iframe src="https://drive.google.com/file/d/1cX3f1u-UzAQjvLflr0BiwMlMhe-bIeU_/preview" allow="autoplay" allowfullscreen></iframe>
+  <div class="banner" id="banner">
+    Guarda esta página en favoritos: es tuya para siempre, vuelve cuando quieras.
+    <span class="pulsa">Toca para ver tu vídeo</span>
+    <button onclick="document.getElementById('banner').remove()" aria-label="Cerrar aviso">×</button>
+  </div>
 </div>
 
 <p class="aviso">Este acceso es solo para ti. <a href="derechos-de-autor.html">Derechos de autor</a>.</p>
