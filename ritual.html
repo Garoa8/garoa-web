@@ -43,7 +43,21 @@
   h1 em { font-style: italic; color: var(--garnet); }
   .hero-sub { font-size: 0.95rem; line-height: 1.8; color: var(--muted); }
 
-  .content { max-width: 560px; margin: 40px auto 0; padding: 0 24px; width: 100%; }
+  .brecha { max-width: 560px; margin: 36px auto 0; padding: 0 24px; }
+  .brecha p { font-size: 0.95rem; line-height: 1.85; color: var(--text); margin-bottom: 18px; }
+  .antes-despues {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+    background: var(--pink); border: 1px solid var(--pink); margin: 28px 0 8px;
+  }
+  @media (max-width: 480px) { .antes-despues { grid-template-columns: 1fr; } }
+  .antes-despues div { background: var(--cream); padding: 22px 20px; }
+  .antes-despues span {
+    display: block; font-size: 0.64rem; font-weight: 700; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--garnet); margin-bottom: 8px;
+  }
+  .antes-despues p { font-size: 0.86rem; line-height: 1.7; color: var(--text); margin-bottom: 0; }
+
+  .content { max-width: 560px; margin: 36px auto 0; padding: 0 24px; width: 100%; }
   .que-incluye {
     background: var(--pink); padding: 32px 28px; margin-bottom: 32px;
   }
@@ -98,17 +112,34 @@
 
 <div class="hero">
   <span class="page-label">El vídeo</span>
-  <h1>¿Quieres que te <em>acompañe?</em></h1>
-  <p class="hero-sub">He preparado un vídeo para acompañarte en la rutina. Menos de 4 minutos para hacerla completa y para recargar después del día.</p>
+  <h1>Te acompaño <em>en el ritual.</em></h1>
+</div>
+
+<div class="brecha">
+  <p>¿Sabes esa sensación de llegar al final del día en plan "mátame camión", y que hasta la rutina de siempre se te haga una montaña?</p>
+  <p>No es que no te apetezca cuidarte. Es que entre el trabajo, la casa, los niños, tu mascota o ese marrón de última hora que has necesitado resolver, llegas sin fuerzas ni para lavarte la cara como tocaría. Y la saltas. Y no pasa nada — pero una parte de ti sabe que le vendría bien parar, aunque sean cuatro minutos.</p>
+  <p>Por eso grabé este vídeo: para que no lo hagas sola y a trompicones, sino acompañada — con mi voz, al ritmo que te pida el cuerpo ese día.</p>
+
+  <div class="antes-despues">
+    <div>
+      <span>Antes</span>
+      <p>Cansada, con la cabeza todavía en mil cosas, con ganas de tirarte en el sofá y pasar de todo.</p>
+    </div>
+    <div>
+      <span>Después</span>
+      <p>Con la piel limpia, el cuerpo más tranquilo, y la sensación de haberte dedicado un ratito que es solo tuyo.</p>
+    </div>
+  </div>
 </div>
 
 <div class="content">
   <div class="que-incluye">
     <h2>Qué incluye</h2>
     <ul>
-      <li><strong>Respiración guiada</strong>Cuatro tiempos dentro, seis fuera. Tu momento de recarga, con mi voz y música suave.</li>
+      <li><strong>Respiración guiada</strong>Tu momento de recarga, con mi voz y música suave.</li>
       <li><strong>Tu ritual, paso a paso</strong>Te acompaño mientras limpias, tonificas e hidratas, sin prisa.</li>
-      <li><strong>Para volver siempre que quieras</strong>La tendrás siempre para volver a ella.</li>
+      <li><strong>Automasaje sencillo</strong>Un gesto corto para bajar revoluciones y dejar los problemas fuera.</li>
+      <li><strong>Para volver siempre que quieras</strong>Vuelve a él cada vez que lo necesites.</li>
     </ul>
   </div>
 
@@ -158,7 +189,7 @@
   } else {
     etiqueta.textContent = 'Precio';
     cifra.textContent = '37 €';
-    nota.textContent = 'Pago único. Acceso al vídeo por correo tras la compra.';
+    nota.textContent = 'Pago único. Accedes al vídeo nada más completar el pago.';
     btn.href = PAGO_NORMAL;
   }
 </script>
