@@ -58,6 +58,18 @@
   }
   .aviso a { color: rgba(249,247,246,0.75); }
 
+  .banner {
+    width: 100%; max-width: 480px; margin-bottom: 28px;
+    background: var(--pink); color: var(--dark);
+    padding: 14px 40px 14px 18px; position: relative;
+    font-size: 0.82rem; line-height: 1.6;
+  }
+  .banner button {
+    position: absolute; top: 10px; right: 10px;
+    background: none; border: none; color: var(--dark);
+    font-size: 1.1rem; line-height: 1; cursor: pointer; padding: 4px;
+  }
+
   footer {
     margin-top: auto; padding-top: 48px;
     text-align: center; font-size: 0.72rem; letter-spacing: 0.15em; color: rgba(249,247,246,0.35);
@@ -70,6 +82,11 @@
 <header>
   <img src="narciso.garoa.png" alt="GAROA Organic Skin Rituals">
 </header>
+
+<div class="banner" id="banner">
+  Guarda esta página en favoritos: es tuya para siempre, vuelve cuando quieras.
+  <button onclick="document.getElementById('banner').remove()" aria-label="Cerrar aviso">×</button>
+</div>
 
 <div class="hero">
   <span class="page-label">Tu vídeo</span>
