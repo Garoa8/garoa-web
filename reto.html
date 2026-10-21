@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Reto auditoría de neceser · GAROA Organic Skin Rituals</title>
+<meta name="description" content="Cinco días para revisar tu neceser acompañada, en un grupo de Telegram.">
+<link rel="icon" type="image/png" href="narciso.garoa.png">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --garnet: #540B0E;
+    --cream:  #F9F7F6;
+    --pink:   #E9D9D6;
+    --dark:   #2A1A1B;
+    --text:   #3D2B2C;
+    --muted:  #8A7070;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--cream);
+    color: var(--text);
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+  }
+  header { text-align: center; padding: 48px 24px 0; }
+  header img { height: 160px; width: auto; mix-blend-mode: multiply; }
+  .hero { text-align: center; padding: 40px 24px 0; max-width: 620px; margin: 0 auto; }
+  .page-label {
+    font-size: 0.68rem; font-weight: 700; letter-spacing: 0.35em;
+    text-transform: uppercase; color: var(--garnet);
+    margin-bottom: 20px; display: block;
+  }
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.1rem, 5vw, 3rem);
+    font-weight: 300; line-height: 1.2; color: var(--dark);
+    margin-bottom: 20px;
+  }
+  h1 em { font-style: italic; color: var(--garnet); }
+  .hero-sub { font-size: 0.95rem; line-height: 1.8; color: var(--muted); }
+
+  .brecha-seccion { background: var(--garnet); padding: 56px 0 48px; margin-top: 40px; }
+  .brecha { max-width: 560px; margin: 0 auto; padding: 0 24px; }
+  .brecha p { font-size: 0.95rem; line-height: 1.85; color: rgba(249,247,246,0.88); margin-bottom: 18px; }
+  .brecha p:first-child {
+    font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300;
+    font-size: 1.3rem; color: var(--cream); line-height: 1.5;
+  }
+  .brecha strong { color: var(--pink); font-weight: 700; }
+  .brecha .apartado {
+    display: block; font-size: 0.64rem; font-weight: 700; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--pink); margin-bottom: 8px;
+  }
+  .antes-despues {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+    background: rgba(249,247,246,0.2); margin: 28px 0 8px;
+  }
+  @media (max-width: 480px) { .antes-despues { grid-template-columns: 1fr; } }
+  .antes-despues div { background: var(--cream); padding: 22px 20px; }
+  .antes-despues div:last-child { background: var(--pink); }
+  .antes-despues span {
+    display: block; font-size: 0.64rem; font-weight: 700; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--garnet); margin-bottom: 8px;
+  }
+  .antes-despues p { font-size: 0.86rem; line-height: 1.7; color: var(--text); margin-bottom: 0; }
+
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  .content { max-width: 560px; margin: 36px auto 0; padding: 0 24px; width: 100%; }
+  .que-incluye {
+    background: var(--cream); border: 1px solid var(--pink); padding: 32px 28px; margin-bottom: 32px;
+  }
+  .que-incluye h2 {
+    font-family: 'Cormorant Garamond', serif; font-weight: 300;
+    font-size: 1.4rem; color: var(--dark); margin-bottom: 18px;
+  }
+  .que-incluye li {
+    list-style: none; font-size: 0.92rem; line-height: 1.7;
+    padding: 10px 0; border-top: 1px solid rgba(84,11,14,0.15);
+  }
+  .que-incluye li:first-child { border-top: none; }
+  .que-incluye strong { display: block; font-weight: 700; font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--garnet); margin-bottom: 4px; }
+
+  .precio { text-align: center; padding: 32px 0 8px; }
+  .precio .etiqueta {
+    font-size: 0.68rem; font-weight: 700; letter-spacing: 0.25em;
+    text-transform: uppercase; color: var(--garnet); display: block; margin-bottom: 10px;
+  }
+  .precio .cifra {
+    font-family: 'Cormorant Garamond', serif; font-size: 3rem;
+    font-weight: 300; color: var(--dark); line-height: 1;
+  }
+  .precio .nota { font-size: 0.85rem; color: var(--muted); margin-top: 12px; line-height: 1.6; }
+
+  .btn-primary {
+    display: block; text-align: center; margin: 24px auto 0; max-width: 380px;
+    padding: 18px 24px; background: var(--garnet); color: var(--cream);
+    font-family: 'Lato', sans-serif; font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.25em; text-transform: uppercase;
+    text-decoration: none; transition: background 0.3s;
+  }
+  .btn-primary:hover { background: var(--dark); }
+  .btn-primary.inactivo { background: var(--muted); pointer-events: none; }
+
+  .aviso { text-align: center; font-size: 0.85rem; color: var(--muted); margin-top: 20px; line-height: 1.7; }
+
+  footer {
+    margin-top: auto;
+    background: var(--dark); color: rgba(249,247,246,0.4);
+    text-align: center; padding: 32px 24px;
+    font-size: 0.72rem; letter-spacing: 0.15em;
+  }
+  footer a { color: rgba(249,247,246,0.4); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="/"><img src="narciso.garoa.png" alt="GAROA Organic Skin Rituals"></a>
+</header>
+
+<div class="hero reveal">
+  <span class="page-label">El reto</span>
+  <h1>Cinco días para <em>auditar tu neceser.</em></h1>
+  <p class="hero-sub">Quince minutos al día, conmigo, en un grupo privado de Telegram.</p>
+</div>
+
+<div class="brecha-seccion">
+  <div class="brecha reveal">
+    <p><span class="apartado">El día a día</span>Abres el armario del baño y ahí está todo: el sérum que compraste porque lo veías por todas partes, la crema que te regalaron, tres limpiadores empezados y algo que no sabes ni cuándo abriste.</p>
+    <p><span class="apartado">La realidad</span>No es que lo hayas hecho mal. Es que nadie nos ha enseñado a leer una etiqueta, y la piel cambia: con el otoño, con un embarazo, con la menopausia, con el estrés. Lo que te iba bien hace un año puede no ser lo que tu piel te pide hoy. <strong>Y no pasa nada.</strong></p>
+    <p><span class="apartado">La solución</span>Por eso he creado este reto: cinco días para revisar tu neceser <strong>acompañada</strong>, con criterio científico y sin agobios. Te quedas con lo que te sirve, y sabiendo por qué.</p>
+
+    <div class="antes-despues">
+      <div>
+        <span>Antes</span>
+        <p>Un neceser lleno, productos a medias y la duda de si lo que usas le va bien a tu piel.</p>
+      </div>
+      <div>
+        <span>Después</span>
+        <p>Un neceser más corto y coherente, adaptado a tu piel y a tu momento, y criterio para tus próximas compras.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="que-incluye reveal">
+    <h2>Qué incluye</h2>
+    <ul>
+      <li><strong>Día 1 · Saca todo</strong>Inventario sin juicios: qué tienes, cuándo lo abriste y si de verdad lo usas.</li>
+      <li><strong>Día 2 · Leer la etiqueta sin agobio</strong>Aprendes a leer un INCI y lo pruebas con tus cinco productos más usados.</li>
+      <li><strong>Día 3 · Tu piel, tu momento</strong>Cruzamos tus productos con tu tipo de piel y la etapa que estás viviendo.</li>
+      <li><strong>Día 4 · Caducidad y duplicados</strong>Qué ha caducado, qué está repetido y qué sobra.</li>
+      <li><strong>Día 5 · Tu ritual mínimo</strong>Te quedas con una rutina de tres o cuatro pasos y una lista clara de qué comprar, y qué no.</li>
+      <li><strong>En Telegram, conmigo</strong>Un grupo privado donde comparto cada día y te acompaño durante el reto.</li>
+    </ul>
+  </div>
+
+  <div class="precio reveal">
+    <span class="etiqueta" id="etiqueta"></span>
+    <span class="cifra" id="cifra"></span>
+    <p class="nota" id="nota"></p>
+  </div>
+
+  <a class="btn-primary" id="btnCompra" href="#">Quiero hacer el reto</a>
+  <p class="aviso" id="aviso"></p>
+</div>
+
+<footer>
+  <a href="/">GAROA · Organic Skin Rituals</a>
+</footer>
+
+<script>
+  // ── PENDIENTE de Sarai: precio, fechas y enlace de Stripe ──
+  const APERTURA = '2026-10-26';          // día en que se abre la venta
+  const FIN_LANZAMIENTO = null;           // 'AAAA-MM-DD' último día del precio de lanzamiento (o null)
+  const PRECIO_LANZAMIENTO = null;        // p. ej. '27 €' (o null si no hay precio de lanzamiento)
+  const PRECIO = null;                    // p. ej. '37 €'
+  const INICIO_RETO = null;               // 'AAAA-MM-DD' día 1 del reto en Telegram
+  const PAGO = null;                      // Payment Link de Stripe
+
+  const fecha = (iso) => new Date(iso + 'T12:00:00').toLocaleDateString('es-ES', { weekday: 'long', day: 'numeric', month: 'long' });
+  const ahora = new Date();
+  const btn = document.getElementById('btnCompra');
+  const etiqueta = document.getElementById('etiqueta');
+  const cifra = document.getElementById('cifra');
+  const nota = document.getElementById('nota');
+  const aviso = document.getElementById('aviso');
+
+  const inicio = APERTURA ? new Date(APERTURA + 'T00:00:00') : null;
+  const fin = FIN_LANZAMIENTO ? new Date(FIN_LANZAMIENTO + 'T23:59:59') : null;
+  const empieza = INICIO_RETO ? 'Empezamos el ' + fecha(INICIO_RETO) + '. ' : '';
+
+  if (!PAGO || !PRECIO || !inicio || ahora < inicio) {
+    etiqueta.textContent = 'Próximamente';
+    cifra.textContent = PRECIO_LANZAMIENTO || PRECIO || '';
+    nota.textContent = empieza;
+    btn.classList.add('inactivo');
+    btn.textContent = 'Muy pronto';
+    aviso.textContent = 'Te escribo al correo en cuanto se abran las plazas.';
+  } else if (PRECIO_LANZAMIENTO && fin && ahora <= fin) {
+    etiqueta.textContent = 'Precio de lanzamiento';
+    cifra.textContent = PRECIO_LANZAMIENTO;
+    nota.textContent = empieza + 'Precio válido hasta el ' + fecha(FIN_LANZAMIENTO) + '. Después, ' + PRECIO + '.';
+    btn.href = PAGO;
+  } else {
+    etiqueta.textContent = 'Precio';
+    cifra.textContent = PRECIO;
+    nota.textContent = empieza + 'Pago único. Al completar el pago recibes el enlace al grupo de Telegram.';
+    btn.href = PAGO;
+  }
+
+  const observador = new IntersectionObserver(entradas => {
+    entradas.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => observador.observe(el));
+</script>
+</body>
+</html>

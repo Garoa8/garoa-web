@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Lo que no entra en mi neceser · GAROA Organic Skin Rituals</title>
+<meta name="description" content="Descarga la guía de ingredientes que dejo fuera de mi neceser, y por qué.">
+<link rel="icon" type="image/png" href="narciso.garoa.png">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --garnet: #540B0E;
+    --cream:  #F9F7F6;
+    --pink:   #E9D9D6;
+    --dark:   #2A1A1B;
+    --text:   #3D2B2C;
+    --muted:  #8A7070;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--cream);
+    color: var(--text);
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+  }
+  header { text-align: center; padding: 48px 24px 0; }
+  header img { height: 160px; width: auto; mix-blend-mode: multiply; }
+  .hero { text-align: center; padding: 40px 24px 0; max-width: 560px; margin: 0 auto; }
+  .page-label {
+    font-size: 0.68rem; font-weight: 700; letter-spacing: 0.35em;
+    text-transform: uppercase; color: var(--garnet);
+    margin-bottom: 20px; display: block;
+  }
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.1rem, 5vw, 3rem);
+    font-weight: 300; line-height: 1.2; color: var(--dark);
+    margin-bottom: 20px;
+  }
+  h1 em { font-style: italic; color: var(--garnet); }
+  .hero-sub { font-size: 0.95rem; line-height: 1.8; color: var(--muted); }
+
+  .form-wrap { max-width: 420px; margin: 40px auto 0; padding: 0 24px; width: 100%; }
+  form { display: flex; flex-direction: column; gap: 12px; }
+  input {
+    font-family: 'Lato', sans-serif; font-size: 0.95rem; font-weight: 300;
+    padding: 16px 18px; background: #fff;
+    border: 1px solid var(--pink); color: var(--dark);
+  }
+  input:focus { outline: none; border-color: var(--garnet); }
+  button {
+    margin-top: 8px; padding: 18px 24px;
+    background: var(--garnet); color: var(--cream);
+    font-family: 'Lato', sans-serif;
+    font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.25em; text-transform: uppercase;
+    border: none; cursor: pointer; transition: background 0.3s;
+  }
+  button:hover { background: var(--dark); }
+  button:disabled { opacity: 0.6; cursor: default; }
+
+  .thanks {
+    display: none; text-align: center; margin-top: 32px;
+    font-family: 'Cormorant Garamond', serif; font-size: 1.25rem;
+    font-style: italic; color: var(--garnet); line-height: 1.5;
+  }
+  .legal { font-size: 0.72rem; color: var(--muted); text-align: center; margin-top: 16px; line-height: 1.6; }
+
+  footer {
+    margin-top: auto;
+    background: var(--dark); color: rgba(249,247,246,0.4);
+    text-align: center; padding: 32px 24px;
+    font-size: 0.72rem; letter-spacing: 0.15em;
+  }
+  footer a { color: rgba(249,247,246,0.4); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="/"><img src="narciso.garoa.png" alt="GAROA Organic Skin Rituals"></a>
+</header>
+
+<div class="hero">
+  <span class="page-label">Tu guía de otoño</span>
+  <h1>Lo que no entra en mi neceser, <em>y por qué.</em></h1>
+  <p class="hero-sub">Llega el otoño: frío en la calle, calefacción en casa y cambios bruscos de temperatura. Tu piel te pide más cuidado, y es un buen momento para mirar qué le estás poniendo.</p>
+  <p class="hero-sub" style="margin-top:14px">En una sola hoja: los ingredientes que dejo fuera y por qué, y qué evitar según tu piel o tu momento (embarazo, lactancia, menopausia…). Con la bibliografía enlazada. Déjame tu nombre y tu correo y la descargas al momento.</p>
+</div>
+
+<div class="form-wrap">
+  <form id="descargaForm">
+    <input type="text" name="nombre" placeholder="Tu nombre" required>
+    <input type="email" name="email" placeholder="Tu email" required>
+    <button type="submit" id="btnDescarga">Descargar la guía</button>
+  </form>
+  <p class="thanks" id="thanks">Tu guía se está descargando. En un momento te llevo a algo más para ti.</p>
+  <p class="legal">Al dejar tu correo te apuntas también a <strong>La Pausa</strong>, mi newsletter sobre ciencia de la piel y rituales. Puedes darte de baja cuando quieras. <a href="politica-privacidad.html" style="color:inherit">Política de privacidad</a>.</p>
+</div>
+
+<footer>
+  <a href="/">GAROA · Organic Skin Rituals</a>
+</footer>
+
+<script>
+  const PDF = 'guias/lo-que-no-entra-en-mi-neceser.pdf';
+  const NOMBRE_ARCHIVO = 'Lo que no entra en mi neceser · GAROA.pdf';
+  // Formulario de Kit: "Guía · Lo que no entra en mi neceser"
+  const KIT_FORM = '10076043';
+  // PENDIENTE: página de venta del reto (aún no existe)
+  const SIGUIENTE = 'reto.html';
+
+  document.getElementById('descargaForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const btn = document.getElementById('btnDescarga');
+    const fd = new FormData(form);
+    const kitData = new FormData();
+    kitData.append('email_address', fd.get('email'));
+    kitData.append('fields[first_name]', fd.get('nombre'));
+    btn.disabled = true;
+    if (KIT_FORM !== 'PENDIENTE') try {
+      await fetch(`https://app.convertkit.com/forms/${KIT_FORM}/subscriptions`, {
+        method: 'POST',
+        body: kitData,
+        headers: { 'Accept': 'application/json' }
+      });
+    } catch (_) {}
+
+    const enlace = document.createElement('a');
+    enlace.href = PDF;
+    enlace.download = NOMBRE_ARCHIVO;
+    document.body.appendChild(enlace);
+    enlace.click();
+    enlace.remove();
+
+    form.style.display = 'none';
+    document.getElementById('thanks').style.display = 'block';
+    setTimeout(() => { window.location.href = SIGUIENTE; }, 2000);
+  });
+</script>
+</body>
+</html>
