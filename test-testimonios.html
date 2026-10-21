@@ -158,13 +158,13 @@
       <p class="test-seccion-label">Tu experiencia</p>
       <div class="test-grupo">
         <label>En general, ¿cómo valorarías tu experiencia con la asesoría?</label>
-        <select id="t-valoracion">
+        <select id="t-valoracion" required>
           <option value="">— Selecciona —</option>
-          <option value="excelente">Excelente</option>
-          <option value="muy_buena">Muy buena</option>
-          <option value="buena">Buena</option>
-          <option value="regular">Regular</option>
-          <option value="mala">No cumplió lo que esperaba</option>
+          <option value="Excelente">Excelente</option>
+          <option value="Muy buena">Muy buena</option>
+          <option value="Buena">Buena</option>
+          <option value="Regular">Regular</option>
+          <option value="No cumplió lo que esperaba">No cumplió lo que esperaba</option>
         </select>
       </div>
       <div class="test-grupo">
@@ -174,18 +174,18 @@
       <div class="test-grupo">
         <label>¿Recomendarías esta asesoría a una amiga?</label>
         <div class="opciones-lista">
-          <label class="opcion-item"><input type="radio" name="recomienda" value="si_seguro"><span>Sí, seguro</span></label>
-          <label class="opcion-item"><input type="radio" name="recomienda" value="probablemente"><span>Probablemente</span></label>
-          <label class="opcion-item"><input type="radio" name="recomienda" value="no_segura"><span>No estoy segura</span></label>
-          <label class="opcion-item"><input type="radio" name="recomienda" value="no"><span>No</span></label>
+          <label class="opcion-item"><input type="radio" name="recomienda" value="Sí, seguro" required><span>Sí, seguro</span></label>
+          <label class="opcion-item"><input type="radio" name="recomienda" value="Probablemente"><span>Probablemente</span></label>
+          <label class="opcion-item"><input type="radio" name="recomienda" value="No estoy segura"><span>No estoy segura</span></label>
+          <label class="opcion-item"><input type="radio" name="recomienda" value="No"><span>No</span></label>
         </div>
       </div>
       <div class="test-grupo">
         <label>¿Puedo compartir lo que me cuentes aquí? <span class="sub">Nunca sin tu permiso explícito.</span></label>
         <div class="opciones-lista">
-          <label class="opcion-item"><input type="radio" name="permiso" value="si"><span>Sí</span></label>
-          <label class="opcion-item"><input type="radio" name="permiso" value="anonimo"><span>Anónimo</span></label>
-          <label class="opcion-item"><input type="radio" name="permiso" value="no"><span>No</span></label>
+          <label class="opcion-item"><input type="radio" name="permiso" value="Sí" required><span>Sí</span></label>
+          <label class="opcion-item"><input type="radio" name="permiso" value="Anónimo"><span>Anónimo</span></label>
+          <label class="opcion-item"><input type="radio" name="permiso" value="No"><span>No</span></label>
         </div>
       </div>
     </div>
@@ -224,7 +224,7 @@
 const form = document.getElementById('test-form');
 const resultado = document.getElementById('resultado');
 
-const DRAFT_KEY = 'laro_testimonio_draft_v1';
+const DRAFT_KEY = 'garoa_testimonio_draft_v2';
 
 function guardarBorrador() {
   const data = {};
