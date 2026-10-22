@@ -149,24 +149,61 @@
   }
   .pq-bloque li::before { content: '—'; position: absolute; left: 0; color: var(--garnet); }
 
-  /* TESTIMONIOS */
-  .testimonios { margin-bottom: 48px; }
-  .testimonio-card {
-    padding: 32px 28px; background: white; border-top: 2px solid var(--garnet);
-    margin-bottom: 16px; position: relative;
+  html, body { overflow-x: clip; }
+
+  /* TESTIMONIOS — franja a todo el ancho, foto de la sesión de fondo */
+  .testimonios {
+    position: relative; overflow: hidden;
+    width: 100vw; margin: 72px 0 72px calc(50% - 50vw);
+    padding: 88px 24px 64px; text-align: center; color: var(--cream);
+    background: var(--garnet) url('testimonios-neceser.jpg') center 55% / cover no-repeat;
   }
-  .testimonio-card:last-child { margin-bottom: 0; }
-  .testimonio-marca {
-    font-family: 'Cormorant Garamond', serif; font-style: italic;
-    font-size: 3rem; color: var(--pink); line-height: 1; margin-bottom: 4px;
+  .testimonios::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(42,26,27,0.78) 0%, rgba(84,11,14,0.86) 55%, rgba(42,26,27,0.92) 100%);
   }
+  .testimonios > * { position: relative; }
+  .testimonios-narciso { width: 72px; height: auto; opacity: 0.85; margin-bottom: 18px; }
+  .testimonios-label {
+    font-size: 0.62rem; font-weight: 700; letter-spacing: 0.45em;
+    text-transform: uppercase; color: var(--pink); margin-bottom: 40px; display: block;
+  }
+  .testimonios-escena { position: relative; max-width: 560px; margin: 0 auto; display: grid; touch-action: pan-y; }
+  .testimonios-escena::before {
+    content: '\201C'; position: absolute; left: 50%; top: -0.32em; transform: translateX(-50%);
+    font-family: 'Cormorant Garamond', serif; font-size: 12rem; line-height: 1;
+    color: var(--pink); opacity: 0.12; pointer-events: none;
+  }
+  .testimonio {
+    grid-area: 1 / 1; opacity: 0; transform: translateY(10px);
+    transition: opacity 1.4s ease, transform 1.4s ease; pointer-events: none;
+  }
+  .testimonio.active { opacity: 1; transform: none; pointer-events: auto; }
   .testimonio-frase {
     font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300;
-    font-size: 1.15rem; line-height: 1.55; color: var(--dark); margin-bottom: 16px;
+    font-size: 1.45rem; line-height: 1.55; color: var(--cream); margin-bottom: 28px;
   }
   .testimonio-firma {
-    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em;
-    text-transform: uppercase; color: var(--garnet);
+    font-size: 0.64rem; font-weight: 700; letter-spacing: 0.3em;
+    text-transform: uppercase; color: var(--pink);
+  }
+  .testimonio-firma::before {
+    content: ''; display: inline-block; width: 28px; height: 1px;
+    background: var(--pink); vertical-align: middle; margin-right: 14px; opacity: 0.7;
+  }
+  .testimonios-pie { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 44px; }
+  .testimonios-contador {
+    font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; letter-spacing: 0.15em;
+    color: var(--pink); min-width: 3.2em;
+  }
+  .testimonios-barra { width: 96px; height: 1px; background: rgba(233,217,214,0.25); overflow: hidden; }
+  .testimonios-barra span { display: block; height: 100%; width: 0; background: var(--pink); }
+  @media (min-width: 720px) {
+    .testimonios { padding: 120px 24px 88px; }
+    .testimonio-frase { font-size: 1.75rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .testimonio { transition: none; }
   }
 
   /* PRECIO */
@@ -334,19 +371,32 @@
     </div>
   </div>
 
-  <span class="section-label">Lo que dicen</span>
-  <div class="testimonios">
-    <div class="testimonio-card">
-      <p class="testimonio-marca">"</p>
-      <p class="testimonio-frase">Sarai ofrece un trato cercano y personalizado, recomendándote los productos más adecuados para tu tipo de piel y teniendo en cuenta el momento vital en el que te encuentras. Se nota que sabe de lo que habla y que se preocupa por encontrar lo que realmente necesitas.</p>
-      <p class="testimonio-firma">— M., clienta de la asesoría 1:1</p>
+  <section class="testimonios" aria-label="Lo que dicen las clientas">
+    <img class="testimonios-narciso" src="narciso.garoa.cream.png" alt="">
+    <span class="testimonios-label">Lo que dicen</span>
+    <div class="testimonios-escena" id="testimoniosEscena">
+      <figure class="testimonio active">
+        <blockquote class="testimonio-frase">Sarai ofrece un trato cercano y personalizado, recomendándote los productos más adecuados para tu tipo de piel y teniendo en cuenta el momento vital en el que te encuentras. Se nota que sabe de lo que habla y que se preocupa por encontrar lo que realmente necesitas.</blockquote>
+        <figcaption class="testimonio-firma">M. · Asesoría 1:1</figcaption>
+      </figure>
+      <figure class="testimonio">
+        <blockquote class="testimonio-frase">Gracias a esta asesoría tengo una rutina sencilla de seguir, que se adapta a las necesidades de mi piel, con productos naturales que cuidan de mi piel y de mi salud. Destaco su trato cercano y que haya tenido la paciencia de explicarme todos los pasos y para qué sirve cada producto.</blockquote>
+        <figcaption class="testimonio-firma">Clienta · Asesoría 1:1</figcaption>
+      </figure>
+      <figure class="testimonio">
+        <blockquote class="testimonio-frase">Estoy encantada con la experiencia. Una asesoría cercana, respetuosa y muy detallista. Ha acertado de lleno con lo que necesitaba. Se nota el cariño que pone en todo. ¡Totalmente recomendable!</blockquote>
+        <figcaption class="testimonio-firma">L. · Asesoría 1:1</figcaption>
+      </figure>
+      <figure class="testimonio">
+        <blockquote class="testimonio-frase">Llevo dos días haciendo el ritual de mañana y de tarde y ya he notado el cambio en mi piel. Está muchísimo más suave, no me voy a la cama con sensación de tener demasiado producto en la piel y encima la rutina es sencilla. Los productos se nota que son de muy buena calidad.</blockquote>
+        <figcaption class="testimonio-firma">A. · Asesoría 1:1</figcaption>
+      </figure>
     </div>
-    <div class="testimonio-card">
-      <p class="testimonio-marca">"</p>
-      <p class="testimonio-frase">Gracias a esta asesoría tengo una rutina sencilla de seguir, que se adapta a las necesidades de mi piel, con productos naturales que cuidan de mi piel y de mi salud. Destaco su trato cercano y que haya tenido la paciencia de explicarme todos los pasos y para qué sirve cada producto.</p>
-      <p class="testimonio-firma">— Clienta de la asesoría 1:1</p>
+    <div class="testimonios-pie">
+      <span class="testimonios-contador" id="testimoniosContador">01 / 04</span>
+      <span class="testimonios-barra"><span id="testimoniosBarra"></span></span>
     </div>
-  </div>
+  </section>
 
   <div class="precio-bloque">
     <p class="precio-etiq">Precio</p>
@@ -369,6 +419,51 @@
 <footer>
   <a href="/">GAROA · Organic Skin Rituals</a>
 </footer>
+
+<script>
+  // Testimonios: fundido lento, cambia solo cada 7 s; se pausa al tocar y se puede deslizar
+  (function () {
+    const escena = document.getElementById('testimoniosEscena');
+    if (!escena) return;
+    const items = escena.querySelectorAll('.testimonio');
+    const contador = document.getElementById('testimoniosContador');
+    const barra = document.getElementById('testimoniosBarra');
+    const DURACION = 7000;
+    const dos = n => String(n).padStart(2, '0');
+    let current = 0, timer = null, pausado = false;
+
+    function mostrar(i) {
+      current = (i + items.length) % items.length;
+      items.forEach((el, k) => el.classList.toggle('active', k === current));
+      contador.textContent = dos(current + 1) + ' / ' + dos(items.length);
+      arrancar();
+    }
+    function arrancar() {
+      clearTimeout(timer);
+      barra.style.transition = 'none';
+      barra.style.width = '0';
+      if (pausado) return;
+      void barra.offsetWidth;
+      barra.style.transition = 'width ' + DURACION + 'ms linear';
+      barra.style.width = '100%';
+      timer = setTimeout(() => mostrar(current + 1), DURACION);
+    }
+
+    let x0 = null;
+    escena.addEventListener('touchstart', e => { x0 = e.touches[0].clientX; pausado = true; arrancar(); }, { passive: true });
+    escena.addEventListener('touchend', e => {
+      const dx = e.changedTouches[0].clientX - x0;
+      pausado = false;
+      if (Math.abs(dx) > 40) mostrar(current + (dx < 0 ? 1 : -1)); else arrancar();
+    });
+    escena.addEventListener('mouseenter', () => { pausado = true; arrancar(); });
+    escena.addEventListener('mouseleave', () => { pausado = false; arrancar(); });
+    escena.addEventListener('click', () => mostrar(current + 1));
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { pausado = true; }
+    mostrar(0);
+  })();
+</script>
 
 </body>
 </html>
