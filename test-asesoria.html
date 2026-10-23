@@ -153,6 +153,8 @@
     .opciones-grid { grid-template-columns: 1fr; }
   }
 </style>
+<!-- Analítica sin cookies (Umami) -->
+<script defer src="https://cloud.umami.is/script.js" data-website-id="f0614c03-35fa-4f95-bce6-00043441a337"></script>
 </head>
 <body>
 <div class="test-wrap">
@@ -190,6 +192,10 @@
       <div class="test-grupo">
         <label>Dirección de envío <span class="sub">Aquí te llegarán las muestras después de la sesión.</span></label>
         <textarea id="t-direccion" placeholder="Calle, número, piso, código postal, ciudad" rows="2"></textarea>
+      </div>
+      <div class="test-grupo">
+        <label>Teléfono <span class="sub">Lo necesita la empresa de mensajería para el envío de las muestras.</span></label>
+        <input type="tel" id="t-telefono" placeholder="Ej: 600 00 00 00">
       </div>
       <div class="test-grupo">
         <label>¿Vienes referido por alguien? <span class="sub">Opcional.</span></label>
@@ -566,6 +572,7 @@ form.addEventListener('submit', function(e) {
     email:            val('t-email'),
     edad:             val('t-edad'),
     direccion:        val('t-direccion'),
+    telefono:         val('t-telefono'),
     referido:         val('t-referido'),
     pieles:           checks('piel'),
     pielManana:       val('t-manana'),

@@ -77,6 +77,8 @@
   }
   footer a { color: rgba(249,247,246,0.4); text-decoration: none; }
 </style>
+<!-- Analítica sin cookies (Umami) -->
+<script defer src="https://cloud.umami.is/script.js" data-website-id="f0614c03-35fa-4f95-bce6-00043441a337"></script>
 </head>
 <body>
 
@@ -95,7 +97,7 @@
   <form id="descargaForm">
     <input type="text" name="nombre" placeholder="Tu nombre" required>
     <input type="email" name="email" placeholder="Tu email" required>
-    <button type="submit" id="btnDescarga">Descargar la guía</button>
+    <button type="submit" id="btnDescarga" data-umami-event="clic-descargar-ingredientes">Descargar la guía</button>
   </form>
   <p class="thanks" id="thanks">Tu guía se está descargando. En un momento te llevo a algo más para ti.</p>
   <p class="legal">Al dejar tu correo te apuntas también a <strong>La Pausa</strong>, mi newsletter sobre ciencia de la piel y rituales. Puedes darte de baja cuando quieras. <a href="politica-privacidad.html" style="color:inherit">Política de privacidad</a>.</p>
