@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Calendario de adviento · GAROA</title>
+<meta name="description" content="Calendario de adviento GAROA: 24 días para cuidar tu piel, del 1 al 24 de diciembre.">
+<meta property="og:title" content="Calendario de adviento · GAROA">
+<meta property="og:description" content="24 días para cuidar tu piel, del 1 al 24 de diciembre.">
+<meta property="og:image" content="https://garoa-skinrituals.com/adviento-botica.jpg">
+<link rel="icon" type="image/png" href="narciso.garoa.png">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root { --garnet:#540B0E; --cream:#F9F7F6; --linen:#E9D9D6; --gold:#C9A24A; }
+  * { box-sizing:border-box; }
+  html, body { margin:0; background:radial-gradient(ellipse at 50% 30%, #6a1216 0%, #540B0E 45%, #2e0507 100%) fixed; color:var(--cream); font-family:'Lato',sans-serif; }
+  header { text-align:center; padding:12px 16px 8px; }
+  header img { height:clamp(130px,30vw,200px); width:auto; display:block; margin:0 auto -6px; filter:drop-shadow(0 1px 10px rgba(42,26,27,0.3)); }
+  .tag { font-size:11px; letter-spacing:.35em; color:var(--linen); font-weight:700; }
+  h1 { font-family:'Cormorant Garamond',serif; font-weight:400; font-style:italic; font-size:clamp(32px,7vw,54px); margin:6px 0 4px; }
+  header p { font-family:'Cormorant Garamond',serif; font-size:19px; color:var(--linen); margin:0; }
+
+  .escena { position:relative; width:min(560px, calc(100vw - 32px)); margin:18px auto 24px; }
+  .botica { position:relative; border-radius:6px; overflow:hidden; box-shadow:0 20px 60px rgba(0,0,0,.45); transition:filter 1.2s ease; }
+  .botica img { display:block; width:100%; height:auto; }
+  body.bloqueado .botica { filter:blur(6px) brightness(.8); }
+  body.bloqueado .puerta { pointer-events:none; }
+
+  /* formulario de inscripción, encima de la botica */
+  .entrada { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; padding:16px; transition:opacity .8s ease; }
+  body:not(.bloqueado) .entrada { opacity:0; pointer-events:none; }
+  .tarjeta { background:var(--cream); color:var(--garnet); width:100%; max-width:380px; padding:30px 26px 22px; border-radius:4px; text-align:center; box-shadow:0 30px 80px rgba(0,0,0,.5); }
+  .tarjeta h2 { font-family:'Cormorant Garamond',serif; font-weight:400; font-style:italic; font-size:30px; margin:6px 0 8px; }
+  .tarjeta p { font-family:'Cormorant Garamond',serif; font-size:18px; line-height:1.4; margin:0 0 18px; }
+  .tarjeta input { width:100%; font:15px 'Lato',sans-serif; padding:12px; border:1px solid #d8c6c3; background:#fff; color:#2e0507; margin-bottom:10px; }
+  .tarjeta button { width:100%; font:700 12px 'Lato',sans-serif; letter-spacing:.2em; background:var(--garnet); color:var(--cream); border:0; padding:14px; cursor:pointer; }
+  .tarjeta small { display:block; font-size:11px; line-height:1.5; color:#8a5a5c; margin-top:12px; }
+  .tarjeta small a { color:inherit; }
+  .provisional { background:#fff3c4; }
+
+  .puerta { position:absolute; border:0; padding:0; background:transparent; cursor:pointer; border-radius:3px; transition:box-shadow .4s, background .4s; }
+  .puerta.hoy { animation:latido 2.4s ease-in-out infinite; }
+  .puerta.abierta { background:rgba(255,216,107,.18); box-shadow:inset 0 0 18px rgba(255,216,107,.55), 0 0 14px rgba(255,216,107,.45); }
+  .puerta.cerrada, .puerta.antes { cursor:default; }
+  .puerta.antes { background:rgba(46,5,7,.28); }
+  .puerta.tiembla { animation:tiembla .4s; }
+  .puerta:focus-visible { outline:2px solid #FFE7A0; outline-offset:2px; }
+  @keyframes latido { 0%,100% { box-shadow:0 0 0 rgba(255,216,107,0); } 50% { box-shadow:0 0 22px rgba(255,216,107,.85), inset 0 0 14px rgba(255,216,107,.5); } }
+  @keyframes tiembla { 25% { transform:translateX(-2px); } 75% { transform:translateX(2px); } }
+
+  .aviso { position:fixed; left:50%; bottom:24px; transform:translateX(-50%); background:#2e0507; border:1px solid var(--gold); color:var(--cream); padding:10px 16px; font-size:13px; opacity:0; transition:opacity .3s; pointer-events:none; z-index:30; max-width:calc(100vw - 32px); text-align:center; }
+  .aviso.ver { opacity:1; }
+
+  dialog { border:0; padding:0; background:var(--cream); color:var(--garnet); width:min(460px, calc(100vw - 32px)); border-radius:4px; box-shadow:0 30px 80px rgba(0,0,0,.5); }
+  dialog::backdrop { background:rgba(30,3,5,.7); }
+  .ficha { padding:30px 28px 26px; text-align:center; }
+  .ficha .tag { color:#8a5a5c; }
+  .ficha h2 { font-family:'Cormorant Garamond',serif; font-weight:400; font-style:italic; font-size:34px; margin:8px 0 6px; }
+  .ficha .tema { font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:#8a6a2a; margin:0 0 16px; }
+  .ficha p { font-family:'Cormorant Garamond',serif; font-size:19px; line-height:1.45; margin:0 0 18px; }
+  .ficha button { font-family:'Lato',sans-serif; font-size:12px; letter-spacing:.2em; background:var(--garnet); color:var(--cream); border:0; padding:11px 22px; cursor:pointer; }
+
+  canvas { position:fixed; inset:0; pointer-events:none; z-index:20; }
+</style>
+<!-- Analítica sin cookies (Umami) -->
+<script defer src="https://cloud.umami.is/script.js" data-website-id="f0614c03-35fa-4f95-bce6-00043441a337"></script>
+</head>
+<body class="bloqueado">
+<canvas id="brillo"></canvas>
+<header>
+  <img src="narciso.garoa.cream.png" alt="GAROA Organic Skin Rituals">
+  <h1>Calendario de adviento</h1>
+  <p>24 días para cuidar tu piel</p>
+</header>
+
+<div class="escena">
+  <div class="botica" id="botica">
+    <img src="adviento-botica.jpg" alt="Botica GAROA con 24 cajones numerados; el último lleva un lazo con una etiqueta del 24">
+  </div>
+  <div class="entrada">
+    <form class="tarjeta" id="form">
+      <div class="tag" style="color:#8a5a5c">1 — 24 DE DICIEMBRE</div>
+      <h2>Abre tu primer regalo</h2>
+      <p>En cada cajón encontrarás una sorpresa, un ritual, un descuento especial, un PDF con información de un activo botánico… Podrás abrirlos desde el día en que te apuntes, así que te recomiendo que te apuntes antes del 1 de diciembre para disfrutar de todos los regalos.</p>
+      <input type="text" name="nombre" placeholder="Tu nombre" autocomplete="given-name">
+      <input type="email" name="email" placeholder="Tu email" required autocomplete="email">
+      <button type="submit" id="btnAlta" data-umami-event="alta-adviento">QUIERO MI CALENDARIO</button>
+      <small>Al apuntarte recibirás el calendario y también La Pausa, mi newsletter. Puedes darte de baja cuando quieras. <a href="politica-privacidad.html">Política de privacidad</a>.</small>
+    </form>
+  </div>
+</div>
+
+<div class="aviso" id="aviso"></div>
+
+<dialog id="modal">
+  <div class="ficha">
+    <div class="tag" id="mTag"></div>
+    <h2 id="mTit"></h2>
+    <div class="tema" id="mTema"></div>
+    <p id="mTxt"></p>
+    <button onclick="document.getElementById('modal').close()">CERRAR</button>
+  </div>
+</dialog>
+
+<script>
+// Cajones sobre la imagen definitiva (1024 × 1536), filas de arriba abajo
+const IW = 1024, IH = 1536;
+const cols = [273, 388, 500, 610], rows = [672, 742, 812, 882, 952, 1022], cw = 108, ch = 64;
+const nums = [7,15,2,19, 11,4,22,9, 1,17,13,6, 20,10,3,16, 12,23,8,5, 18,14,21,24];
+
+const temas = d => d <= 7 ? 'Semana 1 · La piel en invierno' : d <= 14 ? 'Semana 2 · Ritual y calma'
+               : d <= 21 ? 'Semana 3 · Leer y elegir mejor' : 'Semana 4 · Cerrar el año cuidándote';
+// PENDIENTE (noviembre): los 24 textos de Sarai. Mientras tanto, textos provisionales.
+const especiales = {
+  5:  'Sorpresa: la tienda abre para ti antes que para nadie, con un regalo dentro.',
+  8:  'Aquí irá la puerta del vídeo «Antes del ritual».',
+  12: 'Aquí irá el aviso del último día de pedido para que llegue antes de Navidad.',
+  20: 'Aquí irán las plazas de asesoría de enero.',
+  24: 'El cierre del adviento y tu regalo final.'
+};
+
+// "Hoy" según la hora de Madrid: 0 = antes del 1 de diciembre de 2026; del 25 en adelante, todo abierto (24)
+const hoy = () => {
+  const f = new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Madrid', year: 'numeric', month: '2-digit', day: '2-digit' })
+    .formatToParts(new Date()).reduce((o, p) => (o[p.type] = +p.value, o), {});
+  if (f.year < 2026 || (f.year === 2026 && f.month < 12)) return 0;
+  if (f.year > 2026) return 24;
+  return Math.min(f.day, 24);
+};
+
+const leer = k => { try { return JSON.parse(localStorage.getItem(k)); } catch(e) { return null; } };
+const guardar = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch(e) {} };
+let alta = leer('adviento-alta');                    // día en que se apuntó (0 = antes del 1 de diciembre)
+let abiertas = new Set(leer('adviento-abiertas') || []);
+// Enlace de los emails: adviento.html?desde=8 → entra directa al calendario, con su día de alta (en cualquier dispositivo)
+const desde = parseInt(new URLSearchParams(location.search).get('desde'), 10);
+if (desde >= 0 && desde <= 24) { alta = alta === null ? desde : Math.min(alta, desde); guardar('adviento-alta', alta); }
+const primerDia = () => Math.max(1, alta ?? 99);
+
+const botica = document.getElementById('botica');
+const puertas = [];
+rows.forEach((y, r) => cols.forEach((x, c) => {
+  const p = { d: nums[r*4 + c], x, y }, b = document.createElement('button');
+  b.className = 'puerta';
+  Object.assign(b.style, { left: x/IW*100 + '%', top: y/IH*100 + '%', width: cw/IW*100 + '%', height: ch/IH*100 + '%' });
+  b.setAttribute('aria-label', 'Día ' + p.d);
+  b.onclick = () => abre(p, b);
+  botica.appendChild(b); p.el = b; puertas.push(p);
+}));
+
+function pinta() {
+  document.body.classList.toggle('bloqueado', alta === null);
+  puertas.forEach(p => {
+    const antes = p.d < primerDia() && p.d <= hoy();
+    p.el.classList.toggle('antes', antes);
+    p.el.classList.toggle('cerrada', p.d > hoy());
+    p.el.classList.toggle('abierta', abiertas.has(p.d) && !antes && p.d <= hoy());
+    p.el.classList.toggle('hoy', p.d === hoy() && !abiertas.has(p.d));
+  });
+}
+
+let tAviso;
+function aviso(txt) {
+  const a = document.getElementById('aviso'); a.textContent = txt; a.classList.add('ver');
+  clearTimeout(tAviso); tAviso = setTimeout(() => a.classList.remove('ver'), 2600);
+}
+
+function abre(p, b) {
+  if (p.d > hoy() || p.d < primerDia()) {
+    b.classList.remove('tiembla'); void b.offsetWidth; b.classList.add('tiembla');
+    return aviso(p.d > hoy() ? 'Este cajón se abre el ' + p.d + ' de diciembre.'
+                             : 'Este cajón se abrió antes de que llegaras. Los que vienen ya son tuyos.');
+  }
+  abiertas.add(p.d); guardar('adviento-abiertas', [...abiertas]); pinta();
+  document.getElementById('mTag').textContent = 'CAJÓN ' + p.d;
+  document.getElementById('mTit').textContent = 'Día ' + p.d;
+  document.getElementById('mTema').textContent = temas(p.d);
+  document.getElementById('mTxt').textContent = especiales[p.d] || 'Aquí irá el texto que escribas para este día.';
+  document.getElementById('modal').showModal();
+  if (p.d === 24) lluvia();
+}
+
+// Formulario de Kit: "Calendario de adviento" (el día de alta va al campo dia_alta, que usan los enlaces de los emails)
+const KIT_FORM = '10114166';
+document.getElementById('form').onsubmit = async e => {
+  e.preventDefault();
+  const fd = new FormData(e.target), kitData = new FormData(), dia = hoy();
+  kitData.append('email_address', fd.get('email'));
+  kitData.append('fields[first_name]', fd.get('nombre'));
+  kitData.append('fields[dia_alta]', String(dia));
+  document.getElementById('btnAlta').disabled = true;
+  try {
+    await fetch(`https://app.convertkit.com/forms/${KIT_FORM}/subscriptions`, {
+      method: 'POST', body: kitData, headers: { 'Accept': 'application/json' }
+    });
+  } catch (_) {}
+  alta = dia; guardar('adviento-alta', alta); pinta();
+  setTimeout(lluvia, 400);
+  if (dia === 0) setTimeout(() => aviso('¡Ya estás dentro! El 1 de diciembre se abre tu primer cajón.'), 900);
+};
+pinta();
+
+// Rocío dorado
+(function(){
+  const cv = document.getElementById('brillo'), ctx = cv.getContext('2d');
+  const golds = ['#E8B53A','#D4A437','#F5C542','#C9932A','#FFD86B'];
+  let parts = [], start = 0, raf = 0, W = 0, H = 0, dpr = 1;
+  const DUR = 16000, FADE = 4000;
+  function size(){ dpr = Math.min(window.devicePixelRatio||1, 2); W = innerWidth; H = innerHeight;
+    cv.width = W*dpr; cv.height = H*dpr; cv.style.width = W+'px'; cv.style.height = H+'px'; ctx.setTransform(dpr,0,0,dpr,0,0); }
+  function make(){
+    const n = Math.round(Math.min(320, W*H/3600));
+    parts = Array.from({length:n}, () => ({
+      x: Math.random()*W, y: -Math.random()*H*0.45 - 10, r: Math.random()*0.9 + 0.8,
+      vy: H/600 * (Math.random()*0.7 + 0.6), /* cruza la pantalla en ~6–13 s, sea cual sea su altura */ sway: Math.random()*0.5 + 0.2, ph: Math.random()*6.28,
+      tw: Math.random()*0.05 + 0.02, c: golds[Math.random()*golds.length|0], star: Math.random() < 0.22
+    }));
+  }
+  function draw(t){
+    const el = t - start, fade = el > DUR-FADE ? Math.max(0, (DUR-el)/FADE) : 1;
+    ctx.clearRect(0,0,W,H); ctx.globalCompositeOperation = 'source-over';
+    for (const p of parts){
+      p.y += p.vy; p.ph += p.tw; p.x += Math.sin(p.ph)*p.sway*0.4;
+      if (p.y > H + 10 && el < DUR - FADE) { p.y = -10; p.x = Math.random()*W; }
+      const a = (0.75 + 0.25*Math.sin(p.ph*3)) * fade, flash = Math.sin(p.ph*1.7) > 0.97 ? 2.2 : 1;
+      ctx.globalAlpha = Math.min(1, a*flash); ctx.shadowColor = p.c; ctx.shadowBlur = p.r*6*flash;
+      const g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r*1.6*flash);
+      g.addColorStop(0, '#FFF6D8'); g.addColorStop(0.3, p.c); g.addColorStop(1, 'rgba(184,134,46,0)');
+      ctx.fillStyle = g;
+      if (p.star){ ctx.fillStyle = p.c; const s = p.r*3.2*flash; ctx.fillRect(p.x-s, p.y-0.5, s*2, 1); ctx.fillRect(p.x-0.5, p.y-s, 1, s*2); }
+      ctx.beginPath(); ctx.arc(p.x, p.y, p.r*1.6*flash, 0, 6.283); ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+    if (el < DUR) raf = requestAnimationFrame(draw); else ctx.clearRect(0,0,W,H);
+  }
+  window.lluvia = function(){
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    cancelAnimationFrame(raf); size(); make(); start = performance.now(); raf = requestAnimationFrame(draw);
+  };
+  addEventListener('resize', size);
+  addEventListener('load', () => setTimeout(lluvia, 250));
+})();
+</script>
+</body>
+</html>
