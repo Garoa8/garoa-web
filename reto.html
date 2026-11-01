@@ -156,6 +156,80 @@
     font-size: 0.72rem; letter-spacing: 0.15em; line-height: 2;
   }
   footer a { color: rgba(249,247,246,0.4); text-decoration: none; }
+
+  /* ── Toque premium: formas suaves y movimiento ── */
+  .btn-primary { border-radius: 999px; position: relative; overflow: hidden; }
+  .btn-primary::after {
+    content: ''; position: absolute; top: 0; left: -60%; width: 40%; height: 100%;
+    background: linear-gradient(100deg, transparent, rgba(249,247,246,0.25), transparent);
+    transform: skewX(-20deg); transition: left 0.8s ease;
+  }
+  .btn-primary:hover::after { left: 120%; }
+
+  .foto-hero { max-width: 520px; padding: 0 24px; }
+  /* Recorte orgánico que respira muy despacio */
+  .organico {
+    border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+    animation: respira 20s ease-in-out infinite alternate;
+  }
+  @keyframes respira {
+    0%   { border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%; }
+    50%  { border-radius: 42% 58% 58% 42% / 45% 40% 60% 55%; }
+    100% { border-radius: 35% 65% 60% 40% / 38% 48% 52% 62%; }
+  }
+  .arco {
+    overflow: hidden; height: 540px;
+    opacity: 0; transform: scale(0.94);
+    transition: opacity 1.4s ease, transform 1.6s cubic-bezier(.22,1,.36,1);
+  }
+  .arco.visible { opacity: 1; transform: none; }
+  .arco img {
+    display: block; width: 100%; height: 115%; object-fit: cover; object-position: center 60%;
+    transform: translateY(var(--py, 0px)) scale(1.08); will-change: transform;
+  }
+  @media (max-width: 520px) {
+    .foto-hero { padding: 0 16px; }
+    .arco { height: 400px; }
+  }
+
+  .cinta {
+    background: var(--pink); overflow: hidden; white-space: nowrap;
+    padding: 18px 0; margin-top: 48px;
+  }
+  .cinta-pista { display: inline-block; animation: cinta 38s linear infinite; }
+  .cinta span {
+    font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300;
+    font-size: 1.35rem; color: var(--garnet); padding: 0 18px;
+  }
+  .cinta span.punto { font-style: normal; padding: 0; opacity: 0.5; }
+  @keyframes cinta { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  .collage { position: relative; margin: 0 auto 36px; width: 260px; height: 340px; }
+  .collage .grande { width: 250px; height: 290px; object-fit: cover; }
+  .collage .peque {
+    position: absolute; right: -10px; bottom: -14px;
+    width: 120px; height: 120px; object-fit: cover; border-radius: 50%;
+    border: 5px solid var(--cream);
+    animation: flota 6s ease-in-out infinite;
+  }
+  @keyframes flota { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+  .porque { display: block; }
+
+  .dias li { display: grid; grid-template-columns: 56px 1fr; gap: 4px 14px; align-items: baseline; }
+  .dias .num {
+    grid-row: span 2; font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 2.4rem; font-weight: 300; color: var(--garnet); line-height: 1;
+  }
+  .dias li.reveal { transition-duration: 0.8s; }
+
+  .objecion, .que-incluye { border-radius: 24px; }
+  .antes-despues { border-radius: 20px; overflow: hidden; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cinta-pista, .collage .peque, .organico { animation: none; }
+    .arco { opacity: 1; transform: none; transition: none; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
 </style>
 <!-- Analítica sin cookies (Umami) -->
 <script defer src="https://cloud.umami.is/script.js" data-website-id="f0614c03-35fa-4f95-bce6-00043441a337"></script>
@@ -175,9 +249,14 @@
   <a class="btn-primary js-compra" href="#precio" data-umami-event="clic-comprar-reto-hero">Quiero hacer el reto</a>
 </div>
 
-<div class="foto-hero reveal">
-  <img src="reto-neceser.jpg" alt="Manos sacando un frasco de un neceser burdeos">
+<div class="foto-hero">
+  <div class="arco organico" id="arco"><img id="fotoHero" src="reto-neceser.jpg" alt="Manos sacando un frasco de un neceser burdeos"></div>
 </div>
+
+<div class="cinta" aria-hidden="true"><div class="cinta-pista">
+  <span>Tu piel hoy</span><span class="punto">·</span><span>Saca tu neceser</span><span class="punto">·</span><span>Lee la etiqueta</span><span class="punto">·</span><span>Se queda o se va</span><span class="punto">·</span><span>Compra con criterio</span><span class="punto">·</span>
+  <span>Tu piel hoy</span><span class="punto">·</span><span>Saca tu neceser</span><span class="punto">·</span><span>Lee la etiqueta</span><span class="punto">·</span><span>Se queda o se va</span><span class="punto">·</span><span>Compra con criterio</span><span class="punto">·</span>
+</div></div>
 
 <div class="brecha-seccion">
   <div class="brecha reveal">
@@ -196,7 +275,10 @@
   <section class="bloque reveal">
     <h2>Por qué he creado <em>este reto</em></h2>
     <div class="porque">
-      <img src="reto-sarai-neceser.jpg" alt="Sarai revisando los frascos de su neceser">
+      <div class="collage">
+        <img class="grande organico" src="reto-sarai-neceser.jpg" alt="Sarai revisando los frascos de su neceser">
+        <img class="peque" src="reto-neceser-2.jpg" alt="" aria-hidden="true">
+      </div>
       <div>
         <p>En las asesorías veo siempre lo mismo: rutinas desordenadas, muchísimo producto y poca constancia. Y no es culpa tuya. Lo que le va bien a tu madre puede no irte bien a ti, y tu piel de hace unos meses no es la de hoy. Por eso hay que aprender a escuchar esos cambios.</p>
         <p>Es mucho más fácil hacerlo acompañada. Y quiero que esto sea algo que te recargue, no una cosa más en tu lista de pendientes.</p>
@@ -205,14 +287,14 @@
     </div>
   </section>
 
-  <section class="bloque reveal">
-    <h2>Los <em>5 días</em></h2>
+  <section class="bloque">
+    <h2 class="reveal">Los <em>5 días</em></h2>
     <ul class="dias">
-      <li><strong>Día 1 · Tu piel hoy</strong>Haces un test y ves dónde estás y qué necesitas ahora mismo.</li>
-      <li><strong>Día 2 · Saca tu neceser</strong>Fuera todo lo caducado. Te vas a sorprender de lo que acabas tirando.</li>
-      <li><strong>Día 3 · Lee la etiqueta</strong>Pasamos lo que te queda por una herramienta para leer el INCI, y por fin entiendes qué lleva cada bote.</li>
-      <li><strong>Día 4 · Se queda o se va</strong>Con tu test del día 1 y criterio de verdad (natural, comedogénico…) decides qué se queda y qué se va.</li>
-      <li><strong>Día 5 · Compra con criterio</strong>Montamos juntas tu rutina con lo que se ha quedado, y sabrás exactamente qué te falta y qué no vuelves a comprar.</li>
+      <li class="reveal"><span class="num">01</span><strong>Día 1 · Tu piel hoy</strong>Haces un test y ves dónde estás y qué necesitas ahora mismo.</li>
+      <li class="reveal"><span class="num">02</span><strong>Día 2 · Saca tu neceser</strong>Fuera todo lo caducado. Te vas a sorprender de lo que acabas tirando.</li>
+      <li class="reveal"><span class="num">03</span><strong>Día 3 · Lee la etiqueta</strong>Pasamos lo que te queda por una herramienta para leer el INCI, y por fin entiendes qué lleva cada bote.</li>
+      <li class="reveal"><span class="num">04</span><strong>Día 4 · Se queda o se va</strong>Con tu test del día 1 y criterio de verdad (natural, comedogénico…) decides qué se queda y qué se va.</li>
+      <li class="reveal"><span class="num">05</span><strong>Día 5 · Compra con criterio</strong>Montamos juntas tu rutina con lo que se ha quedado, y sabrás exactamente qué te falta y qué no vuelves a comprar.</li>
     </ul>
   </section>
 
@@ -339,7 +421,23 @@
   const observador = new IntersectionObserver(entradas => {
     entradas.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.15 });
-  document.querySelectorAll('.reveal').forEach(el => observador.observe(el));
+  document.querySelectorAll('.dias li').forEach((li, i) => li.style.transitionDelay = (i * 0.12) + 's');
+  document.querySelectorAll('.reveal, .arco').forEach(el => observador.observe(el));
+
+  // Parallax suave en la foto principal
+  const foto = document.getElementById('fotoHero');
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    let pendiente = false;
+    addEventListener('scroll', () => {
+      if (pendiente) return; pendiente = true;
+      requestAnimationFrame(() => {
+        const r = foto.parentElement.getBoundingClientRect();
+        const avance = Math.min(1, Math.max(0, (innerHeight - r.top) / (innerHeight + r.height)));
+        foto.style.setProperty('--py', (-avance * (foto.offsetHeight - r.height)).toFixed(1) + 'px');
+        pendiente = false;
+      });
+    }, { passive: true });
+  }
 </script>
 </body>
 </html>
