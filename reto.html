@@ -362,8 +362,8 @@
   const CIERRE = '2026-11-22';              // último día de inscripción
   const PRECIO_LANZAMIENTO = '37 €';
   const PRECIO = '47 €';
-  const PAGO_LANZAMIENTO = null;            // Payment Link de Stripe a 37 € (PENDIENTE)
-  const PAGO = null;                        // Payment Link de Stripe a 47 € (PENDIENTE)
+  const PAGO_LANZAMIENTO = 'https://buy.stripe.com/3cI8wQ9JPeG3e1x2BAbII02';  // Payment Link de Stripe a 37 €
+  const PAGO = 'https://buy.stripe.com/8x2fZi2hn0Pd1eL1xwbII03';  // Payment Link de Stripe a 47 €
   // Plazas que quedan (máximo 20). null = «Plazas limitadas»; ≤10 = «Quedan pocas plazas»; ≤5 = número exacto; 0 = agotado.
   const QUEDAN = null;
 
@@ -408,14 +408,14 @@
     $('cifra').textContent = PRECIO_LANZAMIENTO;
     $('nota').innerHTML = 'Hasta el ' + fecha(FIN_LANZAMIENTO) + ' a las 23:59.<br>Desde el lunes 16: ' + PRECIO + '. Las inscripciones cierran el ' + fecha(CIERRE) + '.';
     botones.forEach(b => b.href = pago);
-    $('aviso').textContent = 'Pago único. Al pagar recibes el enlace al canal privado de Telegram.';
+    $('aviso').textContent = 'Pago único. Al pagar recibes al instante el PDF «Día 0» y el enlace al canal privado de Telegram; por eso, al recibirlos, pierdes el derecho de desistimiento.';
   } else {
     $('barra').innerHTML = 'Inscripciones abiertas hasta el domingo 22 a las 23:59 · <span class="plazas">' + textoPlazas + '</span>';
     $('etiqueta').textContent = 'Precio';
     $('cifra').textContent = PRECIO;
     $('nota').textContent = 'Las inscripciones cierran el ' + fecha(CIERRE) + ' a las 23:59. Empezamos el lunes 23.';
     botones.forEach(b => b.href = pago);
-    $('aviso').textContent = 'Pago único. Al pagar recibes el enlace al canal privado de Telegram.';
+    $('aviso').textContent = 'Pago único. Al pagar recibes al instante el PDF «Día 0» y el enlace al canal privado de Telegram; por eso, al recibirlos, pierdes el derecho de desistimiento.';
   }
 
   const observador = new IntersectionObserver(entradas => {
