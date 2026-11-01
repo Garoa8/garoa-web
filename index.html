@@ -767,12 +767,13 @@
 <!-- MENÚ (panel fijo, siempre detrás de la página) -->
 <div class="mobile-menu" id="mobileMenu">
   <div class="nav-dropdown-mobile" id="navDropdownMobile">
-    <a href="#" onclick="toggleDropdown(event)">Rituales para tu piel</a>
+    <a href="#" onclick="toggleDropdown(event)">Diseña tu rutina conmigo</a>
     <div class="mobile-submenu">
-      <a href="#" onclick="toggleMobileMenu(event);openModal('talleres')">Talleres presenciales <span class="badge-pronto">Fechas por definir</span></a>
-      <a href="#" onclick="toggleMobileMenu(event);openModal('asesoria')">Asesoría 1:1 <span class="badge-pronto">Sin plazas</span></a>
+      <a href="reto.html" onclick="toggleMobileMenu()">Reto grupal · Audita tu neceser <span class="badge-pronto">Del 23 al 27 nov</span></a>
+      <a href="#" onclick="toggleMobileMenu(event);openModal('asesoria')">Asesoría 1:1 <span class="badge-pronto">Llega pronto</span></a>
     </div>
   </div>
+  <a href="#" onclick="toggleMobileMenu(event);openModal('talleres')">Talleres</a>
   <a href="sobre-garoa.html#presentacion" onclick="toggleMobileMenu()">Sobre mí</a>
   <a href="sobre-garoa.html#valores" onclick="toggleMobileMenu()">Sobre GAROA</a>
   <a href="tienda.html" onclick="toggleMobileMenu()">Tienda</a>
@@ -801,7 +802,7 @@
 <div class="modal" id="modal-asesoria">
   <div class="modal-inner">
     <button class="modal-close" onclick="closeModal('asesoria')">×</button>
-    <span class="modal-badge">Sin plazas · Lista de espera abierta</span>
+    <span class="modal-badge">Llega pronto</span>
     <h2>Asesoría <em>1:1</em></h2>
     <p>Una sesión individual conmigo. Antes de la llamada, completas un test breve de tu piel — tipo, hábitos, ciclo, objetivos. Así llego a nuestra cita conociéndote ya un poco.</p>
     <p>A partir de ahí, hago un diagnóstico real y construimos juntas un ritual adaptado a ti: los productos concretos que necesitas, el orden, la frecuencia y el porqué de cada paso.</p>
