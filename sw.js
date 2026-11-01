@@ -1,4 +1,4 @@
-const CACHE = 'garoa-v103';
+const CACHE = 'garoa-v104';
 const URLS = [
   '/',
   '/derechos-de-autor.html',
