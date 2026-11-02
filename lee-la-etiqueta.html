@@ -38,6 +38,16 @@
   #estadoFoto { font-size: 0.82rem; color: var(--muted); }
   .truco { font-size: 0.8rem; color: var(--muted); background: var(--cream); border-radius: 14px; padding: 10px 14px; margin: -6px 0 18px; }
 
+  .perfil { background: var(--cream); border-radius: 18px; padding: 14px 16px; margin-bottom: 18px; }
+  .perfil p { font-size: 0.8rem; color: var(--muted); margin: 4px 0 10px; }
+  .opciones { display: flex; flex-wrap: wrap; gap: 8px; }
+  .opciones label { cursor: pointer; }
+  .opciones input { position: absolute; opacity: 0; pointer-events: none; }
+  .opciones span { display: inline-block; padding: 8px 14px; border-radius: 999px; border: 1px solid var(--pink); background: #fff; font-size: 0.82rem; color: var(--text); letter-spacing: 0; text-transform: none; font-weight: 400; }
+  .opciones input:checked + span { background: var(--garnet); border-color: var(--garnet); color: var(--cream); }
+  .opciones input:focus-visible + span { outline: 2px solid var(--garnet); outline-offset: 2px; }
+  .para-ti { margin-top: 8px; background: var(--pink); border-radius: 12px; padding: 8px 12px; font-size: 0.82rem; color: var(--garnet); }
+  .para-ti b { font-weight: 700; }
   #resultado { margin-top: 32px; }
   .resumen { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 18px; }
   .cifra { border-radius: 18px; padding: 12px 6px; text-align: center; }
@@ -80,6 +90,19 @@
   </header>
 
   <div class="caja">
+    <div class="perfil">
+      <label>Tu piel, según tu ficha del día 1</label>
+      <p>Márcalo una vez y te aviso de lo que no le va bien a tu piel. Se queda guardado en este móvil.</p>
+      <div class="opciones" role="radiogroup" aria-label="Lo que te pide tu piel">
+        <label><input type="radio" name="pide" value="calma"><span>Me pide calma</span></label>
+        <label><input type="radio" name="pide" value="agua"><span>Me pide agua y barrera</span></label>
+        <label><input type="radio" name="pide" value="equilibrio"><span>Me pide equilibrio</span></label>
+        <label><input type="radio" name="pide" value="tranquila"><span>Está tranquila</span></label>
+      </div>
+      <div class="opciones" style="margin-top:8px">
+        <label><input type="checkbox" id="embarazo"><span>Estoy embarazada o dando el pecho</span></label>
+      </div>
+    </div>
     <label for="producto">Nombre del producto <span style="font-weight:400;letter-spacing:0;text-transform:none">(opcional)</span></label>
     <input type="text" id="producto" placeholder="Por ejemplo: crema de noche">
     <div class="foto">
@@ -2610,6 +2633,43 @@ function buscar(n) {
 const NO_NATURAL = ['derivado_petroleo', 'silicona', 'petroquimico', 'fragrance_sintetica', 'no_cosmetica_natural', 'disruptor_endocrino', 'formaldehido_liberador'];
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
+// ═══ Tu piel (ficha «Mi piel ahora» del día 1) ═══
+function perfil() {
+  const p = document.querySelector('input[name="pide"]:checked');
+  return { pide: p ? p.value : '', embarazo: document.getElementById('embarazo').checked };
+}
+function guardarPerfil() { try { localStorage.setItem('garoa-perfil', JSON.stringify(perfil())); } catch (e) {} }
+(function cargarPerfil() {
+  try {
+    const p = JSON.parse(localStorage.getItem('garoa-perfil') || '{}');
+    if (p.pide) { const r = document.querySelector(`input[name="pide"][value="${p.pide}"]`); if (r) r.checked = true; }
+    if (p.embarazo) document.getElementById('embarazo').checked = true;
+  } catch (e) {}
+})();
+document.querySelectorAll('.perfil input').forEach(i => i.addEventListener('change', () => {
+  guardarPerfil();
+  if (document.getElementById('resultado').innerHTML) analizar(false);
+}));
+
+function paraTuPiel(d) {
+  const P = perfil(), cats = d.categorias || [], af = d.afecciones_relevantes || [], avisos = [];
+  if (P.embarazo && d.lactancia === 'evitar') avisos.push('en embarazo y lactancia, mejor evitarlo.');
+  else if (P.embarazo && d.lactancia === 'precaucion') avisos.push('en embarazo y lactancia, consúltalo antes de usarlo.');
+  if (P.pide === 'calma') {
+    if (cats.includes('fragrance_sintetica') || cats.includes('fragrance_ae')) avisos.push('el perfume y sus alérgenos son lo que más reacciona en una piel que pide calma.');
+    else if (cats.includes('irritante') || cats.includes('sulfato') || cats.includes('alcohol_desecante') || af.some(a => ['piel_sensible', 'rosácea', 'dermatitis'].includes(a)))
+      avisos.push('puede irritar una piel reactiva.');
+  }
+  if (P.pide === 'agua') {
+    if (cats.includes('alcohol_desecante') || cats.includes('sulfato') || af.includes('piel_seca')) avisos.push('puede resecar una piel a la que le cuesta retener el agua.');
+  }
+  if (P.pide === 'equilibrio') {
+    if ((d.comedogenico || 0) >= 3) avisos.push(`puede obstruir el poro (comedogénico ${d.comedogenico}/5).`);
+    else if (af.some(a => ['acne', 'poros'].includes(a)) || cats.includes('comedogenico')) avisos.push('puede no sentarle bien a una piel con tendencia a granitos.');
+  }
+  return avisos;
+}
+
 function tarjeta(x, sev) {
   const chips = (x.d.categorias || []).filter(c => CAT_LABELS[c]).map(c => `<span class="chip">${CAT_LABELS[c]}</span>`);
   if (x.org) chips.unshift('<span class="chip">★ Ecológico</span>');
@@ -2621,10 +2681,11 @@ function tarjeta(x, sev) {
     ${x.errata ? `<p class="ing-com">¿Querías decir ${esc(x.k)}?</p>` : ''}
     <p class="ing-nota">${esc(x.d.nota || '')}</p>
     ${chips.length ? `<div class="chips">${chips.join('')}</div>` : ''}
+    ${x.avisos && x.avisos.length ? `<p class="para-ti"><b>Para tu piel:</b> ${esc(x.avisos.join(' Y '))}</p>` : ''}
   </div>`;
 }
 
-function analizar() {
+function analizar(desdeBoton = true) {
   const texto = document.getElementById('inci').value.trim();
   const res = document.getElementById('resultado');
   if (!texto) { res.innerHTML = '<p class="sub">Pega primero la lista de ingredientes.</p>'; return; }
@@ -2634,8 +2695,10 @@ function analizar() {
     const r = buscar(it.n);
     if (!r) { g.duda.push({ ...it, pos }); return; }
     const sev = ['rojo', 'amarillo', 'verde'].includes(r.d.severidad) ? r.d.severidad : 'verde';
-    g[sev].push({ ...it, pos, d: r.d, k: r.k, errata: r.errata });
+    g[sev].push({ ...it, pos, d: r.d, k: r.k, errata: r.errata, avisos: paraTuPiel(r.d) });
   });
+  const ojo = [...g.rojo, ...g.amarillo, ...g.verde].filter(x => x.avisos.length);
+  const verdeOjo = g.verde.filter(x => x.avisos.length), verdeOk = g.verde.filter(x => !x.avisos.length);
 
   const noNat = [...g.rojo, ...g.amarillo].filter(x => (x.d.categorias || []).some(c => NO_NATURAL.includes(c)));
   let titulo, texto2;
@@ -2651,20 +2714,21 @@ function analizar() {
       <div class="cifra c-verde"><b>${g.verde.length}</b><span>🟢 Verde</span></div>
       <div class="cifra c-duda"><b>${g.duda.length}</b><span>❔ Por mirar</span></div>
     </div>
-    <div class="veredicto">${prod ? `<p style="margin:0 0 4px;letter-spacing:.2em;text-transform:uppercase;font-size:.66rem">${esc(prod)}</p>` : ''}<h2>${titulo}</h2><p>${texto2}</p></div>`;
+    <div class="veredicto">${prod ? `<p style="margin:0 0 4px;letter-spacing:.2em;text-transform:uppercase;font-size:.66rem">${esc(prod)}</p>` : ''}<h2>${titulo}</h2><p>${texto2}</p>${ojo.length ? `<p><b>Para tu piel:</b> ${ojo.length} ingrediente${ojo.length > 1 ? 's' : ''} con aviso. Míralo antes de decidir el día 4.</p>` : ''}</div>`;
   if (g.rojo.length) html += `<div class="grupo"><h3>🔴 Lo que sacaría</h3>${g.rojo.map(x => tarjeta(x, 'rojo')).join('')}</div>`;
   if (g.amarillo.length) html += `<div class="grupo"><h3>🟡 Inocuo, pero no es GAROA</h3>${g.amarillo.map(x => tarjeta(x, 'amarillo')).join('')}</div>`;
   if (g.duda.length) html += `<div class="grupo"><h3>❔ Estos te los miro yo</h3>
       <div class="ing duda"><p class="ing-nota"><b>${g.duda.map(x => esc(x.n)).join(' · ')}</b></p>
       <p class="ing-nota">Aún no están en mi base. Ya me han llegado: los reviso y te respondo en el grupo de Telegram, y quedarán añadidos para la próxima vez.</p></div></div>`;
-  if (g.verde.length) html += `<div class="grupo"><h3>🟢 Natural o aceptado en cosmética natural</h3><div class="verdes-lista">
-      <p>${g.verde.map(x => esc(x.n)).join(' · ')}</p>
-      <details><summary>Ver qué es cada uno</summary>${g.verde.map(x => tarjeta(x, 'verde')).join('')}</details></div></div>`;
+  if (verdeOjo.length) html += `<div class="grupo"><h3>🟢 Natural, pero ojo con tu piel</h3>${verdeOjo.map(x => tarjeta(x, 'verde')).join('')}</div>`;
+  if (verdeOk.length) html += `<div class="grupo"><h3>🟢 Natural o aceptado en cosmética natural</h3><div class="verdes-lista">
+      <p>${verdeOk.map(x => esc(x.n)).join(' · ')}</p>
+      <details><summary>Ver qué es cada uno</summary>${verdeOk.map(x => tarjeta(x, 'verde')).join('')}</details></div></div>`;
   if (ruido.length) html += `<p class="sub" style="font-size:.8rem">He ignorado ${ruido.length} trozo${ruido.length > 1 ? 's' : ''} de texto que no parece${ruido.length > 1 ? 'n' : ''} ingredientes. Si falta alguno, escríbelo a mano en la lista.</p>`;
   res.innerHTML = html;
-  res.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  if (g.duda.length) enviarDesconocidos(g.duda.map(x => x.n), prod);
-  if (window.umami) umami.track('inci-analizado', { ingredientes: lista.length, desconocidos: g.duda.length });
+  if (desdeBoton) res.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  if (desdeBoton && g.duda.length) enviarDesconocidos(g.duda.map(x => x.n), prod);
+  if (window.umami) umami.track('inci-analizado', { ingredientes: lista.length, desconocidos: g.duda.length, piel: perfil().pide || 'sin marcar' });
 }
 
 function enviarDesconocidos(nombres, prod) {
