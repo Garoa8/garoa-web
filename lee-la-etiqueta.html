@@ -87,6 +87,7 @@
       <input type="file" id="archivoFoto" accept="image/*" capture="environment" hidden>
       <span id="estadoFoto"></span>
     </div>
+    <p class="truco"><b>Al hacer la foto:</b> encuadra <b>solo la lista de ingredientes</b>, desde «Ingredients» hasta el final. Si en la foto sale más texto (el nombre del producto, modo de uso, otra web…), lo leerá como si fueran ingredientes.</p>
     <p class="truco"><b>Truco:</b> si tu móvil copia texto de las fotos, suele leer mejor. En iPhone, mantén el dedo sobre el texto de la foto; en Android, usa Google Lens. Copia y pégalo aquí.</p>
     <label for="inci">Ingredientes</label>
     <textarea id="inci" placeholder="Aqua, Glycerin, Butyrospermum Parkii Butter*, Tocopherol…"></textarea>
@@ -2546,16 +2547,39 @@ function regla(n) {
 // ═══ Lectura de la lista ═══
 function limpiar(raw) {
   return raw.replace(/\([^)]*\)/g, '').replace(/\[[^\]]*\]/g, '').replace(/[ \s]+/g, ' ')
-            .replace(/\s*\/\s*/g, '/').trim().toUpperCase().replace(/^[\s\*\.°:\-]+|[\s\*\.°:\-]+$/g, '').trim();
+            .replace(/\s*\/\s*/g, '/').trim().toUpperCase().replace(/^[\s\*\.°:\-#%&@~|<>™®©¢_=»«“”"'`]+|[\s\*\.°:\-#%&@~|<>™®©¢_=»«“”"'`]+$/g, '').trim();
+}
+// Descarta lo que no puede ser un INCI (frases, menús, símbolos sueltos): no se analiza ni se envía
+let ruido = [];
+function pareceIngrediente(n) {
+  if (n.length < 3 || n.length > 70) return false;
+  if (n.split(' ').length > 7) return false;
+  if (/[|<>\[\]{}#$%~^_=?!¿¡™®©¢“”@]/.test(n)) return false;
+  const letras = (n.match(/[A-Z]/g) || []).length;
+  if (letras / n.length < 0.6) return false;
+  if (/\b(LOS|LAS|DEL|PARA|POR|CON|UNA|NUESTRA|NUESTRAS|THE|AND|WITH|FOR|YOUR|POUR|AVEC|VOTRE|USO|MODO|APLICAR|APPLY|EVITAR|AVOID|MADE|HECHO|FABRICADO|LOTE|EXP)\b/.test(n)) return false;
+  return true;
 }
 function leerLista(texto) {
-  let t = texto.replace(/^[\s\S]*?\b(INGR[EÉ]DIENT(E|ES|S)?|COMPOSICI[OÓ]N|INCI)\b\s*[:\/]/i, '');
+  ruido = [];
+  let t = texto.replace(/^[\s\S]*?\b(INGR[EÉ]DIENT(E|ES|S)?|COMPOSICI[OÓ]N|INCI)\b\s*[:\/]?/i, '');
   t = t.replace(/(MAY CONTAIN|PUEDE CONTENER|PEUT CONTENIR)\s*[:\/]?/gi, ',').replace(/\+\/-/g, ',');
   t = t.replace(/(\d),(\d)/g, '$1§$2');
   const vistos = new Set(), out = [];
-  t.split(/[,;\n•·]/).forEach(p => {
+  t.split(/[,;\n•·:]|\.\s/).forEach(p => {
     const n = limpiar(p.replace(/§/g, ','));
-    if (n.length > 1 && !vistos.has(n)) { vistos.add(n); out.push({ n, org: /[\*°]/.test(p) }); }
+    if (n.length < 2 || vistos.has(n)) return;
+    vistos.add(n);
+    const org = /[A-Za-z)\]]\s*[\*°]+\s*$/.test(p.trim());
+    if (pareceIngrediente(n) && buscar(n)) { out.push({ n, org }); return; }
+    // Rescate: un ingrediente conocido pegado a texto de más («COMPOSICION ALPHA-ISOMETHYL IONONE»)
+    const pal = n.split(' ');
+    for (let k = Math.min(5, pal.length - 1); k >= 1; k--) {
+      const cola = limpiar(pal.slice(-k).join(' '));
+      const e = INCI_DB[cola];
+      if (e && !vistos.has(cola)) { vistos.add(cola); out.push({ n: cola, org }); return; }
+    }
+    if (pareceIngrediente(n)) out.push({ n, org }); else ruido.push(n);
   });
   return out;
 }
@@ -2636,6 +2660,7 @@ function analizar() {
   if (g.verde.length) html += `<div class="grupo"><h3>🟢 Natural o aceptado en cosmética natural</h3><div class="verdes-lista">
       <p>${g.verde.map(x => esc(x.n)).join(' · ')}</p>
       <details><summary>Ver qué es cada uno</summary>${g.verde.map(x => tarjeta(x, 'verde')).join('')}</details></div></div>`;
+  if (ruido.length) html += `<p class="sub" style="font-size:.8rem">He ignorado ${ruido.length} trozo${ruido.length > 1 ? 's' : ''} de texto que no parece${ruido.length > 1 ? 'n' : ''} ingredientes. Si falta alguno, escríbelo a mano en la lista.</p>`;
   res.innerHTML = html;
   res.scrollIntoView({ behavior: 'smooth', block: 'start' });
   if (g.duda.length) enviarDesconocidos(g.duda.map(x => x.n), prod);
@@ -2668,7 +2693,9 @@ document.getElementById('archivoFoto').addEventListener('change', async e => {
     const { data } = await Tesseract.recognize(archivo, 'eng', { logger: m => {
       if (m.status === 'recognizing text') estadoFoto.textContent = `Leyendo la foto… ${Math.round(m.progress * 100)} %`;
     } });
-    const texto = data.text.replace(/-\n/g, '').replace(/\n+/g, ' ').replace(/\s{2,}/g, ' ').trim();
+    let texto = data.text.replace(/-\n/g, '').replace(/\n+/g, ' ').replace(/\s{2,}/g, ' ').trim();
+    const ini = texto.search(/\b(INGR[EÉ]DIENT(E|ES|S)?|COMPOSICI[OÓ]N)\b/i);
+    if (ini > 0) texto = texto.slice(ini);
     if (!texto) { estadoFoto.textContent = 'No he podido leer texto. Prueba con más luz y la etiqueta bien recta.'; return; }
     document.getElementById('inci').value = texto;
     estadoFoto.textContent = '¡Listo! Revisa el texto por si se ha colado algún error y pulsa «Leer la etiqueta».';
