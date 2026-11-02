@@ -1,0 +1,2688 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Lee la etiqueta · GAROA Organic Skin Rituals</title>
+<meta name="description" content="Pega los ingredientes de tu cosmético y descubre qué lleva, con el criterio de GAROA.">
+<link rel="icon" type="image/png" href="narciso.garoa.png">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --garnet: #540B0E; --cream: #F9F7F6; --pink: #E9D9D6;
+    --text: #3D2B2C; --muted: #8A7070;
+    --rojo: #9B2226; --rojo-bg: #F6E3E1; --ambar: #A86B12; --ambar-bg: #F7ECD9; --verde: #3D6B4F; --verde-bg: #E6EFE7; --duda: #6E6A8A; --duda-bg: #ECEBF3;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--cream); color: var(--text); font-family: 'Lato', sans-serif; font-weight: 300; line-height: 1.7; }
+  .wrap { max-width: 680px; margin: 0 auto; padding: 40px 16px 64px; }
+  header { text-align: center; }
+  header img { height: 72px; width: auto; }
+  .label { display: block; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.32em; text-transform: uppercase; color: var(--garnet); margin: 28px 0 12px; }
+  h1 { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(2.1rem, 7vw, 3rem); line-height: 1.1; color: var(--garnet); }
+  h1 em { font-style: italic; }
+  .sub { color: var(--muted); font-size: 0.98rem; margin: 14px auto 0; max-width: 520px; }
+
+  .caja { background: #fff; border-radius: 26px; padding: 22px 20px 20px; margin-top: 32px; box-shadow: 0 12px 34px rgba(84, 11, 14, 0.07); }
+  .caja label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--garnet); }
+  input[type=text], textarea { width: 100%; border: 1px solid var(--pink); border-radius: 14px; padding: 12px 14px; font: inherit; font-size: 0.95rem; color: var(--text); background: var(--cream); margin: 8px 0 16px; }
+  textarea { min-height: 150px; resize: vertical; }
+  input:focus, textarea:focus { outline: 2px solid var(--pink); border-color: var(--garnet); }
+  .ayuda { font-size: 0.8rem; color: var(--muted); margin: -8px 0 16px; }
+  .botones { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn { border: none; cursor: pointer; padding: 14px 28px; border-radius: 999px; background: var(--garnet); color: var(--cream); font: inherit; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; }
+  .btn.claro { background: var(--pink); color: var(--garnet); }
+  .foto { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin: 4px 0 18px; }
+  .btn.borde { background: transparent; color: var(--garnet); border: 1px solid var(--garnet); }
+  #estadoFoto { font-size: 0.82rem; color: var(--muted); }
+  .truco { font-size: 0.8rem; color: var(--muted); background: var(--cream); border-radius: 14px; padding: 10px 14px; margin: -6px 0 18px; }
+
+  #resultado { margin-top: 32px; }
+  .resumen { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 18px; }
+  .cifra { border-radius: 18px; padding: 12px 6px; text-align: center; }
+  .cifra b { display: block; font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 400; line-height: 1; }
+  .cifra span { font-size: 0.66rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
+  .c-rojo { background: var(--rojo-bg); color: var(--rojo); } .c-amarillo { background: var(--ambar-bg); color: var(--ambar); }
+  .c-verde { background: var(--verde-bg); color: var(--verde); } .c-duda { background: var(--duda-bg); color: var(--duda); }
+  .veredicto { background: var(--garnet); color: var(--cream); border-radius: 22px; padding: 20px 22px; margin-bottom: 22px; }
+  .veredicto h2 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.55rem; line-height: 1.2; }
+  .veredicto p { font-size: 0.9rem; color: var(--pink); margin-top: 6px; }
+  .grupo h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.35rem; color: var(--garnet); margin: 22px 0 10px; }
+  .ing { background: #fff; border-radius: 18px; padding: 14px 16px; margin-bottom: 10px; border-left: 5px solid var(--pink); }
+  .ing.rojo { border-left-color: var(--rojo); } .ing.amarillo { border-left-color: var(--ambar); } .ing.verde { border-left-color: var(--verde); } .ing.duda { border-left-color: var(--duda); }
+  .ing-top { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; }
+  .ing-nombre { font-weight: 700; font-size: 0.88rem; letter-spacing: 0.02em; word-break: break-word; }
+  .ing-pos { font-size: 0.7rem; color: var(--muted); white-space: nowrap; }
+  .ing-com { font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--muted); font-size: 1rem; }
+  .ing-nota { font-size: 0.86rem; margin-top: 4px; }
+  .chips { margin-top: 6px; display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip { font-size: 0.64rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 9px; border-radius: 99px; background: var(--cream); color: var(--garnet); }
+  .verdes-lista { font-size: 0.85rem; background: #fff; border-radius: 18px; padding: 14px 16px; }
+  .verdes-lista details summary { cursor: pointer; color: var(--garnet); font-weight: 700; font-size: 0.8rem; letter-spacing: 0.08em; }
+  .nota-final { font-size: 0.78rem; color: var(--muted); margin-top: 26px; text-align: center; }
+  .leyenda { font-size: 0.82rem; margin-top: 18px; color: var(--muted); }
+  .leyenda b { color: var(--text); }
+  footer { text-align: center; margin-top: 48px; font-size: 0.72rem; letter-spacing: 0.15em; }
+  footer a { color: var(--muted); text-decoration: none; }
+  @media (max-width: 420px) { .resumen { grid-template-columns: repeat(2, 1fr); } }
+</style>
+<!-- Analítica sin cookies (Umami) -->
+<script defer src="https://cloud.umami.is/script.js" data-website-id="f0614c03-35fa-4f95-bce6-00043441a337"></script>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <img src="narciso.garoa.png" alt="GAROA Organic Skin Rituals">
+    <span class="label">Reto · Audita tu neceser · Día 3</span>
+    <h1>Lee <em>la etiqueta</em></h1>
+    <p class="sub">Pega la lista de ingredientes (INCI) de tu cosmético y te cuento qué lleva, con el criterio de GAROA.</p>
+  </header>
+
+  <div class="caja">
+    <label for="producto">Nombre del producto <span style="font-weight:400;letter-spacing:0;text-transform:none">(opcional)</span></label>
+    <input type="text" id="producto" placeholder="Por ejemplo: crema de noche">
+    <div class="foto">
+      <button class="btn borde" id="botonFoto" type="button">📷 Hazle una foto</button>
+      <input type="file" id="archivoFoto" accept="image/*" capture="environment" hidden>
+      <span id="estadoFoto"></span>
+    </div>
+    <p class="truco"><b>Truco:</b> si tu móvil copia texto de las fotos, suele leer mejor. En iPhone, mantén el dedo sobre el texto de la foto; en Android, usa Google Lens. Copia y pégalo aquí.</p>
+    <label for="inci">Ingredientes</label>
+    <textarea id="inci" placeholder="Aqua, Glycerin, Butyrospermum Parkii Butter*, Tocopherol…"></textarea>
+    <p class="ayuda">Cópiala de la caja, de la web de la marca o de INCIDecoder. Separa los ingredientes por comas, tal y como vienen.</p>
+    <div class="botones">
+      <button class="btn" id="analizar">Leer la etiqueta</button>
+      <button class="btn claro" id="limpiar">Otro producto</button>
+    </div>
+    <p class="leyenda"><b>🔴</b> puede suponer un riesgo para la salud · <b>🟡</b> inocuo, pero sintético o de origen petroquímico (no entra en GAROA) · <b>🟢</b> natural o aceptado en cosmética natural · <b>❔</b> aún no está en mi base</p>
+  </div>
+
+  <div id="resultado" aria-live="polite"></div>
+
+  <p class="nota-final">Esta herramienta es orientativa: clasifica ingredientes según el criterio de GAROA, pero no sustituye el consejo médico ni dermatológico. La posición en la lista indica, de forma aproximada, cuánto lleva de cada ingrediente (los primeros, más).</p>
+  <footer><a href="/">GAROA · Organic Skin Rituals</a></footer>
+</div>
+
+<script>
+// ═══ Base de ingredientes de GAROA (herramienta interna) ═══
+const INCI_DB = {
+  // ── FRAGANCIAS ────────────────────────────────────────────────────────────
+  // PARFUM → rojo (mezcla sintética opaca, incompatible con cosmética natural)
+  'PARFUM': { nombre_com:'Parfum / Fragrance', categorias:['fragrance_sintetica'], severidad:'rojo', nota:'Mezcla no declarada de compuestos aromáticos sintéticos. Incompatible con cosmética natural y orgánica. Principal causa de alergia de contacto en cosmética. En la UE obliga a declarar 26 alérgenos específicos cuando superan el umbral.', lactancia:'precaucion', afecciones_relevantes:['rosácea','piel_sensible','dermatitis'] },
+  'FRAGRANCE': { alias:'PARFUM' },
+  'AROMA': { alias:'PARFUM' },
+
+  // AE naturales (Anexo III UE, pero de origen botánico — verde si no hay PARFUM ni barrera comprometida)
+  'LINALOOL': { nombre_com:'Linalool', categorias:['fragrance_ae'], severidad:'verde', nota:'Compuesto aromático natural presente en lavanda, cilantro, bergamota y muchos aceites esenciales. Declarado en el Anexo III UE por superar el umbral de alerta. En cosmética orgánica es aceptable a concentraciones adecuadas con barrera cutánea íntegra. Se oxida con el aire aumentando su alergenia — relevante en productos muy abiertos o caducados.', lactancia:'ok', afecciones_relevantes:['dermatitis','piel_sensible'] },
+  'LIMONENE': { nombre_com:'Limoneno', categorias:['fragrance_ae'], severidad:'verde', nota:'Terpeno natural abundante en aceites cítricos (limón, naranja, bergamota). Declarado en Anexo III UE. En cosmética orgánica aceptable a dosis adecuadas. Importante: se oxida rápidamente con el aire incrementando su potencial alergénico — comprobar fecha de apertura.', lactancia:'ok', afecciones_relevantes:['dermatitis','piel_sensible'] },
+  'CITRONELLOL': { nombre_com:'Citronelol', categorias:['fragrance_ae'], severidad:'verde', nota:'Alcohol terpénico natural presente en aceite de rosa y geranio. Declarado en Anexo III UE. Aceptable en cosmética orgánica a concentraciones apropiadas.', lactancia:'ok' },
+  'GERANIOL': { nombre_com:'Geraniol', categorias:['fragrance_ae'], severidad:'verde', nota:'Alcohol terpénico natural presente en aceite de rosa, geranio y palmarosa. Declarado en Anexo III UE. Aceptable en cosmética orgánica.', lactancia:'ok' },
+  'EUGENOL': { nombre_com:'Eugenol', categorias:['fragrance_ae','irritante'], severidad:'verde', nota:'Principal componente del aceite esencial de clavo y canela. Declarado en Anexo III UE. En cosmética orgánica aceptable a bajas concentraciones. Irritante en mucosas y piel sensible — precaución en pieles delicadas.', lactancia:'precaucion', afecciones_relevantes:['piel_sensible','rosácea'] },
+  'COUMARIN': { nombre_com:'Cumarina', categorias:['fragrance_ae'], severidad:'verde', nota:'Compuesto natural de tonka, lavanda y canela. Declarado en Anexo III UE. Hepatotóxico en dosis altas (uso oral) pero seguro en cosmética a concentraciones habituales. Aceptable en cosmética orgánica.', lactancia:'precaucion' },
+  'CINNAMAL': { nombre_com:'Cinamal', categorias:['fragrance_ae','irritante'], severidad:'verde', nota:'Aldehído natural del aceite esencial de canela. Declarado en Anexo III UE. En cosmética orgánica aceptable a dosis bajas. Frecuente causa de dermatitis de contacto — usar con precaución en piel sensible.', lactancia:'precaucion', afecciones_relevantes:['dermatitis','piel_sensible'] },
+  'BENZYL ALCOHOL': { nombre_com:'Alcohol bencílico', categorias:['fragrance_ae','conservante_controvertido'], severidad:'verde', nota:'Presente de forma natural en jazmín y ylang ylang. También usado como conservante de síntesis. Declarado en Anexo III UE. Cuando aparece en un producto sin PARFUM es probable origen natural. Bien tolerado a bajas concentraciones.', lactancia:'precaucion' },
+  'BENZYL SALICYLATE': { nombre_com:'Salicilato de bencilo', categorias:['fragrance_ae'], severidad:'verde', nota:'Presente en ylang ylang y otras flores. Declarado en Anexo III UE. Aceptable en cosmética orgánica. Posible actividad hormonal débil a concentraciones muy altas.', lactancia:'precaucion' },
+  'BENZYL BENZOATE': { nombre_com:'Benzoato de bencilo', categorias:['fragrance_ae'], severidad:'verde', nota:'Presente en ylang ylang y bálsamos naturales. Declarado en Anexo III UE. Usado también como acaricida en medicina. Irritante en concentraciones elevadas.', lactancia:'precaucion' },
+  'CINNAMYL ALCOHOL': { nombre_com:'Alcohol cinamílico', categorias:['fragrance_ae','irritante'], severidad:'verde', nota:'Compuesto natural del aceite esencial de canela. Declarado en Anexo III UE. Aceptable en cosmética orgánica a dosis adecuadas.', lactancia:'precaucion' },
+  'CITRAL': { nombre_com:'Citral', categorias:['fragrance_ae'], severidad:'verde', nota:'Terpeno natural de limoncillo, verbena, aceites cítricos y hierba luisa. Declarado en Anexo III UE. Aceptable en cosmética orgánica.', lactancia:'ok' },
+  'FARNESOL': { nombre_com:'Farnesol', categorias:['fragrance_ae'], severidad:'verde', nota:'Sesquiterpeno natural presente en aceite de rosa, ylang ylang y manzanilla. Declarado en Anexo III UE. Aceptable en cosmética orgánica.', lactancia:'ok' },
+  'ISOEUGENOL': { nombre_com:'Isoeugenol', categorias:['fragrance_ae','irritante'], severidad:'verde', nota:'Presente en ylang ylang y clavel. Declarado en Anexo III UE. Uno de los más frecuentes en reacciones alérgicas por cosmética — precaución en piel sensible.', lactancia:'precaucion', afecciones_relevantes:['dermatitis'] },
+  'ANISE ALCOHOL': { nombre_com:'Alcohol de anís', categorias:['fragrance_ae'], severidad:'verde', nota:'Presente en aceite esencial de anís. Declarado en Anexo III UE. Aceptable en cosmética orgánica.', lactancia:'ok' },
+  'BENZYL CINNAMATE': { nombre_com:'Cinamato de bencilo', categorias:['fragrance_ae'], severidad:'verde', nota:'Presente en bálsamo de Perú y bálsamo de tolú, ambos de origen natural. Declarado en Anexo III UE.', lactancia:'ok' },
+  'EVERNIA FURFURACEA EXTRACT': { nombre_com:'Extracto de musgo de árbol', categorias:['fragrance_ae'], severidad:'verde', nota:'Extracto 100% natural de musgo arbóreo. Declarado en Anexo III UE por alto potencial alergénico a pesar de su origen natural. Usar con precaución en piel sensible o con historial de alergias.', lactancia:'ok' },
+  'EVERNIA PRUNASTRI EXTRACT': { nombre_com:'Extracto de musgo de roble', categorias:['fragrance_ae'], severidad:'verde', nota:'Extracto 100% natural de musgo de roble. Uno de los alérgenos de fragancia más potentes incluso siendo natural. Declarado en Anexo III UE. Restricciones en endurecimiento en la UE.', lactancia:'ok', afecciones_relevantes:['dermatitis'] },
+
+  // Sintéticos (siempre amarillo — no aceptados en cosmética natural)
+  'HEXYL CINNAMAL': { nombre_com:'Hexil cinamal', categorias:['fragrance_sintetica'], severidad:'amarillo', nota:'Compuesto aromático de síntesis. Aroma tipo jazmín. Declarado en Anexo III UE. No aceptado en cosmética natural.', lactancia:'ok' },
+  'HYDROXYCITRONELLAL': { nombre_com:'Hidroxicitronelal', categorias:['fragrance_sintetica'], severidad:'amarillo', nota:'Fragancia sintética con aroma floral tipo lirio. Declarado en Anexo III UE. No aceptado en cosmética natural.', lactancia:'ok' },
+  'ALPHA-ISOMETHYL IONONE': { nombre_com:'Alfa-isometil ionona', categorias:['fragrance_sintetica'], severidad:'amarillo', nota:'Fragancia sintética con aroma violeta/iris. Declarado en Anexo III UE. No aceptado en cosmética natural.', lactancia:'ok' },
+  'AMYL CINNAMAL': { nombre_com:'Amil cinamal', categorias:['fragrance_sintetica'], severidad:'amarillo', nota:'Compuesto aromático de síntesis. Aroma tipo jazmín. Declarado en Anexo III UE. No aceptado en cosmética natural.', lactancia:'ok' },
+  'AMYLCINNAMYL ALCOHOL': { nombre_com:'Alcohol amil-cinamílico', categorias:['fragrance_sintetica'], severidad:'amarillo', nota:'Compuesto aromático sintético. Declarado en Anexo III UE. No aceptado en cosmética natural.', lactancia:'ok' },
+  'METHYL 2-OCTYNOATE': { nombre_com:'Metil 2-octinoato', categorias:['fragrance_sintetica'], severidad:'amarillo', nota:'Fragancia sintética con aroma violeta. Declarado en Anexo III UE. No aceptado en cosmética natural.', lactancia:'ok' },
+  'BUTYLPHENYL METHYLPROPIONAL': { nombre_com:'Lilial / BMHCA', categorias:['fragrance_sintetica','disruptor_endocrino'], severidad:'rojo', nota:'PROHIBIDO en la UE desde enero 2022 (Reglamento 2021/1902). Disruptor endocrino confirmado. Si aparece en un producto en el mercado europeo, ese producto está fuera de la legalidad.', lactancia:'evitar' },
+  'LILIAL': { alias:'BUTYLPHENYL METHYLPROPIONAL' },
+
+  // ── DISRUPTORES ENDOCRINOS ────────────────────────────────────────────────
+  'BUTYLPARABEN': { nombre_com:'Butilparabeno', categorias:['disruptor_endocrino','conservante_controvertido'], severidad:'rojo', nota:'Conservante con actividad estrogénica confirmada. Prohibido en la UE en productos para niños <3 años. Precaución máxima en embarazo y lactancia.', lactancia:'evitar' },
+  'PROPYLPARABEN': { nombre_com:'Propilparabeno', categorias:['disruptor_endocrino','conservante_controvertido'], severidad:'rojo', nota:'Conservante con actividad estrogénica. Prohibido en productos para zona del pañal en la UE. Precaución en embarazo y lactancia.', lactancia:'evitar' },
+  'ISOBUTYLPARABEN': { nombre_com:'Isobutilparabeno', categorias:['disruptor_endocrino','conservante_controvertido'], severidad:'rojo', nota:'Parabeno de cadena larga. Potencial disruptor endocrino. Prohibido en productos infantiles en la UE.', lactancia:'evitar' },
+  'ISOPROPYLPARABEN': { nombre_com:'Isopropilparabeno', categorias:['disruptor_endocrino','conservante_controvertido'], severidad:'rojo', nota:'Parabeno de cadena larga. Potencial disruptor endocrino.', lactancia:'evitar' },
+  'METHYLPARABEN': { nombre_com:'Metilparabeno', categorias:['conservante_controvertido'], severidad:'amarillo', nota:'El conservante más utilizado en cosmética. Menor preocupación endocrina que los parabenos de cadena larga (butyl/propyl). El debate científico sigue abierto.', lactancia:'precaucion' },
+  'ETHYLPARABEN': { nombre_com:'Etilparabeno', categorias:['conservante_controvertido'], severidad:'amarillo', nota:'Parabeno de cadena corta. Menor actividad estrogénica que los de cadena larga. Aceptado en la UE con restricciones de concentración.', lactancia:'precaucion' },
+  'BENZOPHENONE-3': { nombre_com:'Benzofenona-3 / Oxibenzona', categorias:['disruptor_endocrino'], severidad:'rojo', nota:'Filtro UV con actividad hormonal confirmada. Penetra la piel y se detecta en sangre y orina. Restricciones en la UE (≤6%). Prohibido en arrecifes de coral. Evitar en embarazo.', lactancia:'evitar' },
+  'OXYBENZONE': { alias:'BENZOPHENONE-3' },
+  'BENZOPHENONE-4': { nombre_com:'Benzofenona-4', categorias:['disruptor_endocrino'], severidad:'amarillo', nota:'Filtro UV. Menor preocupación endocrina que la BP-3 pero en la misma familia química. Precaución en embarazo.', lactancia:'precaucion' },
+  'HOMOSALATE': { nombre_com:'Homosalato', categorias:['disruptor_endocrino'], severidad:'amarillo', nota:'Filtro UV orgánico. La SCCS europea redujo el límite permitido (≤7,34%) por preocupaciones endocrinas. Evitar en embarazo y lactancia.', lactancia:'evitar' },
+  'ETHYLHEXYL METHOXYCINNAMATE': { nombre_com:'Octinoxato', categorias:['disruptor_endocrino'], severidad:'amarillo', nota:'Filtro UV muy usado. Actividad hormonal débil pero documentada. Penetra la piel. Prohibido en zonas de arrecife en Hawái y Palau. Precaución en embarazo.', lactancia:'precaucion' },
+  'OCTINOXATE': { alias:'ETHYLHEXYL METHOXYCINNAMATE' },
+  'TRICLOSAN': { nombre_com:'Triclosán', categorias:['disruptor_endocrino','conservante_controvertido'], severidad:'rojo', nota:'Antibacteriano con actividad hormonal confirmada. Genera resistencia bacteriana. Prohibido en productos de enjuague en la UE. A evitar en productos leave-on.', lactancia:'evitar' },
+  'BHA': { nombre_com:'BHA (Butilhidroxianisol)', categorias:['disruptor_endocrino'], severidad:'rojo', nota:'Antioxidante sintético. Clasificado como posible carcinógeno (Grupo 2B, IARC) y disruptor endocrino. Uso restringido en la UE en cosmética.', lactancia:'evitar' },
+  'BUTYLHYDROXYANISOLE': { alias:'BHA' },
+  'BHT': { nombre_com:'BHT (Butilhidroxitolueno)', categorias:['disruptor_endocrino'], severidad:'amarillo', nota:'Antioxidante sintético. Preocupaciones menores que el BHA pero en debate científico. Posible actividad hormonal débil.', lactancia:'precaucion' },
+  'BUTYLHYDROXYTOLUENE': { alias:'BHT' },
+  'OCTOCRYLENE': { nombre_com:'Octocrileno', categorias:['disruptor_endocrino'], severidad:'amarillo', nota:'Filtro UV que se degrada en benzofenona con el tiempo — especialmente preocupante en productos caducados o abiertos hace mucho. Investigado como disruptor endocrino.', lactancia:'precaucion' },
+  'OCTOCRILENE': { alias:'OCTOCRYLENE' },
+  '4-METHYLBENZYLIDENE CAMPHOR': { nombre_com:'4-MBC', categorias:['disruptor_endocrino'], severidad:'rojo', nota:'Filtro UV con actividad tiroidea y estrogénica confirmada en estudios animales. Prohibido en Canadá. Evitar en embarazo.', lactancia:'evitar' },
+
+  // ── ALCOHOLES DESECANTES ──────────────────────────────────────────────────
+  'ALCOHOL DENAT.': { nombre_com:'Alcohol desnaturalizado', categorias:['alcohol_desecante','irritante'], severidad:'amarillo', nota:'Alcohol etílico desnaturalizado. Da sensación de frescor inmediato pero compromete la función barrera con el uso continuado. Especialmente problemático en piel seca, sensible o con rosácea.', lactancia:'ok', afecciones_relevantes:['rosácea','piel_sensible','piel_seca','dermatitis'] },
+  'ALCOHOL DENAT': { alias:'ALCOHOL DENAT.' },
+  'SD ALCOHOL': { alias:'ALCOHOL DENAT.' },
+  'SD ALCOHOL 40-B': { alias:'ALCOHOL DENAT.' },
+  'DENATURED ALCOHOL': { alias:'ALCOHOL DENAT.' },
+  'ISOPROPYL ALCOHOL': { nombre_com:'Alcohol isopropílico', categorias:['alcohol_desecante','irritante'], severidad:'amarillo', nota:'Más agresivo que el etanol. Desengrasante intenso, compromete la barrera cutánea. No usar habitualmente en el rostro.', lactancia:'ok', afecciones_relevantes:['rosácea','piel_sensible','piel_seca'] },
+  'ETHANOL': { nombre_com:'Etanol (en alta concentración)', categorias:['alcohol_desecante'], severidad:'amarillo', nota:'Cuando aparece en los primeros 5 puestos del INCI puede resecar la piel. En posiciones bajas, el impacto es mínimo. Contexto importante.', lactancia:'ok' },
+
+  // ── DERIVADOS DEL PETRÓLEO ────────────────────────────────────────────────
+  'MINERAL OIL': { nombre_com:'Aceite mineral', categorias:['derivado_petroleo'], severidad:'amarillo', nota:'Derivado del petróleo refinado. Oclusivo potente — sella la piel sin nutrirla. No es peligroso por sí solo, pero incompatible con el enfoque de cosmética natural. La calidad del refinado determina su seguridad.', lactancia:'ok' },
+  'PARAFFINUM LIQUIDUM': { alias:'MINERAL OIL' },
+  'PETROLATUM': { nombre_com:'Vaselina / Petrolatum', categorias:['derivado_petroleo'], severidad:'amarillo', nota:'Derivado del petróleo. Excelente oclusivo y cicatrizante pero de origen petroquímico. En cosmética natural se sustituye por mantecas vegetales. La calidad del refinado es clave.', lactancia:'ok' },
+  'PETROLEUM JELLY': { alias:'PETROLATUM' },
+  'PARAFFIN': { nombre_com:'Parafina', categorias:['derivado_petroleo'], severidad:'amarillo', nota:'Cera derivada del petróleo. Espesante y oclusivo de origen petroquímico.', lactancia:'ok' },
+  'CERESIN': { nombre_com:'Ceresina', categorias:['derivado_petroleo'], severidad:'amarillo', nota:'Cera purificada de ozoquerita (mineral/petróleo). Usada como espesante en labiales y pomadas.', lactancia:'ok' },
+  'MICROCRYSTALLINE WAX': { nombre_com:'Cera microcristalina', categorias:['derivado_petroleo'], severidad:'amarillo', nota:'Cera derivada del petróleo. Textura más suave que la parafina. Muy común en labiales y bálsamos.', lactancia:'ok' },
+  'OZOKERITE': { nombre_com:'Ozoquerita', categorias:['derivado_petroleo'], severidad:'amarillo', nota:'Cera mineral de origen petroquímico. Base de la ceresina.', lactancia:'ok' },
+  'ISOHEXADECANE': { nombre_com:'Isohexadecano', categorias:['derivado_petroleo'], severidad:'amarillo', nota:'Emoliente sintético petroquímico. Da textura ligera. Muy usado en bases de maquillaje.', lactancia:'ok' },
+  'ISODODECANE': { nombre_com:'Isododecano', categorias:['derivado_petroleo'], severidad:'amarillo', nota:'Solvente petroquímico volátil. Sensación de ligereza. Muy común en maquillaje de larga duración.', lactancia:'ok' },
+  'ISOEICOSANE': { nombre_com:'Isoeicosano', categorias:['derivado_petroleo'], severidad:'amarillo', nota:'Emoliente de origen petroquímico. Proporciona textura sedosa.', lactancia:'ok' },
+
+  // ── SILICONAS ─────────────────────────────────────────────────────────────
+  'DIMETHICONE': { nombre_com:'Dimeticona', categorias:['silicona'], severidad:'amarillo', comedogenico:1, nota:'Silicona muy extendida. Emoliente, suavizante, protectora. No biodegradable. En cosmética natural se reemplaza por aceites vegetales. Puede acumularse en el cabello dificultando la hidratación real a largo plazo.', lactancia:'ok' },
+  'DIMETHICONOL': { nombre_com:'Dimeticonol', categorias:['silicona'], severidad:'amarillo', nota:'Silicona similar a la dimeticona. Muy común en acondicionadores y sérums de cabello.', lactancia:'ok' },
+  'CYCLOPENTASILOXANE': { nombre_com:'Ciclopentasiloxano (D5)', categorias:['silicona','disruptor_endocrino'], severidad:'rojo', nota:'Silicona volátil RESTRINGIDA en la UE desde 2020 en productos de enjuague (≤0,1%) por persistencia medioambiental y posible actividad hormonal. Comprueba si el producto es rinse-off o leave-on.', lactancia:'precaucion' },
+  'CYCLOHEXASILOXANE': { nombre_com:'Ciclohexasiloxano (D6)', categorias:['silicona'], severidad:'amarillo', nota:'Silicona volátil sujeta a seguimiento medioambiental en la UE por su persistencia.', lactancia:'ok' },
+  'CYCLOTETRASILOXANE': { nombre_com:'Ciclotetrasiloxano (D4)', categorias:['silicona','disruptor_endocrino'], severidad:'rojo', nota:'Silicona volátil clasificada como SVHC (sustancia extremadamente preocupante) en la UE. Restricciones estrictas en productos de enjuague. Evitar.', lactancia:'evitar' },
+  'PHENYL TRIMETHICONE': { nombre_com:'Fenil trimeticona', categorias:['silicona'], severidad:'amarillo', nota:'Silicona que aporta brillo y suavidad. Común en cuidado del cabello. No biodegradable.', lactancia:'ok' },
+  'AMODIMETHICONE': { nombre_com:'Amodimeticona', categorias:['silicona'], severidad:'amarillo', nota:'Silicona aminomodificada. Especialmente acumulativa en el cabello con el uso continuado. Dificulta la penetración de activos hidratantes reales.', lactancia:'ok' },
+  'TRIMETHYLSILOXYSILI CATE': { nombre_com:'Trimetilsiloxi silicato', categorias:['silicona'], severidad:'amarillo', nota:'Silicona de larga duración. Muy usada en maquillaje resistente al agua.', lactancia:'ok' },
+
+  // ── CONSERVANTES CONTROVERTIDOS ───────────────────────────────────────────
+  'METHYLISOTHIAZOLINONE': { nombre_com:'Metilisotiazolinona (MI)', categorias:['conservante_controvertido','irritante'], severidad:'rojo', nota:'Sensibilizante potente. PROHIBIDO en productos leave-on en la UE desde 2017. Alérgeno del año 2013. Frecuente causa de dermatitis de contacto — incluso en concentraciones muy bajas.', lactancia:'evitar', afecciones_relevantes:['dermatitis','piel_sensible','rosácea'] },
+  'METHYLCHLOROISOTHIAZOLINONE': { nombre_com:'Metilcloroisotiazolinona (MCI)', categorias:['conservante_controvertido','irritante'], severidad:'rojo', nota:'Sensibilizante potente. En combinación con MI forma el Kathon CG. Solo permitido en productos de enjuague en la UE y a concentraciones muy bajas.', lactancia:'evitar', afecciones_relevantes:['dermatitis','piel_sensible'] },
+  'DMDM HYDANTOIN': { nombre_com:'DMDM Hidantoína', categorias:['conservante_controvertido','formaldehido_liberador'], severidad:'rojo', nota:'Conservante que libera formaldehído gradualmente. El formaldehído es carcinógeno Grupo 1 (IARC). Asociado a dermatitis de contacto alérgica.', lactancia:'evitar' },
+  'IMIDAZOLIDINYL UREA': { nombre_com:'Imidazolidinil urea', categorias:['conservante_controvertido','formaldehido_liberador'], severidad:'rojo', nota:'Conservante liberador de formaldehído. El más usado de esta familia. Dermatitis de contacto frecuente.', lactancia:'evitar' },
+  'DIAZOLIDINYL UREA': { nombre_com:'Diazolidinyl urea', categorias:['conservante_controvertido','formaldehido_liberador'], severidad:'rojo', nota:'Conservante liberador de formaldehído. Más potente que el imidazolidinyl urea. Precaución en todos los tipos de piel.', lactancia:'evitar' },
+  'QUATERNIUM-15': { nombre_com:'Quaternium-15', categorias:['conservante_controvertido','formaldehido_liberador'], severidad:'rojo', nota:'El conservante liberador de formaldehído más potente. Prohibido en Japón. Frecuente en cosméticos de bajo coste.', lactancia:'evitar' },
+  '2-BROMO-2-NITROPROPANE-1,3-DIOL': { nombre_com:'Bronopol', categorias:['conservante_controvertido','formaldehido_liberador'], severidad:'rojo', nota:'Conservante liberador de formaldehído. Puede formar nitrosaminas (potencialmente carcinógenas) con aminas.', lactancia:'evitar' },
+  'BRONOPOL': { alias:'2-BROMO-2-NITROPROPANE-1,3-DIOL' },
+  'SODIUM HYDROXYMETHYLGLYCINATE': { nombre_com:'Hidroximetilglicinato de sodio', categorias:['conservante_controvertido','formaldehido_liberador'], severidad:'amarillo', nota:'Conservante de base aminoácida que libera formaldehído. Presente en algunos productos que se anuncian como "naturales". Verificar siempre.', lactancia:'precaucion' },
+  'PHENOXYETHANOL': { nombre_com:'Fenoxietanol', categorias:['no_cosmetica_natural','conservante_controvertido'], severidad:'amarillo', nota:'Conservante sintético muy habitual en cosmética convencional y en muchos productos que se venden como "naturales". La ANSM francesa advirtió de riesgo en menores de 3 años (zona del pañal). No aceptado en cosmética certificada COSMOS Organic (sí en COSMOS Natural con límites). Debate científico activo; bien tolerado en general a concentraciones ≤1% (límite UE). Indica que el producto no es cosmética orgánica certificada.', lactancia:'precaucion', afecciones_relevantes:['piel_sensible'] },
+  'CHLORPHENESIN': { nombre_com:'Clorfenesina', categorias:['conservante_controvertido'], severidad:'amarillo', nota:'Conservante frecuentemente combinado con fenoxietanol. Escasos estudios de seguridad a largo plazo.', lactancia:'precaucion' },
+  'CHLOROACETAMIDE': { nombre_com:'Cloroacetamida', categorias:['conservante_controvertido','irritante'], severidad:'rojo', nota:'Conservante sensibilizante potente. Prohibido en algunos países. Causa frecuente de dermatitis de contacto.', lactancia:'evitar' },
+
+  // ── SULFATOS E IRRITANTES FUERTES ─────────────────────────────────────────
+  'SODIUM LAURYL SULFATE': { nombre_com:'SLS (Laurilsulfato de sodio)', categorias:['sulfato','irritante','comedogenico'], severidad:'rojo', comedogenico:5, nota:'Tensioactivo muy agresivo. Referencia estándar para medir irritación en tests de seguridad. Destruye la barrera cutánea con uso continuado. Comedogenicidad 5/5. Evitar en piel sensible, seca, con rosácea o acné.', lactancia:'ok', afecciones_relevantes:['rosácea','piel_sensible','dermatitis','acne','piel_seca'] },
+  'SODIUM LAURETH SULFATE': { nombre_com:'SLES (Laureth sulfato de sodio)', categorias:['sulfato','irritante'], severidad:'amarillo', comedogenico:2, nota:'Versión más suave del SLS. Aún tensioactivo fuerte. Puede contener 1,4-dioxano como contaminante del proceso de etoxilación.', lactancia:'ok', afecciones_relevantes:['rosácea','piel_sensible','dermatitis'] },
+  'AMMONIUM LAURYL SULFATE': { nombre_com:'Laurilsulfato de amonio', categorias:['sulfato','irritante'], severidad:'amarillo', nota:'Similar al SLS con base amónica. Igualmente agresivo para la función barrera.', lactancia:'ok', afecciones_relevantes:['piel_sensible','rosácea'] },
+
+  // ── COMEDOGÉNICOS DESTACADOS ──────────────────────────────────────────────
+  'ISOPROPYL MYRISTATE': { nombre_com:'Miristato de isopropilo', categorias:['comedogenico'], severidad:'amarillo', comedogenico:5, nota:'Emoliente sintético con comedogenicidad 5/5. Muy común en cremas y bases de maquillaje. Evitar en piel acneica o con poros congestionados.', lactancia:'ok', afecciones_relevantes:['acne'] },
+  'ISOPROPYL PALMITATE': { nombre_com:'Palmitato de isopropilo', categorias:['comedogenico'], severidad:'amarillo', comedogenico:4, nota:'Emoliente con comedogenicidad 4/5. Precaución en pieles acneicas.', lactancia:'ok', afecciones_relevantes:['acne'] },
+  'MYRISTYL MYRISTATE': { nombre_com:'Miristato de miristilo', categorias:['comedogenico'], severidad:'amarillo', comedogenico:5, nota:'Comedogenicidad 5/5. Evitar en piel acneica.', lactancia:'ok', afecciones_relevantes:['acne'] },
+  'COCOS NUCIFERA OIL': { nombre_com:'Aceite de coco', categorias:['comedogenico'], severidad:'amarillo', comedogenico:4, nota:'Aceite vegetal 100% natural, rico en ácido láurico, con propiedades emolientes y antimicrobianas. Comedogenicidad alta (4/5) — precaución especial en piel acneica o con poros congestionados; mejor sustituir por jojoba o rosa mosqueta en esas clientas. Excelente para cuerpo, cabello y manos.', lactancia:'ok', afecciones_relevantes:['acne','poros'] },
+  'COCONUT OIL': { alias:'COCOS NUCIFERA OIL' },
+  'COCOA BUTTER': { alias:'THEOBROMA CACAO SEED BUTTER' },
+  'WHEAT GERM OIL': { nombre_com:'Aceite de germen de trigo', categorias:['comedogenico'], severidad:'amarillo', comedogenico:5, nota:'Muy rico en vitamina E pero comedogenicidad 5/5. Mejor usar solo en el cuerpo si la clienta tiene piel acneica.', lactancia:'ok', afecciones_relevantes:['acne'] },
+  'TRITICUM VULGARE GERM OIL': { alias:'WHEAT GERM OIL' },
+  'LINSEED OIL': { nombre_com:'Aceite de linaza', categorias:['comedogenico'], severidad:'amarillo', comedogenico:4, nota:'Rico en Omega-3 pero con comedogenicidad 4/5 por su alto contenido en ácido alfa-linolénico. Mejor para cuerpo que para rostro acneico.', lactancia:'ok', afecciones_relevantes:['acne'] },
+  'LINUM USITATISSIMUM SEED OIL': { alias:'LINSEED OIL' },
+  'ACETYLATED LANOLIN': { nombre_com:'Lanolina acetilada', categorias:['comedogenico'], severidad:'amarillo', comedogenico:5, nota:'Derivado de la lanolina con comedogenicidad 5/5. La lanolina sin modificar tiene menor puntuación.', lactancia:'ok', afecciones_relevantes:['acne'] },
+
+  // ── IRRITANTES ESPECÍFICOS ────────────────────────────────────────────────
+  'MENTHOL': { nombre_com:'Mentol', categorias:['irritante'], severidad:'amarillo', nota:'Sensación de frescor intensa por vasodilatación. En piel con rosácea puede desencadenar brotes. Irritante en mucosas y piel muy sensible.', lactancia:'precaucion', afecciones_relevantes:['rosácea','piel_sensible'] },
+  'MENTHA PIPERITA OIL': { nombre_com:'Aceite esencial de menta piperita', categorias:['irritante','fragrance_ae'], severidad:'amarillo', nota:'Contiene mentol y mentona. Vasodilatador. Posible desencadenante en rosácea. Contraindicado en bebés y niños <2 años (riesgo apnea). Precaución en embarazo.', lactancia:'evitar', afecciones_relevantes:['rosácea','piel_sensible'] },
+  'EUCALYPTUS GLOBULUS LEAF OIL': { nombre_com:'Aceite esencial de eucalipto', categorias:['irritante'], severidad:'amarillo', nota:'Potente, puede irritar mucosas y piel sensible. No usar en niños. Precaución en embarazo.', lactancia:'evitar', afecciones_relevantes:['rosácea','piel_sensible'] },
+  'CITRUS LIMON PEEL OIL': { nombre_com:'Aceite esencial de limón', categorias:['irritante','fragrance_ae'], severidad:'amarillo', nota:'Fotosensibilizante (contiene furocumarinas). No aplicar en zonas expuestas al sol. Puede irritar piel sensible.', lactancia:'ok', afecciones_relevantes:['piel_sensible'] },
+  'CITRUS AURANTIUM DULCIS PEEL OIL': { nombre_com:'Aceite esencial de naranja', categorias:['irritante','fragrance_ae'], severidad:'amarillo', nota:'Fotosensibilizante. Precaución en productos que se aplican de día sin aclarado.', lactancia:'ok', afecciones_relevantes:['piel_sensible'] },
+  'RETINOL': { nombre_com:'Retinol (vitamina A)', categorias:['irritante'], severidad:'amarillo', nota:'Activo potente. Puede causar purga, fotosensibilidad y sequedad. CONTRAINDICADO en embarazo (teratógeno). Solo uso nocturno con protección solar estricta de día. Iniciar con concentraciones bajas.', lactancia:'evitar', afecciones_relevantes:['piel_sensible','rosácea'] },
+  'RETINYL PALMITATE': { nombre_com:'Palmitato de retinilo', categorias:['irritante'], severidad:'amarillo', nota:'Forma más suave del retinol (ester). Menos irritante pero también contraindicado en embarazo. Fotosensibilizante.', lactancia:'evitar' },
+  'SALICYLIC ACID': { nombre_com:'Ácido salicílico (BHA)', categorias:['irritante'], severidad:'amarillo', nota:'BHA exfoliante. Muy eficaz en piel acneica. Puede irritar en piel sensible o seca. Contraindicado en embarazo a altas concentraciones. Fotosensibilizante.', lactancia:'precaucion', afecciones_relevantes:['piel_sensible','piel_seca'] },
+  'GLYCOLIC ACID': { nombre_com:'Ácido glicólico (AHA)', categorias:['irritante'], severidad:'amarillo', nota:'AHA exfoliante potente. Puede irritar en piel sensible, rosácea o barrera comprometida. Fotosensibilizante — usar siempre con SPF durante el día.', lactancia:'precaucion', afecciones_relevantes:['piel_sensible','rosácea'] },
+  'LACTIC ACID': { nombre_com:'Ácido láctico (AHA)', categorias:['irritante'], severidad:'amarillo', nota:'AHA más suave que el glicólico. Generalmente bien tolerado pero fotosensibilizante. Precaución en piel muy sensible.', lactancia:'ok', afecciones_relevantes:['piel_sensible'] },
+
+  // ── PETROQUÍMICOS / PEG / POLÍMEROS ──────────────────────────────────────
+  'PROPYLENE GLYCOL': { nombre_com:'Propilenglicol', categorias:['petroquimico','irritante'], severidad:'amarillo', nota:'Humectante de origen petroquímico. Generalmente seguro pero puede irritar en piel sensible con barrera comprometida. A alta concentración, sensibilizante.', lactancia:'ok', afecciones_relevantes:['piel_sensible','dermatitis'] },
+  'BUTYLENE GLYCOL': { nombre_com:'Butilenglicol', categorias:['petroquimico'], severidad:'amarillo', nota:'Humectante y solvente de síntesis petroquímica. Menor potencial irritante que el propilenglicol.', lactancia:'ok' },
+  'CARBOMER': { nombre_com:'Carbomer', categorias:['petroquimico'], severidad:'amarillo', nota:'Polímero acrílico de síntesis petroquímica. Espesante muy habitual. Generalmente bien tolerado.', lactancia:'ok' },
+  'ACRYLATES COPOLYMER': { nombre_com:'Copolímero de acrilatos', categorias:['petroquimico'], severidad:'amarillo', nota:'Polímero sintético (posible microplástico). Usado como fijador y formador de película. Bajo seguimiento regulatorio europeo.', lactancia:'ok' },
+  'POLYETHYLENE': { nombre_com:'Polietileno', categorias:['petroquimico'], severidad:'rojo', nota:'Microplástico. En exfoliantes físicos PROHIBIDO en la UE. En otros formatos, bajo revisión regulatoria activa.', lactancia:'ok' },
+  'NYLON-12': { nombre_com:'Nylon-12', categorias:['petroquimico'], severidad:'amarillo', nota:'Polímero sintético (microplástico potencial). Común en sombras y polvos. Bajo seguimiento medioambiental.', lactancia:'ok' },
+
+  // ── NO ACEPTADOS EN COSMÉTICA NATURAL (seguros pero sintéticos) ───────────
+  'DISODIUM EDTA': { nombre_com:'Disodio EDTA', categorias:['no_cosmetica_natural','petroquimico'], severidad:'amarillo', nota:'Quelante sintético. Estabiliza fórmulas y potencia conservantes. Seguro toxicológicamente pero no aceptado en cosmética natural certificada.', lactancia:'ok' },
+  'TETRASODIUM EDTA': { nombre_com:'Tetrasodio EDTA', categorias:['no_cosmetica_natural','petroquimico'], severidad:'amarillo', nota:'Quelante sintético. Igual función que el disodio EDTA. No aceptado en cosmética natural.', lactancia:'ok' },
+  'TRISODIUM EDTA': { nombre_com:'Trisodio EDTA', categorias:['no_cosmetica_natural','petroquimico'], severidad:'amarillo', nota:'Quelante sintético. No aceptado en cosmética natural.', lactancia:'ok' },
+  'POLYSORBATE 20': { nombre_com:'Polisorbato 20', categorias:['no_cosmetica_natural','petroquimico'], severidad:'amarillo', nota:'Emulsionante sintético derivado del sorbitol y óxido de etileno (proceso de etoxilación). Puede contener 1,4-dioxano como contaminante. No aceptado en cosmética natural certificada.', lactancia:'ok' },
+  'POLYSORBATE 60': { nombre_com:'Polisorbato 60', categorias:['no_cosmetica_natural','petroquimico'], severidad:'amarillo', nota:'Emulsionante sintético etoxilado. No aceptado en cosmética natural certificada. Puede contener 1,4-dioxano.', lactancia:'ok' },
+  'POLYSORBATE 80': { nombre_com:'Polisorbato 80', categorias:['no_cosmetica_natural','petroquimico'], severidad:'amarillo', nota:'Emulsionante sintético etoxilado muy extendido. No aceptado en cosmética natural certificada.', lactancia:'ok' },
+  'COCAMIDOPROPYL BETAINE': { nombre_com:'Cocamidopropil betaína', categorias:['no_cosmetica_natural'], severidad:'amarillo', nota:'Tensioactivo semisintético derivado del coco pero modificado químicamente. Frecuente sensibilizante (impurezas del proceso). No aceptado en cosmética natural estricta aunque sí en algunas certificaciones "bio".', lactancia:'ok', afecciones_relevantes:['dermatitis','piel_sensible'] },
+  'SODIUM COCOAMPHOACETATE': { nombre_com:'Cocoamfoacetato de sodio', categorias:['no_cosmetica_natural'], severidad:'amarillo', nota:'Tensioactivo anfótero semisintético. Suave pero de síntesis química. Aceptado en algunas certificaciones naturales, rechazado en otras.', lactancia:'ok' },
+  'STEARETH-2': { nombre_com:'Steareth-2', categorias:['no_cosmetica_natural','petroquimico'], severidad:'amarillo', nota:'Emulsionante sintético etoxilado. No aceptado en cosmética natural. Puede contener 1,4-dioxano.', lactancia:'ok' },
+  'STEARETH-21': { nombre_com:'Steareth-21', categorias:['no_cosmetica_natural','petroquimico'], severidad:'amarillo', nota:'Emulsionante sintético etoxilado. No aceptado en cosmética natural.', lactancia:'ok' },
+  'CETEARETH-20': { nombre_com:'Ceteareth-20', categorias:['no_cosmetica_natural','petroquimico'], severidad:'amarillo', nota:'Emulsionante sintético etoxilado. No aceptado en cosmética natural certificada.', lactancia:'ok' },
+  'LAURETH-4': { nombre_com:'Laureth-4', categorias:['no_cosmetica_natural','petroquimico'], severidad:'amarillo', nota:'Tensioactivo sintético etoxilado. No aceptado en cosmética natural.', lactancia:'ok' },
+  'LAURETH-7': { alias:'LAURETH-4' },
+  'ETHYLHEXYL PALMITATE': { nombre_com:'Palmitato de etilhexilo', categorias:['no_cosmetica_natural'], severidad:'amarillo', comedogenico:2, nota:'Emoliente sintético (ester). Sensación ligera. No aceptado en cosmética natural estricta aunque de perfil toxicológico bajo.', lactancia:'ok' },
+  'ISONONYL ISONONANOATE': { nombre_com:'Isononanoato de isononilo', categorias:['no_cosmetica_natural','derivado_petroleo'], severidad:'amarillo', nota:'Emoliente sintético. No aceptado en cosmética natural.', lactancia:'ok' },
+  'SODIUM SACCHARIN': { nombre_com:'Sacarina sódica', categorias:['no_cosmetica_natural'], severidad:'amarillo', nota:'Edulcorante sintético usado en productos bucales. No aceptado en cosmética natural.', lactancia:'ok' },
+  'TITANIUM DIOXIDE': { nombre_com:'Dióxido de titanio (CI 77891)', categorias:[], severidad:'verde', nota:'Filtro UV mineral de amplio espectro. Aceptado en cosmética natural y orgánica certificada (COSMOS) en grado no-nano. Las nanopartículas están bajo restricciones en la UE por riesgo inhalatorio — verificar si el producto indica "non-nano". Habitual en protectores solares naturales.', lactancia:'ok' },
+  'CI 77891': { alias:'TITANIUM DIOXIDE' },
+
+  // ── ACEITES VEGETALES ─────────────────────────────────────────────────────
+  'AQUA': { nombre_com:'Agua', categorias:[], severidad:'verde', nota:'Base acuosa de la fórmula. Sin restricciones.', lactancia:'ok' },
+  'WATER': { alias:'AQUA' },
+
+  'HELIANTHUS ANNUUS SEED OIL': { nombre_com:'Aceite de girasol', categorias:[], severidad:'verde', comedogenico:0, nota:'Aceite vegetal rico en ácido linoleico (omega-6). Emoliente ligero, bien tolerado por la mayoría de tipos de piel incluyendo pieles grasas. Habitual como base en cosmética orgánica. Presencia frecuente en fórmulas certificadas.', lactancia:'ok' },
+
+  'ARGANIA SPINOSA KERNEL OIL': { nombre_com:'Aceite de argán', categorias:[], severidad:'verde', comedogenico:0, nota:'Aceite seco rico en ácidos grasos insaturados (oleico, linoleico) y vitamina E. Baja comedogenicidad (0/5). Excelente para todo tipo de pieles incluyendo grasa. Activo antiedad y reparador de la barrera. Ingrediente estrella de cosmética natural.', lactancia:'ok' },
+  'SIMMONDSIA CHINENSIS SEED OIL': { nombre_com:'Aceite de jojoba', categorias:[], severidad:'verde', comedogenico:2, nota:'Técnicamente una cera líquida (no un aceite), muy similar al sebo humano. Comedogenicidad moderada-baja (2/5). Estabilizante de la barrera cutánea, regulador de la producción de sebo. Uno de los ingredientes más versátiles de la cosmética natural.', lactancia:'ok' },
+  'ROSA CANINA FRUIT OIL': { nombre_com:'Aceite de rosa mosqueta', categorias:[], severidad:'verde', comedogenico:1, nota:'Aceite rico en ácidos grasos esenciales (linoleico, linolénico) y betacarotenos. Baja comedogenicidad (1/5). Activo regenerador y antiedad. Muy apreciado en cosmética natural para cicatrices, manchas y piel madura. Aroma característico.', lactancia:'ok' },
+  'PRUNUS AMYGDALUS DULCIS OIL': { nombre_com:'Aceite de almendra dulce', categorias:[], severidad:'verde', comedogenico:2, nota:'Aceite emoliente suave, rico en ácido oleico. Comedogenicidad moderada-baja (2/5). Muy bien tolerado, ideal para pieles sensibles y bebés. Habitual como aceite de masaje y en cosméticos capilares.', lactancia:'ok' },
+  'VITIS VINIFERA SEED OIL': { nombre_com:'Aceite de pepita de uva', categorias:[], severidad:'verde', comedogenico:1, nota:'Aceite ligero rico en ácido linoleico y proantocianidinas (OPC). Baja comedogenicidad (1/5). Antioxidante. Textura muy seca, ideal para pieles mixtas y grasas en cosmética natural.', lactancia:'ok' },
+  'OLEA EUROPAEA FRUIT OIL': { nombre_com:'Aceite de oliva', categorias:[], severidad:'verde', comedogenico:2, nota:'Rico en ácido oleico y escualeno. Comedogenicidad moderada (2/5). Muy emoliente pero puede ser pesado en pieles grasas. Contiene oleocantal, un antiinflamatorio natural. Clásico de la cosmética mediterránea.', lactancia:'ok' },
+  'PERSEA GRATISSIMA OIL': { nombre_com:'Aceite de aguacate', categorias:[], severidad:'verde', comedogenico:3, nota:'Rico en ácidos grasos insaturados (oleico) y vitaminas A, D y E. Comedogenicidad media (3/5) — monitorizar en pieles con tendencia al acné. Muy nutritivo para piel seca y madura. Textura rica.', lactancia:'ok', afecciones_relevantes:['acne'] },
+  'RICINUS COMMUNIS SEED OIL': { nombre_com:'Aceite de ricino', categorias:[], severidad:'verde', comedogenico:1, nota:'Rico en ácido ricinoleico (90%), con propiedades emolientes y antiinflamatorias. Textura muy espesa. Habitual en bálsamos labiales, productos para cejas/pestañas y cosméticos capilares. Muy buen fijador natural.', lactancia:'ok' },
+  'HIPPOPHAE RHAMNOIDES FRUIT OIL': { nombre_com:'Aceite de espino amarillo', categorias:[], severidad:'verde', comedogenico:1, nota:'Uno de los aceites más ricos en omega-7 (ácido palmitoleico). Excepcional para piel madura, seca y con daño solar. Coloración naranja intensa — se usa en pequeñas proporciones. Activo regenerador potente en cosmética natural.', lactancia:'ok' },
+  'CALOPHYLLUM INOPHYLLUM SEED OIL': { nombre_com:'Aceite de tamanu', categorias:[], severidad:'verde', comedogenico:2, nota:'Aceite con propiedades cicatrizantes y antiinflamatorias bien documentadas. Comedogenicidad moderada (2/5). Habitual en cosmética natural para pieles con problemas dérmicos (cicatrices, eczema). Aroma intenso.', lactancia:'ok' },
+  'CAMELLIA SINENSIS SEED OIL': { nombre_com:'Aceite de camelia', categorias:[], severidad:'verde', comedogenico:2, nota:'Rico en ácido oleico y polifenoles antioxidantes. Textura ligera y seca. Buen perfil para cosmética antiedad natural. Habitual en cosmética japonesa tradicional.', lactancia:'ok' },
+  'CAPRYLIC/CAPRIC TRIGLYCERIDE': { nombre_com:'Triglicérido caprílico/cáprico', categorias:[], severidad:'verde', comedogenico:1, nota:'Fracción de cadena media del aceite de coco o palma, procesada para obtener un emoliente muy ligero y estable. Aceptado en cosmética natural. Textura no grasa, excelente sensorial. Bajo potencial comedogénico (1/5).', lactancia:'ok' },
+
+  // ── MANTECAS ─────────────────────────────────────────────────────────────
+  'BUTYROSPERMUM PARKII BUTTER': { nombre_com:'Manteca de karité (shea butter)', categorias:[], severidad:'verde', comedogenico:0, nota:'Manteca rica en ácidos grasos insaturados (oleico, esteárico) y fracción insaponificable activa (triterpenos, fitoesteroles). Baja comedogenicidad (0/5). Emoliente, calmante y nutritiva. Ingrediente estrella de cosmética natural para piel seca, sensible y bebés. Muy bien tolerada.', lactancia:'ok' },
+  'THEOBROMA CACAO SEED BUTTER': { nombre_com:'Manteca de cacao', categorias:['comedogenico'], severidad:'amarillo', comedogenico:4, nota:'Manteca vegetal rica en ácidos grasos saturados (esteárico, palmítico, oleico). Muy emoliente y oclusiva. Comedogénica alta (4/5) — no recomendada para pieles con tendencia al acné ni poros congestionados, aunque sea un ingrediente 100% natural. Aroma característico a chocolate si no está desodorizada.', lactancia:'ok', afecciones_relevantes:['acne','poros'] },
+  'MANGIFERA INDICA SEED BUTTER': { nombre_com:'Manteca de mango', categorias:[], severidad:'verde', comedogenico:2, nota:'Manteca de semilla de mango. Textura más seca y ligera que karité o cacao. Comedogenicidad moderada-baja (2/5). Rica en ácido esteárico y oleico. Buena opción para pieles normales a mixtas en cosmética natural.', lactancia:'ok' },
+
+  // ── CERAS ─────────────────────────────────────────────────────────────────
+  'CERA ALBA': { nombre_com:'Cera de abeja (beeswax)', categorias:[], severidad:'verde', comedogenico:0, nota:'Cera natural de origen animal (abeja). Emulsionante y espesante en bálsamos, pomadas y cosméticos sólidos. Baja comedogenicidad (0/5). No apta para cosmética vegana. Forma una película protectora suave sobre la piel.', lactancia:'ok' },
+  'BEESWAX': { alias:'CERA ALBA' },
+  'COPERNICIA CERIFERA CERA': { nombre_com:'Cera de carnaúba', categorias:[], severidad:'verde', comedogenico:1, nota:'Cera vegetal de origen natural, alternativa vegana a la cera de abeja. Habitual en barras labiales, cosméticos sólidos y maquillaje natural.', lactancia:'ok' },
+  'EUPHORBIA CERIFERA CERA': { nombre_com:'Cera de candelilla', categorias:[], severidad:'verde', comedogenico:1, nota:'Cera vegetal obtenida de un arbusto mexicano. Alternativa vegana a la cera de abeja, muy habitual en cosmética natural certificada. Buena textura y estabilidad.', lactancia:'ok' },
+
+  // ── ACTIVOS NATURALES ─────────────────────────────────────────────────────
+  'TOCOPHEROL': { nombre_com:'Tocoferol (vitamina E)', categorias:[], severidad:'verde', nota:'Vitamina E. Antioxidante natural que protege los aceites vegetales de la oxidación (lipoperoxidación) y actúa como activo sobre la piel: suavizante, reparador de la barrera y fotoprotector complementario. Muy habitual en cosmética natural como conservante natural + activo. Origen vegetal (germen de trigo, girasol).', lactancia:'ok' },
+  'TOCOPHERYL ACETATE': { nombre_com:'Acetato de tocoferilo (vitamina E estabilizada)', categorias:[], severidad:'verde', nota:'Forma estabilizada de la vitamina E. Más estable que el tocoferol libre. Ampliamente aceptado en cosmética natural. Activo antioxidante y emoliente.', lactancia:'ok' },
+  'ASCORBIC ACID': { nombre_com:'Ácido ascórbico (vitamina C)', categorias:[], severidad:'verde', nota:'Vitamina C. Antioxidante potente, estimulante de la síntesis de colágeno e iluminador. Muy inestable — se degrada con la luz, el calor y el oxígeno. Por eso suele usarse en formas derivadas más estables. Cuando se usa como ácido ascórbico puro, formatos anhydrous o en polvo son más eficaces.', lactancia:'ok' },
+  'SODIUM ASCORBYL PHOSPHATE': { nombre_com:'Fosfato sódico de ascorbilo (vitamina C estable)', categorias:[], severidad:'verde', nota:'Derivado estable de la vitamina C con buena penetración cutánea. Ampliamente aceptado en cosmética natural. Menos irritante que el ácido ascórbico puro. Activo antioxidante e iluminador.', lactancia:'ok' },
+  'PANTHENOL': { nombre_com:'Pantenol (pro-vitamina B5)', categorias:[], severidad:'verde', nota:'Pro-vitamina B5. En la piel se convierte en ácido pantoténico. Hidratante, calmante y reparador de la barrera cutánea. Habitual en cosmética natural para pieles sensibles e irritadas. Sin restricciones. Puede ser de origen vegetal (maíz) o sintético — ambas formas son idénticas funcionalmente.', lactancia:'ok' },
+  'ALLANTOIN': { nombre_com:'Alantoína', categorias:[], severidad:'verde', nota:'Activo calmante, cicatrizante y queratolítico suave. Presente en consolda (Symphytum officinale) de forma natural, aunque la mayoría de cosmética usa síntesis química (idéntica a nivel molecular). Bien tolerado incluso en pieles muy sensibles.', lactancia:'ok' },
+  'SODIUM HYALURONATE': { nombre_com:'Hialuronato sódico (ácido hialurónico)', categorias:[], severidad:'verde', nota:'Sal sódica del ácido hialurónico. Activo humectante que retiene hasta 1000 veces su peso en agua. Actualmente se obtiene por fermentación bacteriana (sin origen animal). Ampliamente aceptado en cosmética natural. Sin restricciones.', lactancia:'ok' },
+  'HYALURONIC ACID': { alias:'SODIUM HYALURONATE' },
+  'BAKUCHIOL': { nombre_com:'Bakuchiol', categorias:[], severidad:'verde', nota:'Activo botánico de la planta Psoralea corylifolia. Alternativa natural al retinol con propiedades similares (estimulante del colágeno, antiedad) pero sin su perfil de irritación. Aceptado en cosmética orgánica. Sin restricciones en embarazo ni lactancia — una de sus grandes ventajas frente al retinol.', lactancia:'ok' },
+
+  // ── AGUAS E HIDROSOLES ────────────────────────────────────────────────────
+  'ROSA DAMASCENA FLOWER WATER': { nombre_com:'Agua floral de rosa', categorias:[], severidad:'verde', nota:'Hidrosol de rosa damascena, subproducto de la destilación del aceite esencial. Calmante, ligeramente astringente y con aroma floral natural. Habitual en tónicos y brumas de cosmética natural.', lactancia:'ok' },
+  'LAVANDULA ANGUSTIFOLIA FLOWER WATER': { nombre_com:'Agua floral de lavanda', categorias:[], severidad:'verde', nota:'Hidrosol de lavanda. Calmante, equilibrante y levemente antiséptico. Habitual en cosmética natural para pieles sensibles. Aroma suave a lavanda.', lactancia:'ok' },
+  'ROSA CENTIFOLIA FLOWER WATER': { alias:'ROSA DAMASCENA FLOWER WATER' },
+
+  // ── EXTRACTOS BOTÁNICOS ───────────────────────────────────────────────────
+  'ALOE BARBADENSIS LEAF JUICE': { nombre_com:'Gel de aloe vera', categorias:[], severidad:'verde', nota:'Gel del interior de las hojas de aloe vera. Hidratante, calmante, antiinflamatorio y cicatrizante. Muy bien tolerado incluyendo pieles sensibles y reactivas. Habitual en cosmética natural. Sin restricciones.', lactancia:'ok' },
+  'ALOE BARBADENSIS LEAF EXTRACT': { alias:'ALOE BARBADENSIS LEAF JUICE' },
+  'ALOE VERA': { alias:'ALOE BARBADENSIS LEAF JUICE' },
+  'CALENDULA OFFICINALIS FLOWER EXTRACT': { nombre_com:'Extracto de caléndula', categorias:[], severidad:'verde', nota:'Extracto botánico de caléndula. Cicatrizante, calmante y antiinflamatorio. Muy usado en cosmética natural para pieles sensibles, irritadas o con eczema. Sin restricciones.', lactancia:'ok' },
+  'CHAMOMILLA RECUTITA FLOWER EXTRACT': { nombre_com:'Extracto de manzanilla', categorias:[], severidad:'verde', nota:'Rico en alfa-bisabolol y apigenina. Calmante, antiinflamatorio y levemente blanqueante. Habitual en cosmética natural para pieles sensibles y reactivas.', lactancia:'ok' },
+  'MATRICARIA RECUTITA FLOWER EXTRACT': { alias:'CHAMOMILLA RECUTITA FLOWER EXTRACT' },
+  'CAMELLIA SINENSIS LEAF EXTRACT': { nombre_com:'Extracto de té verde', categorias:[], severidad:'verde', nota:'Rico en catequinas (EGCG) y polifenoles antioxidantes. Protege la piel del daño oxidativo. Antiinflamatorio. Habitual en cosmética natural antiedad.', lactancia:'ok' },
+  'CENTELLA ASIATICA EXTRACT': { nombre_com:'Extracto de centella asiática', categorias:[], severidad:'verde', nota:'Rico en asiaticósidos y madecasósidos. Estimula la síntesis de colágeno, repara la barrera cutánea y calma la piel. Muy apreciado en cosmética natural para piel sensible, rosácea y piel madura.', lactancia:'ok', afecciones_relevantes:['rosácea','piel_sensible'] },
+  'HIPPOPHAE RHAMNOIDES FRUIT EXTRACT': { nombre_com:'Extracto de espino amarillo', categorias:[], severidad:'verde', nota:'Rico en vitaminas C, E y omega-7. Antioxidante y regenerador. Habitual en cosmética natural para piel madura y dañada.', lactancia:'ok' },
+  'ROSMARINUS OFFICINALIS LEAF EXTRACT': { nombre_com:'Extracto de romero', categorias:[], severidad:'verde', nota:'Antioxidante natural habitual en cosmética orgánica como conservante + activo. También se usa para estabilizar aceites vegetales. Contiene ácido carnósico y carnosol.', lactancia:'ok' },
+
+  // ── EMULSIONANTES Y TEXTURIZANTES NATURALES ───────────────────────────────
+  'GLYCERIN': { nombre_com:'Glicerina', categorias:[], severidad:'verde', nota:'Humectante natural por excelencia. Puede ser de origen vegetal (subproducto del biodiesel o jabonería) o sintético — en cosmética natural siempre se usa la vegetal. Atrae el agua del entorno hacia la piel. Sin restricciones.', lactancia:'ok' },
+  'GLYCERINE': { alias:'GLYCERIN' },
+  'CETYL ALCOHOL': { nombre_com:'Alcohol cetílico', categorias:[], severidad:'verde', nota:'Alcohol graso de cadena larga (C16), derivado de aceites vegetales (palma, coco). No es un alcohol desecante — es un emoliente y espesante. Habitual en cremas y lociones de cosmética natural. Diferente al etanol o isopropanol.', lactancia:'ok' },
+  'CETEARYL ALCOHOL': { nombre_com:'Alcohol cetearílico', categorias:[], severidad:'verde', nota:'Mezcla de alcoholes grasos (cetílico + estearílico) de origen vegetal. Emoliente y espesante en emulsiones. No deseca. Ampliamente aceptado en cosmética natural y certificada.', lactancia:'ok' },
+  'STEARIC ACID': { nombre_com:'Ácido esteárico', categorias:[], severidad:'verde', nota:'Ácido graso saturado de cadena larga, presente de forma natural en muchas grasas vegetales y animales. Texturizante y emoliente. Ampliamente aceptado en cosmética natural.', lactancia:'ok' },
+  'OLEIC ACID': { nombre_com:'Ácido oleico', categorias:[], severidad:'verde', comedogenico:2, nota:'Ácido graso monoinsaturado, componente principal del aceite de oliva y argán. Muy emoliente. Comedogenicidad moderada (2/5). Natural y ampliamente aceptado en cosmética orgánica.', lactancia:'ok' },
+  'LECITHIN': { nombre_com:'Lecitina', categorias:[], severidad:'verde', nota:'Fosfolípido emulsionante de origen natural (habitualmente soja o girasol). Fortalece la barrera cutánea y mejora la penetración de activos. Ampliamente aceptado en cosmética natural certificada.', lactancia:'ok' },
+  'GLYCERYL STEARATE': { nombre_com:'Estearato de glicerilo', categorias:[], severidad:'verde', nota:'Emulsionante derivado de la reacción entre glicerina y ácido esteárico, ambos de origen vegetal. Aceptado en cosmética natural certificada (COSMOS). Suavizante y estabilizante de emulsiones.', lactancia:'ok' },
+  'XANTHAN GUM': { nombre_com:'Goma xantana', categorias:[], severidad:'verde', nota:'Polisacárido obtenido por fermentación bacteriana (Xanthomonas campestris). Agente espesante y estabilizante. Ampliamente aceptado en cosmética natural y orgánica certificada.', lactancia:'ok' },
+
+  // ── CONSERVANTES NATURALES Y DE BAJA CONTROVERSIA ────────────────────────
+  'POTASSIUM SORBATE': { nombre_com:'Sorbato de potasio', categorias:[], severidad:'verde', nota:'Conservante de origen natural (ácido sórbico, presente en bayas del serbal). Muy habitual en cosmética natural certificada. Bajo perfil de irritación. Actúa sobre hongos y levaduras. Seguro en embarazo y lactancia.', lactancia:'ok' },
+  'SODIUM BENZOATE': { nombre_com:'Benzoato de sodio', categorias:['conservante_controvertido'], severidad:'amarillo', nota:'Conservante derivado del ácido benzoico (presente en arándanos y canela). Aceptado en algunos estándares de cosmética natural pero no en cosmética orgánica certificada COSMOS. En combinación con vitamina C puede formar benzeno en muy bajas cantidades — sin riesgo demostrado a concentraciones cosméticas. Precaución en pieles reactivas.', lactancia:'ok', afecciones_relevantes:['piel_sensible'] },
+
+  // ── PROPELENTES / GASES AEROSOL ──────────────────────────────────────────
+  'BUTANE': { nombre_com:'Butano', categorias:['derivado_petroleo'], severidad:'amarillo', nota:'Gas propelente de origen petroquímico usado en desodorantes y sprays en aerosol. Inflamable. No queda en la piel — se evapora al salir del envase. Incompatible con cosmética natural certificada.', lactancia:'ok' },
+  'ISOBUTANE': { nombre_com:'Isobutano', categorias:['derivado_petroleo'], severidad:'amarillo', nota:'Gas propelente petroquímico, variante del butano. Uso exclusivo en aerosoles. Mismo perfil que el butano — no queda en la piel.', lactancia:'ok' },
+  'PROPANE': { nombre_com:'Propano', categorias:['derivado_petroleo'], severidad:'amarillo', nota:'Gas propelente petroquímico. Muy habitual junto al butano e isobutano en aerosoles de desodorante y laca. No queda en la piel.', lactancia:'ok' },
+
+  // ── SALES DE ALUMINIO (ANTITRANSPIRANTES) ────────────────────────────────
+  'ALUMINUM CHLOROHYDRATE': { nombre_com:'Clorohidrato de aluminio', categorias:['no_cosmetica_natural'], severidad:'amarillo', nota:'Activo antitranspirante más habitual en el mercado. Reduce la sudoración obstruyendo temporalmente los poros de las glándulas sudoríparas. Debate científico activo sobre su relación con el cáncer de mama y las alteraciones hormonales — la IARC no lo clasifica como carcinógeno. No aceptado en cosmética natural. Si hay preocupación, existen desodorantes naturales sin aluminio.', lactancia:'precaucion', afecciones_relevantes:['piel_sensible'] },
+  'ALUMINUM SESQUICHLOROHYDRATE': { nombre_com:'Sesquiclorohidrato de aluminio', categorias:['no_cosmetica_natural'], severidad:'amarillo', nota:'Sal de aluminio antitranspirante, variante del clorohidrato. Mismo mecanismo de acción y mismo debate de seguridad. No aceptado en cosmética natural.', lactancia:'precaucion' },
+  'ALUMINUM CHLORIDE': { nombre_com:'Cloruro de aluminio', categorias:['no_cosmetica_natural','irritante'], severidad:'rojo', nota:'Sal de aluminio con mayor concentración que el clorohidrato. Usada en antitranspirantes de prescripción para hiperhidrosis severa. Puede irritar la piel. No aceptado en cosmética natural.', lactancia:'evitar' },
+
+  // ── EMOLIENTES SINTÉTICOS ────────────────────────────────────────────────
+  'DICAPRYLYL ETHER': { nombre_com:'Éter dicaprilílico', categorias:['no_cosmetica_natural'], severidad:'amarillo', nota:'Emoliente muy ligero y volátil. Da sensación de sequedad y deslizamiento inmediato. Puede obtenerse de coco pero habitualmente es de síntesis. Frecuente en desodorantes spray y productos de tacto seco. No aceptado en cosmética natural certificada.', lactancia:'ok' },
+  'OCTYLDODECANOL': { nombre_com:'Octildodecanol', categorias:['no_cosmetica_natural'], severidad:'amarillo', nota:'Alcohol graso de cadena larga emoliente. Da textura rica y aterciopelada. Puede ser de origen vegetal (coco, palma) pero generalmente sintético. No aceptado en cosmética natural certificada. Bajo perfil de seguridad.', lactancia:'ok' },
+  'PROPYLENE CARBONATE': { nombre_com:'Carbonato de propileno', categorias:['petroquimico'], severidad:'amarillo', nota:'Disolvente y agente dispersante sintético. Se usa para disolver y estabilizar activos en fórmulas de desodorante y maquillaje. De origen petroquímico. No aceptado en cosmética natural.', lactancia:'ok' },
+
+  // ── MINERALES / ARCILLAS SINTÉTICAS ─────────────────────────────────────
+  'MAGNESIUM ALUMINUM SILICATE': { nombre_com:'Silicato de aluminio y magnesio', categorias:[], severidad:'verde', nota:'Arcilla mineral natural (variante esmectita). Espesante y estabilizante en suspensiones y emulsiones. Mejora la textura de productos en polvo y sprays. Sin restricciones de seguridad. Distinto del talco (magnesio silicato simple).', lactancia:'ok' },
+  'DISTEARDIMONIUM HECTORITE': { nombre_com:'Hectorita de distearildimonio', categorias:['no_cosmetica_natural'], severidad:'amarillo', nota:'Arcilla hectorita modificada con un compuesto de amonio cuaternario. Espesante para fases oleosas y fórmulas anhydrous (sin agua). La modificación química la excluye de la cosmética natural certificada.', lactancia:'ok' },
+
+  // ── ACTIVOS NATURALES ADICIONALES ────────────────────────────────────────
+  'NIACINAMIDE': { nombre_com:'Niacinamida (vitamina B3)', categorias:['no_cosmetica_natural'], severidad:'amarillo', nota:'Activo sintético multifuncional (forma amida de la vitamina B3): regula el sebo, uniformiza el tono, refuerza la barrera, antiinflamatorio. Perfil de seguridad y tolerancia excelentes. No aceptado en cosmética orgánica certificada por ser de síntesis. Sin restricciones en embarazo ni lactancia.', lactancia:'ok' },
+  'ADENOSINE': { nombre_com:'Adenosina', categorias:[], severidad:'verde', nota:'Nucleósido natural presente en todas las células vivas. Activo antiinflamatorio y antiedad. Estimula la síntesis de colágeno. Obtenida por fermentación. Aceptada en cosmética natural. Sin restricciones.', lactancia:'ok' },
+  'AZELAIC ACID': { nombre_com:'Ácido azelaico', categorias:['irritante'], severidad:'amarillo', nota:'Ácido dicarboxílico presente de forma natural en el trigo, centeno y cebada. Antiinflamatorio, antibacteriano y antifúngico. Útil en acné, rosácea y manchas. Puede irritar en pieles muy sensibles al inicio. Sin restricciones en embarazo — uno de los pocos activos antimancha seguros en gestación.', lactancia:'ok', afecciones_relevantes:['rosácea','acne','piel_sensible'] },
+  'FERULIC ACID': { nombre_com:'Ácido ferúlico', categorias:[], severidad:'verde', nota:'Ácido fenólico antioxidante presente de forma natural en salvado de arroz, avena y manzana. Potencia y estabiliza la vitamina C y la vitamina E. Photoprotector complementario. Ampliamente aceptado en cosmética natural.', lactancia:'ok' },
+  'RESVERATROL': { nombre_com:'Resveratrol', categorias:[], severidad:'verde', nota:'Polifenol antioxidante presente de forma natural en la piel de la uva, arándanos y frambuesas. Antiinflamatorio y activador de sirtuinas (genes de longevidad). Activo antiedad en cosmética natural. Sin restricciones.', lactancia:'ok' },
+  'UBIQUINONE': { nombre_com:'Ubiquinona (Coenzima Q10)', categorias:[], severidad:'verde', nota:'Coenzima antioxidante presente de forma natural en el organismo. La usada en cosmética se obtiene por fermentación. Antiedad, protege la mitocondria celular. Ampliamente aceptado en cosmética natural. Sin restricciones.', lactancia:'ok' },
+  'COENZYME Q10': { alias:'UBIQUINONE' },
+  'ALPHA-ARBUTIN': { nombre_com:'Alfa-arbutina', categorias:[], severidad:'verde', nota:'Glucósido natural derivado de la planta Arctostaphylos uva-ursi (gayuba). Inhibidor de la tirosinasa — despigmentante eficaz y bien tolerado. Alternativa natural y más suave a la hidroquinona. Sin restricciones en embarazo.', lactancia:'ok' },
+  'ARBUTIN': { alias:'ALPHA-ARBUTIN' },
+  'KOJIC ACID': { nombre_com:'Ácido kójico', categorias:['irritante'], severidad:'amarillo', nota:'Ácido producido por fermentación fúngica (Aspergillus). Inhibidor de la tirosinasa, despigmentante eficaz. Puede causar irritación y sensibilización en pieles sensibles con uso prolongado. No recomendado en embarazo.', lactancia:'precaucion', afecciones_relevantes:['piel_sensible'] },
+  'TRANEXAMIC ACID': { nombre_com:'Ácido tranexámico', categorias:['no_cosmetica_natural'], severidad:'amarillo', nota:'Derivado sintético del aminoácido lisina. Activo despigmentante de nueva generación, muy bien tolerado y eficaz. No apto en cosmética orgánica certificada. Sin restricciones de seguridad conocidas.', lactancia:'ok' },
+  'SODIUM PCA': { nombre_com:'PCA de sodio (NMF)', categorias:[], severidad:'verde', nota:'Sal sódica del ácido pirrolidona carboxílico. "Factor Natural de Hidratación" (NMF) no es un ingrediente único: es el nombre que se da al conjunto de sustancias que la propia piel produce para retener agua (aminoácidos, urea, PCA, ácido láctico...) — el Sodium PCA es el componente que más se usa suelto como ingrediente cosmético bajo esa etiqueta. Humectante potente, capta y retiene agua en la capa córnea. Puede obtenerse de fuentes naturales por fermentación. Ampliamente aceptado en cosmética natural.', lactancia:'ok' },
+  'ZINC GLUCONATE': { nombre_com:'Gluconato de zinc', categorias:[], severidad:'verde', nota:'Sal orgánica de zinc. Regulador del sebo y antibacteriano suave. Útil en cosmética para piel acneica y mixta. Sin restricciones.', lactancia:'ok', afecciones_relevantes:['acne'] },
+  'COPPER GLUCONATE': { nombre_com:'Gluconato de cobre', categorias:[], severidad:'verde', nota:'Sal orgánica de cobre. Estimula la síntesis de colágeno y tiene propiedades antimicrobianas. Activo antiedad a bajas concentraciones.', lactancia:'ok' },
+  'ALPHA-BISABOLOL': { nombre_com:'Alfa-bisabolol', categorias:[], severidad:'verde', nota:'Sesquiterpeno natural presente en el aceite esencial de manzanilla alemana. Activo calmante, antiinflamatorio y promotor de la penetración de activos. Ampliamente usado en cosmética natural para pieles sensibles. Sin restricciones.', lactancia:'ok', afecciones_relevantes:['rosácea','piel_sensible'] },
+  'BISABOLOL': { alias:'ALPHA-BISABOLOL' },
+  '(-)-ALPHA-BISABOLOL': { alias:'ALPHA-BISABOLOL' },
+  'ACETYL GLUCOSAMINE': { nombre_com:'Acetilglucosamina', categorias:[], severidad:'verde', nota:'Azúcar amino natural. Exfoliante suave, inhibidor de la tirosinasa (despigmentante). Habitual en cosmética natural para manchas y textura irregular.', lactancia:'ok' },
+
+  // ── ACEITES VEGETALES ADICIONALES ────────────────────────────────────────
+  'OENOTHERA BIENNIS OIL': { nombre_com:'Aceite de onagra (primrose)', categorias:[], severidad:'verde', comedogenico:2, nota:'Aceite muy rico en GLA (ácido gamma-linolénico). Activo antiinflamatorio y reparador de la barrera cutánea. Especialmente beneficioso para piel seca, sensible y con eczema. Comedogenicidad moderada-baja (2/5).', lactancia:'ok', afecciones_relevantes:['piel_sensible','dermatitis'] },
+  'EVENING PRIMROSE OIL': { alias:'OENOTHERA BIENNIS OIL' },
+  'BORAGO OFFICINALIS SEED OIL': { nombre_com:'Aceite de borraja', categorias:[], severidad:'verde', comedogenico:2, nota:'El aceite vegetal con mayor contenido en GLA (~24%). Antiinflamatorio potente y reparador de la barrera. Muy útil en piel seca, eccematosa y madura. Comedogenicidad moderada-baja (2/5). Usarlo en mezclas por su riqueza activa.', lactancia:'ok', afecciones_relevantes:['piel_sensible','dermatitis'] },
+  'CANNABIS SATIVA SEED OIL': { nombre_com:'Aceite de cáñamo', categorias:[], severidad:'verde', comedogenico:0, nota:'Aceite vegetal con ratio omega-6/omega-3 ideal (3:1). No contiene THC ni CBD (son compuestos de la planta, no de la semilla). Antiinflamatorio, regulador del sebo y reparador de la barrera. Comedogenicidad 0/5. Muy adecuado para pieles mixtas, grasas y con acné.', lactancia:'ok', afecciones_relevantes:['acne'] },
+  'HEMP SEED OIL': { alias:'CANNABIS SATIVA SEED OIL' },
+  'PUNICA GRANATUM SEED OIL': { nombre_com:'Aceite de granada', categorias:[], severidad:'verde', comedogenico:1, nota:'Único aceite vegetal con ácido punicínico (omega-5 conjugado). Antioxidante potente, regenerador y antiinflamatorio. Comedogenicidad baja (1/5). Activo antiedad en cosmética natural.', lactancia:'ok' },
+  'OPUNTIA FICUS-INDICA SEED OIL': { nombre_com:'Aceite de higo chumbo', categorias:[], severidad:'verde', comedogenico:0, nota:'Excepcionalmente rico en vitamina E y esteroles vegetales. Antioxidante potente. Comedogenicidad 0/5. Uno de los aceites más valiosos de la cosmética natural (precio elevado por la extracción manual de semillas).', lactancia:'ok' },
+  'SCLEROCARYA BIRREA SEED OIL': { nombre_com:'Aceite de marula', categorias:[], severidad:'verde', comedogenico:2, nota:'Aceite vegetal africano rico en ácido oleico (70%) y antioxidantes. Textura ligera y seca. Antiedad y nutritivo. Comedogenicidad moderada-baja (2/5). Bien tolerado por la mayoría de tipos de piel.', lactancia:'ok' },
+  'ADANSONIA DIGITATA SEED OIL': { nombre_com:'Aceite de baobab', categorias:[], severidad:'verde', comedogenico:2, nota:'Aceite del árbol africano baobab. Rico en omega-3, 6 y 9. Nutritivo, emoliente y antioxidante. Absorción rápida. Comedogenicidad moderada-baja (2/5).', lactancia:'ok' },
+  'MORINGA OLEIFERA SEED OIL': { nombre_com:'Aceite de moringa', categorias:[], severidad:'verde', comedogenico:2, nota:'Alto contenido en ácido oleico (70%) y ácido behénico, lo que le confiere estabilidad excepcional. Antioxidante y emoliente. Históricamente usado en Egipto antiguo. Comedogenicidad moderada (2/5).', lactancia:'ok' },
+  'NIGELLA SATIVA SEED OIL': { nombre_com:'Aceite de nigela (comino negro)', categorias:[], severidad:'verde', comedogenico:2, nota:'Rico en timoquinona, activo antiinflamatorio y antioxidante bien estudiado. Muy usado en cosmética natural para piel reactiva, rosácea y acné. Aroma intenso y característico. Comedogenicidad moderada-baja (2/5).', lactancia:'ok', afecciones_relevantes:['rosácea','acne','piel_sensible'] },
+  'PRUNUS ARMENIACA KERNEL OIL': { nombre_com:'Aceite de hueso de albaricoque', categorias:[], severidad:'verde', comedogenico:2, nota:'Aceite emoliente suave y ligero, rico en ácido oleico. Textura sedosa. Similar al aceite de almendra dulce pero con textura algo más seca. Comedogenicidad moderada-baja (2/5). Habitual en cosmética natural.', lactancia:'ok' },
+  'APRICOT KERNEL OIL': { alias:'PRUNUS ARMENIACA KERNEL OIL' },
+  'PRUNUS PERSICA KERNEL OIL': { nombre_com:'Aceite de hueso de melocotón', categorias:[], severidad:'verde', comedogenico:2, nota:'Muy similar al aceite de albaricoque. Suave, emoliente y ligero. Rico en ácido oleico. Bien tolerado por todo tipo de piel. Comedogenicidad moderada-baja (2/5).', lactancia:'ok' },
+  'LIMNANTHES ALBA SEED OIL': { nombre_com:'Aceite de meadowfoam', categorias:[], severidad:'verde', comedogenico:1, nota:'Aceite de composición única (80% ácidos grasos de cadena muy larga, C20-C22). Extraordinariamente estable frente a la oxidación. Emoliente y formador de película protectora. Habitual en cosmética natural capilar.', lactancia:'ok' },
+  'MACADAMIA TERNIFOLIA SEED OIL': { nombre_com:'Aceite de macadamia', categorias:[], severidad:'verde', comedogenico:2, nota:'Excepcionalmente rico en ácido palmitoleico (omega-7), componente natural del sebo joven. Nutritivo y regenerador. Ideal para piel madura y seca. Comedogenicidad moderada (2/5).', lactancia:'ok' },
+  'MACADAMIA INTEGRIFOLIA SEED OIL': { alias:'MACADAMIA TERNIFOLIA SEED OIL' },
+  'PASSIFLORA EDULIS SEED OIL': { nombre_com:'Aceite de maracuyá', categorias:[], severidad:'verde', comedogenico:1, nota:'Aceite seco y ligero muy rico en ácido linoleico (omega-6). Baja comedogenicidad (1/5). Excelente para pieles mixtas y grasas. Antioxidante por su contenido en carotenoides.', lactancia:'ok', afecciones_relevantes:['acne'] },
+  'PRUNUS AVIUM KERNEL OIL': { nombre_com:'Aceite de hueso de cereza', categorias:[], severidad:'verde', comedogenico:2, nota:'Aceite emoliente ligero extraído del hueso de la cereza. Rico en ácidos grasos insaturados. Comedogenicidad moderada-baja (2/5). Suave, habitual en cosmética natural.', lactancia:'ok' },
+  'SQUALANE': { nombre_com:'Escualano', categorias:[], severidad:'verde', comedogenico:1, nota:'Forma saturada y estable del escualeno. Puede ser de origen vegetal (olivo, caña de azúcar — preferible) o marino (hígado de tiburón — evitar). Verificar el origen. Emoliente ligero y estable que imita los lípidos naturales de la piel. Baja comedogenicidad (1/5).', lactancia:'ok' },
+  'PHYTOSQUALANE': { alias:'SQUALANE' },
+  'COCO-CAPRYLATE': { nombre_com:'Coco-caprilato', categorias:[], severidad:'verde', nota:'Ester natural derivado del aceite de coco y ácido caprílico. Emoliente ligero y seco. Alternativa natural a los emolientes petroquímicos. Sensorial excelente. Aceptado en cosmética natural.', lactancia:'ok' },
+  'COCO-CAPRYLATE/CAPRATE': { alias:'COCO-CAPRYLATE' },
+  'ISOAMYL LAURATE': { nombre_com:'Laurato de isoamilo', categorias:[], severidad:'verde', nota:'Ester natural derivado del aceite de coco. Emoliente ligero con textura seca. Alternativa natural a los emolientes petroquímicos. Aceptado en cosmética natural.', lactancia:'ok' },
+
+  // ── MANTECAS ADICIONALES ─────────────────────────────────────────────────
+  'SHOREA STENOPTERA SEED BUTTER': { nombre_com:'Manteca de sal (illipe)', categorias:[], severidad:'verde', comedogenico:1, nota:'Manteca vegetal asiática muy rica en ácido esteárico. Textura más dura que el karité. Excelente estabilizante en formulación. Comedogenicidad baja (1/5). Aceptada en cosmética natural.', lactancia:'ok' },
+  'GARCINIA INDICA SEED BUTTER': { nombre_com:'Manteca de kokum', categorias:[], severidad:'verde', comedogenico:0, nota:'Manteca muy dura, rica en ácido esteárico. Propiedades astringentes y regeneradoras. Comedogenicidad mínima (0/5). Habitual en cosméticos sólidos y labiales naturales.', lactancia:'ok' },
+  'LANOLIN': { nombre_com:'Lanolina', categorias:[], severidad:'verde', comedogenico:1, nota:'Cera natural de las glándulas sebáceas de la lana de oveja. Muy similar a los lípidos de la piel humana. Emoliente, oclusiva y reparadora de la barrera. No apta para veganos. Puede causar alergia de contacto en personas sensibles a la lana. Comedogenicidad baja (1/5).', lactancia:'ok' },
+
+  // ── EMULSIONANTES Y ESPESANTES NATURALES ADICIONALES ────────────────────
+  'CETEARYL OLIVATE': { nombre_com:'Olivato de cetearilo', categorias:[], severidad:'verde', nota:'Emulsionante natural derivado del aceite de oliva y alcoholes grasos. Componente de Olivem 1000 (junto con sorbitan olivate). Aceptado en cosmética natural y orgánica certificada COSMOS.', lactancia:'ok' },
+  'SORBITAN OLIVATE': { nombre_com:'Olivato de sorbitán', categorias:[], severidad:'verde', nota:'Emulsionante natural derivado del ácido oleico del olivo y sorbitol. Componente de Olivem 1000. Aceptado en cosmética natural certificada COSMOS. Muy similar a los emulsionantes de la piel humana.', lactancia:'ok' },
+  'GLYCERYL CAPRYLATE': { nombre_com:'Caprilato de glicerilo', categorias:[], severidad:'verde', nota:'Ester natural de glicerina y ácido caprílico (coco). Emoliente con actividad conservante adicional. Aceptado en cosmética natural certificada COSMOS. Refuerza la actividad antimicrobiana de conservantes.', lactancia:'ok' },
+  'CETEARYL GLUCOSIDE': { nombre_com:'Glucósido de cetearilo', categorias:[], severidad:'verde', nota:'Emulsionante natural derivado de la glucosa y alcoholes grasos vegetales. Aceptado en cosmética natural y orgánica certificada COSMOS. Muy suave.', lactancia:'ok' },
+  'SUCROSE COCOATE': { nombre_com:'Cocoato de sacarosa', categorias:[], severidad:'verde', nota:'Ester natural de azúcar y ácido graso de coco. Emulsionante y emoliente. Aceptado en cosmética natural.', lactancia:'ok' },
+  'JOJOBA ESTERS': { nombre_com:'Esteres de jojoba', categorias:[], severidad:'verde', nota:'Cera sólida derivada del aceite de jojoba hidrogenado e interesterificado. Alternativa vegana a la cera de abeja. Aceptada en cosmética natural.', lactancia:'ok' },
+  'STEARYL ALCOHOL': { nombre_com:'Alcohol estearílico', categorias:[], severidad:'verde', nota:'Alcohol graso saturado de cadena larga (C18) de origen vegetal. No deseca. Emoliente y espesante en emulsiones. Aceptado en cosmética natural. No confundir con alcoholes desnaturalizantes.', lactancia:'ok' },
+  'PALMITIC ACID': { nombre_com:'Ácido palmítico', categorias:[], severidad:'verde', comedogenico:2, nota:'Ácido graso saturado presente de forma natural en el sebo humano y muchos aceites vegetales. Emoliente y espesante. Comedogenicidad moderada (2/5). Natural y aceptado en cosmética.', lactancia:'ok' },
+  'LINOLEIC ACID': { nombre_com:'Ácido linoleico (omega-6)', categorias:[], severidad:'verde', comedogenico:0, nota:'Ácido graso esencial (omega-6) componente clave de la barrera cutánea. Deficitario en pieles acneicas y con barrera comprometida. De origen vegetal. Comedogenicidad 0/5. Reparador de la barrera lipídica.', lactancia:'ok', afecciones_relevantes:['acne'] },
+  'HYDROXYETHYLCELLULOSE': { nombre_com:'Hidroxietilcelulosa', categorias:[], severidad:'verde', nota:'Celulosa modificada. Espesante y gelificante aceptado en cosmética natural certificada COSMOS. Forma texturas gel transparentes. Sin restricciones.', lactancia:'ok' },
+  'HYDROXYPROPYL METHYLCELLULOSE': { nombre_com:'Hidroxipropil metilcelulosa (HPMC)', categorias:[], severidad:'verde', nota:'Celulosa modificada. Espesante y texturizante. Aceptado en cosmética natural.', lactancia:'ok' },
+  'MICROCRYSTALLINE CELLULOSE': { nombre_com:'Celulosa microcristalina', categorias:[], severidad:'verde', nota:'Celulosa vegetal procesada. Texturizante y carga en polvos. Natural. Sin restricciones.', lactancia:'ok' },
+  'CELLULOSE': { nombre_com:'Celulosa', categorias:[], severidad:'verde', nota:'Polisacárido vegetal estructural. Espesante, abrasivo suave y formador de película. Natural. Aceptado en cosmética natural.', lactancia:'ok' },
+  'SODIUM ALGINATE': { nombre_com:'Alginato de sodio', categorias:[], severidad:'verde', nota:'Polisacárido de algas marrones. Gelificante y espesante. Aceptado en cosmética natural. Habitual en mascarillas y cosméticos de algas.', lactancia:'ok' },
+  'AGAR': { nombre_com:'Agar', categorias:[], severidad:'verde', nota:'Polisacárido natural de algas rojas. Gelificante y espesante. Aceptado en cosmética natural.', lactancia:'ok' },
+  'CARRAGEENAN': { nombre_com:'Carragenano', categorias:[], severidad:'verde', nota:'Polisacárido extraído de algas rojas. Espesante y gelificante. Aceptado en cosmética natural. La forma degradada puede ser inflamatoria por vía oral, pero en cosmética no hay evidencia de riesgo.', lactancia:'ok' },
+  'PULLULAN': { nombre_com:'Pululano', categorias:[], severidad:'verde', nota:'Polisacárido obtenido por fermentación fúngica. Formador de película tensora (efecto lifting inmediato). Habitual en sérums antiedad de cosmética natural. Sin restricciones.', lactancia:'ok' },
+  'INULIN': { nombre_com:'Inulina', categorias:[], severidad:'verde', nota:'Polisacárido natural extraído de la raíz de achicoria. Humectante y prebiótico para el microbioma de la piel. Aceptado en cosmética natural.', lactancia:'ok' },
+
+  // ── TENSIOACTIVOS NATURALES ──────────────────────────────────────────────
+  'DECYL GLUCOSIDE': { nombre_com:'Decil glucósido', categorias:[], severidad:'verde', nota:'Tensioactivo suave derivado de la glucosa y decanol (coco). Uno de los más frecuentes en cosmética natural. Aceptado en cosmética certificada COSMOS. Muy bien tolerado incluyendo pieles sensibles.', lactancia:'ok' },
+  'COCO GLUCOSIDE': { nombre_com:'Coco glucósido', categorias:[], severidad:'verde', nota:'Tensioactivo suave de glucosa y alcohol de coco. Aceptado en cosmética natural certificada COSMOS. Similar al decil glucósido, algo más espumante. Habitual en champús y geles naturales.', lactancia:'ok' },
+  'LAURYL GLUCOSIDE': { nombre_com:'Lauril glucósido', categorias:[], severidad:'verde', nota:'Tensioactivo suave de glucosa y lauril alcohol (coco). Aceptado en cosmética natural. Sin restricciones.', lactancia:'ok' },
+  'CAPRYLYL/CAPRYL GLUCOSIDE': { nombre_com:'Caprililcaprilo glucósido', categorias:[], severidad:'verde', nota:'Tensioactivo de cadena corta-media derivado de la glucosa. Aceptado en cosmética natural. Ideal para pieles muy sensibles por su suavidad extrema.', lactancia:'ok' },
+  'SODIUM COCOYL GLUTAMATE': { nombre_com:'Cocoil glutamato de sodio', categorias:[], severidad:'verde', nota:'Tensioactivo derivado del ácido glutámico (aminoácido) y aceite de coco. Aceptado en cosmética natural y certificada COSMOS. Muy suave, respeta el pH ácido de la piel. Sin restricciones.', lactancia:'ok' },
+  'SODIUM LAUROYL GLUTAMATE': { nombre_com:'Lauroil glutamato de sodio', categorias:[], severidad:'verde', nota:'Tensioactivo de aminoácido muy suave. Derivado del ácido glutámico y ácido láurico (coco). Aceptado en cosmética natural. Limpiador gentil para pieles sensibles.', lactancia:'ok' },
+  'DISODIUM COCOYL GLUTAMATE': { nombre_com:'Cocoil glutamato de disodio', categorias:[], severidad:'verde', nota:'Variante del cocoil glutamato de sodio. Origen natural. Tensioactivo suave aceptado en cosmética natural.', lactancia:'ok' },
+  'SODIUM COCOYL ISETHIONATE': { nombre_com:'Cocoil isethionato de sodio', categorias:['no_cosmetica_natural'], severidad:'amarillo', nota:'Tensioactivo suave derivado del coco con modificación química. Muy habitual en jabones sólidos y champús sólidos. No aceptado en cosmética orgánica certificada COSMOS, pero sí en algunas certificaciones naturales.', lactancia:'ok' },
+  'POTASSIUM COCOATE': { nombre_com:'Cocoato de potasio (jabón de coco)', categorias:[], severidad:'verde', nota:'Sal potásica de los ácidos grasos del aceite de coco. Resultado de la saponificación. Jabón natural por excelencia. Aceptado en cosmética natural certificada.', lactancia:'ok' },
+  'SODIUM COCOATE': { nombre_com:'Cocoato de sodio (jabón duro de coco)', categorias:[], severidad:'verde', nota:'Sal sódica de los ácidos grasos del aceite de coco. Base de jabones sólidos. Jabón natural. Puede resecar pieles muy sensibles por su pH elevado.', lactancia:'ok' },
+  'SODIUM OLIVATE': { nombre_com:'Olivato de sodio (jabón de oliva)', categorias:[], severidad:'verde', nota:'Sal sódica de los ácidos grasos del aceite de oliva. Base del jabón de Castilla. Jabón natural muy clásico.', lactancia:'ok' },
+
+  // ── HUMECTANTES NATURALES ────────────────────────────────────────────────
+  'BETAINE': { nombre_com:'Betaína', categorias:[], severidad:'verde', nota:'Osmoprotector natural obtenido del azúcar de remolacha. Humectante, calmante y antiirritante. Reduce la irritación de otros ingredientes (coformulación con tensioactivos). Ampliamente aceptado en cosmética natural. Sin restricciones.', lactancia:'ok' },
+  'SORBITOL': { nombre_com:'Sorbitol', categorias:[], severidad:'verde', nota:'Alcohol de azúcar presente en frutas (ciruelas, manzanas). Humectante suave. De origen natural. Aceptado en cosmética natural.', lactancia:'ok' },
+  'TREHALOSE': { nombre_com:'Trehalosa', categorias:[], severidad:'verde', nota:'Disacárido natural producido por microorganismos y algunos vegetales. Criptoprotector excelente — protege proteínas y membranas celulares de la desecación. Humectante activa en situaciones de estrés osmótico. Aceptado en cosmética natural.', lactancia:'ok' },
+  'ERYTHRITOL': { nombre_com:'Eritritol', categorias:[], severidad:'verde', nota:'Poliol natural presente en frutas y fermentación. Humectante suave. Aceptado en cosmética natural.', lactancia:'ok' },
+  'FRUCTOSE': { nombre_com:'Fructosa', categorias:[], severidad:'verde', nota:'Azúcar simple natural de frutas. Humectante suave. Aceptado en cosmética natural.', lactancia:'ok' },
+  'GLUCOSE': { nombre_com:'Glucosa', categorias:[], severidad:'verde', nota:'Azúcar simple natural. Humectante suave y fuente de energía celular. Aceptado en cosmética natural.', lactancia:'ok' },
+  'UREA': { nombre_com:'Urea', categorias:['no_cosmetica_natural'], severidad:'amarillo', nota:'Componente natural del NMF (Factor Natural de Hidratación), obtenido por síntesis. Humectante a bajas concentraciones (2-5%); queratolítico suave a concentraciones medias (5-10%); queratolítico intenso a altas (>10%). No aceptado en cosmética certificada aunque la molécula sea natural. Muy eficaz en piel seca y con hiperqueratosis.', lactancia:'ok', afecciones_relevantes:['piel_seca'] },
+  'HYDROLYZED HYALURONIC ACID': { nombre_com:'Ácido hialurónico hidrolizado (bajo PM)', categorias:[], severidad:'verde', nota:'HA de bajo peso molecular. Mejor penetración cutánea que el hialuronato de sodio estándar — hidratación en capas más profundas. Aceptado en cosmética natural.', lactancia:'ok' },
+  'HYDROLYZED COLLAGEN': { nombre_com:'Colágeno hidrolizado', categorias:[], severidad:'verde', nota:'Proteína hidrolizada de origen animal (bovino o marino). Condicionante y humectante de la piel. No sustituye al colágeno endógeno por vía tópica (molécula demasiado grande para penetrar las capas profundas). Natural de origen animal, no vegano.', lactancia:'ok' },
+  'HYDROLYZED SILK': { nombre_com:'Seda hidrolizada', categorias:[], severidad:'verde', nota:'Proteína de seda fragmentada. Condicionante, suavizante y creadora de película protectora. Natural de origen animal. Habitual en cosmética natural capilar y facial.', lactancia:'ok' },
+  'HYDROLYZED SILK PROTEIN': { alias:'HYDROLYZED SILK' },
+  'HYDROLYZED WHEAT PROTEIN': { nombre_com:'Proteína de trigo hidrolizada', categorias:['irritante'], severidad:'amarillo', nota:'Proteína de trigo fragmentada. Condicionante y suavizante. Ha provocado sensibilizaciones con posterior desarrollo de alergias alimentarias al trigo (vía cutánea — caso Pantene Japón). Precaución en personas con sensibilidad al gluten.', lactancia:'ok', afecciones_relevantes:['piel_sensible'] },
+
+  // ── EXTRACTOS BOTÁNICOS ADICIONALES ─────────────────────────────────────
+  'HAMAMELIS VIRGINIANA EXTRACT': { nombre_com:'Extracto de hamamelis', categorias:['irritante'], severidad:'amarillo', nota:'Extracto astringente rico en taninos. El extracto alcohólico puede irritar. El extracto sin alcohol es calmante y astringente suave, útil en pieles mixtas y grasas. Precaución en piel sensible y rosácea — el mentol y el alcohol de algunos preparados son el problema real.', lactancia:'ok', afecciones_relevantes:['piel_sensible','rosácea'] },
+  'HAMAMELIS VIRGINIANA WATER': { nombre_com:'Agua floral de hamamelis (sin alcohol)', categorias:[], severidad:'verde', nota:'Hidrosol de hamamelis sin alcohol. Astringente y calmante suave. Bien tolerado incluyendo pieles sensibles. Diferente al extracto alcohólico.', lactancia:'ok' },
+  'GLYCYRRHIZA GLABRA ROOT EXTRACT': { nombre_com:'Extracto de raíz de regaliz', categorias:[], severidad:'verde', nota:'Rico en glabridina, potente inhibidor de la tirosinasa. Despigmentante, antiinflamatorio y calmante. Usado en cosmética natural para manchas y pieles reactivas. Sin restricciones.', lactancia:'ok' },
+  'CURCUMA LONGA ROOT EXTRACT': { nombre_com:'Extracto de cúrcuma', categorias:[], severidad:'verde', nota:'Rico en curcuminoides. Antiinflamatorio, antioxidante y con propiedades despigmentantes. En concentraciones altas puede teñir levemente. Habitual en cosmética natural para piel inflamada y reactiva.', lactancia:'ok', afecciones_relevantes:['rosácea','acne'] },
+  'GINKGO BILOBA LEAF EXTRACT': { nombre_com:'Extracto de hoja de ginkgo', categorias:[], severidad:'verde', nota:'Antioxidante rico en flavonoides y terpenoides. Activa la circulación microvascular. Antiinflamatorio. Habitual en cosmética natural antiedad.', lactancia:'ok' },
+  'COFFEA ARABICA SEED EXTRACT': { nombre_com:'Extracto de semilla de café', categorias:[], severidad:'verde', nota:'Rico en cafeína y polifenoles. Activo vasoconstrictor y drenante (base del efecto antiojeras y anticélulitis). Antioxidante potente. Aceptado en cosmética natural.', lactancia:'ok' },
+  'VACCINIUM MYRTILLUS FRUIT EXTRACT': { nombre_com:'Extracto de arándano', categorias:[], severidad:'verde', nota:'Rico en antocianinas y AHAs suaves. Antioxidante, iluminador y con leve acción exfoliante natural. Habitual en cosmética natural antiedad y para manchas.', lactancia:'ok' },
+  'MALUS DOMESTICA FRUIT EXTRACT': { nombre_com:'Extracto de manzana', categorias:[], severidad:'verde', nota:'Rico en polifenoles antioxidantes. El extracto de célula madre de manzana (variedad Uttwiler Spätlauber) es activo antiedad popular en cosmética natural premium.', lactancia:'ok' },
+  'FUCUS VESICULOSUS EXTRACT': { nombre_com:'Extracto de alga vejiga', categorias:[], severidad:'verde', nota:'Alga marrón rica en fucoidano y minerales. Drenante, antioxidante y estimulante del metabolismo celular. Habitual en cosmética natural reafirmante y anticélulitis.', lactancia:'ok' },
+  'CHONDRUS CRISPUS EXTRACT': { nombre_com:'Extracto de Irish moss (alga roja)', categorias:[], severidad:'verde', nota:'Alga roja rica en polisacáridos. Hidratante y formadora de película protectora. Precursor del carragenano. Activo hidratante en cosmética natural.', lactancia:'ok' },
+  'SPIRULINA PLATENSIS EXTRACT': { nombre_com:'Extracto de espirulina', categorias:[], severidad:'verde', nota:'Microalga rica en ficocianinas, proteínas y minerales. Antioxidante y revitalizante. Creciente presencia en cosmética natural. Sin restricciones.', lactancia:'ok' },
+  'ARTHROSPIRA PLATENSIS EXTRACT': { alias:'SPIRULINA PLATENSIS EXTRACT' },
+  'PORTULACA OLERACEA EXTRACT': { nombre_com:'Extracto de verdolaga', categorias:[], severidad:'verde', nota:'Planta suculenta rica en ácido linoléico y omega-3. Calmante, antioxidante y reparador de la barrera. Activo de interés en cosmética natural para pieles sensibles y reactivas.', lactancia:'ok', afecciones_relevantes:['piel_sensible','rosácea'] },
+  'HIBISCUS SABDARIFFA FLOWER EXTRACT': { nombre_com:'Extracto de hibisco', categorias:[], severidad:'verde', nota:'Rico en AHAs naturales (ácido cítrico, tartárico, málico) y antocianinas. Suavemente exfoliante, iluminador y antioxidante. Activo antiedad natural.', lactancia:'ok' },
+  'SAMBUCUS NIGRA FLOWER EXTRACT': { nombre_com:'Extracto de flor de saúco', categorias:[], severidad:'verde', nota:'Rico en flavonoides y ácidos fenólicos. Calmante, antiinflamatorio y levemente iluminador. Habitual en cosmética natural.', lactancia:'ok' },
+
+  // ── AGUAS E HIDROSOLES ADICIONALES ──────────────────────────────────────
+  'CHAMOMILLA RECUTITA FLOWER WATER': { nombre_com:'Agua floral de manzanilla', categorias:[], severidad:'verde', nota:'Hidrosol de manzanilla. Calmante, antiinflamatorio y suavizante. Habitual en cosmética natural para pieles sensibles.', lactancia:'ok', afecciones_relevantes:['piel_sensible','rosácea'] },
+  'CITRUS AURANTIUM AMARA FLOWER WATER': { nombre_com:'Agua floral de azahar (neroli)', categorias:[], severidad:'verde', nota:'Hidrosol de flor de naranjo amargo. Equilibrante, calmante y levemente astringente. Uno de los hidrosoles más apreciados en cosmética natural.', lactancia:'ok' },
+  'MELISSA OFFICINALIS LEAF WATER': { nombre_com:'Agua floral de melisa', categorias:[], severidad:'verde', nota:'Hidrosol de melisa. Calmante, levemente astringente. Habitual en cosmética natural sensible.', lactancia:'ok' },
+  'MENTHA PIPERITA WATER': { nombre_com:'Agua floral de menta', categorias:['irritante'], severidad:'amarillo', nota:'Hidrosol de menta. Refrescante. Puede irritar pieles muy sensibles. No usar en bebés ni niños.', lactancia:'precaucion', afecciones_relevantes:['piel_sensible','rosácea'] },
+
+  // ── MINERALES Y ARCILLAS ─────────────────────────────────────────────────
+  'ZINC OXIDE': { nombre_com:'Óxido de zinc (CI 77947)', categorias:[], severidad:'verde', nota:'Filtro UV mineral de amplio espectro UVA y UVB. Aceptado en cosmética natural y orgánica certificada COSMOS en grado no-nano. Las nanopartículas están bajo restricciones en la UE. Además de fotoprotector: antiséptico, astringente y calmante. Habitual en solares naturales, cremas de pañal y bases de maquillaje mineral.', lactancia:'ok' },
+  'CI 77947': { alias:'ZINC OXIDE' },
+  'KAOLIN': { nombre_com:'Caolín', categorias:[], severidad:'verde', nota:'Arcilla mineral natural. Absorbente de sebo, purificante y suavizante. Muy bien tolerada. Habitual en mascarillas y polvos de cosmética natural. Sin restricciones.', lactancia:'ok' },
+  'BENTONITE': { nombre_com:'Bentonita', categorias:[], severidad:'verde', nota:'Arcilla volcánica natural absorbente y desintoxicante. Mayor poder de absorción que el caolín. Habitual en mascarillas de limpieza profunda. Sin restricciones.', lactancia:'ok' },
+  'SILICA': { nombre_com:'Sílice', categorias:[], severidad:'verde', nota:'Dióxido de silicio de origen mineral natural. Absorbente de sebo, texturizante y carga en polvos y maquillaje mineral. Sin restricciones (la forma nano es diferente y está bajo seguimiento).', lactancia:'ok' },
+  'MICA': { nombre_com:'Mica (CI 77019)', categorias:[], severidad:'verde', nota:'Mineral natural silicato. Da efecto shimmer e iluminador en cosméticos. Aceptado en cosmética natural certificada. Nota ética: verificar origen (existe trabajo infantil en algunas minas — buscar proveedores certificados).', lactancia:'ok' },
+  'CI 77019': { alias:'MICA' },
+  'IRON OXIDES': { nombre_com:'Óxidos de hierro (CI 77491/77492/77499)', categorias:[], severidad:'verde', nota:'Pigmentos minerales naturales. CI 77491 (rojo), CI 77492 (amarillo), CI 77499 (negro). Colorantes de origen mineral aceptados en cosmética natural y orgánica. Sin restricciones.', lactancia:'ok' },
+  'CI 77491': { alias:'IRON OXIDES' },
+  'CI 77492': { alias:'IRON OXIDES' },
+  'CI 77499': { alias:'IRON OXIDES' },
+  'MAGNESIUM STEARATE': { nombre_com:'Estearato de magnesio', categorias:[], severidad:'verde', nota:'Sal de magnesio del ácido esteárico (grasas vegetales). Antiaglomerante en polvos y maquillaje mineral. Aceptado en cosmética natural.', lactancia:'ok' },
+  'TALC': { nombre_com:'Talco (silicato de magnesio)', categorias:[], severidad:'verde', nota:'Mineral natural en polvo. Absorbente y deslizante en polvos y maquillaje. La calidad farmacéutica garantiza ausencia de asbesto. Bajo revisión en productos de bebé y zona genital por asociación con uso prolongado e inadecuado.', lactancia:'ok' },
+  'MAGNESIUM SILICATE': { alias:'TALC' },
+  'CALCIUM CARBONATE': { nombre_com:'Carbonato de calcio', categorias:[], severidad:'verde', nota:'Mineral natural (calcita). Abrasivo suave en dentífricos y exfoliantes. Sin restricciones.', lactancia:'ok' },
+  'HYDROXYAPATITE': { nombre_com:'Hidroxiapatita', categorias:[], severidad:'verde', nota:'Mineral constituyente del esmalte dental. Usado en dentífricos como activo remineralizante y, en cosmética facial, como filtro UV físico alternativo en desarrollo. Sin restricciones.', lactancia:'ok' },
+  'ZINC STEARATE': { nombre_com:'Estearato de zinc', categorias:[], severidad:'verde', nota:'Sal de zinc del ácido esteárico. Antiaglomerante y adhesivo en polvos de maquillaje mineral. Aceptado en cosmética natural.', lactancia:'ok' },
+
+  // ── CONSERVANTES NATURALES ADICIONALES ──────────────────────────────────
+  'GLUCONOLACTONE': { nombre_com:'Gluconolactona (PHA)', categorias:[], severidad:'verde', nota:'Polihidroxiácido (PHA) derivado de la glucosa. Exfoliante muy suave con acción humectante y antioxidante simultánea. Mucho mejor tolerado que los AHAs clásicos en piel sensible. Leve acción conservante adicional. Aceptado en cosmética natural.', lactancia:'ok' },
+  'SODIUM LEVULINATE': { nombre_com:'Levulinato de sodio', categorias:[], severidad:'verde', nota:'Sal sódica del ácido levulínico, derivado del azúcar. Conservante natural de pH moderador. Habitualmente combinado con anisato de sodio. Aceptado en cosmética natural certificada COSMOS.', lactancia:'ok' },
+  'SODIUM ANISATE': { nombre_com:'Anisato de sodio', categorias:[], severidad:'verde', nota:'Sal sódica del ácido anísico (anís estrellado). Conservante natural de origen botánico. Aceptado en cosmética natural certificada COSMOS. Suele combinarse con levulinato de sodio.', lactancia:'ok' },
+  'LACTOBACILLUS FERMENT': { nombre_com:'Fermento de Lactobacillus', categorias:[], severidad:'verde', nota:'Lisado de fermentación bacteriana. Prebiótico para el microbioma cutáneo. Fortalece la barrera y modula la respuesta inflamatoria. Creciente presencia en cosmética natural microbioma-friendly. Sin restricciones.', lactancia:'ok' },
+  'ETHYLHEXYLGLYCERIN': { nombre_com:'Etilhexilglicerina', categorias:['no_cosmetica_natural'], severidad:'amarillo', nota:'Derivado de la glicerina de síntesis química. Conservante y potenciador de otros conservantes. Muy habitual combinado con fenoxietanol. Bien tolerado pero no aceptado en cosmética orgánica certificada COSMOS.', lactancia:'ok' },
+  '1,2-HEXANEDIOL': { nombre_com:'1,2-Hexanodiol', categorias:['no_cosmetica_natural'], severidad:'amarillo', nota:'Diol de síntesis con actividad conservante y humectante. Muy habitual en cosmética moderna. Bien tolerado. No aceptado en cosmética certificada COSMOS.', lactancia:'ok' },
+  'CAPRYLYL GLYCOL': { nombre_com:'Caprililglicol', categorias:['no_cosmetica_natural'], severidad:'amarillo', nota:'Derivado de glicerina y ácido caprílico de síntesis. Conservante y humectante. Bien tolerado. No aceptado en cosmética certificada COSMOS.', lactancia:'ok' },
+  'PENTYLENE GLYCOL': { nombre_com:'Pentilenglicol', categorias:['no_cosmetica_natural'], severidad:'amarillo', nota:'Diol de síntesis con actividad humectante y conservante. Alternativa al fenoxietanol. Bien tolerado. No aceptado en cosmética certificada COSMOS.', lactancia:'ok' },
+  'HYDROXYACETOPHENONE': { nombre_com:'Hidroxiacetofenona', categorias:['no_cosmetica_natural'], severidad:'amarillo', nota:'Fenol de síntesis con actividad conservante y antioxidante. Bien tolerado. No aceptado en cosmética certificada COSMOS.', lactancia:'ok' },
+
+  // ── ACEITES ESENCIALES ADICIONALES ──────────────────────────────────────
+  'LAVANDULA ANGUSTIFOLIA OIL': { nombre_com:'Aceite esencial de lavanda', categorias:['fragrance_ae'], severidad:'verde', nota:'AE calmante, cicatrizante y levemente antiséptico. Uno de los más seguros y versátiles. Contiene linalool y acetato de linalilo (Anexo III UE). Bien tolerado a concentraciones apropiadas en cosmética natural.', lactancia:'ok' },
+  'LAVANDULA OFFICINALIS OIL': { alias:'LAVANDULA ANGUSTIFOLIA OIL' },
+  'MELALEUCA ALTERNIFOLIA LEAF OIL': { nombre_com:'Aceite esencial de árbol de té (tea tree)', categorias:['irritante'], severidad:'amarillo', nota:'AE con potentes propiedades antimicrobianas. Útil en acné y eccemas infectados. Puede irritar y sensibilizar con uso concentrado o prolongado — nunca puro sobre la piel. Contraindicado en niños y en embarazo a altas concentraciones.', lactancia:'precaucion', afecciones_relevantes:['acne','piel_sensible'] },
+  'PELARGONIUM GRAVEOLENS FLOWER OIL': { nombre_com:'Aceite esencial de geranio', categorias:['fragrance_ae'], severidad:'verde', nota:'AE equilibrante y levemente astringente. Habitual en cosmética natural. Contiene geraniol y citronelol (Anexo III UE). Bien tolerado a concentraciones apropiadas en cosmética orgánica.', lactancia:'ok' },
+  'BOSWELLIA CARTERII OIL': { nombre_com:'Aceite esencial de incienso (olíbano)', categorias:[], severidad:'verde', nota:'AE antiinflamatorio, cicatrizante y antiedad. Activa la síntesis de colágeno. Muy apreciado en cosmética natural de lujo. Sin restricciones conocidas a concentraciones cosméticas.', lactancia:'ok' },
+  'ROSA DAMASCENA FLOWER OIL': { nombre_com:'Aceite esencial de rosa', categorias:['fragrance_ae'], severidad:'verde', nota:'AE calmante, hidratante y antiinflamatorio. Contiene geraniol, citronelol y otros alérgenos del Anexo III UE. A concentraciones apropiadas, aceptado en cosmética orgánica. Uno de los AE más valiosos.', lactancia:'ok', afecciones_relevantes:['piel_sensible'] },
+  'CHAMOMILLA RECUTITA FLOWER OIL': { nombre_com:'Aceite esencial de manzanilla alemana', categorias:[], severidad:'verde', nota:'AE azul (camazuleno) con excepcionales propiedades antiinflamatorias y calmantes. Especialmente útil en pieles sensibles y con rosácea. Sin restricciones a concentraciones apropiadas.', lactancia:'ok', afecciones_relevantes:['rosácea','piel_sensible'] },
+  'CYMBOPOGON MARTINI OIL': { nombre_com:'Aceite esencial de palmarosa', categorias:['fragrance_ae'], severidad:'verde', nota:'AE con alto contenido en geraniol (>75%). Hidratante y equilibrante. Contiene geraniol (Anexo III UE). Aceptado en cosmética natural.', lactancia:'ok' },
+  'POGOSTEMON CABLIN OIL': { nombre_com:'Aceite esencial de pachulí', categorias:['fragrance_ae'], severidad:'verde', nota:'AE terroso, antiinflamatorio y cicatrizante. Contiene patchoulol. Habitual en cosmética natural y perfumería orgánica.', lactancia:'ok' },
+  'CANANGA ODORATA FLOWER OIL': { nombre_com:'Aceite esencial de ylang ylang', categorias:['fragrance_ae','irritante'], severidad:'amarillo', nota:'AE floral muy intenso. Puede causar cefaleas en altas concentraciones. Contiene geraniol, linalool, benzyl alcohol y benzyl benzoate (todos Anexo III UE). Precaución en pieles sensibles.', lactancia:'ok', afecciones_relevantes:['piel_sensible'] },
+  'CEDRUS ATLANTICA WOOD OIL': { nombre_com:'Aceite esencial de cedro del Atlas', categorias:[], severidad:'verde', nota:'AE terroso y masculino. Habitual en perfumería natural. Propiedades linfáticas y drenantes.', lactancia:'precaucion' },
+  'VETIVERIA ZIZANOIDES ROOT OIL': { nombre_com:'Aceite esencial de vetiver', categorias:[], severidad:'verde', nota:'AE terroso de raíces de vetiver. Calmante, antiinflamatorio. Habitual en perfumería y cosmética natural.', lactancia:'ok' },
+  'CITRUS BERGAMIA PEEL OIL': { nombre_com:'Aceite esencial de bergamota', categorias:['irritante','fragrance_ae'], severidad:'amarillo', nota:'Contiene bergapteno (furanocumarina) fotosensibilizante. No usar en zonas expuestas al sol salvo versión bergapten-free. Contiene linalool y limoneno (Anexo III UE).', lactancia:'ok', afecciones_relevantes:['piel_sensible'] },
+  'CITRUS AURANTIFOLIA PEEL OIL': { nombre_com:'Aceite esencial de lima', categorias:['irritante','fragrance_ae'], severidad:'amarillo', nota:'Fotosensibilizante por furocumarinas. No usar en zonas expuestas al sol.', lactancia:'ok', afecciones_relevantes:['piel_sensible'] },
+  'JUNIPERUS COMMUNIS FRUIT OIL': { nombre_com:'Aceite esencial de enebro', categorias:['irritante'], severidad:'amarillo', nota:'AE purificante y astringente. Puede irritar pieles sensibles. Contraindicado en embarazo y lactancia por efecto estimulante renal.', lactancia:'evitar', afecciones_relevantes:['piel_sensible'] },
+  'SALVIA OFFICINALIS OIL': { nombre_com:'Aceite esencial de salvia', categorias:['irritante'], severidad:'amarillo', nota:'AE purificante. Contiene tuyona, potencialmente tóxica en altas concentraciones. Contraindicado en embarazo y lactancia.', lactancia:'evitar' },
+  'ROSMARINUS OFFICINALIS OIL': { nombre_com:'Aceite esencial de romero', categorias:['irritante'], severidad:'amarillo', nota:'AE estimulante y antioxidante. Puede irritar pieles sensibles y exacerbar rosácea. Precaución en embarazo y en epilepsia.', lactancia:'precaucion', afecciones_relevantes:['piel_sensible','rosácea'] },
+
+  // ── COLORANTES NATURALES ─────────────────────────────────────────────────
+  'BETA-CAROTENE': { nombre_com:'Beta-caroteno (CI 40800)', categorias:[], severidad:'verde', nota:'Carotenoide natural de zanahoria y otras plantas. Colorante naranja-rojo y antioxidante. Aceptado en cosmética natural. Sin restricciones.', lactancia:'ok' },
+  'CI 40800': { alias:'BETA-CAROTENE' },
+  'LAWSONIA INERMIS LEAF POWDER': { nombre_com:'Henna (polvo de Lawsonia inermis)', categorias:[], severidad:'verde', nota:'Colorante natural de la planta de la henna. Tinte capilar natural tradicional. Sin restricciones en la forma natural. Precaución: la "henna negra" contiene PPD (para-fenilendiamina), potente sensibilizante — este riesgo es del aditivo, no de la henna.', lactancia:'ok' },
+
+  // ── ÁCIDOS Y ACTIVOS AMPLIACIÓN (14/9/2026) ──────────────────────────────
+  'MANDELIC ACID': { nombre_com:'Ácido mandélico (AHA)', categorias:[], severidad:'verde', nota:'AHA de molécula grande derivado de almendras amargas — penetra más lento que el glicólico, por lo que irrita mucho menos. Buena opción de exfoliación suave en piel sensible o acneica. Fotosensibilizante como el resto de AHAs — usar SPF.', lactancia:'precaucion', afecciones_relevantes:['piel_sensible','acne'] },
+  'LACTOBIONIC ACID': { nombre_com:'Ácido lactobiónico (PHA)', categorias:[], severidad:'verde', nota:'Polihidroxiácido derivado de la lactosa, con molécula aún mayor que la gluconolactona. Exfoliante muy suave, con acción humectante y antioxidante añadida (quelante de metales). El PHA mejor tolerado en piel muy reactiva o con la barrera dañada.', lactancia:'ok' },
+  'PHYTIC ACID': { nombre_com:'Ácido fítico', categorias:[], severidad:'verde', nota:'Ácido natural presente en semillas y cereales integrales. Actúa como quelante (capta metales que oxidan la fórmula) y como despigmentante suave al inhibir la tirosinasa. Bien tolerado, no fotosensibilizante como los AHA. Uso habitual hasta 2% en producto de uso continuado.', lactancia:'ok', afecciones_relevantes:['manchas'] },
+  'SULFUR': { nombre_com:'Azufre', categorias:[], severidad:'verde', nota:'Mineral con acción antibacteriana, antiinflamatoria y queratolítica suave — clásico en tratamientos de acné y rosácea desde hace más de un siglo (uso habitual 3-10%). Reseca la piel, conviene combinarlo con buena hidratación. Olor característico. Considerado seguro en embarazo.', lactancia:'ok', afecciones_relevantes:['acne','rosácea','piel_seca'] },
+  'ACETUM': { nombre_com:'Vinagre (de sidra de manzana)', categorias:['irritante'], severidad:'amarillo', nota:'Ácido acético de fermentación, tradicionalmente de sidra de manzana. Ayuda a equilibrar el pH de la piel y tiene cierta acción antibacteriana, pero es fácil de sobreusar: sin diluir puede irritar o dañar la barrera cutánea. Evitar en piel con la barrera comprometida o heridas abiertas.', lactancia:'ok', afecciones_relevantes:['piel_sensible','dermatitis'] },
+  'VINEGAR': { alias:'ACETUM' },
+  'NIACIN': { nombre_com:'Niacina / Vitamina PP (B3)', categorias:[], severidad:'amarillo', nota:'Forma ácida de la vitamina B3 — distinta de la niacinamida (la forma amida, mucho más usada en cosmética). A diferencia de la niacinamida, la niacina puede provocar enrojecimiento y sensación de calor pasajera ("flushing") al aplicarla, por eso se usa mucho menos en skincare de uso diario. Bien tolerada fuera de ese efecto puntual.', lactancia:'ok', afecciones_relevantes:['rosácea','piel_sensible'] },
+  'QUILLAJA SAPONARIA BARK EXTRACT': { nombre_com:'Extracto de madera/corteza de Panamá (quillay)', categorias:[], severidad:'verde', nota:'Extracto de la corteza del "árbol del jabón" sudamericano, rico en saponinas naturales. Actúa como agente limpiador y espumante — alternativa natural a los tensioactivos sintéticos en champús y geles de limpieza. Bien tolerado, aunque puede dar sensibilidad en personas propensas a alergias.', lactancia:'ok' },
+  'RAPHANUS SATIVUS (RADISH) ROOT EXTRACT': { nombre_com:'Extracto de rábano blanco', categorias:[], severidad:'verde', nota:'Extracto de raíz de rábano. Su forma fermentada (Leuconostoc/Radish Root Ferment Filtrate, tipo "Leucidal") es uno de los conservantes naturales más usados hoy en cosmética limpia: antimicrobiano de amplio espectro, muy bien tolerado incluso en piel sensible o de bebé. Comprobar si el INCI del producto especifica la versión fermentada.', lactancia:'ok' },
+  'CAPSICUM ANNUUM FRUIT EXTRACT': { nombre_com:'Extracto de guindilla/pimiento rojo', categorias:['irritante'], severidad:'amarillo', nota:'Extracto rico en capsaicina, usado en bajas concentraciones para estimular la microcirculación (sensación de calor). Puede irritar y no es apto para piel con rosácea, dermatitis o barrera comprometida — precaución también si hay alergia a pimientos/guindillas.', lactancia:'precaucion', afecciones_relevantes:['rosácea','piel_sensible','dermatitis'] },
+  'MAGNESIUM CHLORIDE': { nombre_com:'Cloruro de magnesio', categorias:[], severidad:'verde', nota:'Sal mineral usada como aporte de magnesio tópico y texturizante. La evidencia sobre absorción transdérmica real ("magnesio que llega al músculo") es débil — el efecto principal demostrado es local, sobre la piel. Bien tolerado; puede dar escozor puntual sobre piel irritada o con heridas.', lactancia:'ok' },
+  'ARCTIUM LAPPA ROOT EXTRACT': { nombre_com:'Extracto de bardana', categorias:[], severidad:'verde', nota:'Extracto de raíz con antioxidantes (polifenoles) y acción antiinflamatoria, tradicionalmente usado en piel grasa/con tendencia acneica y para calmar irritación (eccema). Buen perfil de seguridad; precaución si hay alergia a plantas de la familia Asteraceae (como la manzanilla o la árnica).', lactancia:'ok', afecciones_relevantes:['acne','dermatitis'] },
+  'ARNICA MONTANA FLOWER EXTRACT': { nombre_com:'Extracto de árnica', categorias:[], severidad:'verde', nota:'Extracto floral con acción antiinflamatoria y calmante bien documentada, clásico para golpes/moratones y piel irritada. Solo para piel intacta — no aplicar sobre heridas abiertas. El uso tópico normal no tiene contraindicación clara en embarazo/lactancia (a diferencia del uso oral, sí contraindicado), pero se recomienda precaución por falta de estudios específicos.', lactancia:'precaucion', afecciones_relevantes:['piel_sensible'] },
+
+};
+
+// Función para detectar PEG- (hay cientos de variantes)
+
+// ═══ Ampliación (2/11/2026) y cambios de criterio ═══
+const DB_EXTRA = {
+"CITRIC ACID": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Regulador del pH o sal de uso habitual. Inocuo y aceptado en cosmética natural."
+},
+"SODIUM HYDROXIDE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Regulador del pH o sal de uso habitual. Inocuo y aceptado en cosmética natural."
+},
+"POTASSIUM HYDROXIDE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Regulador del pH o sal de uso habitual. Inocuo y aceptado en cosmética natural."
+},
+"SODIUM CITRATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Regulador del pH o sal de uso habitual. Inocuo y aceptado en cosmética natural."
+},
+"POTASSIUM CITRATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Regulador del pH o sal de uso habitual. Inocuo y aceptado en cosmética natural."
+},
+"SODIUM LACTATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Regulador del pH o sal de uso habitual. Inocuo y aceptado en cosmética natural."
+},
+"POTASSIUM LACTATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Regulador del pH o sal de uso habitual. Inocuo y aceptado en cosmética natural."
+},
+"MALIC ACID": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Regulador del pH o sal de uso habitual. Inocuo y aceptado en cosmética natural."
+},
+"TARTARIC ACID": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Regulador del pH o sal de uso habitual. Inocuo y aceptado en cosmética natural."
+},
+"FUMARIC ACID": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Regulador del pH o sal de uso habitual. Inocuo y aceptado en cosmética natural."
+},
+"PHOSPHORIC ACID": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Regulador del pH o sal de uso habitual. Inocuo y aceptado en cosmética natural."
+},
+"DISODIUM PHOSPHATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Regulador del pH o sal de uso habitual. Inocuo y aceptado en cosmética natural."
+},
+"TRISODIUM PHOSPHATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Regulador del pH o sal de uso habitual. Inocuo y aceptado en cosmética natural."
+},
+"SODIUM PHOSPHATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Regulador del pH o sal de uso habitual. Inocuo y aceptado en cosmética natural."
+},
+"POTASSIUM PHOSPHATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Regulador del pH o sal de uso habitual. Inocuo y aceptado en cosmética natural."
+},
+"DIPOTASSIUM PHOSPHATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Regulador del pH o sal de uso habitual. Inocuo y aceptado en cosmética natural."
+},
+"SODIUM BICARBONATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Regulador del pH o sal de uso habitual. Inocuo y aceptado en cosmética natural."
+},
+"SODIUM ACETATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Regulador del pH o sal de uso habitual. Inocuo y aceptado en cosmética natural."
+},
+"CALCIUM HYDROXIDE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Regulador del pH o sal de uso habitual. Inocuo y aceptado en cosmética natural."
+},
+"MAGNESIUM HYDROXIDE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Regulador del pH o sal de uso habitual. Inocuo y aceptado en cosmética natural."
+},
+"SODIUM GLUCONATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Regulador del pH o sal de uso habitual. Inocuo y aceptado en cosmética natural."
+},
+"CALCIUM GLUCONATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Regulador del pH o sal de uso habitual. Inocuo y aceptado en cosmética natural."
+},
+"MAGNESIUM GLUCONATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Regulador del pH o sal de uso habitual. Inocuo y aceptado en cosmética natural."
+},
+"SODIUM CHLORIDE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Sal mineral. Inocua; aceptada en cosmética natural."
+},
+"MAGNESIUM SULFATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Sal mineral. Inocua; aceptada en cosmética natural."
+},
+"MAGNESIUM NITRATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Sal mineral. Inocua; aceptada en cosmética natural."
+},
+"SODIUM SULFATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Sal mineral. Inocua; aceptada en cosmética natural."
+},
+"POTASSIUM CHLORIDE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Sal mineral. Inocua; aceptada en cosmética natural."
+},
+"CALCIUM CHLORIDE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Sal mineral. Inocua; aceptada en cosmética natural."
+},
+"SEA SALT": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Sal mineral. Inocua; aceptada en cosmética natural."
+},
+"POTASSIUM NITRATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Sal mineral. Inocua; aceptada en cosmética natural."
+},
+"ZINC CHLORIDE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Sal mineral. Inocua; aceptada en cosmética natural."
+},
+"ZINC SULFATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Sal mineral. Inocua; aceptada en cosmética natural."
+},
+"ZINC CITRATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Sal mineral. Inocua; aceptada en cosmética natural."
+},
+"ZINC": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Sal mineral. Inocua; aceptada en cosmética natural."
+},
+"CALCIUM GLYCEROPHOSPHATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Sal mineral. Inocua; aceptada en cosmética natural."
+},
+"HYDRATED SILICA": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Mineral (textura, absorbente, color o pulido). Aceptado en cosmética natural."
+},
+"TIN OXIDE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Mineral (textura, absorbente, color o pulido). Aceptado en cosmética natural."
+},
+"ALUMINA": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Mineral (textura, absorbente, color o pulido). Aceptado en cosmética natural."
+},
+"ALUMINUM HYDROXIDE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Mineral (textura, absorbente, color o pulido). Aceptado en cosmética natural."
+},
+"PERLITE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Mineral (textura, absorbente, color o pulido). Aceptado en cosmética natural."
+},
+"CALCIUM SILICATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Mineral (textura, absorbente, color o pulido). Aceptado en cosmética natural."
+},
+"MAGNESIUM CARBONATE HYDROXIDE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Mineral (textura, absorbente, color o pulido). Aceptado en cosmética natural."
+},
+"CALCIUM PYROPHOSPHATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Mineral (textura, absorbente, color o pulido). Aceptado en cosmética natural."
+},
+"CHARCOAL POWDER": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Mineral (textura, absorbente, color o pulido). Aceptado en cosmética natural."
+},
+"SYNTHETIC FLUORPHLOGOPITE": {
+"severidad": "amarillo",
+"categorias": [
+"no_cosmetica_natural"
+],
+"nota": "Mineral sintético (brillo o textura). Inocuo, pero no es natural."
+},
+"CALCIUM SODIUM BOROSILICATE": {
+"severidad": "amarillo",
+"categorias": [
+"no_cosmetica_natural"
+],
+"nota": "Mineral sintético (brillo o textura). Inocuo, pero no es natural."
+},
+"CALCIUM ALUMINUM BOROSILICATE": {
+"severidad": "amarillo",
+"categorias": [
+"no_cosmetica_natural"
+],
+"nota": "Mineral sintético (brillo o textura). Inocuo, pero no es natural."
+},
+"BORON NITRIDE": {
+"severidad": "amarillo",
+"categorias": [
+"no_cosmetica_natural"
+],
+"nota": "Mineral sintético (brillo o textura). Inocuo, pero no es natural."
+},
+"SODIUM FLUORIDE": {
+"severidad": "amarillo",
+"categorias": [],
+"nota": "Flúor (dentífricos). Ayuda contra la caries, pero la cantidad importa: en niños, el exceso puede causar fluorosis dental. Revisa la concentración (ppm) y usa solo un poco, del tamaño de un guisante."
+},
+"SODIUM MONOFLUOROPHOSPHATE": {
+"severidad": "amarillo",
+"categorias": [],
+"nota": "Flúor (dentífricos). Ayuda contra la caries, pero la cantidad importa: en niños, el exceso puede causar fluorosis dental. Revisa la concentración (ppm) y usa solo un poco, del tamaño de un guisante."
+},
+"STANNOUS FLUORIDE": {
+"severidad": "amarillo",
+"categorias": [],
+"nota": "Flúor (dentífricos). Ayuda contra la caries, pero la cantidad importa: en niños, el exceso puede causar fluorosis dental. Revisa la concentración (ppm) y usa solo un poco, del tamaño de un guisante."
+},
+"STANNOUS CHLORIDE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Ingrediente de dentífricos (flúor o antisarro). Inocuo a las dosis permitidas."
+},
+"TETRAPOTASSIUM PYROPHOSPHATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Ingrediente de dentífricos (flúor o antisarro). Inocuo a las dosis permitidas."
+},
+"TETRASODIUM PYROPHOSPHATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Ingrediente de dentífricos (flúor o antisarro). Inocuo a las dosis permitidas."
+},
+"SODIUM HEXAMETAPHOSPHATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Ingrediente de dentífricos (flúor o antisarro). Inocuo a las dosis permitidas."
+},
+"SUCRALOSE": {
+"severidad": "amarillo",
+"categorias": [
+"no_cosmetica_natural"
+],
+"nota": "Edulcorante sintético (dentífricos). Inocuo, pero no es natural."
+},
+"POTASSIUM ACESULFAME": {
+"severidad": "amarillo",
+"categorias": [
+"no_cosmetica_natural"
+],
+"nota": "Edulcorante sintético (dentífricos). Inocuo, pero no es natural."
+},
+"XYLITOL": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Azúcar o derivado vegetal. Hidrata y suaviza; aceptado en cosmética natural."
+},
+"MALTODEXTRIN": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Azúcar o derivado vegetal. Hidrata y suaviza; aceptado en cosmética natural."
+},
+"SUCROSE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Azúcar o derivado vegetal. Hidrata y suaviza; aceptado en cosmética natural."
+},
+"MALTOSE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Azúcar o derivado vegetal. Hidrata y suaviza; aceptado en cosmética natural."
+},
+"MANNOSE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Azúcar o derivado vegetal. Hidrata y suaviza; aceptado en cosmética natural."
+},
+"XYLOSE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Azúcar o derivado vegetal. Hidrata y suaviza; aceptado en cosmética natural."
+},
+"RHAMNOSE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Azúcar o derivado vegetal. Hidrata y suaviza; aceptado en cosmética natural."
+},
+"INOSITOL": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Azúcar o derivado vegetal. Hidrata y suaviza; aceptado en cosmética natural."
+},
+"SACCHARIDE ISOMERATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Azúcar o derivado vegetal. Hidrata y suaviza; aceptado en cosmética natural."
+},
+"ALPHA-GLUCAN OLIGOSACCHARIDE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Azúcar o derivado vegetal. Hidrata y suaviza; aceptado en cosmética natural."
+},
+"HYDROGENATED STARCH HYDROLYSATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Azúcar o derivado vegetal. Hidrata y suaviza; aceptado en cosmética natural."
+},
+"ANHYDROXYLITOL": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Azúcar o derivado vegetal. Hidrata y suaviza; aceptado en cosmética natural."
+},
+"GLYCERYL GLUCOSIDE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Azúcar o derivado vegetal. Hidrata y suaviza; aceptado en cosmética natural."
+},
+"DIGLYCERIN": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Azúcar o derivado vegetal. Hidrata y suaviza; aceptado en cosmética natural."
+},
+"POLYGLYCERIN-10": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Azúcar o derivado vegetal. Hidrata y suaviza; aceptado en cosmética natural."
+},
+"CARAMEL": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Azúcar o derivado vegetal. Hidrata y suaviza; aceptado en cosmética natural."
+},
+"HYDROLYZED CORN STARCH": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Azúcar o derivado vegetal. Hidrata y suaviza; aceptado en cosmética natural."
+},
+"ARGININE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Aminoácido o vitamina. Forma parte de la propia piel; aceptado en cosmética natural."
+},
+"GLYCINE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Aminoácido o vitamina. Forma parte de la propia piel; aceptado en cosmética natural."
+},
+"HISTIDINE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Aminoácido o vitamina. Forma parte de la propia piel; aceptado en cosmética natural."
+},
+"SERINE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Aminoácido o vitamina. Forma parte de la propia piel; aceptado en cosmética natural."
+},
+"VALINE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Aminoácido o vitamina. Forma parte de la propia piel; aceptado en cosmética natural."
+},
+"LYSINE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Aminoácido o vitamina. Forma parte de la propia piel; aceptado en cosmética natural."
+},
+"ASPARTIC ACID": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Aminoácido o vitamina. Forma parte de la propia piel; aceptado en cosmética natural."
+},
+"ISOLEUCINE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Aminoácido o vitamina. Forma parte de la propia piel; aceptado en cosmética natural."
+},
+"PHENYLALANINE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Aminoácido o vitamina. Forma parte de la propia piel; aceptado en cosmética natural."
+},
+"GLUTAMIC ACID": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Aminoácido o vitamina. Forma parte de la propia piel; aceptado en cosmética natural."
+},
+"BIOTIN": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Aminoácido o vitamina. Forma parte de la propia piel; aceptado en cosmética natural."
+},
+"CALCIUM PANTOTHENATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Aminoácido o vitamina. Forma parte de la propia piel; aceptado en cosmética natural."
+},
+"PANTOLACTONE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Aminoácido o vitamina. Forma parte de la propia piel; aceptado en cosmética natural."
+},
+"ZINC PCA": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Aminoácido o vitamina. Forma parte de la propia piel; aceptado en cosmética natural."
+},
+"CAFFEINE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Aminoácido o vitamina. Forma parte de la propia piel; aceptado en cosmética natural."
+},
+"ASCORBYL PALMITATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Aminoácido o vitamina. Forma parte de la propia piel; aceptado en cosmética natural."
+},
+"PROPANEDIOL": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Humectante. Hoy casi siempre se obtiene del maíz por fermentación; aceptado en cosmética natural."
+},
+"SQUALENE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Lípido presente en la propia piel; se obtiene de la oliva (o, raramente, de tiburón)."
+},
+"HYDROLYZED SODIUM HYALURONATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Ácido hialurónico fragmentado (biotecnológico). Hidratante; aceptado en cosmética natural."
+},
+"SODIUM ACETYLATED HYALURONATE": {
+"severidad": "amarillo",
+"categorias": [
+"no_cosmetica_natural"
+],
+"nota": "Ácido hialurónico modificado químicamente. Inocuo, pero no es natural."
+},
+"HYDROXYPROPYLTRIMONIUM HYALURONATE": {
+"severidad": "amarillo",
+"categorias": [
+"no_cosmetica_natural"
+],
+"nota": "Ácido hialurónico modificado con un grupo catiónico sintético. Inocuo, pero no es natural."
+},
+"CERAMIDE NP": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Lípido idéntico a los de la piel (barrera). Suele obtenerse por biotecnología."
+},
+"CERAMIDE AP": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Lípido idéntico a los de la piel (barrera). Suele obtenerse por biotecnología."
+},
+"CERAMIDE EOP": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Lípido idéntico a los de la piel (barrera). Suele obtenerse por biotecnología."
+},
+"PHYTOSPHINGOSINE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Lípido idéntico a los de la piel (barrera). Suele obtenerse por biotecnología."
+},
+"CHOLESTEROL": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Lípido idéntico a los de la piel (barrera). Suele obtenerse por biotecnología."
+},
+"BETA-SITOSTEROL": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Fitoesterol de origen vegetal. Aceptado en cosmética natural."
+},
+"DIPOTASSIUM GLYCYRRHIZATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Derivado del regaliz, calmante. Aceptado en cosmética natural."
+},
+"HYDROLYZED JOJOBA ESTERS": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Emulsionante o emoliente de origen vegetal (aceites y azúcares). Aceptado en cosmética natural."
+},
+"SODIUM PALMATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Jabón o ácido graso de origen vegetal. Aceptado en cosmética natural; los jabones pueden resecar pieles sensibles."
+},
+"SODIUM PALM KERNELATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Jabón o ácido graso de origen vegetal. Aceptado en cosmética natural; los jabones pueden resecar pieles sensibles."
+},
+"SODIUM STEARATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Jabón o ácido graso de origen vegetal. Aceptado en cosmética natural; los jabones pueden resecar pieles sensibles."
+},
+"SODIUM LAURATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Jabón o ácido graso de origen vegetal. Aceptado en cosmética natural; los jabones pueden resecar pieles sensibles."
+},
+"SODIUM OLEATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Jabón o ácido graso de origen vegetal. Aceptado en cosmética natural; los jabones pueden resecar pieles sensibles."
+},
+"SODIUM PALMITATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Jabón o ácido graso de origen vegetal. Aceptado en cosmética natural; los jabones pueden resecar pieles sensibles."
+},
+"POTASSIUM OLIVATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Jabón o ácido graso de origen vegetal. Aceptado en cosmética natural; los jabones pueden resecar pieles sensibles."
+},
+"POTASSIUM SUNFLOWERSEEDATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Jabón o ácido graso de origen vegetal. Aceptado en cosmética natural; los jabones pueden resecar pieles sensibles."
+},
+"PALM ACID": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Jabón o ácido graso de origen vegetal. Aceptado en cosmética natural; los jabones pueden resecar pieles sensibles."
+},
+"SOY ACID": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Jabón o ácido graso de origen vegetal. Aceptado en cosmética natural; los jabones pueden resecar pieles sensibles."
+},
+"COCONUT ACID": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Jabón o ácido graso de origen vegetal. Aceptado en cosmética natural; los jabones pueden resecar pieles sensibles."
+},
+"CAPRYLIC ACID": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Jabón o ácido graso de origen vegetal. Aceptado en cosmética natural; los jabones pueden resecar pieles sensibles."
+},
+"CAPRIC ACID": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Jabón o ácido graso de origen vegetal. Aceptado en cosmética natural; los jabones pueden resecar pieles sensibles."
+},
+"LAURIC ACID": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Jabón o ácido graso de origen vegetal. Aceptado en cosmética natural; los jabones pueden resecar pieles sensibles."
+},
+"MYRISTIC ACID": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Jabón o ácido graso de origen vegetal. Aceptado en cosmética natural; los jabones pueden resecar pieles sensibles."
+},
+"ARACHIDIC ACID": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Jabón o ácido graso de origen vegetal. Aceptado en cosmética natural; los jabones pueden resecar pieles sensibles."
+},
+"GLYCERYL OLEATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Emulsionante o emoliente de origen vegetal (aceites y azúcares). Aceptado en cosmética natural."
+},
+"GLYCERYL STEARATE CITRATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Emulsionante o emoliente de origen vegetal (aceites y azúcares). Aceptado en cosmética natural."
+},
+"GLYCERYL OLEATE CITRATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Emulsionante o emoliente de origen vegetal (aceites y azúcares). Aceptado en cosmética natural."
+},
+"GLYCERYL LAURATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Emulsionante o emoliente de origen vegetal (aceites y azúcares). Aceptado en cosmética natural."
+},
+"GLYCERYL ISOSTEARATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Emulsionante o emoliente de origen vegetal (aceites y azúcares). Aceptado en cosmética natural."
+},
+"GLYCERYL STEARATE SE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Emulsionante o emoliente de origen vegetal (aceites y azúcares). Aceptado en cosmética natural."
+},
+"GLYCERYL LINOLEATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Emulsionante o emoliente de origen vegetal (aceites y azúcares). Aceptado en cosmética natural."
+},
+"GLYCERYL PALMITATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Emulsionante o emoliente de origen vegetal (aceites y azúcares). Aceptado en cosmética natural."
+},
+"GLYCERYL LINOLENATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Emulsionante o emoliente de origen vegetal (aceites y azúcares). Aceptado en cosmética natural."
+},
+"POLYGLYCERYL-3 CAPRYLATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Emulsionante o emoliente de origen vegetal (aceites y azúcares). Aceptado en cosmética natural."
+},
+"POLYGLYCERYL-3 METHYLGLUCOSE DISTEARATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Emulsionante o emoliente de origen vegetal (aceites y azúcares). Aceptado en cosmética natural."
+},
+"POLYGLYCERYL-6 STEARATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Emulsionante o emoliente de origen vegetal (aceites y azúcares). Aceptado en cosmética natural."
+},
+"POLYGLYCERYL-6 BEHENATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Emulsionante o emoliente de origen vegetal (aceites y azúcares). Aceptado en cosmética natural."
+},
+"POLYGLYCERYL-3 DIISOSTEARATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Emulsionante o emoliente de origen vegetal (aceites y azúcares). Aceptado en cosmética natural."
+},
+"POLYGLYCERYL-2 DIPOLYHYDROXYSTEARATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Emulsionante o emoliente de origen vegetal (aceites y azúcares). Aceptado en cosmética natural."
+},
+"POLYGLYCERYL-4 CAPRATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Emulsionante o emoliente de origen vegetal (aceites y azúcares). Aceptado en cosmética natural."
+},
+"POLYGLYCERYL-10 LAURATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Emulsionante o emoliente de origen vegetal (aceites y azúcares). Aceptado en cosmética natural."
+},
+"POLYGLYCERYL-10 STEARATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Emulsionante o emoliente de origen vegetal (aceites y azúcares). Aceptado en cosmética natural."
+},
+"POLYGLYCERYL-10 MYRISTATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Emulsionante o emoliente de origen vegetal (aceites y azúcares). Aceptado en cosmética natural."
+},
+"DIISOSTEAROYL POLYGLYCERYL-3 DIMER DILINOLEATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Emulsionante o emoliente de origen vegetal (aceites y azúcares). Aceptado en cosmética natural."
+},
+"OLEIC/LINOLEIC/LINOLENIC POLYGLYCERIDES": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Emulsionante o emoliente de origen vegetal (aceites y azúcares). Aceptado en cosmética natural."
+},
+"HYDROGENATED PALM GLYCERIDES CITRATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Emulsionante o emoliente de origen vegetal (aceites y azúcares). Aceptado en cosmética natural."
+},
+"HYDROGENATED COCO-GLYCERIDES": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Emulsionante o emoliente de origen vegetal (aceites y azúcares). Aceptado en cosmética natural."
+},
+"HYDROGENATED VEGETABLE GLYCERIDES": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Emulsionante o emoliente de origen vegetal (aceites y azúcares). Aceptado en cosmética natural."
+},
+"C10-18 TRIGLYCERIDES": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Emulsionante o emoliente de origen vegetal (aceites y azúcares). Aceptado en cosmética natural."
+},
+"TRIBEHENIN": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Emulsionante o emoliente de origen vegetal (aceites y azúcares). Aceptado en cosmética natural."
+},
+"TRIHYDROXYSTEARIN": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Emulsionante o emoliente de origen vegetal (aceites y azúcares). Aceptado en cosmética natural."
+},
+"SORBITAN STEARATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Emulsionante o emoliente de origen vegetal (aceites y azúcares). Aceptado en cosmética natural."
+},
+"SORBITAN ISOSTEARATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Emulsionante o emoliente de origen vegetal (aceites y azúcares). Aceptado en cosmética natural."
+},
+"SORBITAN CAPRYLATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Emulsionante o emoliente de origen vegetal (aceites y azúcares). Aceptado en cosmética natural."
+},
+"SORBITAN LAURATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Emulsionante o emoliente de origen vegetal (aceites y azúcares). Aceptado en cosmética natural."
+},
+"SUCROSE STEARATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Emulsionante o emoliente de origen vegetal (aceites y azúcares). Aceptado en cosmética natural."
+},
+"CETYL PALMITATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Emulsionante o emoliente de origen vegetal (aceites y azúcares). Aceptado en cosmética natural."
+},
+"CETYL ESTERS": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Emulsionante o emoliente de origen vegetal (aceites y azúcares). Aceptado en cosmética natural."
+},
+"DECYL OLEATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Emulsionante o emoliente de origen vegetal (aceites y azúcares). Aceptado en cosmética natural."
+},
+"LAURYL OLEATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Emulsionante o emoliente de origen vegetal (aceites y azúcares). Aceptado en cosmética natural."
+},
+"HEXYL LAURATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Emulsionante o emoliente de origen vegetal (aceites y azúcares). Aceptado en cosmética natural."
+},
+"OLEYL ERUCATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Emulsionante o emoliente de origen vegetal (aceites y azúcares). Aceptado en cosmética natural."
+},
+"COCO CAPRYLATE/CAPRATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Emulsionante o emoliente de origen vegetal (aceites y azúcares). Aceptado en cosmética natural."
+},
+"DICAPRYLYL CARBONATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Emulsionante o emoliente de origen vegetal (aceites y azúcares). Aceptado en cosmética natural."
+},
+"C15-19 ALKANE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Emulsionante o emoliente de origen vegetal (aceites y azúcares). Aceptado en cosmética natural."
+},
+"POTASSIUM CETYL PHOSPHATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Emulsionante o emoliente de origen vegetal (aceites y azúcares). Aceptado en cosmética natural."
+},
+"SODIUM CETEARYL SULFATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Emulsionante o emoliente de origen vegetal (aceites y azúcares). Aceptado en cosmética natural."
+},
+"BEHENYL ALCOHOL": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Emulsionante o emoliente de origen vegetal (aceites y azúcares). Aceptado en cosmética natural."
+},
+"MYRISTYL ALCOHOL": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Emulsionante o emoliente de origen vegetal (aceites y azúcares). Aceptado en cosmética natural."
+},
+"ARACHIDYL ALCOHOL": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Emulsionante o emoliente de origen vegetal (aceites y azúcares). Aceptado en cosmética natural."
+},
+"C20-22 ALCOHOLS": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Emulsionante o emoliente de origen vegetal (aceites y azúcares). Aceptado en cosmética natural."
+},
+"ZINC RICINOLEATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Emulsionante o emoliente de origen vegetal (aceites y azúcares). Aceptado en cosmética natural."
+},
+"TRIETHYL CITRATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Emulsionante o emoliente de origen vegetal (aceites y azúcares). Aceptado en cosmética natural."
+},
+"COCO-GLUCOSIDE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Limpiador suave de origen vegetal. Aceptado en cosmética natural."
+},
+"ARACHIDYL GLUCOSIDE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Limpiador suave de origen vegetal. Aceptado en cosmética natural."
+},
+"XYLITYLGLUCOSIDE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Limpiador suave de origen vegetal. Aceptado en cosmética natural."
+},
+"COCO-BETAINE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Limpiador suave de origen vegetal. Aceptado en cosmética natural."
+},
+"SODIUM LAUROYL LACTYLATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Limpiador suave de origen vegetal. Aceptado en cosmética natural."
+},
+"SODIUM STEAROYL GLUTAMATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Limpiador suave de origen vegetal. Aceptado en cosmética natural."
+},
+"DISODIUM STEAROYL GLUTAMATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Limpiador suave de origen vegetal. Aceptado en cosmética natural."
+},
+"SODIUM LAUROYL SARCOSINATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Limpiador suave de origen vegetal. Aceptado en cosmética natural."
+},
+"SODIUM METHYL COCOYL TAURATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Limpiador suave de origen vegetal. Aceptado en cosmética natural."
+},
+"SODIUM ISETHIONATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Limpiador suave de origen vegetal. Aceptado en cosmética natural."
+},
+"SODIUM LAUROYL ISETHIONATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Limpiador suave de origen vegetal. Aceptado en cosmética natural."
+},
+"DISODIUM COCOAMPHODIACETATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Limpiador suave de origen vegetal. Aceptado en cosmética natural."
+},
+"DISODIUM COCAMPHODIACETATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Limpiador suave de origen vegetal. Aceptado en cosmética natural."
+},
+"SODIUM LAUROAMPHOACETATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Limpiador suave de origen vegetal. Aceptado en cosmética natural."
+},
+"CELLULOSE GUM": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Espesante de origen natural (gomas, almidones, celulosa). Aceptado en cosmética natural."
+},
+"ALGIN": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Espesante de origen natural (gomas, almidones, celulosa). Aceptado en cosmética natural."
+},
+"SCLEROTIUM GUM": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Espesante de origen natural (gomas, almidones, celulosa). Aceptado en cosmética natural."
+},
+"GELLAN GUM": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Espesante de origen natural (gomas, almidones, celulosa). Aceptado en cosmética natural."
+},
+"ZEA MAYS STARCH": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Espesante de origen natural (gomas, almidones, celulosa). Aceptado en cosmética natural."
+},
+"ORYZA SATIVA STARCH": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Espesante de origen natural (gomas, almidones, celulosa). Aceptado en cosmética natural."
+},
+"TAPIOCA STARCH": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Espesante de origen natural (gomas, almidones, celulosa). Aceptado en cosmética natural."
+},
+"TRITICUM VULGARE GLUTEN": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Espesante de origen natural (gomas, almidones, celulosa). Aceptado en cosmética natural."
+},
+"GUAR HYDROXYPROPYLTRIMONIUM CHLORIDE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Espesante de origen natural (gomas, almidones, celulosa). Aceptado en cosmética natural."
+},
+"ALUMINUM STARCH OCTENYLSUCCINATE": {
+"severidad": "amarillo",
+"categorias": [
+"no_cosmetica_natural"
+],
+"nota": "Almidón modificado químicamente con un reactivo sintético. Inocuo, pero no es natural."
+},
+"HYDROXYPROPYL STARCH PHOSPHATE": {
+"severidad": "amarillo",
+"categorias": [
+"no_cosmetica_natural"
+],
+"nota": "Almidón modificado químicamente con un reactivo sintético. Inocuo, pero no es natural."
+},
+"BENZOIC ACID": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Conservante permitido en cosmética natural certificada."
+},
+"SORBIC ACID": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Conservante permitido en cosmética natural certificada."
+},
+"DEHYDROACETIC ACID": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Conservante permitido en cosmética natural certificada."
+},
+"SODIUM DEHYDROACETATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Conservante permitido en cosmética natural certificada."
+},
+"PHENETHYL ALCOHOL": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Conservante permitido en cosmética natural certificada."
+},
+"LEVULINIC ACID": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Conservante permitido en cosmética natural certificada."
+},
+"P-ANISIC ACID": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Conservante permitido en cosmética natural certificada."
+},
+"TETRASODIUM GLUTAMATE DIACETATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Quelante biodegradable (ayuda a conservar). Aceptado en cosmética natural."
+},
+"TRISODIUM ETHYLENEDIAMINE DISUCCINATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Quelante biodegradable (ayuda a conservar). Aceptado en cosmética natural."
+},
+"SODIUM PHYTATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Quelante biodegradable (ayuda a conservar). Aceptado en cosmética natural."
+},
+"TETRASODIUM ETIDRONATE": {
+"severidad": "amarillo",
+"categorias": [
+"petroquimico"
+],
+"nota": "Quelante sintético (fosfonato). Poco biodegradable; no entra en GAROA."
+},
+"ETIDRONIC ACID": {
+"severidad": "amarillo",
+"categorias": [
+"petroquimico"
+],
+"nota": "Quelante sintético (fosfonato). Poco biodegradable; no entra en GAROA."
+},
+"EDTA": {
+"severidad": "amarillo",
+"categorias": [
+"petroquimico"
+],
+"nota": "Quelante sintético, muy poco biodegradable. No entra en GAROA."
+},
+"CAPRYLHYDROXAMIC ACID": {
+"severidad": "amarillo",
+"categorias": [
+"no_cosmetica_natural"
+],
+"nota": "Conservante/quelante de síntesis. Inocuo, pero no se acepta en cosmética natural."
+},
+"METHYLPROPANEDIOL": {
+"severidad": "amarillo",
+"categorias": [
+"petroquimico"
+],
+"nota": "Ingrediente sintético de origen petroquímico. Inocuo en cosmética, pero no entra en GAROA."
+},
+"HYDROXYETHYL UREA": {
+"severidad": "amarillo",
+"categorias": [
+"no_cosmetica_natural"
+],
+"nota": "Humectante sintético derivado de la urea. Inocuo, pero no es natural."
+},
+"FORMIC ACID": {
+"severidad": "amarillo",
+"categorias": [
+"irritante"
+],
+"nota": "Ácido conservante. Puede irritar; no se usa en cosmética natural."
+},
+"SODIUM METABISULFITE": {
+"severidad": "amarillo",
+"categorias": [
+"irritante"
+],
+"nota": "Sulfito (antioxidante). Puede dar reacciones en personas sensibles a sulfitos."
+},
+"SODIUM SULFITE": {
+"severidad": "amarillo",
+"categorias": [
+"irritante"
+],
+"nota": "Sulfito (antioxidante). Puede dar reacciones en personas sensibles a sulfitos."
+},
+"SODIUM SALICYLATE": {
+"severidad": "amarillo",
+"categorias": [
+"no_cosmetica_natural"
+],
+"nota": "Conservante de la familia de los salicilatos. Autorizado con límites; no es natural.",
+"lactancia": "precaucion"
+},
+"PIROCTONE OLAMINE": {
+"severidad": "amarillo",
+"categorias": [
+"no_cosmetica_natural"
+],
+"nota": "Anticaspa sintético. Eficaz e inocuo a las dosis permitidas, pero no es natural."
+},
+"CETYLPYRIDINIUM CHLORIDE": {
+"severidad": "amarillo",
+"categorias": [
+"no_cosmetica_natural"
+],
+"nota": "Antiséptico sintético (colutorios, dentífricos). Inocuo a dosis permitidas, pero no es natural."
+},
+"ZINC NEODECANOATE": {
+"severidad": "amarillo",
+"categorias": [
+"no_cosmetica_natural"
+],
+"nota": "Sal de zinc sintética (desodorantes). Inocua, pero no es natural."
+},
+"METHYLCHLOROISOTHIAZOLINONE METHYLISOTHIAZOLINONE": {
+"severidad": "rojo",
+"categorias": [
+"conservante_controvertido"
+],
+"nota": "Mezcla de isotiazolinonas: conservante muy alergénico, prohibido en productos sin aclarado en la UE."
+},
+"ALUMINIUM CHLOROHYDRATE": {
+"severidad": "amarillo",
+"categorias": [
+"no_cosmetica_natural"
+],
+"nota": "Sal de aluminio antitranspirante. La UE la considera segura dentro de sus límites, pero bloquea el sudor; en GAROA preferimos evitarla."
+},
+"SODIUM C14-16 OLEFIN SULFONATE": {
+"severidad": "amarillo",
+"categorias": [
+"petroquimico"
+],
+"nota": "Limpiador sintético de origen petroquímico. Puede resecar o irritar; no entra en GAROA."
+},
+"SODIUM XYLENESULFONATE": {
+"severidad": "amarillo",
+"categorias": [
+"petroquimico"
+],
+"nota": "Limpiador sintético de origen petroquímico. Puede resecar o irritar; no entra en GAROA."
+},
+"TEA-DODECYLBENZENESULFONATE": {
+"severidad": "amarillo",
+"categorias": [
+"petroquimico"
+],
+"nota": "Limpiador sintético de origen petroquímico. Puede resecar o irritar; no entra en GAROA."
+},
+"COCAMIDOPROPYL HYDROXYSULTAINE": {
+"severidad": "amarillo",
+"categorias": [
+"petroquimico"
+],
+"nota": "Limpiador sintético de origen petroquímico. Puede resecar o irritar; no entra en GAROA."
+},
+"COCAMIDOPROPYLAMINE OXIDE": {
+"severidad": "amarillo",
+"categorias": [
+"petroquimico"
+],
+"nota": "Limpiador sintético de origen petroquímico. Puede resecar o irritar; no entra en GAROA."
+},
+"COCAMIDE MEA": {
+"severidad": "amarillo",
+"categorias": [
+"petroquimico"
+],
+"nota": "Limpiador sintético de origen petroquímico. Puede resecar o irritar; no entra en GAROA."
+},
+"COCAMIDE MIPA": {
+"severidad": "amarillo",
+"categorias": [
+"petroquimico"
+],
+"nota": "Limpiador sintético de origen petroquímico. Puede resecar o irritar; no entra en GAROA."
+},
+"POLOXAMINE 1307": {
+"severidad": "amarillo",
+"categorias": [
+"petroquimico"
+],
+"nota": "Limpiador sintético de origen petroquímico. Puede resecar o irritar; no entra en GAROA."
+},
+"TEA-LAURYL SULFATE": {
+"severidad": "amarillo",
+"categorias": [
+"sulfato"
+],
+"nota": "Sulfato limpiador muy detergente. Puede resecar e irritar; no entra en GAROA."
+},
+"SODIUM COCO-SULFATE": {
+"severidad": "amarillo",
+"categorias": [
+"sulfato"
+],
+"nota": "Sulfato de origen coco, rico en laurilsulfato. Puede resecar e irritar."
+},
+"COCAMIDE DEA": {
+"severidad": "rojo",
+"categorias": [],
+"nota": "Espumante clasificado por la IARC como posible cancerígeno (grupo 2B). En GAROA, fuera."
+},
+"TRIETHANOLAMINE": {
+"severidad": "amarillo",
+"categorias": [
+"petroquimico"
+],
+"nota": "Regulador del pH sintético. Puede formar nitrosaminas si se mezcla con ciertos ingredientes; está regulado en la UE."
+},
+"AMINOMETHYL PROPANOL": {
+"severidad": "amarillo",
+"categorias": [
+"petroquimico"
+],
+"nota": "Ingrediente sintético de origen petroquímico. Inocuo en cosmética, pero no entra en GAROA."
+},
+"CETRIMONIUM CHLORIDE": {
+"severidad": "amarillo",
+"categorias": [
+"irritante"
+],
+"nota": "Acondicionador catiónico sintético. Puede irritar pieles sensibles; no entra en GAROA."
+},
+"CETRIMONIUM BROMIDE": {
+"severidad": "amarillo",
+"categorias": [
+"irritante"
+],
+"nota": "Acondicionador catiónico sintético. Puede irritar pieles sensibles; no entra en GAROA."
+},
+"BEHENTRIMONIUM CHLORIDE": {
+"severidad": "amarillo",
+"categorias": [
+"irritante"
+],
+"nota": "Acondicionador catiónico sintético. Puede irritar pieles sensibles; no entra en GAROA."
+},
+"BEHENTRIMONIUM METHOSULFATE": {
+"severidad": "amarillo",
+"categorias": [
+"irritante"
+],
+"nota": "Acondicionador catiónico sintético. Puede irritar pieles sensibles; no entra en GAROA."
+},
+"PALMITAMIDOPROPYLTRIMONIUM CHLORIDE": {
+"severidad": "amarillo",
+"categorias": [
+"irritante"
+],
+"nota": "Acondicionador catiónico sintético. Puede irritar pieles sensibles; no entra en GAROA."
+},
+"DISTEAROYLETHYL DIMONIUM CHLORIDE": {
+"severidad": "amarillo",
+"categorias": [
+"irritante"
+],
+"nota": "Acondicionador catiónico sintético. Puede irritar pieles sensibles; no entra en GAROA."
+},
+"DIPALMITOYLETHYL HYDROXYETHYLMONIUM METHOSULFATE": {
+"severidad": "amarillo",
+"categorias": [
+"irritante"
+],
+"nota": "Acondicionador catiónico sintético. Puede irritar pieles sensibles; no entra en GAROA."
+},
+"STEARAMIDOPROPYL DIMETHYLAMINE": {
+"severidad": "amarillo",
+"categorias": [
+"irritante"
+],
+"nota": "Acondicionador catiónico sintético. Puede irritar pieles sensibles; no entra en GAROA."
+},
+"STEARAMIDE AMP": {
+"severidad": "amarillo",
+"categorias": [
+"irritante"
+],
+"nota": "Acondicionador catiónico sintético. Puede irritar pieles sensibles; no entra en GAROA."
+},
+"GLYCOL DISTEARATE": {
+"severidad": "amarillo",
+"categorias": [
+"petroquimico"
+],
+"nota": "Ingrediente sintético de origen petroquímico. Inocuo en cosmética, pero no entra en GAROA."
+},
+"GLYCOL STEARATE": {
+"severidad": "amarillo",
+"categorias": [
+"petroquimico"
+],
+"nota": "Ingrediente sintético de origen petroquímico. Inocuo en cosmética, pero no entra en GAROA."
+},
+"GLYCOL": {
+"severidad": "amarillo",
+"categorias": [
+"petroquimico"
+],
+"nota": "Ingrediente sintético de origen petroquímico. Inocuo en cosmética, pero no entra en GAROA."
+},
+"DIPROPYLENE GLYCOL": {
+"severidad": "amarillo",
+"categorias": [
+"petroquimico"
+],
+"nota": "Ingrediente sintético de origen petroquímico. Inocuo en cosmética, pero no entra en GAROA."
+},
+"TRIETHYLENE GLYCOL": {
+"severidad": "amarillo",
+"categorias": [
+"petroquimico"
+],
+"nota": "Ingrediente sintético de origen petroquímico. Inocuo en cosmética, pero no entra en GAROA."
+},
+"HEXYLENE GLYCOL": {
+"severidad": "amarillo",
+"categorias": [
+"petroquimico"
+],
+"nota": "Ingrediente sintético de origen petroquímico. Inocuo en cosmética, pero no entra en GAROA."
+},
+"C12-15 ALKYL BENZOATE": {
+"severidad": "amarillo",
+"categorias": [
+"petroquimico"
+],
+"nota": "Ingrediente sintético de origen petroquímico. Inocuo en cosmética, pero no entra en GAROA."
+},
+"DIBUTYL ADIPATE": {
+"severidad": "amarillo",
+"categorias": [
+"petroquimico"
+],
+"nota": "Ingrediente sintético de origen petroquímico. Inocuo en cosmética, pero no entra en GAROA."
+},
+"DIISOPROPYL ADIPATE": {
+"severidad": "amarillo",
+"categorias": [
+"petroquimico"
+],
+"nota": "Ingrediente sintético de origen petroquímico. Inocuo en cosmética, pero no entra en GAROA."
+},
+"DIISOPROPYL SEBACATE": {
+"severidad": "amarillo",
+"categorias": [
+"petroquimico"
+],
+"nota": "Ingrediente sintético de origen petroquímico. Inocuo en cosmética, pero no entra en GAROA."
+},
+"CETEARYL ETHYLHEXANOATE": {
+"severidad": "amarillo",
+"categorias": [
+"petroquimico"
+],
+"nota": "Ingrediente sintético de origen petroquímico. Inocuo en cosmética, pero no entra en GAROA."
+},
+"ETHYLHEXYL STEARATE": {
+"severidad": "amarillo",
+"categorias": [
+"petroquimico"
+],
+"nota": "Ingrediente sintético de origen petroquímico. Inocuo en cosmética, pero no entra en GAROA."
+},
+"ISODECYL NEOPENTANOATE": {
+"severidad": "amarillo",
+"categorias": [
+"petroquimico"
+],
+"nota": "Ingrediente sintético de origen petroquímico. Inocuo en cosmética, pero no entra en GAROA."
+},
+"PENTAERYTHRITYL TETRAETHYLHEXANOATE": {
+"severidad": "amarillo",
+"categorias": [
+"petroquimico"
+],
+"nota": "Ingrediente sintético de origen petroquímico. Inocuo en cosmética, pero no entra en GAROA."
+},
+"PENTAERYTHRITYL DISTEARATE": {
+"severidad": "amarillo",
+"categorias": [
+"petroquimico"
+],
+"nota": "Ingrediente sintético de origen petroquímico. Inocuo en cosmética, pero no entra en GAROA."
+},
+"HYDROGENATED ETHYLHEXYL OLIVATE": {
+"severidad": "amarillo",
+"categorias": [
+"petroquimico"
+],
+"nota": "Ingrediente sintético de origen petroquímico. Inocuo en cosmética, pero no entra en GAROA."
+},
+"BUTYLENE GLYCOL DICAPRYLATE/DICAPRATE": {
+"severidad": "amarillo",
+"categorias": [
+"petroquimico"
+],
+"nota": "Ingrediente sintético de origen petroquímico. Inocuo en cosmética, pero no entra en GAROA."
+},
+"BIS-DIGLYCERYL POLYACYLADIPATE-2": {
+"severidad": "amarillo",
+"categorias": [
+"petroquimico"
+],
+"nota": "Ingrediente sintético de origen petroquímico. Inocuo en cosmética, pero no entra en GAROA."
+},
+"TRIS CITRATE": {
+"severidad": "amarillo",
+"categorias": [
+"petroquimico"
+],
+"nota": "Ingrediente sintético de origen petroquímico. Inocuo en cosmética, pero no entra en GAROA."
+},
+"ISOPENTANE": {
+"severidad": "amarillo",
+"categorias": [
+"petroquimico"
+],
+"nota": "Ingrediente sintético de origen petroquímico. Inocuo en cosmética, pero no entra en GAROA."
+},
+"BUTYL ACETATE": {
+"severidad": "amarillo",
+"categorias": [
+"petroquimico"
+],
+"nota": "Ingrediente sintético de origen petroquímico. Inocuo en cosmética, pero no entra en GAROA."
+},
+"ETHYL ACETATE": {
+"severidad": "amarillo",
+"categorias": [
+"no_cosmetica_natural"
+],
+"nota": "Disolvente (quitaesmaltes, esmaltes). Puede resecar uñas y piel."
+},
+"ALCOHOL": {
+"severidad": "amarillo",
+"categorias": [
+"alcohol_desecante"
+],
+"nota": "Alcohol etílico. En concentración alta reseca e irrita; en poca cantidad ayuda a disolver o conservar."
+},
+"PENTAERYTHRITYL TETRA-DI-T-BUTYL HYDROXYHYDROCINNAMATE": {
+"severidad": "amarillo",
+"categorias": [
+"petroquimico"
+],
+"nota": "Antioxidante sintético para proteger la fórmula. Inocuo a estas dosis, pero de origen petroquímico."
+},
+"OCTADECYL DI-T-BUTYL-4-HYDROXYHYDROCINNAMATE": {
+"severidad": "amarillo",
+"categorias": [
+"petroquimico"
+],
+"nota": "Antioxidante sintético para proteger la fórmula. Inocuo a estas dosis, pero de origen petroquímico."
+},
+"BENZOTRIAZOLYL DODECYL P-CRESOL": {
+"severidad": "amarillo",
+"categorias": [
+"petroquimico"
+],
+"nota": "Antioxidante sintético para proteger la fórmula. Inocuo a estas dosis, pero de origen petroquímico."
+},
+"SILICA SILYLATE": {
+"severidad": "amarillo",
+"categorias": [
+"silicona"
+],
+"nota": "Sílice tratada con silicona. No entra en GAROA."
+},
+"SILICA DIMETHYL SILYLATE": {
+"severidad": "amarillo",
+"categorias": [
+"silicona"
+],
+"nota": "Sílice tratada con silicona. No entra en GAROA."
+},
+"ALUMINUM STEARATES": {
+"severidad": "amarillo",
+"categorias": [
+"no_cosmetica_natural"
+],
+"nota": "Sal de aluminio de ácidos grasos (espesante de maquillaje). Inocua, no natural."
+},
+"BUTYL METHOXYDIBENZOYLMETHANE": {
+"severidad": "amarillo",
+"categorias": [
+"no_cosmetica_natural"
+],
+"nota": "Filtro solar sintético. Autorizado en la UE con límites; no se acepta en cosmética natural."
+},
+"ETHYLHEXYL SALICYLATE": {
+"severidad": "amarillo",
+"categorias": [
+"no_cosmetica_natural"
+],
+"nota": "Filtro solar sintético. Autorizado en la UE con límites; no se acepta en cosmética natural."
+},
+"ETHYLHEXYL TRIAZONE": {
+"severidad": "amarillo",
+"categorias": [
+"no_cosmetica_natural"
+],
+"nota": "Filtro solar sintético. Autorizado en la UE con límites; no se acepta en cosmética natural."
+},
+"BIS-ETHYLHEXYLOXYPHENOL METHOXYPHENYL TRIAZINE": {
+"severidad": "amarillo",
+"categorias": [
+"no_cosmetica_natural"
+],
+"nota": "Filtro solar sintético. Autorizado en la UE con límites; no se acepta en cosmética natural."
+},
+"DIETHYLAMINO HYDROXYBENZOYL HEXYL BENZOATE": {
+"severidad": "amarillo",
+"categorias": [
+"no_cosmetica_natural"
+],
+"nota": "Filtro solar sintético. Autorizado en la UE con límites; no se acepta en cosmética natural."
+},
+"DIETHYLHEXYL BUTAMIDO TRIAZONE": {
+"severidad": "amarillo",
+"categorias": [
+"no_cosmetica_natural"
+],
+"nota": "Filtro solar sintético. Autorizado en la UE con límites; no se acepta en cosmética natural."
+},
+"PHENYLBENZIMIDAZOLE SULFONIC ACID": {
+"severidad": "amarillo",
+"categorias": [
+"no_cosmetica_natural"
+],
+"nota": "Filtro solar sintético. Autorizado en la UE con límites; no se acepta en cosmética natural."
+},
+"PALMITOYL TRIPEPTIDE-1": {
+"severidad": "amarillo",
+"categorias": [
+"no_cosmetica_natural"
+],
+"nota": "Péptido de síntesis. Autorizado, pero no es un ingrediente natural."
+},
+"PALMITOYL TETRAPEPTIDE-7": {
+"severidad": "amarillo",
+"categorias": [
+"no_cosmetica_natural"
+],
+"nota": "Péptido de síntesis. Autorizado, pero no es un ingrediente natural."
+},
+"ACETYL HEXAPEPTIDE-8": {
+"severidad": "amarillo",
+"categorias": [
+"no_cosmetica_natural"
+],
+"nota": "Péptido de síntesis. Autorizado, pero no es un ingrediente natural."
+},
+"CAPRYLOYL SALICYLIC ACID": {
+"severidad": "amarillo",
+"categorias": [
+"no_cosmetica_natural"
+],
+"nota": "Exfoliante sintético derivado del ácido salicílico. Puede irritar; no es natural.",
+"lactancia": "precaucion"
+},
+"HYDROLYZED KERATIN": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Ingrediente de origen animal. Inocuo; tenlo en cuenta si buscas cosmética vegana."
+},
+"HYDROLYZED MILK PROTEIN": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Ingrediente de origen animal. Inocuo; tenlo en cuenta si buscas cosmética vegana."
+},
+"HYDROLYZED ELASTIN": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Ingrediente de origen animal. Inocuo; tenlo en cuenta si buscas cosmética vegana."
+},
+"LANOLIN ALCOHOL": {
+"severidad": "amarillo",
+"categorias": [
+"irritante"
+],
+"nota": "Derivado de la lana de oveja. Muy nutritivo, pero es un alérgeno de contacto conocido."
+},
+"LINALYL ACETATE": {
+"severidad": "verde",
+"categorias": [
+"fragrance_ae"
+],
+"nota": "Componente de aceites esenciales. Si va declarado, es porque puede dar alergia en pieles sensibles; también puede ser de síntesis."
+},
+"ANETHOLE": {
+"severidad": "verde",
+"categorias": [
+"fragrance_ae"
+],
+"nota": "Componente de aceites esenciales. Si va declarado, es porque puede dar alergia en pieles sensibles; también puede ser de síntesis."
+},
+"PINENE": {
+"severidad": "verde",
+"categorias": [
+"fragrance_ae"
+],
+"nota": "Componente de aceites esenciales. Si va declarado, es porque puede dar alergia en pieles sensibles; también puede ser de síntesis."
+},
+"CARVONE": {
+"severidad": "verde",
+"categorias": [
+"fragrance_ae"
+],
+"nota": "Componente de aceites esenciales. Si va declarado, es porque puede dar alergia en pieles sensibles; también puede ser de síntesis."
+},
+"TERPINEOL": {
+"severidad": "verde",
+"categorias": [
+"fragrance_ae"
+],
+"nota": "Componente de aceites esenciales. Si va declarado, es porque puede dar alergia en pieles sensibles; también puede ser de síntesis."
+},
+"GERANYL ACETATE": {
+"severidad": "verde",
+"categorias": [
+"fragrance_ae"
+],
+"nota": "Componente de aceites esenciales. Si va declarado, es porque puede dar alergia en pieles sensibles; también puede ser de síntesis."
+},
+"BETA-CARYOPHYLLENE": {
+"severidad": "verde",
+"categorias": [
+"fragrance_ae"
+],
+"nota": "Componente de aceites esenciales. Si va declarado, es porque puede dar alergia en pieles sensibles; también puede ser de síntesis."
+},
+"EUCALYPTOL": {
+"severidad": "verde",
+"categorias": [
+"fragrance_ae"
+],
+"nota": "Componente de aceites esenciales. Si va declarado, es porque puede dar alergia en pieles sensibles; también puede ser de síntesis."
+},
+"THYMOL": {
+"severidad": "verde",
+"categorias": [
+"fragrance_ae"
+],
+"nota": "Componente de aceites esenciales. Si va declarado, es porque puede dar alergia en pieles sensibles; también puede ser de síntesis."
+},
+"D-LIMONENE": {
+"severidad": "verde",
+"categorias": [
+"fragrance_ae"
+],
+"nota": "Componente de aceites esenciales. Si va declarado, es porque puede dar alergia en pieles sensibles; también puede ser de síntesis."
+},
+"VANILLIN": {
+"severidad": "verde",
+"categorias": [
+"fragrance_ae"
+],
+"nota": "Componente de aceites esenciales. Si va declarado, es porque puede dar alergia en pieles sensibles; también puede ser de síntesis."
+},
+"BENZALDEHYDE": {
+"severidad": "verde",
+"categorias": [
+"fragrance_ae"
+],
+"nota": "Componente de aceites esenciales. Si va declarado, es porque puede dar alergia en pieles sensibles; también puede ser de síntesis."
+},
+"CAMPHOR": {
+"severidad": "amarillo",
+"categorias": [
+"fragrance_ae"
+],
+"nota": "Alcanfor. Refrescante, pero puede irritar; evitar en bebés y con precaución en embarazo y lactancia.",
+"lactancia": "precaucion"
+},
+"METHYL SALICYLATE": {
+"severidad": "amarillo",
+"categorias": [
+"fragrance_ae"
+],
+"nota": "Salicilato de metilo (aroma a gaulteria). Puede irritar; precaución en embarazo y lactancia.",
+"lactancia": "precaucion"
+},
+"TETRAMETHYL ACETYLOCTAHYDRONAPHTHALENES": {
+"severidad": "amarillo",
+"categorias": [
+"fragrance_sintetica"
+],
+"nota": "Molécula aromática de síntesis. Inocua a dosis cosméticas, pero no es natural; algunas sensibilizan."
+},
+"ROSE KETONES": {
+"severidad": "amarillo",
+"categorias": [
+"fragrance_sintetica"
+],
+"nota": "Molécula aromática de síntesis. Inocua a dosis cosméticas, pero no es natural; algunas sensibilizan."
+},
+"DIMETHYL PHENETHYL ACETATE": {
+"severidad": "amarillo",
+"categorias": [
+"fragrance_sintetica"
+],
+"nota": "Molécula aromática de síntesis. Inocua a dosis cosméticas, pero no es natural; algunas sensibilizan."
+},
+"ACETYL CEDRENE": {
+"severidad": "amarillo",
+"categorias": [
+"fragrance_sintetica"
+],
+"nota": "Molécula aromática de síntesis. Inocua a dosis cosméticas, pero no es natural; algunas sensibilizan."
+},
+"AMYL SALICYLATE": {
+"severidad": "amarillo",
+"categorias": [
+"fragrance_sintetica"
+],
+"nota": "Molécula aromática de síntesis. Inocua a dosis cosméticas, pero no es natural; algunas sensibilizan."
+},
+"ISOEUGENYL ACETATE": {
+"severidad": "amarillo",
+"categorias": [
+"fragrance_sintetica"
+],
+"nota": "Molécula aromática de síntesis. Inocua a dosis cosméticas, pero no es natural; algunas sensibilizan."
+},
+"HEXAMETHYLINDANOPYRAN": {
+"severidad": "amarillo",
+"categorias": [
+"fragrance_sintetica"
+],
+"nota": "Almizcle sintético (galaxolida). Persistente y se acumula en el medio ambiente; no entra en GAROA."
+},
+"HECTORITE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Mineral (textura, absorbente, color o pulido). Aceptado en cosmética natural."
+},
+"ALUMINUM SILICATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Mineral (textura, absorbente, color o pulido). Aceptado en cosmética natural."
+},
+"DICALCIUM PHOSPHATE DIHYDRATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Ingrediente de dentífricos (flúor o antisarro). Inocuo a las dosis permitidas."
+},
+"SODIUM METAPHOSPHATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Ingrediente de dentífricos (flúor o antisarro). Inocuo a las dosis permitidas."
+},
+"PENTASODIUM TRIPHOSPHATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Regulador del pH o sal de uso habitual. Inocuo y aceptado en cosmética natural."
+},
+"THREONINE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Aminoácido o vitamina. Forma parte de la propia piel; aceptado en cosmética natural."
+},
+"ALANINE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Aminoácido o vitamina. Forma parte de la propia piel; aceptado en cosmética natural."
+},
+"MANNITOL": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Azúcar o derivado vegetal. Hidrata y suaviza; aceptado en cosmética natural."
+},
+"FRUCTOOLIGOSACCHARIDES": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Azúcar o derivado vegetal. Hidrata y suaviza; aceptado en cosmética natural."
+},
+"GALACTOARABINAN": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Espesante de origen natural (gomas, almidones, celulosa). Aceptado en cosmética natural."
+},
+"ACACIA SENEGAL GUM": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Espesante de origen natural (gomas, almidones, celulosa). Aceptado en cosmética natural."
+},
+"CYCLODEXTRIN": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Azúcar o derivado vegetal. Hidrata y suaviza; aceptado en cosmética natural."
+},
+"HYDROLYZED CORN PROTEIN": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Proteína vegetal hidrolizada. Hidrata y suaviza; aceptada en cosmética natural."
+},
+"PHOSPHATIDYLCHOLINE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Lecitina (fosfolípido vegetal). Aceptada en cosmética natural."
+},
+"SODIUM CHOLATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Ingrediente de origen animal. Inocuo; tenlo en cuenta si buscas cosmética vegana."
+},
+"SORBITAN TRISTEARATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Emulsionante o emoliente de origen vegetal (aceites y azúcares). Aceptado en cosmética natural."
+},
+"CETYL ACETATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Emulsionante o emoliente de origen vegetal (aceites y azúcares). Aceptado en cosmética natural."
+},
+"BUTYLOCTANOL": {
+"severidad": "amarillo",
+"categorias": [
+"petroquimico"
+],
+"nota": "Ingrediente sintético de origen petroquímico. Inocuo en cosmética, pero no entra en GAROA."
+},
+"SODIUM LAURYL GLUCOSE CARBOXYLATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Limpiador suave de origen vegetal. Aceptado en cosmética natural."
+},
+"SODIUM LAUROYL METHYL ISETHIONATE": {
+"severidad": "verde",
+"categorias": [],
+"nota": "Limpiador suave de origen vegetal. Aceptado en cosmética natural."
+},
+"DISODIUM LAURYL SULFOSUCCINATE": {
+"severidad": "amarillo",
+"categorias": [
+"petroquimico"
+],
+"nota": "Limpiador sintético de origen petroquímico. Puede resecar o irritar; no entra en GAROA."
+},
+"ZINC COCETH SULFATE": {
+"severidad": "amarillo",
+"categorias": [
+"sulfato"
+],
+"nota": "Sulfato etoxilado. Puede resecar; de origen petroquímico en parte. No entra en GAROA."
+},
+"HYDROXYPROPYL GUAR HYDROXYPROPYLTRIMONIUM CHLORIDE": {
+"severidad": "amarillo",
+"categorias": [
+"no_cosmetica_natural"
+],
+"nota": "Goma guar modificada con grupos sintéticos. Inocua, pero no es natural."
+},
+"CAPRYLOYL GLYCINE": {
+"severidad": "amarillo",
+"categorias": [
+"no_cosmetica_natural"
+],
+"nota": "Activo sintético (piel grasa). Inocuo, pero no es natural."
+},
+"2-OLEAMIDO-1,3-OCTADECANEDIOL": {
+"severidad": "amarillo",
+"categorias": [
+"no_cosmetica_natural"
+],
+"nota": "Ceramida de síntesis. Inocua, pero no es natural."
+},
+"ACETYLATED LANOLIN ALCOHOL": {
+"severidad": "amarillo",
+"categorias": [
+"irritante"
+],
+"nota": "Derivado de la lanolina modificado. Puede ser alergénico y comedogénico."
+},
+"PROPYL GALLATE": {
+"severidad": "amarillo",
+"categorias": [
+"irritante"
+],
+"nota": "Antioxidante sintético. Puede dar alergia de contacto."
+},
+"DIETHYLHEXYL SYRINGYLIDENEMALONATE": {
+"severidad": "amarillo",
+"categorias": [
+"petroquimico"
+],
+"nota": "Fotoestabilizante sintético para filtros solares. De origen petroquímico."
+},
+"CHLORHEXIDINE DIGLUCONATE": {
+"severidad": "amarillo",
+"categorias": [
+"no_cosmetica_natural"
+],
+"nota": "Antiséptico sintético. Inocuo a las dosis permitidas, pero puede irritar y no es natural."
+},
+"BENZALKONIUM CHLORIDE": {
+"severidad": "amarillo",
+"categorias": [
+"irritante"
+],
+"nota": "Antiséptico/conservante catiónico. Irritante y sensibilizante; no entra en GAROA."
+},
+"CLIMBAZOLE": {
+"severidad": "amarillo",
+"categorias": [
+"no_cosmetica_natural"
+],
+"nota": "Anticaspa sintético. Autorizado con límites; no es natural."
+},
+"PHENYLPROPANOL": {
+"severidad": "amarillo",
+"categorias": [
+"no_cosmetica_natural"
+],
+"nota": "Potenciador de conservantes de síntesis. Inocuo, pero no es natural."
+},
+"2-METHYL 5-CYCLOHEXYLPENTANOL": {
+"severidad": "amarillo",
+"categorias": [
+"fragrance_sintetica"
+],
+"nota": "Molécula aromática de síntesis. Inocua a dosis cosméticas, pero no es natural; algunas sensibilizan."
+}
+};
+const ALIAS_EXTRA = {"2-HEXANEDIOL": "1,2-HEXANEDIOL", "CAMPHRE": "CAMPHOR", "PARFUMS": "PARFUM", "ALPHA ISOMETHYL IONONE": "ALPHA-ISOMETHYL IONONE", "ETHYLHEXYGLYCERIN": "ETHYLHEXYLGLYCERIN", "LIMONENE D": "D-LIMONENE", "CERA MICROCRISTALLINA": "MICROCRYSTALLINE WAX", "ALUMINUM CHLOROHYDRATE": "ALUMINIUM CHLOROHYDRATE", "ACETYLCEDRENE": "ACETYL CEDRENE", "ALPHA-ISOMETHYL LONONE": "ALPHA-ISOMETHYL IONONE", "ROSE KETONE": "ROSE KETONES", "UNALOOL": "LINALOOL", "BUTYPHENYL METHYLPROPIONAL": "BUTYLPHENYL METHYLPROPIONAL", "PARAFINIUM LIQUIDIUM": "PARAFFINUM LIQUIDUM", "EAU": "AQUA", "AGUA": "AQUA", "GLICERINA": "GLYCERIN", "COCO-CAPRYLATE CAPRATE": "COCO-CAPRYLATE/CAPRATE", "SODIUM 14-16 OLEFIN SULFONATE": "SODIUM C14-16 OLEFIN SULFONATE"};
+const CAMBIOS_DB = {"PARFUM": ["amarillo", "Mezcla de aromas que no se declara (puede llevar decenas de moléculas sintéticas). Es la principal causa de alergia a cosméticos; no entra en GAROA."], "POLYETHYLENE": ["amarillo", "Plástico (polietileno) usado como exfoliante o para dar textura. Inocuo para la piel, pero es un microplástico que acaba en el agua; no entra en GAROA."], "ALUMINUM CHLORIDE": ["amarillo", "Sal de aluminio antitranspirante. La UE la considera segura dentro de sus límites, pero bloquea el sudor; en GAROA preferimos evitarla."], "SODIUM LAURYL SULFATE": ["amarillo", "Sulfato limpiador muy detergente. Irritante, sobre todo en pieles sensibles o con la barrera alterada; no entra en GAROA."]};
+Object.entries(CAMBIOS_DB).forEach(([k, [sev, nota]]) => { if (INCI_DB[k]) { INCI_DB[k].severidad = sev; INCI_DB[k].nota = nota; } });
+Object.entries(DB_EXTRA).forEach(([k, v]) => { INCI_DB[k] = v; });
+Object.entries(ALIAS_EXTRA).forEach(([k, v]) => { if (!INCI_DB[k]) INCI_DB[k] = { alias: v }; });
+
+// Registro de ingredientes desconocidos (Google Form de la cuenta personal). Vacío = no se envía nada.
+const FORM_DESCONOCIDOS = { url: 'https://docs.google.com/forms/d/e/1FAIpQLScfzaFdvhHVbolFsgd7qaBhGbB0pnYhZprYkx-3rdOzOQUN1Q/formResponse', campo: 'entry.1410528042' };
+
+const CAT_LABELS = {
+  fragrance_ae: 'Alérgeno de aceite esencial', fragrance_sintetica: 'Fragancia sintética', no_cosmetica_natural: 'No aceptado en cosmética natural',
+  disruptor_endocrino: 'Posible disruptor endocrino', formaldehido_liberador: 'Libera formaldehído', derivado_petroleo: 'Derivado del petróleo',
+  silicona: 'Silicona', alcohol_desecante: 'Alcohol secante', conservante_controvertido: 'Conservante controvertido', comedogenico: 'Comedogénico',
+  sulfato: 'Sulfato', irritante: 'Puede irritar', petroquimico: 'Petroquímico'
+};
+
+// ═══ Reglas por familia (para lo que no está en la base) ═══
+const MINERAL_CI = new Set(["75100", "75130", "75300", "75470", "75810", "77000", "77004", "77007", "77019", "77120", "77163", "77266", "77288", "77289", "77400", "77480", "77491", "77492", "77499", "77510", "77713", "77742", "77820", "77891", "77947"]);
+const QUIM = /^(SODIUM|POTASSIUM|MAGNESIUM|CALCIUM|ZINC|AMMONIUM|DISODIUM|TRISODIUM|TETRASODIUM|PEG|PPG|GLYCERYL|POLYGLYCERYL|CETEARYL|CETYL|STEARYL|ISOPROPYL|ETHYLHEXYL|MINERAL|PARAFFINUM|HYDROXY|METHYL|ETHYL|BUTYL|PROPYL|LAURYL|COCO[- ]|DECYL|CAPRYLIC|C\d)/;
+const BOT_FIN = /\b(EXTRACT|OIL|BUTTER|WAX|JUICE|WATER|POWDER|FLOWER|LEAF|SEED|ROOT|PEEL|FRUIT|KERNEL|BARK|HYDROSOL|DISTILLATE|FERMENT)\b/;
+function regla(n) {
+  const r = (sev, cat, nota) => ({ severidad: sev, categorias: cat ? [cat] : [], nota, porFamilia: true });
+  if (/PARABEN/.test(n)) return r('rojo', 'conservante_controvertido', 'Parabeno. Algunos (propil-, butil-) tienen límites por su posible efecto hormonal y otros están prohibidos en la UE.');
+  if (/^(PEG|PPG)-\d|^POLYETHYLENE GLYCOL|\b(LAURETH|CETEARETH|STEARETH|CETETH|OLETH|TRIDECETH|PARETH|CETOLETH|POLOXAMER|POLYSORBATE)\b|ETH-\d+/.test(n))
+    return r('amarillo', 'petroquimico', 'Ingrediente etoxilado (familia PEG/«-eth»): se obtiene con óxido de etileno, de origen petroquímico. Inocuo en cosmética, pero no entra en GAROA.');
+  if (/(SILOXANE|CONE$|CONOL|SILSESQUIOXANE|SILICONE|SILANE|DIMETHICONE)/.test(n) && !/SILICA/.test(n))
+    return r('amarillo', 'silicona', 'Silicona. Da tacto sedoso pero no aporta a la piel y es muy persistente en el medio ambiente. No entra en GAROA.');
+  if (/(ACRYLATE|ACRYLAMIDE|POLYACRYLOYL|CARBOMER|NYLON|POLYETHYLENE|POLYPROPYLENE|POLYMETHYL|POLYURETHANE|POLYSTYRENE|POLYISOBUTENE|POLYBUTENE|POLYDECENE|VP\/|PVP|STYRENE|COPOLYMER|CROSSPOLYMER)/.test(n))
+    return r('amarillo', 'petroquimico', 'Polímero sintético (textura, película o espesante). De origen petroquímico. No entra en GAROA.');
+  if (/POLYQUATERNIUM|QUATERNIUM-\d/.test(n)) return r('amarillo', 'petroquimico', 'Polímero catiónico sintético (acondicionador). De origen petroquímico. No entra en GAROA.');
+  if (/(PARAFFIN|PETROLATUM|MINERAL OIL|CERESIN|MICROCRYSTALLINE|OZOKERITE|ISODODECANE|ISOHEXADECANE|ISOEICOSANE|ISOPARAFFIN)/.test(n))
+    return r('amarillo', 'derivado_petroleo', 'Derivado del petróleo (aceite o cera mineral). Inocuo en la piel, pero no entra en GAROA.');
+  const ci = n.match(/^CI\s*(\d{5})$/);
+  if (ci) return MINERAL_CI.has(ci[1]) ? r('verde', '', 'Pigmento mineral o de origen natural (colorante CI).')
+                                       : r('amarillo', 'no_cosmetica_natural', 'Colorante sintético (CI). Autorizado en la UE, pero no se acepta en cosmética natural.');
+  if (BOT_FIN.test(n) && !QUIM.test(n) && n.split(' ').length >= 2 && !/(PEG|PPG|SULFATE|ETH-)/.test(n)) {
+    if (/\b(PEEL|LEAF|FLOWER|HERB|BARK|WOOD|ROOT)\s+OIL\b/.test(n)) return r('verde', 'fragrance_ae', 'Aceite esencial de origen vegetal. Aporta aroma; en pieles reactivas puede ser sensibilizante.');
+    return r('verde', '', 'Ingrediente de origen vegetal (extracto, aceite, manteca o agua floral).');
+  }
+  return null;
+}
+
+// ═══ Lectura de la lista ═══
+function limpiar(raw) {
+  return raw.replace(/\([^)]*\)/g, '').replace(/\[[^\]]*\]/g, '').replace(/[ \s]+/g, ' ')
+            .replace(/\s*\/\s*/g, '/').trim().toUpperCase().replace(/^[\s\*\.°:\-]+|[\s\*\.°:\-]+$/g, '').trim();
+}
+function leerLista(texto) {
+  let t = texto.replace(/^[\s\S]*?\b(INGR[EÉ]DIENT(E|ES|S)?|COMPOSICI[OÓ]N|INCI)\b\s*[:\/]/i, '');
+  t = t.replace(/(MAY CONTAIN|PUEDE CONTENER|PEUT CONTENIR)\s*[:\/]?/gi, ',').replace(/\+\/-/g, ',');
+  t = t.replace(/(\d),(\d)/g, '$1§$2');
+  const vistos = new Set(), out = [];
+  t.split(/[,;\n•·]/).forEach(p => {
+    const n = limpiar(p.replace(/§/g, ','));
+    if (n.length > 1 && !vistos.has(n)) { vistos.add(n); out.push({ n, org: /[\*°]/.test(p) }); }
+  });
+  return out;
+}
+function distancia(a, b) {
+  if (Math.abs(a.length - b.length) > 2) return 9;
+  const d = Array.from({ length: a.length + 1 }, (_, i) => [i]);
+  for (let j = 1; j <= b.length; j++) d[0][j] = j;
+  for (let i = 1; i <= a.length; i++) for (let j = 1; j <= b.length; j++)
+    d[i][j] = Math.min(d[i-1][j] + 1, d[i][j-1] + 1, d[i-1][j-1] + (a[i-1] === b[j-1] ? 0 : 1));
+  return d[a.length][b.length];
+}
+const CLAVES = Object.keys(INCI_DB);
+function buscar(n) {
+  const directo = k => { const e = INCI_DB[k]; if (!e) return null; return e.alias ? { k: e.alias, d: INCI_DB[e.alias] } : { k, d: e }; };
+  let r = directo(n);
+  if (r && r.d) return r;
+  for (const parte of n.split('/')) { r = directo(parte.trim()); if (r && r.d) return r; }
+  for (const parte of [n, ...n.split('/')]) { const f = regla(parte.trim()); if (f) return { k: parte.trim(), d: f }; }
+  if (n.length >= 7) {
+    let mejor = null, md = 3;
+    for (const k of CLAVES) { const dd = distancia(n, k); if (dd < md) { md = dd; mejor = k; if (dd === 1) break; } }
+    if (mejor && md <= (n.length >= 12 ? 2 : 1)) { r = directo(mejor); if (r && r.d) return { ...r, errata: true }; }
+  }
+  return null;
+}
+
+// ═══ Análisis ═══
+const NO_NATURAL = ['derivado_petroleo', 'silicona', 'petroquimico', 'fragrance_sintetica', 'no_cosmetica_natural', 'disruptor_endocrino', 'formaldehido_liberador'];
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+function tarjeta(x, sev) {
+  const chips = (x.d.categorias || []).filter(c => CAT_LABELS[c]).map(c => `<span class="chip">${CAT_LABELS[c]}</span>`);
+  if (x.org) chips.unshift('<span class="chip">★ Ecológico</span>');
+  if (x.d.lactancia === 'precaucion' || x.d.lactancia === 'evitar') chips.push('<span class="chip">Embarazo y lactancia: consulta</span>');
+  if (x.d.porFamilia) chips.push('<span class="chip">Clasificado por su familia</span>');
+  return `<div class="ing ${sev}">
+    <div class="ing-top"><span class="ing-nombre">${esc(x.n)}</span><span class="ing-pos">nº ${x.pos + 1}</span></div>
+    ${x.d.nombre_com && x.d.nombre_com.toUpperCase() !== x.n ? `<p class="ing-com">${esc(x.d.nombre_com)}</p>` : ''}
+    ${x.errata ? `<p class="ing-com">¿Querías decir ${esc(x.k)}?</p>` : ''}
+    <p class="ing-nota">${esc(x.d.nota || '')}</p>
+    ${chips.length ? `<div class="chips">${chips.join('')}</div>` : ''}
+  </div>`;
+}
+
+function analizar() {
+  const texto = document.getElementById('inci').value.trim();
+  const res = document.getElementById('resultado');
+  if (!texto) { res.innerHTML = '<p class="sub">Pega primero la lista de ingredientes.</p>'; return; }
+  const lista = leerLista(texto);
+  const g = { rojo: [], amarillo: [], verde: [], duda: [] };
+  lista.forEach((it, pos) => {
+    const r = buscar(it.n);
+    if (!r) { g.duda.push({ ...it, pos }); return; }
+    const sev = ['rojo', 'amarillo', 'verde'].includes(r.d.severidad) ? r.d.severidad : 'verde';
+    g[sev].push({ ...it, pos, d: r.d, k: r.k, errata: r.errata });
+  });
+
+  const noNat = [...g.rojo, ...g.amarillo].filter(x => (x.d.categorias || []).some(c => NO_NATURAL.includes(c)));
+  let titulo, texto2;
+  if (g.rojo.length) { titulo = 'Este producto lleva algo que yo sacaría de tu neceser.'; texto2 = 'Mira los ingredientes en rojo: son los que pueden suponer un riesgo para la salud.'; }
+  else if (noNat.length) { titulo = 'Inocuo, pero no es cosmética natural.'; texto2 = `Lleva ${noNat.length} ingrediente${noNat.length > 1 ? 's' : ''} de síntesis o de origen petroquímico. No es peligroso; lo que decidas el día 4 depende de lo que te pida tu piel.`; }
+  else if (g.duda.length) { titulo = 'Todo lo que conozco es natural o aceptado en cosmética natural.'; texto2 = `Me falta${g.duda.length > 1 ? 'n' : ''} ${g.duda.length} por mirar: abajo te cuento qué hacemos con ${g.duda.length > 1 ? 'ellos' : 'él'}.`; }
+  else { titulo = 'Compatible con el criterio GAROA.'; texto2 = 'Todos sus ingredientes son naturales o aceptados en cosmética natural.'; }
+
+  const prod = document.getElementById('producto').value.trim();
+  let html = `<div class="resumen">
+      <div class="cifra c-rojo"><b>${g.rojo.length}</b><span>🔴 Rojo</span></div>
+      <div class="cifra c-amarillo"><b>${g.amarillo.length}</b><span>🟡 Ámbar</span></div>
+      <div class="cifra c-verde"><b>${g.verde.length}</b><span>🟢 Verde</span></div>
+      <div class="cifra c-duda"><b>${g.duda.length}</b><span>❔ Por mirar</span></div>
+    </div>
+    <div class="veredicto">${prod ? `<p style="margin:0 0 4px;letter-spacing:.2em;text-transform:uppercase;font-size:.66rem">${esc(prod)}</p>` : ''}<h2>${titulo}</h2><p>${texto2}</p></div>`;
+  if (g.rojo.length) html += `<div class="grupo"><h3>🔴 Lo que sacaría</h3>${g.rojo.map(x => tarjeta(x, 'rojo')).join('')}</div>`;
+  if (g.amarillo.length) html += `<div class="grupo"><h3>🟡 Inocuo, pero no es GAROA</h3>${g.amarillo.map(x => tarjeta(x, 'amarillo')).join('')}</div>`;
+  if (g.duda.length) html += `<div class="grupo"><h3>❔ Estos te los miro yo</h3>
+      <div class="ing duda"><p class="ing-nota"><b>${g.duda.map(x => esc(x.n)).join(' · ')}</b></p>
+      <p class="ing-nota">Aún no están en mi base. Ya me han llegado: los reviso y te respondo en el grupo de Telegram, y quedarán añadidos para la próxima vez.</p></div></div>`;
+  if (g.verde.length) html += `<div class="grupo"><h3>🟢 Natural o aceptado en cosmética natural</h3><div class="verdes-lista">
+      <p>${g.verde.map(x => esc(x.n)).join(' · ')}</p>
+      <details><summary>Ver qué es cada uno</summary>${g.verde.map(x => tarjeta(x, 'verde')).join('')}</details></div></div>`;
+  res.innerHTML = html;
+  res.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  if (g.duda.length) enviarDesconocidos(g.duda.map(x => x.n), prod);
+  if (window.umami) umami.track('inci-analizado', { ingredientes: lista.length, desconocidos: g.duda.length });
+}
+
+function enviarDesconocidos(nombres, prod) {
+  if (!FORM_DESCONOCIDOS.url) return;
+  const datos = new URLSearchParams();
+  datos.append(FORM_DESCONOCIDOS.campo, nombres.join(', ') + (prod ? `  [${prod}]` : ''));
+  fetch(FORM_DESCONOCIDOS.url, { method: 'POST', mode: 'no-cors', body: datos }).catch(() => {});
+}
+
+// ═══ Leer los ingredientes de una foto (se procesa en el propio móvil; la imagen no sale de él) ═══
+const estadoFoto = document.getElementById('estadoFoto');
+function cargarLector() {
+  if (window.Tesseract) return Promise.resolve();
+  return new Promise((ok, mal) => {
+    const sc = document.createElement('script');
+    sc.src = 'https://cdn.jsdelivr.net/npm/tesseract.js@5.1.1/dist/tesseract.min.js';
+    sc.onload = ok; sc.onerror = mal; document.head.appendChild(sc);
+  });
+}
+document.getElementById('botonFoto').addEventListener('click', () => document.getElementById('archivoFoto').click());
+document.getElementById('archivoFoto').addEventListener('change', async e => {
+  const archivo = e.target.files[0]; if (!archivo) return;
+  try {
+    estadoFoto.textContent = 'Preparando el lector…';
+    await cargarLector();
+    const { data } = await Tesseract.recognize(archivo, 'eng', { logger: m => {
+      if (m.status === 'recognizing text') estadoFoto.textContent = `Leyendo la foto… ${Math.round(m.progress * 100)} %`;
+    } });
+    const texto = data.text.replace(/-\n/g, '').replace(/\n+/g, ' ').replace(/\s{2,}/g, ' ').trim();
+    if (!texto) { estadoFoto.textContent = 'No he podido leer texto. Prueba con más luz y la etiqueta bien recta.'; return; }
+    document.getElementById('inci').value = texto;
+    estadoFoto.textContent = '¡Listo! Revisa el texto por si se ha colado algún error y pulsa «Leer la etiqueta».';
+    if (window.umami) umami.track('inci-foto');
+  } catch (err) {
+    estadoFoto.textContent = 'No he podido leer la foto. Prueba a escribir o pegar los ingredientes.';
+  } finally { e.target.value = ''; }
+});
+
+document.getElementById('analizar').addEventListener('click', analizar);
+document.getElementById('limpiar').addEventListener('click', () => {
+  document.getElementById('inci').value = ''; document.getElementById('producto').value = '';
+  document.getElementById('resultado').innerHTML = ''; document.getElementById('inci').focus();
+});
+</script>
+</body>
+</html>
