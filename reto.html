@@ -364,7 +364,7 @@
   const PRECIO = '47 €';
   const PAGO_LANZAMIENTO = 'https://buy.stripe.com/3cI8wQ9JPeG3e1x2BAbII02';  // Payment Link de Stripe a 37 €
   const PAGO = 'https://buy.stripe.com/8x2fZi2hn0Pd1eL1xwbII03';  // Payment Link de Stripe a 47 €
-  // Plazas que quedan (máximo 20). null = «Plazas limitadas»; ≤10 = «Quedan pocas plazas»; ≤5 = número exacto; 0 = agotado.
+  // Plazas que quedan (máximo 10, decisión 2/11 con la mentora). null = «Solo 10 plazas»; ≤5 = número exacto; 0 = agotado. Sin urgencia inventada.
   const QUEDAN = null;
 
   const fecha = (iso) => new Date(iso + 'T12:00:00').toLocaleDateString('es-ES', { weekday: 'long', day: 'numeric', month: 'long' });
@@ -375,12 +375,11 @@
   const $ = (id) => document.getElementById(id);
   const botones = document.querySelectorAll('.js-compra');
 
-  const textoPlazas = QUEDAN === null ? 'Plazas limitadas'
+  const textoPlazas = QUEDAN === null ? 'Solo 10 plazas'
     : QUEDAN <= 0 ? 'Plazas agotadas'
     : QUEDAN === 1 ? 'Queda 1 plaza'
     : QUEDAN <= 5 ? 'Quedan ' + QUEDAN + ' plazas'
-    : QUEDAN <= 10 ? 'Quedan pocas plazas'
-    : 'Plazas limitadas';
+    : 'Solo 10 plazas';
 
   const enLanzamiento = ahora <= finLanz;
   const pago = enLanzamiento ? PAGO_LANZAMIENTO : PAGO;
