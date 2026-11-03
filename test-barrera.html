@@ -698,6 +698,15 @@
     totalScore += selectedScore;
     document.querySelectorAll('.question-block').forEach(b => b.classList.remove('active'));
     document.getElementById('progressWrap').style.display = 'none';
+
+    // Desde el calendario de adviento (test-barrera.html?adviento) ya están suscritas: resultado directo, sin formulario
+    if (new URLSearchParams(location.search).has('adviento')) {
+      const resultId = totalScore <= 4 ? 'resultSana' : totalScore <= 8 ? 'resultSensibilizada' : 'resultComprometida';
+      document.getElementById(resultId).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+
     document.getElementById('captureBlock').classList.add('active');
   }
 
