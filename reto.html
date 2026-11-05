@@ -374,6 +374,7 @@
 <script>
   // ── Datos del reto ──
   const APERTURA = '2026-11-09';            // abre la venta
+  const ANTICIPADO = '2026-11-08T18:30:00'; // acceso anticipado para La Pausa (enlace reto.html?pausa)
   const FIN_LANZAMIENTO = '2026-11-15';     // último día a 37 €
   const CIERRE = '2026-11-22';              // último día de inscripción
   const PRECIO_LANZAMIENTO = '37 €';
@@ -385,7 +386,12 @@
 
   const fecha = (iso) => new Date(iso + 'T12:00:00').toLocaleDateString('es-ES', { weekday: 'long', day: 'numeric', month: 'long' });
   const ahora = new Date();
-  const abre = new Date(APERTURA + 'T00:00:00');
+  // Acceso anticipado: quien llega con ?pausa (email de La Pausa) puede comprar desde ANTICIPADO. Se recuerda en este navegador.
+  let esPausa = new URLSearchParams(location.search).has('pausa');
+  try { if (esPausa) localStorage.setItem('garoaPausa', '1'); else esPausa = localStorage.getItem('garoaPausa') === '1'; } catch (e) {}
+  const abrePublico = new Date(APERTURA + 'T00:00:00');
+  const abre = esPausa ? new Date(ANTICIPADO) : abrePublico;
+  const anticipadoActivo = esPausa && ahora >= abre && ahora < abrePublico;
   const finLanz = new Date(FIN_LANZAMIENTO + 'T23:59:59');
   const cierra = new Date(CIERRE + 'T23:59:59');
   const $ = (id) => document.getElementById(id);
@@ -411,15 +417,19 @@
     inactivo('Cerrado');
     $('aviso').innerHTML = '¿Quieres enterarte de la próxima edición? <a href="newsletter.html">Apúntate a La Pausa</a>.';
   } else if (ahora < abre || !pago) {
-    $('barra').textContent = 'La venta abre el ' + fecha(APERTURA) + ' · ' + PRECIO_LANZAMIENTO + ' solo la primera semana';
+    $('barra').textContent = esPausa
+      ? 'Acceso anticipado La Pausa · abre el domingo 8 a las 18:30 · ' + PRECIO_LANZAMIENTO
+      : 'La venta abre el ' + fecha(APERTURA) + ' · ' + PRECIO_LANZAMIENTO + ' solo la primera semana';
     $('etiqueta').textContent = 'Próximamente';
     $('cifra').textContent = PRECIO_LANZAMIENTO;
     $('nota').textContent = 'Precio de lanzamiento del ' + fecha(APERTURA) + ' al ' + fecha(FIN_LANZAMIENTO) + '. Después, ' + PRECIO + '.';
     inactivo('Muy pronto');
     $('aviso').innerHTML = '¿Quieres que te avise cuando abra? <a href="ingredientes.html">Descarga mi guía gratis</a> y te escribo el día 9.';
   } else if (enLanzamiento) {
-    $('barra').innerHTML = 'Precio de lanzamiento ' + PRECIO_LANZAMIENTO + ' · solo hasta el domingo 15 a las 23:59 · <span class="plazas">' + textoPlazas + '</span>';
-    $('etiqueta').textContent = 'Precio de lanzamiento';
+    $('barra').innerHTML = anticipadoActivo
+      ? 'Acceso anticipado La Pausa · ' + PRECIO_LANZAMIENTO + ' hasta el domingo 15 · <span class="plazas">' + textoPlazas + '</span>'
+      : 'Precio de lanzamiento ' + PRECIO_LANZAMIENTO + ' · solo hasta el domingo 15 a las 23:59 · <span class="plazas">' + textoPlazas + '</span>';
+    $('etiqueta').textContent = anticipadoActivo ? 'Acceso anticipado · La Pausa' : 'Precio de lanzamiento';
     $('cifra').textContent = PRECIO_LANZAMIENTO;
     $('nota').innerHTML = 'Hasta el ' + fecha(FIN_LANZAMIENTO) + ' a las 23:59.<br>Desde el lunes 16: ' + PRECIO + '. Las inscripciones cierran el ' + fecha(CIERRE) + '.';
     botones.forEach(b => b.href = pago);
