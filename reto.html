@@ -130,6 +130,13 @@
     font-weight: 300; color: var(--dark); line-height: 1; display: block;
   }
   .precio .nota { font-size: 0.88rem; color: var(--muted); margin-top: 14px; line-height: 1.7; }
+  .cuenta { margin: 26px auto 6px; }
+  .cuenta[hidden] { display: none; }
+  .cuenta .que { display: block; font-size: 0.7rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--garnet); margin-bottom: 12px; }
+  .cuenta .reloj { display: inline-flex; gap: 18px; justify-content: center; }
+  .cuenta .u { display: flex; flex-direction: column; align-items: center; min-width: 52px; }
+  .cuenta .u b { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 2.2rem; line-height: 1; color: var(--garnet); font-variant-numeric: tabular-nums; }
+  .cuenta .u small { font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin-top: 6px; }
 
   .btn-primary {
     display: block; text-align: center; margin: 24px auto 0; max-width: 380px;
@@ -336,6 +343,15 @@
     <span class="etiqueta" id="etiqueta"></span>
     <span class="cifra" id="cifra"></span>
     <p class="nota" id="nota"></p>
+    <div class="cuenta" id="cuenta" hidden>
+      <span class="que" id="cuentaQue"></span>
+      <div class="reloj">
+        <span class="u"><b id="cD">0</b><small>días</small></span>
+        <span class="u"><b id="cH">00</b><small>horas</small></span>
+        <span class="u"><b id="cM">00</b><small>min</small></span>
+        <span class="u"><b id="cS">00</b><small>seg</small></span>
+      </div>
+    </div>
     <a class="btn-primary js-compra" href="#" data-umami-event="clic-comprar-reto">Quiero hacer el reto</a>
     <p class="aviso" id="aviso"></p>
   </section>
@@ -416,6 +432,34 @@
     botones.forEach(b => b.href = pago);
     $('aviso').textContent = 'Pago único. Al pagar recibes al instante el PDF «Día 0» y el enlace al canal privado de Telegram; por eso, al recibirlos, pierdes el derecho de desistimiento.';
   }
+
+  // ── Temporizador (sale de las mismas fechas; desaparece al cerrar) ──
+  (function () {
+    const fases = [
+      [abre, 'Abre en'],
+      [finLanz, 'El precio de ' + PRECIO_LANZAMIENTO + ' termina en'],
+      [cierra, 'Las inscripciones cierran en'],
+    ];
+    const caja = $('cuenta');
+    const dos = (n) => String(n).padStart(2, '0');
+    function pinta() {
+      const t = new Date();
+      const fase = (QUEDAN !== null && QUEDAN <= 0) ? null : fases.find(([fin]) => t < fin);
+      if (!fase) { caja.hidden = true; return false; }
+      // Si cambia de fase con la página abierta, recarga para actualizar precio y botón
+      if (caja.dataset.fase && caja.dataset.fase !== fase[1]) { location.reload(); return false; }
+      caja.dataset.fase = fase[1];
+      let s = Math.max(0, Math.floor((fase[0] - t) / 1000));
+      $('cuentaQue').textContent = fase[1];
+      $('cD').textContent = Math.floor(s / 86400); s %= 86400;
+      $('cH').textContent = dos(Math.floor(s / 3600)); s %= 3600;
+      $('cM').textContent = dos(Math.floor(s / 60));
+      $('cS').textContent = dos(s % 60);
+      caja.hidden = false;
+      return true;
+    }
+    if (pinta()) setInterval(pinta, 1000);
+  })();
 
   const observador = new IntersectionObserver(entradas => {
     entradas.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
