@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Christmas Ritual · Taller de corona y automasaje en Bilbao · Verbena × GAROA</title>
+<meta name="description" content="Ven a disfrutar con nosotras de una mañana navideña y de autocuidado en Bilbao: haces tu corona con Olaia, de Verbena, y aprendes un automasaje glow con Sarai, de GAROA.">
+<!-- BORRADOR: quitar noindex y las marcas .pend cuando fecha, sitio, precio y plazas estén confirmados. -->
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" href="narciso.garoa.png">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --garnet: #540B0E;
+    --cream:  #F9F7F6;
+    --pink:   #E9D9D6;
+    --dark:   #2A1A1B;
+    --text:   #3D2B2C;
+    --moss:   #2F3B25;
+    --moss-claro: #DDE0D3;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--cream); color: var(--text);
+    font-family: 'Lato', sans-serif; font-weight: 300;
+    font-size: 1.05rem; line-height: 1.75;
+    overflow-x: hidden;
+  }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; }
+
+  /* Datos sin confirmar: se ven a propósito hasta cerrar la fecha, el sitio, el precio y las plazas */
+  .pend { background: #FFF1B8; color: #5B4300; padding: 0 .3em; border-radius: 3px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+
+  .barra {
+    position: sticky; top: 0; z-index: 10;
+    background: var(--garnet); color: var(--cream);
+    text-align: center; padding: 10px 16px;
+    font-size: .74rem; font-weight: 700; letter-spacing: .1em; line-height: 1.6;
+  }
+
+  h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 300; color: var(--dark); }
+  h2 { font-size: clamp(1.9rem, 5.5vw, 2.6rem); line-height: 1.18; margin-bottom: 16px; }
+  h2 em { font-style: italic; color: var(--garnet); }
+  section { padding: 72px 20px; }
+  .ancho { max-width: 920px; margin: 0 auto; }
+  .estrecho { max-width: 620px; margin: 0 auto; }
+  .centro { text-align: center; }
+  .etiqueta {
+    display: block; margin-bottom: 14px;
+    font-size: .68rem; font-weight: 700; letter-spacing: .26em; text-transform: uppercase; color: var(--moss);
+  }
+
+  .ramita { display: block; width: min(240px, 62vw); height: auto; margin: 0 0 14px; }
+  .centro .ramita, .intro .ramita, .reserva .ramita { margin: 0 auto 14px; }
+  .boton {
+    display: inline-block; padding: 16px 34px;
+    background: var(--garnet); color: var(--cream);
+    font-size: .78rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; text-decoration: none;
+    transition: background .2s;
+  }
+  .boton:hover { background: var(--moss); }
+
+  /* Banda de la corona: se borda en el sentido de las agujas y luego aparecen los logos */
+  @property --giro { syntax: '<angle>'; inherits: false; initial-value: 376deg; }
+  .banda {
+    position: relative;
+    display: flex; align-items: center; justify-content: center;
+    padding: clamp(36px, 6vw, 60px) 20px;
+    background:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .05 0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23g)'/%3E%3C/svg%3E"),
+      radial-gradient(circle at center, #3A1413 0%, #2C0E0E 72%);
+  }
+  .corona-titulo { --ancho: min(340px, 66vw); position: relative; width: var(--ancho); }
+  .banda h1 {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    margin: 0; max-width: none; color: var(--cream);
+    font-size: calc(var(--ancho) * .118); line-height: 1.08; letter-spacing: .02em;
+  }
+  .banda h1 span { display: block; animation: titulo 1.7s cubic-bezier(.2, .6, .2, 1) both; }
+  .banda h1 span:nth-child(1) { animation-delay: 2s; }
+  .banda h1 span:nth-child(2) { animation-delay: 2.25s; }
+  .banda h1 span:nth-child(3) { animation-delay: 2.5s; font-style: italic; color: var(--pink); }
+  @keyframes titulo {
+    from { opacity: 0; letter-spacing: .16em; filter: blur(5px); }
+    to   { opacity: 1; letter-spacing: .02em; filter: blur(0); }
+  }
+  .banda img {
+    display: block; width: 100%; height: auto;
+    -webkit-mask-image: conic-gradient(#000 var(--giro), transparent calc(var(--giro) + 16deg));
+            mask-image: conic-gradient(#000 var(--giro), transparent calc(var(--giro) + 16deg));
+    animation: bordar 3.2s cubic-bezier(.45, .05, .25, 1) .3s both;
+  }
+  @keyframes bordar {
+    from { --giro: 0deg; transform: rotate(-9deg) scale(.975); }
+    to   { --giro: 376deg; transform: none; }
+  }
+
+  .musica {
+    position: absolute; right: 16px; bottom: 16px;
+    width: 44px; height: 44px; border-radius: 50%; padding: 0;
+    display: flex; align-items: center; justify-content: center;
+    background: transparent; color: var(--cream);
+    border: 1px solid rgba(249,247,246,.4); cursor: pointer;
+    transition: background .3s, color .3s, border-color .3s;
+  }
+  .musica:hover { border-color: var(--cream); }
+  .musica:focus-visible { outline: 2px solid var(--cream); outline-offset: 3px; }
+  .musica[aria-pressed="true"] { background: var(--pink); color: var(--garnet); border-color: var(--pink); }
+  .musica svg { width: 18px; height: 18px; fill: currentColor; }
+
+  /* Portada */
+  .portada { padding: 44px 20px 72px; text-align: center; }
+  .firma {
+    display: flex; align-items: center; justify-content: center; gap: 22px;
+    margin: 0 auto 60px;
+    animation: firma 1.5s cubic-bezier(.2, .6, .2, 1) 3.6s both;
+  }
+  @keyframes firma {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: none; }
+  }
+  .firma .garoa { width: min(170px, 42vw); }
+  .firma .verbena { width: min(100px, 25vw); }
+  .firma .por { font-family: 'Cormorant Garamond', serif; font-weight: 300; color: var(--text); font-size: 1.9rem; line-height: 1; }
+  .subtitulo { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(1.9rem, 5.5vw, 2.8rem); line-height: 1.16; color: var(--dark); max-width: 680px; margin: 0 auto 22px; }
+  .entradilla { max-width: 540px; margin: 0 auto 28px; }
+  .datos { font-size: .9rem; margin-top: 18px; }
+
+  /* Cinta que corre: mensajes y ramita en punto de cruz */
+  .cinta { background: var(--garnet); overflow: hidden; padding: 8px 0; }
+  .cinta-pista { display: flex; width: max-content; align-items: center; animation: cinta 60s linear infinite; }
+  .cinta span {
+    font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300;
+    font-size: 1.2rem; color: var(--cream); white-space: nowrap; padding: 0 22px;
+  }
+  .cinta img { width: 104px; height: auto; flex: none; }
+  @keyframes cinta { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* Del antes al después */
+  .salto { background: var(--pink); }
+  .salto .intro { max-width: 600px; margin: 0 auto 40px; text-align: center; }
+  .antes-despues { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .tarjeta { padding: 36px 28px; }
+  .tarjeta h3 { font-size: 1.75rem; margin-bottom: 18px; line-height: 1.2; }
+  .tarjeta ul { list-style: none; }
+  .tarjeta li { padding: 12px 0; border-top: 1px solid; }
+  .llegas { background: var(--cream); }
+  .llegas li { border-color: var(--pink); }
+  .vas { background: var(--moss); color: var(--cream); }
+  .vas h3 { color: var(--cream); font-style: italic; }
+  .vas li { border-color: rgba(249,247,246,.25); }
+  .puente { text-align: center; max-width: 600px; margin: 36px auto 0; font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; line-height: 1.35; color: var(--dark); }
+
+  /* La mañana */
+  .horario { list-style: none; margin-top: 30px; }
+  .horario li { display: grid; grid-template-columns: 74px 1fr; gap: 12px; padding: 20px 0; border-top: 1px solid var(--pink); }
+  .horario .hora { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; line-height: 1.3; color: var(--moss); }
+  .horario strong { font-weight: 700; color: var(--dark); display: block; }
+
+  /* Carrusel grande: las fotos pasan despacio, sin parar */
+  .galeria { padding: 8px 0 88px; overflow: hidden; }
+  .carrusel { display: flex; width: max-content; gap: 16px; animation: cinta 45s linear infinite; }
+  .carrusel:hover { animation-play-state: paused; }
+  .carrusel img { height: clamp(280px, 44vh, 400px); width: auto; aspect-ratio: 3 / 4; max-width: none; object-fit: cover; flex: none; }
+
+  /* Quiénes */
+  .quienes { background: var(--moss-claro); }
+  .dos { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 30px; }
+  .persona { background: var(--cream); display: flex; flex-direction: column; }
+  .persona .marco { height: 520px; display: flex; align-items: center; justify-content: center; }
+  .persona .marco.foto { overflow: hidden; }
+  .persona .marco.foto img { width: 100%; height: 100%; object-fit: cover; object-position: center 60%; }
+  .persona .marco.logo { background: var(--cream); }
+  .persona .marco.logo img { width: 150px; }
+  .persona div.texto { padding: 26px 26px 30px; }
+  .persona h3 { font-size: 1.6rem; line-height: 1.2; margin-bottom: 8px; }
+
+  /* Te llevas */
+  .lleva { list-style: none; margin-top: 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 0 28px; text-align: left; }
+  .lleva li { padding: 13px 0 13px 28px; border-top: 1px solid var(--pink); position: relative; }
+  .lleva li::before { content: ""; position: absolute; left: 3px; top: 22px; width: 9px; height: 9px; border-radius: 50%; background: var(--garnet); }
+
+  /* Reserva */
+  .reserva { background: var(--garnet); color: var(--cream); text-align: center; }
+  .reserva h2 { color: var(--cream); }
+  .reserva h2 em { color: var(--pink); }
+  .tarifas { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 26px 0 20px; }
+  .tarifa { border: 1px solid rgba(249,247,246,.35); padding: 20px 8px; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+  .tarifa .quien { font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+  .precio { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; line-height: 1.15; }
+  .tarifa .cada { font-size: .85rem; }
+  .reserva .boton { background: var(--cream); color: var(--garnet); margin-top: 24px; }
+  .reserva .boton:hover { background: var(--pink); color: var(--garnet); }
+  .reserva small { display: block; margin-top: 18px; font-size: .85rem; line-height: 1.6; opacity: .85; }
+
+  /* Preguntas */
+  details { border-top: 1px solid var(--pink); padding: 16px 0; }
+  details:last-child { border-bottom: 1px solid var(--pink); }
+  summary { cursor: pointer; font-weight: 700; color: var(--dark); }
+  details p { margin-top: 8px; }
+
+  footer { background: var(--dark); color: rgba(249,247,246,.6); text-align: center; padding: 32px 20px; font-size: .8rem; line-height: 2; }
+  footer a { color: rgba(249,247,246,.6); text-decoration: none; }
+
+  @media (max-width: 680px) {
+    section { padding: 56px 16px; }
+    .antes-despues, .dos, .lleva, .tarifas { grid-template-columns: 1fr; }
+    .galeria { padding: 0 0 64px; }
+    .carrusel { gap: 10px; }
+    .tarjeta { padding: 30px 22px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .banda img, .banda h1 span, .firma, .cinta-pista, .carrusel { animation: none; }
+    .galeria { overflow-x: auto; }
+  }
+</style>
+<!-- Analítica sin cookies (Umami) -->
+<script defer src="https://cloud.umami.is/script.js" data-website-id="f0614c03-35fa-4f95-bce6-00043441a337"></script>
+</head>
+<body>
+<div class="barra"><span class="pend">Domingo 22 de noviembre</span> · Bilbao · Solo <span class="pend">12 plazas</span></div>
+
+<div class="banda">
+  <div class="corona-titulo">
+    <img src="taller-navidad-corona-punto.webp" alt="" width="1127" height="1127">
+    <h1><span>The</span> <span>Christmas</span> <span>Ritual</span></h1>
+  </div>
+  <button class="musica" type="button" aria-pressed="false" aria-label="Poner música" title="Poner música" data-umami-event="clic-musica-taller-navidad">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 3.5v11.1a3.6 3.6 0 1 0 2 3.2V8.2l7-1.6v6a3.6 3.6 0 1 0 2 3.2V2z"/></svg>
+  </button>
+  <audio id="musica" src="taller-navidad-musica.m4a" preload="none" loop></audio>
+</div>
+
+<header class="portada">
+  <div class="firma">
+    <img class="verbena" src="verbena-logo-granate.png" alt="Verbena">
+    <span class="por" aria-hidden="true">×</span>
+    <img class="garoa" src="taller-navidad-garoa.png" alt="GAROA Organic Skin Rituals">
+  </div>
+  <span class="etiqueta">Taller de Navidad en Bilbao</span>
+  <p class="subtitulo">Ven a disfrutar con nosotras de una mañana navideña y de autocuidado</p>
+  <p class="entradilla">Una mañana para ti. Empezamos haciendo una corona de Navidad con Olaia. Usaremos materiales naturales, que secan bien y nos aseguran poder disfrutar de nuestra corona toda la temporada. Después pasamos a un rato de autocuidado y Sarai nos enseñará a hacernos un ritual de masaje muy glowy. Todo esto en un lugar acogedor donde disfrutaremos también de un rico desayuno.</p>
+  <a class="boton" href="#reservar" data-umami-event="clic-ir-reservar-taller-navidad">Quiero mi plaza</a>
+  <p class="datos"><span class="pend">De 10:00 a 13:00</span> · <span class="pend">Sitio por confirmar</span></p>
+</header>
+
+<div class="cinta" aria-hidden="true"><div class="cinta-pista">
+  <span>Haz tu corona</span><img src="taller-navidad-ramita-rosa.webp" alt=""><span>Un desayuno rico</span><img src="taller-navidad-ramita-rosa.webp" alt=""><span>Automasaje glow</span><img src="taller-navidad-ramita-rosa.webp" alt=""><span>Una mañana para ti</span><img src="taller-navidad-ramita-rosa.webp" alt=""><span>Un regalo sorpresa</span><img src="taller-navidad-ramita-rosa.webp" alt="">
+  <span>Haz tu corona</span><img src="taller-navidad-ramita-rosa.webp" alt=""><span>Un desayuno rico</span><img src="taller-navidad-ramita-rosa.webp" alt=""><span>Automasaje glow</span><img src="taller-navidad-ramita-rosa.webp" alt=""><span>Una mañana para ti</span><img src="taller-navidad-ramita-rosa.webp" alt=""><span>Un regalo sorpresa</span><img src="taller-navidad-ramita-rosa.webp" alt="">
+  <span>Haz tu corona</span><img src="taller-navidad-ramita-rosa.webp" alt=""><span>Un desayuno rico</span><img src="taller-navidad-ramita-rosa.webp" alt=""><span>Automasaje glow</span><img src="taller-navidad-ramita-rosa.webp" alt=""><span>Una mañana para ti</span><img src="taller-navidad-ramita-rosa.webp" alt=""><span>Un regalo sorpresa</span><img src="taller-navidad-ramita-rosa.webp" alt="">
+  <span>Haz tu corona</span><img src="taller-navidad-ramita-rosa.webp" alt=""><span>Un desayuno rico</span><img src="taller-navidad-ramita-rosa.webp" alt=""><span>Automasaje glow</span><img src="taller-navidad-ramita-rosa.webp" alt=""><span>Una mañana para ti</span><img src="taller-navidad-ramita-rosa.webp" alt=""><span>Un regalo sorpresa</span><img src="taller-navidad-ramita-rosa.webp" alt="">
+</div></div>
+
+<section class="salto">
+  <div class="ancho">
+    <div class="intro">
+      <img class="ramita" src="taller-navidad-ramita-granate.webp" alt="">
+    <span class="etiqueta">Ya sabes cómo se pone diciembre</span>
+      <h2>Quieres disfrutar de la Navidad, y de momento <em>solo la estás organizando</em></h2>
+    </div>
+    <div class="antes-despues">
+      <div class="tarjeta llegas">
+        <h3>Cómo llegas</h3>
+        <ul>
+          <li>Con la lista de regalos en la cabeza y el grupo de la cena de Nochebuena echando humo.</li>
+          <li>Con diciembre a la vuelta de la esquina y tú ya corriendo.</li>
+          <li>Con los hombros en las orejas, de tanto ir de aquí para allá.</li>
+          <li>Diciendo «este año sí que me hago una corona bonita». Y este año va a ser verdad.</li>
+        </ul>
+      </div>
+      <div class="tarjeta vas">
+        <h3>Cómo te vas</h3>
+        <ul>
+          <li>Con tu corona bajo el brazo, hecha por ti, y lista para colgar en casa.</li>
+          <li>Con la cabeza despejada, que ya te tocaba un rato para ti.</li>
+          <li>Con los hombros en su sitio y un masaje de cinco minutos que puedes repetir antes de la cena.</li>
+          <li>Con la cara despierta, ese glow de hoy, y a tiempo para el vermú.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="puente">Entre una y otra hay solo tres horas. Y las pasamos juntas.</p>
+  </div>
+</section>
+
+<section>
+  <div class="estrecho">
+    <div class="centro">
+      <img class="ramita" src="taller-navidad-ramita-granate.webp" alt="">
+      <span class="etiqueta">La mañana</span>
+      <h2>Sin prisas y <em>con las manos ocupadas</em></h2>
+      <p>No hace falta que seas manitas ni que sepas nada de masajes. Te lo enseñamos todo paso a paso.</p>
+    </div>
+    <ol class="horario">
+      <li><span class="hora">10:00</span><div><strong>Llegada</strong>Te sientas, te quitas el abrigo y nos conocemos.</div></li>
+      <li><span class="hora">10:15</span><div><strong>Tu corona de Navidad, con Olaia</strong>Eliges tus ramas y tus flores, y la montas a tu gusto. Cada corona sale distinta.</div></li>
+      <li><span class="hora">11:30</span><div><strong>Desayuno</strong>Recogemos la mesa, nos lavamos las manos y desayunamos con calma.</div></li>
+      <li><span class="hora">12:00</span><div><strong>Automasaje glow, con Sarai</strong>Cuello, escote y cara, frente al espejo. Mientras lo haces, te cuento qué está pasando en tu piel y por qué se nota. Es un efecto de hoy, para disfrutarlo hoy.</div></li>
+      <li><span class="hora">12:45</span><div><strong>Foto y sorpresa</strong>La foto con las coronas y un rato para conectar y que os demos una sorpresita.</div></li>
+      <li><span class="hora">13:00</span><div><strong>Y a la calle</strong>Con corona, con glow y con tiempo para ese vermú.</div></li>
+    </ol>
+  </div>
+</section>
+
+<section class="galeria" aria-label="Fotos del taller">
+  <div class="carrusel">
+    <img src="taller-navidad-corona-puerta.jpg" alt="Manos colgando una corona de abeto y eucalipto en una puerta azul" loading="lazy" decoding="async">
+    <img src="taller-navidad-corona-manos.jpg" alt="Manos montando una corona sobre una base de paja" loading="lazy" decoding="async">
+    <img src="taller-navidad-corona-cesta.jpg" alt="Cesta de mimbre con ramas de abeto y eucalipto" loading="lazy" decoding="async">
+    <img src="taller-navidad-ritual-gua-sha.jpg" alt="Gua sha de cuarzo rosa sobre una mesa de madera" loading="lazy" decoding="async">
+    <img src="taller-navidad-ritual-cuenco.jpg" alt="Manos sosteniendo un cuenco de madera con un paño" loading="lazy" decoding="async">
+    <img src="taller-navidad-ritual-aceite.jpg" alt="Sarai aplicándose aceite en la cara con un cuentagotas" loading="lazy" decoding="async">
+    <img src="taller-navidad-corona-puerta.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async">
+    <img src="taller-navidad-corona-manos.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async">
+    <img src="taller-navidad-corona-cesta.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async">
+    <img src="taller-navidad-ritual-gua-sha.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async">
+    <img src="taller-navidad-ritual-cuenco.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async">
+    <img src="taller-navidad-ritual-aceite.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async">
+    <img src="taller-navidad-corona-puerta.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async">
+    <img src="taller-navidad-corona-manos.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async">
+    <img src="taller-navidad-corona-cesta.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async">
+    <img src="taller-navidad-ritual-gua-sha.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async">
+    <img src="taller-navidad-ritual-cuenco.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async">
+    <img src="taller-navidad-ritual-aceite.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async">
+    <img src="taller-navidad-corona-puerta.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async">
+    <img src="taller-navidad-corona-manos.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async">
+    <img src="taller-navidad-corona-cesta.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async">
+    <img src="taller-navidad-ritual-gua-sha.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async">
+    <img src="taller-navidad-ritual-cuenco.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async">
+    <img src="taller-navidad-ritual-aceite.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async">
+  </div>
+</section>
+
+<section class="quienes">
+  <div class="ancho">
+    <span class="etiqueta">Quiénes somos</span>
+    <h2>Dos amigas que comparten <em>valores y estilo de vida</em></h2>
+    <div class="dos">
+      <article class="persona">
+        <div class="marco foto"><img src="olaia-taller-navidad.jpg" alt="Olaia, de Verbena, sentada entre flores" style="object-position: center 14%"></div>
+        <div class="texto">
+          <h3>Olaia, de Verbena</h3>
+          <p>Prensa flores y compone láminas botánicas. Pasa el día entre plantas, y tiene un ojo para esto que ya verás.</p>
+        </div>
+      </article>
+      <article class="persona">
+        <div class="marco foto"><img src="sarai-taller-navidad-bn.jpg" alt="Sarai frente a una pared de piedra" style="object-position: center"></div>
+        <div class="texto">
+          <h3>Sarai, de GAROA</h3>
+          <p>Bióloga molecular y bioquímica, y fundadora de GAROA. Enseña a cuidar la piel entendiendo lo que pasa en ella.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="centro">
+  <div class="estrecho">
+    <img class="ramita" src="taller-navidad-ramita-granate.webp" alt="">
+    <span class="etiqueta">Está todo incluido</span>
+    <h2>Lo que <em>te llevas</em></h2>
+    <ul class="lleva">
+      <li>Tu corona de Navidad, hecha por ti</li>
+      <li>Un regalo sorpresa</li>
+      <li>La hoja con tu secuencia de automasaje</li>
+      <li>El desayuno</li>
+    </ul>
+  </div>
+</section>
+
+<section class="reserva" id="reservar">
+  <div class="estrecho">
+    <img class="ramita" src="taller-navidad-ramita-rosa.webp" alt="">
+    <h2>Te guardamos <em>un sitio en la mesa</em></h2>
+    <p>Solo hay <span class="pend">12 plazas</span> y cuando se acaban, se acaban.</p>
+    <div class="tarifas">
+      <div class="tarifa"><span class="quien">Tú sola</span><span class="precio">89 €</span></div>
+      <div class="tarifa"><span class="quien">En pareja</span><span class="precio">165 €</span><span class="cada">82,50 € cada una</span></div>
+      <div class="tarifa"><span class="quien">En trío</span><span class="precio">235 €</span><span class="cada">unos 78 € cada una</span></div>
+    </div>
+    <p>Precio con todo incluido. Pásale esto a tu madre, a tu hermana o a la amiga que siempre dice que no tiene tiempo.</p>
+    <a class="boton" href="mailto:hola@garoa-skinrituals.com?subject=Quiero%20plaza%20en%20el%20taller%20de%20Navidad&body=Hola%2C%20quiero%20reservar%20plaza.%0A%0ANombre%3A%0A%C2%BFVienes%20sola%2C%20en%20pareja%20o%20en%20tr%C3%ADo%3F%20Nombres%20de%20las%20dem%C3%A1s%3A%0AAlergias%20o%20sensibilidades%20que%20deb%C3%A1is%20conocer%3A" data-umami-event="clic-reservar-taller-navidad">Reservar mi plaza</a>
+    <small>Te contestamos por email con los pasos para confirmar tu plaza. Si tienes alguna alergia, cuéntanoslo al reservar.</small>
+  </div>
+</section>
+
+<section>
+  <div class="estrecho">
+    <span class="etiqueta">Por si acaso</span>
+    <h2>Lo que nos <em>suelen preguntar</em></h2>
+    <details><summary>¿Y si soy un desastre con las manualidades?</summary><p>Mejor, así nos reímos un rato. Olaia te acompaña en todo el proceso y la corona te queda bien seguro.</p></details>
+    <details><summary>¿Tengo que traer algo?</summary><p>Solo a ti. Nosotras ponemos el material. Ponte ropa cómoda, que vamos a trabajar con ramas.</p></details>
+    <details><summary>¿Tengo que venir sin maquillar?</summary><p>Lo más fácil es que vengas con la cara lavada, porque el masaje se hace con aceite. Si vienes maquillada, te lo quitas allí, que tendremos desmaquillante.</p></details>
+    <details><summary>¿Puedo venir con una amiga?</summary><p>Claro, y además os sale mejor de precio: en pareja o en trío pagáis menos cada una. Reservad todas en el mismo email.</p></details>
+  </div>
+</section>
+
+<footer>
+  <a href="/">GAROA · Organic Skin Rituals</a> · Verbena<br>
+  <a href="condiciones-servicio.html">Condiciones</a> · <a href="politica-privacidad.html">Privacidad</a>
+</footer>
+
+<script>
+  (function () {
+    var boton = document.querySelector('.musica');
+    var audio = document.getElementById('musica');
+    var VOLUMEN = 0.55, fundido;
+
+    function fundir(destino, alAcabar) {
+      // En iPhone el volumen no se puede cambiar por código: el límite de pasos garantiza que el fundido termina
+      var pasos = 0;
+      clearInterval(fundido);
+      fundido = setInterval(function () {
+        var paso = audio.volume + (destino > audio.volume ? .04 : -.04);
+        if (Math.abs(destino - audio.volume) <= .04 || ++pasos > 25) {
+          audio.volume = destino;
+          clearInterval(fundido);
+          if (alAcabar) alAcabar();
+        } else {
+          audio.volume = paso;
+        }
+      }, 60);
+    }
+    function marcar(sonando) {
+      var texto = sonando ? 'Parar la música' : 'Poner música';
+      boton.setAttribute('aria-pressed', sonando);
+      boton.setAttribute('aria-label', texto);
+      boton.title = texto;
+    }
+    boton.addEventListener('click', function () {
+      if (boton.getAttribute('aria-pressed') === 'true') {
+        marcar(false);
+        fundir(0, function () { audio.pause(); });
+      } else {
+        clearInterval(fundido);
+        if (audio.paused) audio.volume = 0;
+        audio.play().then(function () { marcar(true); fundir(VOLUMEN); }).catch(function () { marcar(false); });
+      }
+    });
+    // Si cambia de pestaña o bloquea el móvil, la música se para
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden && !audio.paused) { clearInterval(fundido); audio.pause(); marcar(false); }
+    });
+  })();
+</script>
+</body>
+</html>
