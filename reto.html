@@ -387,7 +387,7 @@
   const fecha = (iso) => new Date(iso + 'T12:00:00').toLocaleDateString('es-ES', { weekday: 'long', day: 'numeric', month: 'long' });
   const ahora = new Date();
   // Acceso anticipado: quien llega con ?pausa (email de La Pausa) puede comprar desde ANTICIPADO. Se recuerda en este navegador.
-  let esPausa = new URLSearchParams(location.search).has('pausa');
+  let esPausa = /[?&]pausa/i.test(location.search);  // tolera «?pausa.» u otros restos pegados al enlace
   try { if (esPausa) localStorage.setItem('garoaPausa', '1'); else esPausa = localStorage.getItem('garoaPausa') === '1'; } catch (e) {}
   const abrePublico = new Date(APERTURA + 'T00:00:00');
   const abre = esPausa ? new Date(ANTICIPADO) : abrePublico;

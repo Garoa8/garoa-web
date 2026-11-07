@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recursos gratuitos · GAROA Organic Skin Rituals</title>
+<link rel="canonical" href="https://garoa-skinrituals.com/recursos.html">
+<meta name="description" content="Guías y test gratuitos de GAROA para entender mejor tu piel: los ingredientes que dejo fuera de mi neceser, tu ritual mínimo y el test de barrera cutánea.">
+<link rel="icon" type="image/png" href="garoa-flower.png">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --garnet: #540B0E;
+    --cream: #F9F7F6;
+    --pink: #E9D9D6;
+    --dark: #2A1A1B;
+    --text: #3D2B2C;
+    --muted: #8A7070;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--cream);
+    color: var(--text);
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* Portada oscura */
+  .portada {
+    background: var(--dark);
+    text-align: center;
+    padding: 56px 24px 112px;
+  }
+  .portada-logo { display: inline-block; margin-bottom: 96px; }
+  .portada-logo img { display: block; height: 150px; width: auto; }
+  .portada h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 300; line-height: 1.05; letter-spacing: -0.01em;
+    color: var(--cream);
+  }
+  .portada h1 em { display: block; font-style: italic; color: var(--pink); }
+  .portada p {
+    max-width: 420px; margin: 36px auto 0;
+    font-size: 0.98rem; line-height: 1.9;
+    color: rgba(249,247,246,0.65);
+  }
+  .portada .hilo { width: 1px; height: 64px; background: var(--pink); opacity: 0.5; margin: 56px auto 0; }
+
+  /* Recursos, en cuadrícula */
+  .recursos {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 56px 40px;
+    max-width: 1200px; margin: 0 auto;
+    padding: 112px 48px 96px;
+  }
+  .recurso { display: flex; flex-direction: column; color: inherit; text-decoration: none; }
+  .recurso-foto { aspect-ratio: 4 / 5; overflow: hidden; background: var(--pink); }
+  .recurso-foto img {
+    display: block; width: 100%; height: 100%; object-fit: cover;
+    transition: transform 1.6s cubic-bezier(.2,.7,.2,1);
+  }
+  .recurso:hover .recurso-foto img { transform: scale(1.035); }
+  .recurso-texto { display: flex; flex-direction: column; flex: 1; padding-top: 28px; }
+  .recurso-cabecera {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding-bottom: 16px; margin-bottom: 24px;
+    border-bottom: 1px solid var(--pink);
+  }
+  .recurso-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic; font-size: 1.1rem; color: var(--garnet);
+  }
+  .recurso-tipo {
+    font-size: 0.62rem; font-weight: 400; letter-spacing: 0.3em;
+    text-transform: uppercase; color: var(--muted);
+  }
+  .recurso h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.8rem, 2.5vw, 2.15rem);
+    font-weight: 300; line-height: 1.16;
+    color: var(--dark); margin-bottom: 16px;
+  }
+  .recurso h2 em { font-style: italic; color: var(--garnet); }
+  .recurso p { font-size: 0.94rem; line-height: 1.8; color: var(--muted); margin-bottom: 32px; }
+  .recurso-accion {
+    margin-top: auto; align-self: flex-start;
+    padding: 15px 26px;
+    border: 1px solid var(--garnet);
+    font-size: 0.66rem; font-weight: 400; letter-spacing: 0.26em;
+    text-transform: uppercase; color: var(--garnet);
+    transition: background 0.5s ease, color 0.5s ease;
+  }
+  .recurso:hover .recurso-accion { background: var(--garnet); color: var(--cream); }
+
+  /* Entrada suave (solo si hay JS) */
+  .js .recurso { opacity: 0; transform: translateY(24px); transition: opacity 1.2s ease, transform 1.2s cubic-bezier(.2,.7,.2,1); }
+  .js .recurso.visible { opacity: 1; transform: none; }
+  .js .recurso:nth-child(2) { transition-delay: 0.15s; }
+  .js .recurso:nth-child(3) { transition-delay: 0.3s; }
+  @media (prefers-reduced-motion: reduce) {
+    .js .recurso { opacity: 1; transform: none; transition: none; }
+    .recurso-foto img, .recurso-accion { transition: none; }
+  }
+
+  .aviso {
+    max-width: 480px; margin: 0 auto; padding: 0 24px 112px;
+    text-align: center; font-size: 0.78rem; line-height: 1.9; color: var(--muted);
+  }
+  .aviso::before { content: ''; display: block; width: 1px; height: 56px; background: var(--garnet); margin: 0 auto 36px; }
+  .aviso a { color: var(--garnet); }
+
+  footer {
+    background: var(--dark); color: rgba(249,247,246,0.4);
+    text-align: center; padding: 40px 24px;
+    font-size: 0.72rem; letter-spacing: 0.15em;
+  }
+  footer span { color: rgba(233,217,214,0.6); }
+  footer a { color: rgba(249,247,246,0.4); text-decoration: none; }
+  footer a:hover { color: var(--pink); }
+
+  @media (max-width: 820px) {
+    .portada { padding: 40px 16px 72px; }
+    .portada-logo { margin-bottom: 64px; }
+    .portada-logo img { height: 112px; }
+    .portada .hilo { height: 48px; margin-top: 40px; }
+    .recursos { grid-template-columns: minmax(0, 1fr); gap: 56px; max-width: 460px; padding: 56px 16px 64px; }
+    .recurso-foto { aspect-ratio: 5 / 4; }
+    .recurso-texto { padding-top: 24px; }
+    .aviso { padding: 0 16px 72px; }
+  }
+</style>
+<!-- Analítica sin cookies (Umami) -->
+<script defer src="https://cloud.umami.is/script.js" data-website-id="f0614c03-35fa-4f95-bce6-00043441a337"></script>
+</head>
+<body>
+
+<header class="portada">
+  <a class="portada-logo" href="/"><img src="narciso.garoa.cream.png" alt="GAROA Organic Skin Rituals"></a>
+  <h1>Recursos <em>gratuitos</em></h1>
+  <p>Guías y un test para entender mejor tu piel y elegir con criterio.</p>
+  <div class="hilo"></div>
+</header>
+
+<main>
+  <section class="recursos">
+    <a class="recurso" href="ingredientes.html" data-umami-event="recursos-ingredientes">
+      <div class="recurso-foto"><img src="testimonios-neceser.jpg" alt="Neceser abierto con frascos de cosmética" loading="lazy"></div>
+      <div class="recurso-texto">
+        <div class="recurso-cabecera"><span class="recurso-num">01</span><span class="recurso-tipo">Guía en PDF</span></div>
+        <h2>Lo que no entra en mi neceser, <em>y por qué</em></h2>
+        <p>Los ingredientes que dejo fuera y por qué, y qué evitar según tu piel o tu momento.</p>
+        <span class="recurso-accion">Descargar la guía</span>
+      </div>
+    </a>
+
+    <a class="recurso" href="descarga.html" data-umami-event="recursos-ritual-minimo">
+      <div class="recurso-foto"><img src="hero-tonico.jpg" alt="Toalla de lino y cuenco de madera sobre una mesa" loading="lazy"></div>
+      <div class="recurso-texto">
+        <div class="recurso-cabecera"><span class="recurso-num">02</span><span class="recurso-tipo">Guía en PDF</span></div>
+        <h2>Tu ritual mínimo, <em>según tu piel</em></h2>
+        <p>Tres pasos para cada tipo de piel, en una sola hoja.</p>
+        <span class="recurso-accion">Descargar la guía</span>
+      </div>
+    </a>
+
+    <a class="recurso" href="test-barrera.html" data-umami-event="recursos-test-barrera">
+      <div class="recurso-foto"><img src="editorial-3.jpg" alt="Manos aplicando un producto sobre la piel del brazo" loading="lazy"></div>
+      <div class="recurso-texto">
+        <div class="recurso-cabecera"><span class="recurso-num">03</span><span class="recurso-tipo">Test · 2 minutos</span></div>
+        <h2>¿Cómo está tu <em>barrera cutánea?</em></h2>
+        <p>Siete preguntas para descubrir en qué punto está la tuya.</p>
+        <span class="recurso-accion">Hacer el test</span>
+      </div>
+    </a>
+  </section>
+
+  <p class="aviso">Para recibirlos te pido tu nombre y tu email, y te apuntas a La Pausa, mi newsletter. Te puedes dar de baja cuando quieras. <a href="politica-privacidad.html">Política de privacidad</a>.</p>
+</main>
+
+<footer>
+  <p><a href="/">GAROA · Organic Skin Rituals</a> · <span>Tu piel, tu ritual.</span></p>
+</footer>
+
+<script>
+  // Entrada suave de cada recurso al llegar a él
+  (function () {
+    if (!('IntersectionObserver' in window)) return;
+    document.documentElement.classList.add('js');
+    const o = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); o.unobserve(e.target); }
+    }), { threshold: 0.12 });
+    document.querySelectorAll('.recurso').forEach(r => o.observe(r));
+  })();
+</script>
+</body>
+</html>
