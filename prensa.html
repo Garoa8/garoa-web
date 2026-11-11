@@ -388,6 +388,17 @@
     line-height: 1.25; color: var(--dark); font-weight: 400;
   }
 
+  /* QUÉ OFRECE */
+  .p-ofrece { border-top: 1px solid var(--pink); }
+  .p-grupo { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--garnet); margin: 64px 0 0; }
+  .p-oferta { list-style: none; border-top: 1px solid var(--dark); margin-top: 20px; }
+  .p-oferta li { display: grid; grid-template-columns: 5fr 7fr; gap: 48px; align-items: baseline; padding: 32px 0; border-bottom: 1px solid var(--pink); }
+  .p-oferta .o-nom { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.45rem, 2.4vw, 2rem); line-height: 1.2; color: var(--dark); }
+  .p-oferta .o-desc { font-size: 0.95rem; line-height: 1.8; color: var(--muted); }
+  .p-donde { margin-top: 36px; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; }
+  .p-donde a { color: var(--garnet); text-decoration: none; border-bottom: 1px solid var(--pink); padding-bottom: 4px; }
+  @media (max-width: 900px) { .p-oferta li { grid-template-columns: 1fr; gap: 10px; padding: 26px 0; } }
+
   /* IMÁGENES */
   .p-galeria {
     display: grid; grid-template-columns: repeat(12, 1fr); gap: 20px; align-items: start;
@@ -564,15 +575,63 @@
 <section class="p-descarga">
   <div class="p-descarga-inner">
     <h2>El kit de prensa, <em>en un solo documento.</em></h2>
-    <p class="info">PDF · 4 páginas<br>Fundadora · Marca · Temas · Contacto</p>
+    <p class="info">PDF · 5 páginas<br>Marca · Qué ofrece · Fundadora · Contacto</p>
     <a class="p-btn-claro" href="garoa-kit-de-prensa.pdf" download data-umami-event="prensa-descarga-kit">Descargar <span aria-hidden="true">↓</span></a>
   </div>
 </section>
 
-<!-- 01 FUNDADORA -->
+<!-- 01 MARCA -->
 <section class="p-seccion">
   <div class="p-wrap">
-    <p class="p-label reveal"><span class="num">01</span> La fundadora</p>
+    <p class="p-label reveal"><span class="num">01</span> La marca</p>
+    <div class="p-dic reveal">
+      <div>
+        <p class="p-dic-palabra">garoa</p>
+        <p class="p-dic-fon"><i>/ga·ˈro·a/</i> &nbsp;·&nbsp; euskera &nbsp;·&nbsp; sustantivo</p>
+      </div>
+      <p class="p-dic-def"><b>1.</b>Rocío. Las microgotas que la noche deja sobre la hierba, las mismas que el tónico deja en la piel.</p>
+    </div>
+    <div class="p-marca">
+      <div class="reveal">
+        <p>GAROA significa «rocío» en euskera. El nombre nació al combinar sílabas de los apellidos de su fundadora, y cuando descubrió que la palabra existía, fue un sí inmediato: el rocío deja en la hierba las mismas microgotas que el tónico deja en la piel, uno de sus pasos favoritos del ritual y de los que menos se habla.</p>
+        <p>La marca nace de un gesto de Sarai: aplicarse sus cremas por la noche, dejarse envolver por sus olores y texturas, y despertar con la piel jugosa. GAROA entiende el cuidado de la piel como autocuidado, un momento para conectar con los sentidos y desconectar del ruido externo, vivido como recarga y no como culpa u obligación.</p>
+        <p>Con ciencia y botánica, ayuda a comprar con criterio, lejos de los estándares estéticos ajenos y de las rutinas de cien pasos, y sin miedo a envejecer con una piel sana y bonita. Hoy ofrece asesorías personalizadas, retos y talleres; en diciembre de 2026 llegan sus primeras piezas de ritual.</p>
+      </div>
+      <figure class="reveal">
+        <img src="prensa-tonico.jpg" alt="Cuenco de madera con espátula sobre una toalla de lino" draggable="false">
+        <figcaption class="p-credit">© Olaia · Verbena Studio</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 02 QUÉ OFRECE -->
+<section class="p-seccion p-ofrece">
+  <div class="p-wrap">
+    <p class="p-label reveal"><span class="num">02</span> Qué ofrece GAROA</p>
+    <p class="p-experta-intro reveal">GAROA no vende cosméticos: <em>enseña a elegirlos</em> y a convertir su uso en un ritual.</p>
+
+    <p class="p-grupo reveal">Acompañamiento</p>
+    <ul class="p-oferta">
+      <li class="reveal"><span class="o-nom">The Complete Skin Ritual</span><span class="o-desc">Asesoría 1:1. Acompañamiento personal de tres semanas con Sarai: revisión del neceser producto a producto, dos semanas de prueba con diario de piel y una tercera de ajuste, para construir un ritual que funcione para cada persona.</span></li>
+      <li class="reveal"><span class="o-nom">Reto «Audita tu neceser»</span><span class="o-desc">Reto en grupo de cinco días, con acompañamiento por Telegram: cada día, una tarea guiada para conocer la propia piel, revisar los productos que ya se tienen, leer sus etiquetas y quedarse solo con lo que de verdad funciona.</span></li>
+      <li class="reveal"><span class="o-nom">Talleres presenciales</span><span class="o-desc">Sesiones en grupo para aprender automasaje facial y el uso de las herramientas del ritual.</span></li>
+    </ul>
+
+    <p class="p-grupo reveal">Piezas de ritual · a la venta desde diciembre de 2026</p>
+    <ul class="p-oferta">
+      <li class="reveal"><span class="o-nom">The Gua Sha Ritual</span><span class="o-desc">Gua sha en forma de corazón + stick de cuarzo rosa, en sobre granate.</span></li>
+      <li class="reveal"><span class="o-nom">The Light Ritual</span><span class="o-desc">Velas de cerámica artesana, con perfume de autor, hechas a mano una a una por Sarai.</span></li>
+      <li class="reveal"><span class="o-nom">The Clean-Hair Ritual</span><span class="o-desc">Scrunchie y cinta de pelo de doble gasa 100 % algodón, rosa empolvado, con certificado OEKO-TEX® Clase 1, para recoger el pelo durante el cuidado de la piel.</span></li>
+    </ul>
+    <p class="p-donde reveal"><a href="tienda.html">Ver la tienda</a> &nbsp;·&nbsp; <a href="asesoria.html">Ver la asesoría</a></p>
+  </div>
+</section>
+
+<!-- 03 FUNDADORA -->
+<section class="p-seccion">
+  <div class="p-wrap">
+    <p class="p-label reveal"><span class="num">03</span> La fundadora</p>
     <div class="p-fundadora">
       <figure class="reveal">
         <img src="prensa-fundadora.jpg" alt="Retrato de Sarai Orrego, fundadora de GAROA, mirando hacia un lado" draggable="false">
@@ -600,35 +659,10 @@
   <cite class="reveal">Sarai Orrego · Fundadora de GAROA</cite>
 </section>
 
-<!-- 02 MARCA -->
-<section class="p-seccion">
-  <div class="p-wrap">
-    <p class="p-label reveal"><span class="num">02</span> La marca</p>
-    <div class="p-dic reveal">
-      <div>
-        <p class="p-dic-palabra">garoa</p>
-        <p class="p-dic-fon"><i>/ga·ˈro·a/</i> &nbsp;·&nbsp; euskera &nbsp;·&nbsp; sustantivo</p>
-      </div>
-      <p class="p-dic-def"><b>1.</b>Rocío. Las microgotas que la noche deja sobre la hierba, las mismas que el tónico deja en la piel.</p>
-    </div>
-    <div class="p-marca">
-      <div class="reveal">
-        <p>GAROA significa «rocío» en euskera. El nombre nació al combinar sílabas de los apellidos de su fundadora, y cuando descubrió que la palabra existía, fue un sí inmediato: el rocío deja en la hierba las mismas microgotas que el tónico deja en la piel, uno de sus pasos favoritos del ritual y de los que menos se habla.</p>
-        <p>La marca nace de un gesto de Sarai: aplicarse sus cremas por la noche, dejarse envolver por sus olores y texturas, y despertar con la piel jugosa. GAROA entiende el cuidado de la piel como autocuidado, un momento para conectar con los sentidos y desconectar del ruido externo, vivido como recarga y no como culpa u obligación.</p>
-        <p>Con ciencia y botánica, ayuda a comprar con criterio, lejos de los estándares estéticos ajenos y de las rutinas de cien pasos, y sin miedo a envejecer con una piel sana y bonita. Hoy ofrece asesorías personalizadas, retos y talleres; en diciembre de 2026 llegan sus primeras piezas de ritual.</p>
-      </div>
-      <figure class="reveal">
-        <img src="prensa-tonico.jpg" alt="Cuenco de madera con espátula sobre una toalla de lino" draggable="false">
-        <figcaption class="p-credit">© Olaia · Verbena Studio</figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
-
-<!-- 03 FUENTE EXPERTA -->
+<!-- 04 FUENTE EXPERTA -->
 <section class="p-seccion p-experta">
   <div class="p-wrap">
-    <p class="p-label reveal"><span class="num">03</span> Fuente experta</p>
+    <p class="p-label reveal"><span class="num">04</span> Fuente experta</p>
     <p class="p-experta-intro reveal">Sarai atiende consultas y entrevistas sobre <em>piel, ingredientes y ritual,</em> con la mirada de una bioquímica.</p>
     <ol class="p-temas">
       <li class="reveal"><span class="n">i.</span><span class="t">Cómo leer la lista de ingredientes de un cosmético</span></li>
@@ -640,10 +674,10 @@
   </div>
 </section>
 
-<!-- 04 IMÁGENES -->
+<!-- 05 IMÁGENES -->
 <section class="p-seccion">
   <div class="p-wrap">
-    <p class="p-label reveal"><span class="num">04</span> Imágenes</p>
+    <p class="p-label reveal"><span class="num">05</span> Imágenes</p>
     <div class="p-galeria" oncontextmenu="return false">
       <figure class="g1 reveal"><img src="prensa-sarai-1.jpg" alt="Retrato de Sarai Orrego" draggable="false" loading="lazy"></figure>
       <figure class="g2 reveal"><img src="prensa-sombras.jpg" alt="Sombras de hojas sobre un vestido granate" draggable="false" loading="lazy"></figure>
@@ -662,9 +696,9 @@
   </div>
 </section>
 
-<!-- 05 CONTACTO -->
+<!-- 06 CONTACTO -->
 <section class="p-contacto">
-  <p class="p-eyebrow"><span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;letter-spacing:.05em;text-transform:none;font-size:1rem">05</span> &nbsp; Contacto de prensa</p>
+  <p class="p-eyebrow"><span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;letter-spacing:.05em;text-transform:none;font-size:1rem">06</span> &nbsp; Contacto de prensa</p>
   <a class="mail" href="mailto:hola@garoa-skinrituals.com?subject=Prensa" data-umami-event="prensa-email">hola@garoa-skinrituals.com</a>
   <p><button type="button" class="copiar" data-mail="hola@garoa-skinrituals.com" data-umami-event="prensa-copiar-email">Copiar correo</button></p>
   <p class="redes"><a href="https://instagram.com/garoa_skinrituals" target="_blank" rel="noopener">Instagram</a> · <a href="/">garoa-skinrituals.com</a></p>
