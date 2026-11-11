@@ -426,6 +426,8 @@
     transition: border-color 0.3s; overflow-wrap: anywhere;
   }
   .p-contacto a.mail:hover { border-color: var(--cream); }
+  .p-contacto .copiar { background: none; border: 1px solid rgba(249,247,246,0.45); color: var(--cream); font-family: 'Lato', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; padding: 14px 28px; margin: 0 0 56px; cursor: pointer; transition: background .3s, color .3s; }
+  .p-contacto .copiar:hover { background: var(--cream); color: var(--garnet); }
   .p-contacto .redes { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; }
   .p-contacto .redes a { color: rgba(249,247,246,0.7); text-decoration: none; margin: 0 14px; }
   .p-contacto .redes a:hover { color: var(--cream); }
@@ -653,7 +655,7 @@
     <div class="p-peticion reveal">
       <div>
         <h3>Imágenes en alta resolución, <em>bajo petición.</em></h3>
-        <p>Escríbenos indicando el medio y la publicación, y te enviaremos el enlace de descarga. <strong>Crédito obligatorio: © Olaia · Verbena Studio.</strong></p>
+        <p>Escríbenos a <strong>hola@garoa-skinrituals.com</strong> indicando el medio y la publicación, y te enviaremos el enlace de descarga. <strong>Crédito obligatorio: © Olaia · Verbena Studio.</strong></p>
       </div>
       <a class="btn-primary" href="mailto:hola@garoa-skinrituals.com?subject=Solicitud%20de%20im%C3%A1genes%20%C2%B7%20Prensa" data-umami-event="prensa-solicitar-imagenes">Solicitar imágenes</a>
     </div>
@@ -664,6 +666,7 @@
 <section class="p-contacto">
   <p class="p-eyebrow"><span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;letter-spacing:.05em;text-transform:none;font-size:1rem">05</span> &nbsp; Contacto de prensa</p>
   <a class="mail" href="mailto:hola@garoa-skinrituals.com?subject=Prensa" data-umami-event="prensa-email">hola@garoa-skinrituals.com</a>
+  <p><button type="button" class="copiar" data-mail="hola@garoa-skinrituals.com" data-umami-event="prensa-copiar-email">Copiar correo</button></p>
   <p class="redes"><a href="https://instagram.com/garoa_skinrituals" target="_blank" rel="noopener">Instagram</a> · <a href="/">garoa-skinrituals.com</a></p>
 </section>
 
@@ -728,6 +731,16 @@
       navigator.serviceWorker.register('/sw.js');
     });
   }
+</script>
+<script>
+document.querySelectorAll('.copiar').forEach(function(b){
+  b.addEventListener('click',function(){
+    var m=b.getAttribute('data-mail'),t=b.textContent;
+    function ok(){b.textContent='Copiado ✓';setTimeout(function(){b.textContent=t;},2200);}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(m).then(ok,function(){prompt('Copia el correo:',m);});}
+    else{prompt('Copia el correo:',m);}
+  });
+});
 </script>
 </body>
 </html>
