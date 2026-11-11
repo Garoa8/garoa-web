@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prensa · GAROA</title>
+<meta name="description" content="Sala de prensa de GAROA · Organic Skin Rituals: kit de prensa, biografía de la fundadora, imágenes y contacto.">
+<link rel="icon" type="image/png" href="garoa-flower.png">
+
+<!-- PWA -->
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#540B0E">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="GAROA">
+<link rel="apple-touch-icon" href="narciso.garoa.png">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://garoa-skinrituals.com/prensa.html">
+<meta property="og:title" content="Prensa · GAROA">
+<meta property="og:description" content="Ciencia que se convierte en ritual. Kit de prensa, biografía, imágenes y contacto.">
+<meta property="og:image" content="https://garoa-skinrituals.com/prensa-retrato.jpg">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="GAROA Organic Skin Rituals">
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --garnet: #540B0E;
+    --cream: #F9F7F6;
+    --pink: #E9D9D6;
+    --dark: #2A1A1B;
+    --text: #3D2B2C;
+    --muted: #8A7070;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--cream);
+    color: var(--text);
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: grid; grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    padding: 24px 48px;
+    background: transparent;
+    transition: background 0.4s, padding 0.4s;
+  }
+  nav.scrolled { background: var(--cream); border-bottom: 1px solid var(--pink); padding: 14px 48px; }
+
+  .nav-links {
+    display: flex; gap: 40px; align-items: center;
+  }
+  .nav-links a {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--text);
+    text-decoration: none; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--garnet); }
+
+  /* Dropdown */
+  .nav-dropdown { position: relative; }
+  .nav-dropdown > a::after { content: ' ▾'; font-size: 0.6rem; letter-spacing: 0; }
+  .dropdown-menu {
+    display: none; position: absolute; top: calc(100% + 16px); left: 0;
+    background: var(--cream); border: 1px solid var(--pink);
+    min-width: 220px; padding: 8px 0; z-index: 200;
+  }
+  .nav-dropdown.active .dropdown-menu { display: block; }
+  .dropdown-menu a {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 12px 24px;
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--text);
+    text-decoration: none; transition: background 0.2s, color 0.2s;
+  }
+  .dropdown-menu a:hover { background: var(--pink); color: var(--garnet); }
+  .badge-pronto {
+    font-size: 0.58rem; font-weight: 400; letter-spacing: 0.08em;
+    color: var(--muted); text-transform: uppercase;
+    border: 1px solid var(--pink); padding: 2px 6px;
+    white-space: nowrap; margin-left: 12px;
+  }
+
+  .nav-logo {
+    text-decoration: none; display: flex; justify-content: center; align-items: center;
+    margin: 0 32px;
+  }
+  .nav-logo img {
+    height: 220px; width: auto; display: block;
+    mix-blend-mode: multiply;
+    transition: height 0.4s;
+  }
+  nav.scrolled .nav-logo img { height: 84px; }
+
+  .nav-right { display: flex; justify-content: flex-end; align-items: center; }
+  .nav-cta {
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--garnet);
+    text-decoration: none; transition: color 0.2s;
+    border-bottom: 1px solid var(--garnet); padding-bottom: 2px;
+  }
+  .nav-cta:hover { color: var(--dark); border-bottom-color: var(--dark); }
+
+  /* Trigger del menú */
+  .nav-menu-trigger { cursor: pointer; }
+
+  /* Menú: panel fijo detrás de la página, siempre ahí. Solo asoma en la
+     franja izquierda que deja libre el desplazamiento de #page-wrap. */
+  .mobile-menu {
+    display: flex; position: fixed; inset: 0; z-index: 1;
+    background: var(--garnet); flex-direction: column;
+    justify-content: center; align-items: flex-start; gap: 10px;
+    padding: 0 0 0 15px;
+  }
+  .mobile-menu a {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem; font-weight: 400; color: var(--cream);
+    text-decoration: none; text-align: left; padding: 4px 0;
+    max-width: 3.2cm; line-height: 1.2; overflow-wrap: break-word;
+    transition: color 0.2s;
+  }
+  .mobile-menu a:hover { color: var(--pink); }
+  .nav-dropdown-mobile { text-align: left; max-width: 3.2cm; }
+  .nav-dropdown-mobile > a { display: block; }
+  .nav-dropdown-mobile > a::after { content: ' ▾'; font-size: 1rem; }
+  .mobile-submenu {
+    display: none; flex-direction: column; align-items: flex-start; gap: 6px;
+    margin-top: 6px;
+  }
+  .nav-dropdown-mobile.active .mobile-submenu { display: flex; }
+  .mobile-submenu a {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: rgba(249,247,246,0.75);
+    padding: 4px 0; max-width: 3.2cm; line-height: 1.4;
+  }
+  .mobile-submenu a:hover { color: var(--pink); }
+  .mobile-submenu .badge-pronto {
+    display: block; margin: 2px 0 0; color: rgba(249,247,246,0.5);
+    border-color: rgba(233,217,214,0.3); font-size: 0.52rem;
+  }
+  .mobile-menu-close {
+    margin-top: 20px;
+    background: none; border: none; cursor: pointer;
+    font-family: 'Lato', sans-serif; font-size: 0.68rem; font-weight: 700;
+    letter-spacing: 0.15em; text-transform: uppercase; color: rgba(249,247,246,0.6);
+  }
+  .mobile-menu-close:hover { color: var(--pink); }
+
+  /* La página en sí: se desplaza un poco en diagonal para dejar ver el menú */
+  #page-wrap {
+    position: relative; z-index: 2; background: var(--cream);
+    border-radius: 0;
+    box-shadow: none;
+    transition: transform 0.5s cubic-bezier(.65,0,.35,1), border-radius 0.5s, box-shadow 0.5s;
+  }
+  body.menu-open #page-wrap {
+    transform: translate(3.6cm, 1cm);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: -12px 12px 40px rgba(42,26,27,0.3);
+  }
+  @media (max-width: 768px) {
+    body.menu-open #page-wrap { transform: translate(2.4cm, 0.6cm); border-radius: 14px; }
+    .mobile-menu { padding-left: 16px; }
+    .mobile-menu a { font-size: 1rem; max-width: 2.2cm; }
+    .mobile-submenu a { font-size: 0.6rem; max-width: 2.2cm; }
+    .nav-dropdown-mobile { max-width: 2.2cm; }
+  }
+
+  /* Modal */
+  .modal {
+    display: none; position: fixed; inset: 0; z-index: 300;
+    background: rgba(42,26,27,0.7); align-items: center; justify-content: center;
+    padding: 24px;
+  }
+  .modal.open { display: flex; }
+  .modal-inner {
+    background: var(--cream); max-width: 560px; width: 100%;
+    padding: 64px 56px; position: relative;
+  }
+  .modal-close {
+    position: absolute; top: 16px; right: 20px;
+    background: none; border: none; cursor: pointer;
+    font-size: 1.4rem; color: var(--muted); line-height: 1; z-index: 2;
+  }
+  .modal-close:hover { color: var(--garnet); }
+  .modal-badge {
+    font-size: 0.65rem; font-weight: 700; letter-spacing: 0.3em;
+    text-transform: uppercase; color: var(--muted);
+    border: 1px solid var(--pink); padding: 4px 10px;
+    display: inline-block; margin-bottom: 24px;
+  }
+  .modal-inner h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem; font-weight: 300; line-height: 1.2;
+    color: var(--dark); margin-bottom: 20px;
+  }
+  .modal-inner h2 em { font-style: italic; color: var(--garnet); }
+  .modal-inner p {
+    font-size: 0.95rem; line-height: 1.8; color: var(--muted); margin-bottom: 16px;
+  }
+  .modal-inner .btn-primary { margin-top: 8px; }
+
+  /* ══════════ PRENSA ══════════ */
+  .btn-primary {
+    display: inline-block; padding: 16px 48px;
+    background: var(--garnet); color: var(--cream);
+    font-family: 'Lato', sans-serif; font-size: 0.78rem;
+    font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase;
+    text-decoration: none; border: none; cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+  }
+  .btn-primary:hover { background: var(--dark); transform: translateY(-2px); }
+
+  .p-wrap { max-width: 1240px; margin: 0 auto; }
+  .p-label {
+    display: flex; align-items: baseline; gap: 18px;
+    font-family: 'Lato', sans-serif; font-size: 0.68rem; font-weight: 700;
+    letter-spacing: 0.32em; text-transform: uppercase; color: var(--garnet);
+    margin-bottom: 56px;
+  }
+  .p-label .num {
+    font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 400;
+    font-style: italic; letter-spacing: 0.05em; text-transform: none;
+  }
+  .p-label::after { content: ''; flex: 1; height: 1px; background: var(--pink); transform: translateY(-4px); }
+
+  /* HERO */
+  .p-hero {
+    display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 72px;
+    align-items: end; padding: 250px 48px 120px; max-width: 1336px; margin: 0 auto;
+  }
+  .p-eyebrow {
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.38em;
+    text-transform: uppercase; color: var(--garnet);
+    opacity: 0; animation: fadeUp 0.8s 0.2s forwards;
+  }
+  .p-title {
+    font-family: 'Cormorant Garamond', serif; font-weight: 300;
+    font-size: clamp(5rem, 13vw, 11.5rem); line-height: 0.85; letter-spacing: -0.02em;
+    color: var(--dark); margin: 28px 0 40px -0.06em;
+    opacity: 0; animation: fadeUp 1s 0.35s forwards;
+  }
+  .p-claim {
+    font-family: 'Cormorant Garamond', serif; font-weight: 300;
+    font-size: clamp(1.7rem, 3vw, 2.6rem); line-height: 1.2; color: var(--dark);
+    max-width: 520px; padding-top: 32px; border-top: 1px solid var(--garnet);
+    opacity: 0; animation: fadeUp 1s 0.55s forwards;
+  }
+  .p-claim em { font-style: italic; color: var(--garnet); }
+  .p-meta {
+    margin-top: 36px; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.24em;
+    text-transform: uppercase; color: var(--muted);
+    opacity: 0; animation: fadeUp 1s 0.75s forwards;
+  }
+  .p-hero-foto { position: relative; opacity: 0; animation: fadeUp 1.2s 0.45s forwards; }
+  .p-hero-foto img { width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: center 30%; display: block; }
+  .p-credit {
+    font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted);
+  }
+  .p-hero-foto .p-credit {
+    position: absolute; right: -30px; bottom: 0; writing-mode: vertical-rl; transform: rotate(180deg);
+  }
+
+  /* DESCARGA */
+  .p-descarga { background: var(--dark); color: var(--cream); padding: 64px 48px; }
+  .p-descarga-inner {
+    max-width: 1240px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr auto auto; gap: 56px; align-items: center;
+  }
+  .p-descarga h2 {
+    font-family: 'Cormorant Garamond', serif; font-weight: 300;
+    font-size: clamp(2rem, 3.6vw, 3rem); line-height: 1.1;
+  }
+  .p-descarga h2 em { font-style: italic; color: var(--pink); }
+  .p-descarga .info {
+    font-size: 0.68rem; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase;
+    color: rgba(249,247,246,0.5); line-height: 2;
+  }
+  .p-btn-claro {
+    display: inline-flex; align-items: center; gap: 14px;
+    padding: 18px 40px; border: 1px solid var(--pink); color: var(--cream);
+    font-size: 0.74rem; font-weight: 700; letter-spacing: 0.26em; text-transform: uppercase;
+    text-decoration: none; transition: background 0.3s, color 0.3s;
+  }
+  .p-btn-claro:hover { background: var(--cream); color: var(--garnet); }
+
+  /* FUNDADORA */
+  .p-seccion { padding: 150px 48px; }
+  .p-fundadora { display: grid; grid-template-columns: 5fr 7fr; gap: 96px; align-items: start; }
+  .p-fundadora figure { position: sticky; top: 140px; }
+  .p-fundadora figure img { width: 100%; aspect-ratio: 3/4; object-fit: cover; display: block; }
+  .p-fundadora figcaption { margin-top: 14px; }
+  .p-nombre {
+    font-family: 'Cormorant Garamond', serif; font-weight: 300;
+    font-size: clamp(2.8rem, 5vw, 4.4rem); line-height: 1; color: var(--dark); margin-bottom: 12px;
+  }
+  .p-cargo {
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.26em; text-transform: uppercase;
+    color: var(--garnet); margin-bottom: 48px;
+  }
+  .p-bio {
+    font-family: 'Cormorant Garamond', serif; font-size: 1.42rem; line-height: 1.65;
+    color: var(--text); font-weight: 400;
+  }
+  .p-bio::first-letter {
+    font-size: 5.4em; float: left; line-height: 0.82; margin: 0.06em 0.1em 0 0;
+    color: var(--garnet); font-weight: 300;
+  }
+  .p-datos { margin-top: 64px; border-top: 1px solid var(--pink); }
+  .p-datos div {
+    display: grid; grid-template-columns: 200px 1fr; gap: 24px;
+    padding: 20px 0; border-bottom: 1px solid var(--pink);
+  }
+  .p-datos dt {
+    font-size: 0.66rem; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--muted); padding-top: 4px;
+  }
+  .p-datos dd { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; color: var(--dark); }
+
+  /* CITA */
+  .p-cita { background: var(--pink); padding: 160px 48px; text-align: center; position: relative; overflow: hidden; }
+  .p-cita blockquote {
+    position: relative; max-width: 980px; margin: 0 auto;
+    font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300;
+    font-size: clamp(1.9rem, 4vw, 3.4rem); line-height: 1.28; color: var(--garnet);
+  }
+  .p-cita blockquote span { font-style: normal; }
+  .p-cita cite {
+    display: block; margin-top: 48px; font-style: normal;
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.32em; text-transform: uppercase; color: var(--text);
+  }
+
+  /* MARCA · DICCIONARIO */
+  .p-dic { display: grid; grid-template-columns: 1fr 1fr; gap: 96px; align-items: center; margin-bottom: 120px; }
+  .p-dic-palabra {
+    font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300;
+    font-size: clamp(5.5rem, 14vw, 12rem); line-height: 0.8; color: var(--garnet); letter-spacing: -0.02em;
+  }
+  .p-dic-fon {
+    margin-top: 56px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.24em;
+    text-transform: uppercase; color: var(--muted);
+  }
+  .p-dic-fon i { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.05rem; letter-spacing: 0.04em; text-transform: none; }
+  .p-dic-def {
+    font-family: 'Cormorant Garamond', serif; font-size: clamp(1.6rem, 2.6vw, 2.3rem);
+    line-height: 1.35; color: var(--dark); font-weight: 300;
+    border-left: 1px solid var(--garnet); padding-left: 40px;
+  }
+  .p-dic-def b { font-weight: 600; color: var(--garnet); margin-right: 10px; }
+  .p-marca { display: grid; grid-template-columns: 7fr 5fr; gap: 96px; align-items: start; }
+  .p-marca p { font-family: 'Cormorant Garamond', serif; font-size: 1.32rem; line-height: 1.7; color: var(--text); margin-bottom: 26px; }
+  .p-marca p:first-child { font-size: 1.6rem; line-height: 1.5; color: var(--dark); }
+  .p-marca figure img { width: 100%; aspect-ratio: 3/4; object-fit: cover; display: block; }
+  .p-marca figcaption { margin-top: 14px; }
+
+  /* FUENTE EXPERTA */
+  .p-experta { background: var(--cream); border-top: 1px solid var(--pink); }
+  .p-experta-intro {
+    font-family: 'Cormorant Garamond', serif; font-weight: 300;
+    font-size: clamp(2rem, 3.6vw, 3.1rem); line-height: 1.15; color: var(--dark);
+    max-width: 820px; margin-bottom: 80px;
+  }
+  .p-experta-intro em { font-style: italic; color: var(--garnet); }
+  .p-temas { list-style: none; border-top: 1px solid var(--dark); }
+  .p-temas li {
+    display: grid; grid-template-columns: 120px 1fr; gap: 24px; align-items: baseline;
+    padding: 34px 0; border-bottom: 1px solid var(--pink);
+    transition: padding-left 0.4s ease;
+  }
+  .p-temas li:hover { padding-left: 16px; }
+  .p-temas .n {
+    font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.5rem; color: var(--garnet);
+  }
+  .p-temas .t {
+    font-family: 'Cormorant Garamond', serif; font-size: clamp(1.45rem, 2.4vw, 2rem);
+    line-height: 1.25; color: var(--dark); font-weight: 400;
+  }
+
+  /* IMÁGENES */
+  .p-galeria {
+    display: grid; grid-template-columns: repeat(12, 1fr); gap: 20px; align-items: start;
+  }
+  .p-galeria figure { margin: 0; }
+  .p-galeria img {
+    width: 100%; display: block; object-fit: cover;
+    -webkit-user-drag: none; user-select: none; -webkit-touch-callout: none;
+  }
+  .g1 { grid-column: 1 / span 5; }   .g1 img { aspect-ratio: 4/5; }
+  .g2 { grid-column: 7 / span 4; margin-top: 140px !important; } .g2 img { aspect-ratio: 3/4; }
+  .g3 { grid-column: 2 / span 3; margin-top: 24px !important; } .g3 img { aspect-ratio: 3/4; }
+  .g4 { grid-column: 6 / span 3; margin-top: 40px !important; }  .g4 img { aspect-ratio: 3/4; }
+  .g5 { grid-column: 10 / span 3; } .g5 img { aspect-ratio: 3/4; }
+  .g6 { grid-column: 4 / span 6; margin-top: 40px !important; } .g6 img { aspect-ratio: 4/3; object-position: center 55%; }
+  .p-peticion {
+    margin-top: 110px; display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: center;
+    padding: 56px 0 0; border-top: 1px solid var(--dark);
+  }
+  .p-peticion h3 {
+    font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(1.8rem, 3vw, 2.5rem);
+    line-height: 1.2; color: var(--dark); margin-bottom: 14px;
+  }
+  .p-peticion h3 em { font-style: italic; color: var(--garnet); }
+  .p-peticion p { font-size: 0.95rem; line-height: 1.8; color: var(--muted); max-width: 620px; }
+  .p-peticion p strong { color: var(--text); font-weight: 700; }
+
+  /* CONTACTO */
+  .p-contacto { background: var(--garnet); color: var(--cream); padding: 150px 48px; text-align: center; }
+  .p-contacto .p-eyebrow { color: var(--pink); opacity: 1; animation: none; }
+  .p-contacto a.mail {
+    display: inline-block; margin: 36px 0 28px;
+    font-family: 'Cormorant Garamond', serif; font-weight: 300; font-style: italic;
+    font-size: clamp(1.9rem, 5.2vw, 4.4rem); color: var(--cream); text-decoration: none;
+    border-bottom: 1px solid rgba(233,217,214,0.4); padding-bottom: 8px;
+    transition: border-color 0.3s; overflow-wrap: anywhere;
+  }
+  .p-contacto a.mail:hover { border-color: var(--cream); }
+  .p-contacto .redes { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; }
+  .p-contacto .redes a { color: rgba(249,247,246,0.7); text-decoration: none; margin: 0 14px; }
+  .p-contacto .redes a:hover { color: var(--cream); }
+
+  footer { background: var(--dark); color: rgba(249,247,246,0.4); text-align: center; padding: 40px 48px; font-size: 0.75rem; letter-spacing: 0.15em; }
+  footer span { color: var(--pink); }
+  .foto-credit { display: block; margin-top: 10px; font-size: 0.62rem; letter-spacing: 0.18em; color: rgba(249,247,246,0.22); text-transform: uppercase; }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.9s ease, transform 0.9s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 900px) {
+    nav { grid-template-columns: auto 1fr auto; padding: 16px 24px; }
+    .nav-right { display: none; }
+    .nav-logo { justify-content: center; }
+    .nav-logo img { height: 140px; }
+    .p-hero { grid-template-columns: 1fr; gap: 56px; padding: 190px 24px 80px; }
+    .p-hero-foto .p-credit { position: static; writing-mode: horizontal-tb; transform: none; display: block; margin-top: 12px; }
+    .p-descarga { padding: 56px 24px; }
+    .p-descarga-inner { grid-template-columns: 1fr; gap: 24px; }
+    .p-seccion { padding: 96px 24px; }
+    .p-fundadora, .p-dic, .p-marca { grid-template-columns: 1fr; gap: 48px; }
+    .p-fundadora figure { position: static; }
+    .p-dic { margin-bottom: 72px; }
+    .p-dic-def { padding-left: 24px; }
+    .p-datos div { grid-template-columns: 1fr; gap: 6px; }
+    .p-cita { padding: 110px 24px; }
+    .p-temas li { grid-template-columns: 56px 1fr; padding: 26px 0; }
+    .p-galeria { grid-template-columns: 1fr 1fr; gap: 12px; }
+    .p-galeria figure { grid-column: auto !important; margin-top: 0 !important; }
+    .g6 { grid-column: 1 / -1 !important; }
+    .p-peticion { grid-template-columns: 1fr; margin-top: 72px; }
+    .p-contacto { padding: 110px 24px; }
+    .p-label { margin-bottom: 40px; }
+  }
+</style>
+<!-- Analítica sin cookies (Umami) -->
+<script defer src="https://cloud.umami.is/script.js" data-website-id="f0614c03-35fa-4f95-bce6-00043441a337"></script>
+</head>
+<body>
+<!-- MENÚ (panel fijo, siempre detrás de la página) -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="nav-dropdown-mobile" id="navDropdownMobile">
+    <a href="#" onclick="toggleDropdown(event)">Diseña tu rutina conmigo</a>
+    <div class="mobile-submenu">
+      <a href="reto.html" onclick="toggleMobileMenu()">Reto grupal · Audita tu neceser <span class="badge-pronto">Del 23 al 27 nov</span></a>
+      <a href="#" onclick="toggleMobileMenu(event);openModal('asesoria')">Asesoría 1:1 <span class="badge-pronto">Llega pronto</span></a>
+    </div>
+  </div>
+  <a href="#" onclick="toggleMobileMenu(event);openModal('talleres')">Talleres</a>
+  <a href="recursos.html" onclick="toggleMobileMenu()">Recursos gratuitos</a>
+  <a href="sobre-garoa.html#presentacion" onclick="toggleMobileMenu()">Sobre mí</a>
+  <a href="sobre-garoa.html#valores" onclick="toggleMobileMenu()">Sobre GAROA</a>
+  <a href="tienda.html" onclick="toggleMobileMenu()">Tienda</a>
+  <a href="contacto.html" onclick="toggleMobileMenu()">Contacto</a>
+  <button class="mobile-menu-close" onclick="toggleMobileMenu(event)">Cerrar ×</button>
+</div>
+
+<!-- PÁGINA (se desplaza en diagonal al abrir el menú) -->
+<div id="page-wrap">
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-links">
+    <a href="#" class="nav-menu-trigger" onclick="toggleMobileMenu(event)">Menú</a>
+  </div>
+  <a href="/" class="nav-logo"><img src="narciso.garoa.png" alt="GAROA Organic Skin Rituals"></a>
+  <div class="nav-right">
+    <a href="newsletter.html" class="nav-cta">Newsletter</a>
+  </div>
+</nav>
+
+<!-- MODAL ASESORÍA -->
+<div class="modal" id="modal-asesoria">
+  <div class="modal-inner">
+    <button class="modal-close" onclick="closeModal('asesoria')">×</button>
+    <span class="modal-badge">Llega pronto</span>
+    <h2>Asesoría <em>1:1</em></h2>
+    <p>Una sesión individual conmigo. Antes de la llamada, completas un test breve de tu piel — tipo, hábitos, ciclo, objetivos. Así llego a nuestra cita conociéndote ya un poco.</p>
+    <p>A partir de ahí, hago un diagnóstico real y construimos juntas un ritual adaptado a ti: los productos concretos que necesitas, el orden, la frecuencia y el porqué de cada paso.</p>
+    <div style="margin:16px 0 14px;border-top:1px solid var(--pink);padding-top:14px">
+      <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--garnet);margin-bottom:12px">Cómo funciona</p>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div style="display:flex;gap:12px;align-items:flex-start">
+          <span style="font-size:0.7rem;font-weight:700;color:var(--garnet);min-width:52px;letter-spacing:0.06em;padding-top:2px">Antes</span>
+          <p style="font-size:0.82rem;line-height:1.6;color:var(--dark);margin:0">Completas un test breve de tu piel — tipo, hábitos, ciclo, objetivos — y firmas el consentimiento de protección de datos. Así llego a nuestra cita conociéndote ya un poco.</p>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start">
+          <span style="font-size:0.7rem;font-weight:700;color:var(--garnet);min-width:52px;letter-spacing:0.06em;padding-top:2px">Sesión</span>
+          <p style="font-size:0.82rem;line-height:1.6;color:var(--dark);margin:0">Videollamada de 45 minutos: repasamos juntas el test, resolvemos dudas y hago el diagnóstico real de tu piel.</p>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start">
+          <span style="font-size:0.7rem;font-weight:700;color:var(--garnet);min-width:52px;letter-spacing:0.06em;padding-top:2px">Después</span>
+          <p style="font-size:0.82rem;line-height:1.6;color:var(--dark);margin:0">Recibes tu ritual personalizado por escrito — rutina AM y PM, productos, frecuencia y el porqué de cada decisión. Después, un acompañamiento de 3 semanas: pruebas la rutina con muestras y cerramos con una videollamada de ajuste.</p>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:0.78rem;color:var(--muted);margin-top:4px">350€ · Disponible para clientas en Península y Baleares.</p>
+    <p style="font-size:0.78rem;color:var(--muted);margin-top:12px;padding-top:12px;border-top:1px solid var(--pink)">Esta asesoría trabaja exclusivamente con cosmética natural y, si es posible, orgánica. Al apuntarte, confirmas que estás dispuesta a construir tu rutina con este enfoque. No se recomiendan productos de cosmética convencional.</p>
+    <a href="/asesoria" class="btn-primary">Quiero saber más</a>
+  </div>
+</div>
+
+<!-- MODAL TALLERES -->
+<div class="modal" id="modal-talleres">
+  <div class="modal-inner">
+    <button class="modal-close" onclick="closeModal('talleres')">×</button>
+    <span class="modal-badge">Próximas fechas por definir</span>
+    <h2>Talleres <em>presenciales</em></h2>
+    <p>Un taller pequeño, con espacio para entender. La primera parte es de conocimiento: explico cómo funciona la piel desde dentro — su estructura, sus mecanismos, por qué reacciona como reacciona — con el rigor científico de mi formación en biología molecular y bioquímica, pero en un lenguaje que se entiende y se puede llevar a casa.</p>
+    <p>La segunda parte es práctica: técnicas de masaje facial y el uso de las piezas de ritual — gua sha, ventosas, cepillado en seco — con su base fisiológica real. Cada asistente se lleva un dossier de referencia para seguir practicando.</p>
+    <p>Grupos reducidos.</p>
+    <a href="/talleres" class="btn-primary">Quiero saber más</a>
+  </div>
+</div>
+
+
+<!-- HERO -->
+<header class="p-hero">
+  <div>
+    <p class="p-eyebrow">Sala de prensa · 2026</p>
+    <h1 class="p-title">Prensa</h1>
+    <p class="p-claim">Ciencia que se convierte en <em>ritual.</em></p>
+    <p class="p-meta">GAROA · Organic Skin Rituals &nbsp;—&nbsp; Bilbao</p>
+  </div>
+  <figure class="p-hero-foto">
+    <img src="prensa-retrato.jpg" alt="Sarai Orrego, fundadora de GAROA, pulverizando tónico sobre el rostro" draggable="false">
+    <figcaption class="p-credit">Sarai Orrego · © Olaia · Verbena Studio</figcaption>
+  </figure>
+</header>
+
+<!-- DESCARGA -->
+<section class="p-descarga">
+  <div class="p-descarga-inner">
+    <h2>El kit de prensa, <em>en un solo documento.</em></h2>
+    <p class="info">PDF · 4 páginas<br>Fundadora · Marca · Temas · Contacto</p>
+    <a class="p-btn-claro" href="garoa-kit-de-prensa.pdf" download data-umami-event="prensa-descarga-kit">Descargar <span aria-hidden="true">↓</span></a>
+  </div>
+</section>
+
+<!-- 01 FUNDADORA -->
+<section class="p-seccion">
+  <div class="p-wrap">
+    <p class="p-label reveal"><span class="num">01</span> La fundadora</p>
+    <div class="p-fundadora">
+      <figure class="reveal">
+        <img src="prensa-fundadora.jpg" alt="Retrato de Sarai Orrego, fundadora de GAROA, mirando hacia un lado" draggable="false">
+        <figcaption class="p-credit">© Olaia · Verbena Studio</figcaption>
+      </figure>
+      <div class="reveal">
+        <h2 class="p-nombre">Sarai Orrego</h2>
+        <p class="p-cargo">Bioquímica y bióloga molecular · Fundadora de GAROA</p>
+        <p class="p-bio">Sarai Orrego es bioquímica y bióloga molecular por la UPV/EHU, con un máster en Biomedicina y experiencia investigadora en un grupo de cáncer infantil. Al elegir entre investigación y docencia, optó por enseñar, pero nunca dejó de lado la cosmética natural, en la que también trabajó. En 2023 fue madre, y de ese giro vital nació GAROA · Organic Skin Rituals: la marca que siempre había soñado, creada también para poder conciliar. Su criterio se apoya en lo que dice la ciencia, no en las modas de la cosmética. Vive en Bilbao, su ciudad, con raíces gallegas y andaluzas.</p>
+        <dl class="p-datos">
+          <div><dt>Formación</dt><dd>Bioquímica y biología molecular · Máster en Biomedicina</dd></div>
+          <div><dt>Marca</dt><dd>GAROA · Organic Skin Rituals, fundada en 2026</dd></div>
+          <div><dt>Desde</dt><dd>Bilbao, Bizkaia</dd></div>
+          <div><dt>Además</dt><dd>Docente de ciencias en secundaria y bachillerato</dd></div>
+          <div><dt>Newsletter</dt><dd>«La Pausa»</dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CITA -->
+<section class="p-cita">
+  <blockquote class="reveal">«No creo en las rutinas de mil pasos para no envejecer. Creo en una piel sana y bonita como resultado de ritualizar el cuidado de la piel y vivirlo como recarga, presencia y placer sensorial.»</blockquote>
+  <cite class="reveal">Sarai Orrego · Fundadora de GAROA</cite>
+</section>
+
+<!-- 02 MARCA -->
+<section class="p-seccion">
+  <div class="p-wrap">
+    <p class="p-label reveal"><span class="num">02</span> La marca</p>
+    <div class="p-dic reveal">
+      <div>
+        <p class="p-dic-palabra">garoa</p>
+        <p class="p-dic-fon"><i>/ga·ˈro·a/</i> &nbsp;·&nbsp; euskera &nbsp;·&nbsp; sustantivo</p>
+      </div>
+      <p class="p-dic-def"><b>1.</b>Rocío. Las microgotas que la noche deja sobre la hierba, las mismas que el tónico deja en la piel.</p>
+    </div>
+    <div class="p-marca">
+      <div class="reveal">
+        <p>GAROA significa «rocío» en euskera. El nombre nació al combinar sílabas de los apellidos de su fundadora, y cuando descubrió que la palabra existía, fue un sí inmediato: el rocío deja en la hierba las mismas microgotas que el tónico deja en la piel, uno de sus pasos favoritos del ritual y de los que menos se habla.</p>
+        <p>La marca nace de un gesto de Sarai: aplicarse sus cremas por la noche, dejarse envolver por sus olores y texturas, y despertar con la piel jugosa. GAROA entiende el cuidado de la piel como autocuidado, un momento para conectar con los sentidos y desconectar del ruido externo, vivido como recarga y no como culpa u obligación.</p>
+        <p>Con ciencia y botánica, ayuda a comprar con criterio, lejos de los estándares estéticos ajenos y de las rutinas de cien pasos, y sin miedo a envejecer con una piel sana y bonita. Hoy ofrece asesorías personalizadas, retos y talleres; en diciembre de 2026 llegan sus primeras piezas de ritual.</p>
+      </div>
+      <figure class="reveal">
+        <img src="prensa-tonico.jpg" alt="Cuenco de madera con espátula sobre una toalla de lino" draggable="false">
+        <figcaption class="p-credit">© Olaia · Verbena Studio</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 03 FUENTE EXPERTA -->
+<section class="p-seccion p-experta">
+  <div class="p-wrap">
+    <p class="p-label reveal"><span class="num">03</span> Fuente experta</p>
+    <p class="p-experta-intro reveal">Sarai atiende consultas y entrevistas sobre <em>piel, ingredientes y ritual,</em> con la mirada de una bioquímica.</p>
+    <ol class="p-temas">
+      <li class="reveal"><span class="n">i.</span><span class="t">Cómo leer la lista de ingredientes de un cosmético</span></li>
+      <li class="reveal"><span class="n">ii.</span><span class="t">Mitos y verdades de ingredientes, explicados por una bioquímica</span></li>
+      <li class="reveal"><span class="n">iii.</span><span class="t">La barrera cutánea: por qué menos productos puede ser más</span></li>
+      <li class="reveal"><span class="n">iv.</span><span class="t">Ritual, belleza y sistema nervioso: el autocuidado con base científica</span></li>
+      <li class="reveal"><span class="n">v.</span><span class="t">El tónico: el paso más olvidado de la rutina y por qué merece su sitio</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 04 IMÁGENES -->
+<section class="p-seccion">
+  <div class="p-wrap">
+    <p class="p-label reveal"><span class="num">04</span> Imágenes</p>
+    <div class="p-galeria" oncontextmenu="return false">
+      <figure class="g1 reveal"><img src="prensa-sarai-1.jpg" alt="Retrato de Sarai Orrego" draggable="false" loading="lazy"></figure>
+      <figure class="g2 reveal"><img src="prensa-sombras.jpg" alt="Sombras de hojas sobre un vestido granate" draggable="false" loading="lazy"></figure>
+      <figure class="g3 reveal"><img src="prensa-flores.jpg" alt="Cuchara de jade junto a flores sobre lino" draggable="false" loading="lazy"></figure>
+      <figure class="g4 reveal"><img src="prensa-ritual.jpg" alt="Sarai Orrego en un ritual de cepillado facial" draggable="false" loading="lazy"></figure>
+      <figure class="g5 reveal"><img src="prensa-cuenco.jpg" alt="Manos preparando una mascarilla en un cuenco de madera" draggable="false" loading="lazy"></figure>
+      <figure class="g6 reveal"><img src="prensa-manos.jpg" alt="Manos sosteniendo una pieza de cuarzo rosa" draggable="false" loading="lazy"></figure>
+    </div>
+    <div class="p-peticion reveal">
+      <div>
+        <h3>Imágenes en alta resolución, <em>bajo petición.</em></h3>
+        <p>Escríbenos indicando el medio y la publicación, y te enviaremos el enlace de descarga. <strong>Crédito obligatorio: © Olaia · Verbena Studio.</strong></p>
+      </div>
+      <a class="btn-primary" href="mailto:hola@garoa-skinrituals.com?subject=Solicitud%20de%20im%C3%A1genes%20%C2%B7%20Prensa" data-umami-event="prensa-solicitar-imagenes">Solicitar imágenes</a>
+    </div>
+  </div>
+</section>
+
+<!-- 05 CONTACTO -->
+<section class="p-contacto">
+  <p class="p-eyebrow"><span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;letter-spacing:.05em;text-transform:none;font-size:1rem">05</span> &nbsp; Contacto de prensa</p>
+  <a class="mail" href="mailto:hola@garoa-skinrituals.com?subject=Prensa" data-umami-event="prensa-email">hola@garoa-skinrituals.com</a>
+  <p class="redes"><a href="https://instagram.com/garoa_skinrituals" target="_blank" rel="noopener">Instagram</a> · <a href="/">garoa-skinrituals.com</a></p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>GAROA · Organic Skin Rituals · <span>Tu piel, tu ritual.</span></p>
+  <span class="foto-credit">Fotografía · Olaia · Verbena Studio</span>
+</footer>
+
+</div><!-- /page-wrap -->
+
+
+<script>
+  // Nav scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 120);
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(r => observer.observe(r));
+
+  // Dropdown (Rituales, dentro del menú a pantalla completa)
+  function toggleDropdown(e) {
+    e.preventDefault();
+    document.getElementById('navDropdownMobile').classList.toggle('active');
+  }
+
+  // Menú: la página se encoge para revelarlo
+  function toggleMobileMenu(e) {
+    if (e) e.preventDefault();
+    document.body.classList.toggle('menu-open');
+  }
+
+  // Modals
+  function openModal(id) {
+    document.getElementById('modal-' + id).classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(id) {
+    document.getElementById('modal-' + id).classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.querySelectorAll('.modal').forEach(m => {
+    m.addEventListener('click', (e) => {
+      if (e.target === m) m.classList.remove('open'), document.body.style.overflow = '';
+    });
+  });
+
+  // PWA service worker
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js');
+    });
+  }
+</script>
+</body>
+</html>
