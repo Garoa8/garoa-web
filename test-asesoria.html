@@ -561,7 +561,39 @@ restaurarBorrador();
 form.addEventListener('input', guardarBorrador);
 form.addEventListener('change', guardarBorrador);
 
-form.addEventListener('submit', function(e) {
+// ── Cifrado de las respuestas (11/11/2026) ───────────────────────────────────
+// Las respuestas se cifran en el dispositivo de la clienta antes de salir:
+// AES-GCM 256 con una clave aleatoria, y esa clave se cierra con la clave
+// PÚBLICA de GAROA (RSA-OAEP 3072, SHA-256). Solo la clave privada de Sarai,
+// guardada en su herramienta de asesorías, puede abrirlo.
+// Formato del código: G1.<clave cerrada>.<iv>.<datos>  (base64)
+const GAROA_CLAVE_PUBLICA = `MIIBojANBgkqhkiG9w0BAQEFAAOCAY8AMIIBigKCAYEAw+L2WISGP40ZbGPBblWS
+XNRzSbdsKIO3JeQJt5KizgeqOm5um3m9HxXa9lu7p6gHmyQk38LkFhBYVobUGRsc
+cxPtFavVP6opsNDTb0hsgT7XoHVLXvsRppFaR5/SqJ5B2uo/72l2lCYsgUBttwVm
+Wptjy4bn6sVQf2Pc+5Na0j8tbcNp5GYap3E2Vuo5wb6qV0LOoPS3km8JZFC4GXol
+ZfwTfxgJj6lBu6VNXoAawwiNyhZx+7H9gNaRKnPveEfcXCQ5gZsiiQzbZdVEQDBm
+KWcZblZd3kT94nZNDQuTzG3OGYPqaZ3GU4J0vCyysCODCO4i3zhORdlzWrTRRRyx
+xjq9wNlLaaI6Uy/gkF4WET07+aRhqkgsFGYYrkncrsraVkXy4pPElea0ZpGIEgFs
+2jgjadquChY3V7zjV6tuJvMegj+Mo8Iels29il0mZaspQ0hRWBpMkqq6AjpxMvtc
+IHxmd9z8pnzB6I8a/9tqWZxWyBE53UzGkjYbdvpTAVqpAgMBAAE=`;
+
+function bytesABase64(buf) {
+  const b = new Uint8Array(buf); let s = '';
+  for (let i = 0; i < b.length; i++) s += String.fromCharCode(b[i]);
+  return btoa(s);
+}
+
+async function cifrarDatos(json) {
+  const der = Uint8Array.from(atob(GAROA_CLAVE_PUBLICA.replace(/\s+/g, '')), c => c.charCodeAt(0));
+  const pub = await crypto.subtle.importKey('spki', der, { name: 'RSA-OAEP', hash: 'SHA-256' }, false, ['encrypt']);
+  const aes = await crypto.subtle.generateKey({ name: 'AES-GCM', length: 256 }, true, ['encrypt']);
+  const iv = crypto.getRandomValues(new Uint8Array(12));
+  const datos = await crypto.subtle.encrypt({ name: 'AES-GCM', iv }, aes, new TextEncoder().encode(json));
+  const claveCerrada = await crypto.subtle.encrypt({ name: 'RSA-OAEP' }, pub, await crypto.subtle.exportKey('raw', aes));
+  return ['G1', bytesABase64(claveCerrada), bytesABase64(iv), bytesABase64(datos)].join('.');
+}
+
+form.addEventListener('submit', async function(e) {
   e.preventDefault();
 
   const val = id => (document.getElementById(id)?.value || '').trim();
@@ -601,9 +633,15 @@ form.addEventListener('submit', function(e) {
     _origen:          'test-piel-web',
   };
 
-  // Código de importación (base64 JSON)
+  // Código de importación CIFRADO (nunca sale nada en claro)
   const json = JSON.stringify(datos);
-  const codigo = btoa(unescape(encodeURIComponent(json)));
+  let codigo;
+  try {
+    codigo = await cifrarDatos(json);
+  } catch (err) {
+    alert('No se ha podido preparar el envío en este navegador. Prueba con Safari o Chrome actualizados, o escríbeme a hola@garoa-skinrituals.com.');
+    return;
+  }
   document.getElementById('codigo-output').textContent = codigo;
 
   const asunto = encodeURIComponent(`Test de asesoría GAROA — ${datos.nombre}`);
@@ -620,7 +658,7 @@ form.addEventListener('submit', function(e) {
   const inputNombre = document.createElement('input');
   inputNombre.type = 'hidden';
   inputNombre.name = 'entry.259763586';
-  inputNombre.value = datos.nombre || '';
+  inputNombre.value = 'cifrado';  // el nombre va dentro del código cifrado
   const inputCodigo = document.createElement('input');
   inputCodigo.type = 'hidden';
   inputCodigo.name = 'entry.1704356617';
