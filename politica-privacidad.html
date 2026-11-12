@@ -61,12 +61,16 @@
     background: var(--dark); color: rgba(249,247,246,0.4);
     text-align: center; padding: 32px 24px; font-size: 0.72rem; letter-spacing: 0.15em;
   }
+  .volver { display: block; text-align: center; padding-top: 24px; font-family: 'Lato', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); text-decoration: none; }
+  .volver:hover { color: var(--garnet); }
+  header { padding-top: 24px !important; }
 </style>
 <!-- Analítica sin cookies (Umami) -->
 <script defer src="https://cloud.umami.is/script.js" data-website-id="f0614c03-35fa-4f95-bce6-00043441a337"></script>
 </head>
 <body>
 
+<a class="volver" href="/" onclick="if (document.referrer.indexOf(location.host) > -1 && history.length > 1) { history.back(); return false; }">← Volver</a>
 <header>
   <img src="narciso-icon-garoa.png" alt="">
   <p class="wordmark">GAROA</p>
@@ -113,6 +117,10 @@
   <div class="fila">
     <span class="fila-label">Analítica</span>
     <span class="fila-body">Usamos Umami, una herramienta de analítica sin cookies y respetuosa con la privacidad. Solo recoge datos agregados (páginas visitadas, de dónde llegan las visitas y clics en botones), sin identificarte personalmente.</span>
+  </div>
+  <div class="fila">
+    <span class="fila-label">Cookies</span>
+    <span class="fila-body">Esta web no usa cookies propias de publicidad ni de seguimiento. Algunas páginas incluyen servicios externos que pueden usar cookies necesarias para funcionar: el calendario de reservas (Acuity) y el reproductor de vídeo (Google Drive). También guardamos en tu navegador algunas preferencias para recordarlas entre visitas, como lo que marcas en «Lee la etiqueta»; puedes borrarlas cuando quieras desde los ajustes del navegador.</span>
   </div>
 </div>
 
