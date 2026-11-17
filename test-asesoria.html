@@ -206,16 +206,23 @@
     <div class="test-seccion">
       <p class="test-seccion-label">Tipo de piel</p>
       <div class="test-grupo">
-        <label>¿Cómo describirías tu piel habitualmente? <span class="sub">Puedes marcar más de una.</span></label>
+        <label>Si no te pusieras nada en la cara, ¿cómo sería tu piel la mayor parte del tiempo?</label>
         <div class="opciones-grid">
-          <label class="opcion-item"><input type="checkbox" name="piel" value="normal"><span>Normal (equilibrada)</span></label>
-          <label class="opcion-item"><input type="checkbox" name="piel" value="seca"><span>Seca</span></label>
-          <label class="opcion-item"><input type="checkbox" name="piel" value="grasa"><span>Grasa</span></label>
-          <label class="opcion-item"><input type="checkbox" name="piel" value="mixta"><span>Mixta</span></label>
-          <label class="opcion-item"><input type="checkbox" name="piel" value="sensible"><span>Sensible</span></label>
-          <label class="opcion-item"><input type="checkbox" name="piel" value="deshidratada"><span>Deshidratada</span></label>
-          <label class="opcion-item"><input type="checkbox" name="piel" value="acneica"><span>Propensa al acné</span></label>
-          <label class="opcion-item"><input type="checkbox" name="piel" value="madura"><span>Madura</span></label>
+          <label class="opcion-item"><input type="radio" name="piel" value="normal"><span>Normal: ni brillos ni tirantez</span></label>
+          <label class="opcion-item"><input type="radio" name="piel" value="seca"><span>Seca: tirante, áspera o con pielecitas</span></label>
+          <label class="opcion-item"><input type="radio" name="piel" value="grasa"><span>Grasa: brillos en toda la cara</span></label>
+          <label class="opcion-item"><input type="radio" name="piel" value="mixta"><span>Mixta: brillos en frente, nariz y barbilla, y normal o seca en mejillas</span></label>
+        </div>
+      </div>
+      <div class="test-grupo">
+        <label>¿Y cómo la notas en esta época? <span class="sub">Puedes marcar más de una.</span></label>
+        <div class="opciones-grid">
+          <label class="opcion-item"><input type="checkbox" name="estado" value="sensible"><span>Sensible: se irrita o enrojece con facilidad</span></label>
+          <label class="opcion-item"><input type="checkbox" name="estado" value="deshidratada"><span>Deshidratada: tirante aunque tenga brillos, líneas finas que antes no estaban</span></label>
+          <label class="opcion-item"><input type="checkbox" name="estado" value="acneica"><span>Con granitos o puntos negros</span></label>
+          <label class="opcion-item"><input type="checkbox" name="estado" value="apagada"><span>Apagada, sin luz</span></label>
+          <label class="opcion-item"><input type="checkbox" name="estado" value="madura"><span>Con más arrugas o flacidez que antes</span></label>
+          <label class="opcion-item"><input type="checkbox" name="estado" value="bien"><span>Está bien, sin nada especial</span></label>
         </div>
       </div>
     </div>
@@ -248,8 +255,8 @@
         <select id="t-postlavado">
           <option value="">— Selecciona —</option>
           <option value="normal">Se normaliza rápido (menos de 15 min)</option>
-          <option value="tirante_corta">Queda tirante 15-20 minutos</option>
-          <option value="tirante_larga">Sigue tirante más de 20 min (barrera comprometida)</option>
+          <option value="tirante_corta">Queda tirante un rato y luego se pasa</option>
+          <option value="tirante_larga">Sigue tirante un buen rato</option>
           <option value="grasa_rapido">Enseguida se vuelve grasa</option>
         </select>
       </div>
@@ -262,6 +269,31 @@
           <option value="frecuente">Con frecuencia (necesito probar en zona pequeña siempre)</option>
           <option value="siempre">Casi siempre reacciono</option>
         </select>
+      </div>
+      <div class="test-grupo">
+        <label>Cuando tu piel se queja, ¿qué notas? <span class="sub">Puedes marcar más de una.</span></label>
+        <div class="opciones-grid">
+          <label class="opcion-item"><input type="checkbox" name="sintomas" value="tirantez"><span>Tirantez</span></label>
+          <label class="opcion-item"><input type="checkbox" name="sintomas" value="picor"><span>Picor</span></label>
+          <label class="opcion-item"><input type="checkbox" name="sintomas" value="escozor"><span>Escozor o ardor</span></label>
+          <label class="opcion-item"><input type="checkbox" name="sintomas" value="rojeces_van"><span>Rojeces que van y vienen</span></label>
+          <label class="opcion-item"><input type="checkbox" name="sintomas" value="rojeces_quedan"><span>Rojeces que se quedan</span></label>
+          <label class="opcion-item"><input type="checkbox" name="sintomas" value="descamacion"><span>Descamación o pielecitas</span></label>
+          <label class="opcion-item"><input type="checkbox" name="sintomas" value="nada"><span>Nada de esto</span></label>
+        </div>
+      </div>
+      <div class="test-grupo">
+        <label>¿Qué lo provoca? <span class="sub">Puedes marcar más de una.</span></label>
+        <div class="opciones-grid">
+          <label class="opcion-item"><input type="checkbox" name="desencadenantes" value="frio_viento"><span>El frío o el viento</span></label>
+          <label class="opcion-item"><input type="checkbox" name="desencadenantes" value="calor_sol_deporte"><span>El calor, el sol o el deporte</span></label>
+          <label class="opcion-item"><input type="checkbox" name="desencadenantes" value="agua_grifo"><span>El agua del grifo</span></label>
+          <label class="opcion-item"><input type="checkbox" name="desencadenantes" value="productos_nuevos"><span>Productos nuevos</span></label>
+          <label class="opcion-item"><input type="checkbox" name="desencadenantes" value="estres"><span>El estrés</span></label>
+          <label class="opcion-item"><input type="checkbox" name="desencadenantes" value="picante_alcohol"><span>Comidas picantes o alcohol</span></label>
+          <label class="opcion-item"><input type="checkbox" name="desencadenantes" value="ciclo"><span>Cambios en mi ciclo</span></label>
+          <label class="opcion-item"><input type="checkbox" name="desencadenantes" value="no_se"><span>No sé identificarlo</span></label>
+        </div>
       </div>
     </div>
 
@@ -378,6 +410,49 @@
     </div>
 
     <div class="test-seccion">
+      <p class="test-seccion-label">Sol y entorno</p>
+      <div class="test-grupo">
+        <label>Cuando tomas el sol sin protección, tu piel…</label>
+        <div class="opciones-grid">
+          <label class="opcion-item"><input type="radio" name="fototipo" value="1"><span>Siempre se quema y nunca se broncea</span></label>
+          <label class="opcion-item"><input type="radio" name="fototipo" value="2"><span>Se quema con facilidad y se broncea poco</span></label>
+          <label class="opcion-item"><input type="radio" name="fototipo" value="3"><span>A veces se quema y se broncea poco a poco</span></label>
+          <label class="opcion-item"><input type="radio" name="fototipo" value="4"><span>Rara vez se quema y se broncea fácil</span></label>
+          <label class="opcion-item"><input type="radio" name="fototipo" value="5"><span>Casi nunca se quema y se broncea mucho</span></label>
+          <label class="opcion-item"><input type="radio" name="fototipo" value="6"><span>Nunca se quema</span></label>
+        </div>
+      </div>
+      <div class="test-grupo">
+        <label>¿Cuánto sol te da en un día normal?</label>
+        <div class="opciones-grid">
+          <label class="opcion-item"><input type="radio" name="sol" value="casi_nada"><span>Casi nada, estoy en interiores</span></label>
+          <label class="opcion-item"><input type="radio" name="sol" value="algo"><span>Algo: paseos, recados</span></label>
+          <label class="opcion-item"><input type="radio" name="sol" value="bastante"><span>Bastante: trabajo o deporte al aire libre</span></label>
+        </div>
+      </div>
+      <div class="test-grupo">
+        <label>¿Usas protector solar en la cara?</label>
+        <div class="opciones-grid">
+          <label class="opcion-item"><input type="radio" name="protector" value="diario"><span>Todos los días del año</span></label>
+          <label class="opcion-item"><input type="radio" name="protector" value="verano"><span>Solo en verano o cuando hace sol</span></label>
+          <label class="opcion-item"><input type="radio" name="protector" value="playa_montana"><span>Solo en la playa o la montaña</span></label>
+          <label class="opcion-item"><input type="radio" name="protector" value="casi_nunca"><span>Casi nunca</span></label>
+        </div>
+      </div>
+      <div class="test-grupo">
+        <label>¿Cómo es tu entorno? <span class="sub">Puedes marcar más de una.</span></label>
+        <div class="opciones-grid">
+          <label class="opcion-item"><input type="checkbox" name="entorno" value="calefaccion_ac"><span>Paso muchas horas con calefacción o aire acondicionado</span></label>
+          <label class="opcion-item"><input type="checkbox" name="entorno" value="frio_viento"><span>Vivo en un sitio frío o con viento</span></label>
+          <label class="opcion-item"><input type="checkbox" name="entorno" value="trafico"><span>Ciudad con tráfico</span></label>
+          <label class="opcion-item"><input type="checkbox" name="entorno" value="fumo"><span>Fumo</span></label>
+          <label class="opcion-item"><input type="checkbox" name="entorno" value="humo_ajeno"><span>Convivo con humo de tabaco</span></label>
+          <label class="opcion-item"><input type="checkbox" name="entorno" value="nada"><span>Nada de esto</span></label>
+        </div>
+      </div>
+    </div>
+
+    <div class="test-seccion">
       <p class="test-seccion-label">Rutina actual y objetivos</p>
       <div class="test-grupo">
         <label>¿Qué productos usas ahora mismo? <span class="sub">Nombre y marca de cada uno, todo lo que apliques en la cara mañana o noche.</span></label>
@@ -392,6 +467,37 @@
           <option value="a_veces">A veces</option>
           <option value="no_casi_nunca">No, casi nunca</option>
         </select>
+      </div>
+      <div class="test-grupo">
+        <label>¿Cómo te lavas la cara por la noche?</label>
+        <div class="opciones-grid">
+          <label class="opcion-item"><input type="radio" name="limpieza" value="solo_agua"><span>Solo con agua</span></label>
+          <label class="opcion-item"><input type="radio" name="limpieza" value="espuma"><span>Con un limpiador que hace espuma</span></label>
+          <label class="opcion-item"><input type="radio" name="limpieza" value="leche_balsamo_aceite"><span>Con leche, bálsamo o aceite</span></label>
+          <label class="opcion-item"><input type="radio" name="limpieza" value="doble"><span>Doble limpieza (primero aceite o bálsamo, luego otro limpiador)</span></label>
+          <label class="opcion-item"><input type="radio" name="limpieza" value="toallitas_micelar"><span>Toallitas o agua micelar sin aclarar</span></label>
+          <label class="opcion-item"><input type="radio" name="limpieza" value="no_lava"><span>No me la lavo por la noche</span></label>
+        </div>
+      </div>
+      <div class="test-grupo">
+        <label>¿Exfolias tu piel?</label>
+        <div class="opciones-grid">
+          <label class="opcion-item"><input type="radio" name="exfolia" value="no"><span>No</span></label>
+          <label class="opcion-item"><input type="radio" name="exfolia" value="semanal"><span>Una vez a la semana o menos</span></label>
+          <label class="opcion-item"><input type="radio" name="exfolia" value="2_3_semana"><span>2–3 veces por semana</span></label>
+          <label class="opcion-item"><input type="radio" name="exfolia" value="casi_diario"><span>Casi a diario</span></label>
+        </div>
+      </div>
+      <div class="test-grupo">
+        <label>¿Usas alguno de estos? <span class="sub">Puedes marcar más de una.</span></label>
+        <div class="opciones-grid">
+          <label class="opcion-item"><input type="checkbox" name="activos" value="retinoides"><span>Retinol o retinoides</span></label>
+          <label class="opcion-item"><input type="checkbox" name="activos" value="acidos"><span>Ácidos (glicólico, salicílico, láctico…)</span></label>
+          <label class="opcion-item"><input type="checkbox" name="activos" value="vitamina_c"><span>Vitamina C</span></label>
+          <label class="opcion-item"><input type="checkbox" name="activos" value="niacinamida"><span>Niacinamida</span></label>
+          <label class="opcion-item"><input type="checkbox" name="activos" value="ninguno"><span>Ninguno</span></label>
+          <label class="opcion-item"><input type="checkbox" name="activos" value="no_se"><span>No lo sé</span></label>
+        </div>
       </div>
       <div class="test-grupo">
         <label>¿Qué tipo de cosmética quieres usar?</label>
@@ -611,6 +717,9 @@ form.addEventListener('submit', async function(e) {
     pielTarde:        val('t-tarde'),
     pielPostlavado:   val('t-postlavado'),
     pielReaccion:     val('t-reaccion'),
+    estado:           checks('estado'),
+    sintomas:         checks('sintomas'),
+    desencadenantes:  checks('desencadenantes'),
     afecciones:       checks('afecciones'),
     pielPreocupacion: val('t-preocupacion'),
     alergias:         val('t-alergias'),
@@ -623,12 +732,20 @@ form.addEventListener('submit', async function(e) {
     estres:           val('t-estres'),
     sueno:            val('t-sueno'),
     agua:             val('t-agua'),
+    fototipo:         checks('fototipo')[0] || '',
+    solDiario:        checks('sol')[0] || '',
+    protector:        checks('protector')[0] || '',
+    entorno:          checks('entorno'),
     productos:        getProductos(),
     maquillajeDiario: val('t-maquillaje'),
+    limpiezaNoche:    checks('limpieza')[0] || '',
+    exfolia:          checks('exfolia')[0] || '',
+    activos:          checks('activos'),
     tipoCosmetica:    val('t-tipo-cosmetica'),
     tiempoRutina:     val('t-tiempo'),
     objetivos:        checks('objetivos'),
     presupuesto:      val('t-presupuesto'),
+    algoMas:          (document.getElementById('t-libre')?.value || '').trim(),
     fechaAlta:        new Date().toLocaleDateString('es-ES'),
     _origen:          'test-piel-web',
   };
