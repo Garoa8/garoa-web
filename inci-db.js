@@ -4299,6 +4299,13 @@ Object.values(INCI_DB).forEach(e => {
   e.severidad = 'verde';
   e.aceite_esencial = true;
 });
+// ── Sebo de vaca (Adeps Bovis), 24/11/2026 — revisión bibliográfica en la conversación de ese día ──
+const DB_SEBO = {
+  'TALLOW': { nombre_com:'Sebo de vaca (Adeps Bovis, beef tallow)', categorias:[], severidad:'amarillo', funcion:'emoliente oclusivo; dureza', nota:'Grasa animal fundida, obtenida de subproductos de matadero. Casi todo triglicéridos: oleico (≈ 40 %), palmítico (≈ 25 %) y esteárico (≈ 20 %), y muy poco linoleico (≈ 2–3 %). Funde a unos 45–55 °C. Es un buen emoliente oclusivo, como cualquier manteca, pero no hay ningún ensayo en personas con sebo de vaca puro sobre la piel: la única revisión (Russell 2024, Cureus) se apoya en estudios que no son de sebo (vacas con infusiones, tensioactivos de herbicidas, grasa vegetal de illipe) y en emulsiones de sebo de cordero modificado. «Se parece al sebo humano»: no — el nuestro tiene ésteres de cera, escualeno y ácido sapiénico, y el de vaca no. «Rico en vitaminas A, D, E, K»: cantidades pequeñas. Mucho oleico y casi nada de linoleico es el perfil contrario al que conviene en piel con tendencia acneica; en teoría también alimenta a Malassezia (dermatitis seborreica). Amarillo: natural y no petroquímico, pero de animal sacrificado — no vegano, excluido por BDIH y en COSMOS solo caso a caso. El casero no lleva antioxidante ni conservante.', lactancia:'ok', afecciones_relevantes:['acne','poros'], afecciones_utiles:['piel_seca'] },
+};
+const ALIAS_SEBO = { 'ADEPS BOVIS':'TALLOW', 'BEEF TALLOW':'TALLOW', 'BOVINE TALLOW':'TALLOW', 'SEBO DE VACA':'TALLOW', 'SEBO':'TALLOW' };
+Object.entries(DB_SEBO).forEach(([k, v]) => { if (!INCI_DB[k]) INCI_DB[k] = v; });
+Object.entries(ALIAS_SEBO).forEach(([k, v]) => { if (!INCI_DB[k]) INCI_DB[k] = { alias: v }; });
 
 // ── Reglas por familia (para lo que no está en la base) — copiado de plantilla.html ──
 const MINERAL_CI = new Set(["75100", "75130", "75300", "75470", "75810", "77000", "77004", "77007", "77019", "77120", "77163", "77266", "77288", "77289", "77400", "77480", "77491", "77492", "77499", "77510", "77713", "77742", "77820", "77891", "77947"]);
