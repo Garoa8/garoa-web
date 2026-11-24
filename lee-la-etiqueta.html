@@ -284,7 +284,8 @@ function analizar(desdeBoton = true) {
     g[sev].push({ ...it, pos, d: r.data, k: r.nombreBase, errata: r.errata, avisos: paraTuPiel(r.data, clienta, sevPerfil) });
   });
   const ojo = [...g.rojo, ...g.amarillo, ...g.verde].filter(x => x.avisos.length);
-  const verdeOjo = g.verde.filter(x => x.avisos.length), verdeOk = g.verde.filter(x => !x.avisos.length);
+  const conOjo = x => x.avisos.length || x.d.aceite_esencial; // aceites esenciales: siempre con aviso (22/11)
+  const verdeOjo = g.verde.filter(conOjo), verdeOk = g.verde.filter(x => !conOjo(x));
 
   const noNat = [...g.rojo, ...g.amarillo].filter(x => (x.d.categorias || []).some(c => NO_NATURAL.includes(c)));
   let titulo, texto2;

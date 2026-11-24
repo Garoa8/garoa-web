@@ -230,7 +230,7 @@ const INCI_DB = {
   'CHAMOMILLA RECUTITA FLOWER EXTRACT': { nombre_com:'Extracto de manzanilla', categorias:[], severidad:'verde', nota:'Rico en alfa-bisabolol y apigenina. Calmante, antiinflamatorio y levemente blanqueante. Habitual en cosmética natural para pieles sensibles y reactivas.', lactancia:'ok' },
   'MATRICARIA RECUTITA FLOWER EXTRACT': { alias:'CHAMOMILLA RECUTITA FLOWER EXTRACT' },
   'CAMELLIA SINENSIS LEAF EXTRACT': { nombre_com:'Extracto de té verde', categorias:[], severidad:'verde', nota:'Rico en catequinas (EGCG) y polifenoles antioxidantes. Protege la piel del daño oxidativo. Antiinflamatorio. Habitual en cosmética natural antiedad.', lactancia:'ok' },
-  'CENTELLA ASIATICA EXTRACT': { nombre_com:'Extracto de centella asiática', categorias:[], severidad:'verde', nota:'Rico en asiaticósidos y madecasósidos. Estimula la síntesis de colágeno, repara la barrera cutánea y calma la piel. Muy apreciado en cosmética natural para piel sensible, rosácea y piel madura.', lactancia:'ok', afecciones_relevantes:['rosácea','piel_sensible'] },
+  'CENTELLA ASIATICA EXTRACT': { nombre_com:'Extracto de centella asiática', categorias:[], severidad:'verde', nota:'Rico en asiaticósidos y madecasósidos. Estimula la síntesis de colágeno, repara la barrera cutánea y calma la piel. Muy apreciado en cosmética natural para piel sensible, rosácea y piel madura.', lactancia:'ok', afecciones_utiles:['rosácea','piel_sensible'] },
   'HIPPOPHAE RHAMNOIDES FRUIT EXTRACT': { nombre_com:'Extracto de espino amarillo', categorias:[], severidad:'verde', nota:'Rico en vitaminas C, E y omega-7. Antioxidante y regenerador. Habitual en cosmética natural para piel madura y dañada.', lactancia:'ok' },
   'ROSMARINUS OFFICINALIS LEAF EXTRACT': { nombre_com:'Extracto de romero', categorias:[], severidad:'verde', nota:'Antioxidante natural habitual en cosmética orgánica como conservante + activo. También se usa para estabilizar aceites vegetales. Contiene ácido carnósico y carnosol.', lactancia:'ok' },
 
@@ -271,7 +271,7 @@ const INCI_DB = {
   // ── ACTIVOS NATURALES ADICIONALES ────────────────────────────────────────
   'NIACINAMIDE': { nombre_com:'Niacinamida (vitamina B3)', categorias:['no_cosmetica_natural'], severidad:'amarillo', nota:'Activo sintético multifuncional (forma amida de la vitamina B3): regula el sebo, uniformiza el tono, refuerza la barrera, antiinflamatorio. Perfil de seguridad y tolerancia excelentes. No aceptado en cosmética orgánica certificada por ser de síntesis. Sin restricciones en embarazo ni lactancia.', lactancia:'ok' },
   'ADENOSINE': { nombre_com:'Adenosina', categorias:[], severidad:'verde', nota:'Nucleósido natural presente en todas las células vivas. Activo antiinflamatorio y antiedad. Estimula la síntesis de colágeno. Obtenida por fermentación. Aceptada en cosmética natural. Sin restricciones.', lactancia:'ok' },
-  'AZELAIC ACID': { nombre_com:'Ácido azelaico', categorias:['irritante'], severidad:'amarillo', nota:'Ácido dicarboxílico presente de forma natural en el trigo, centeno y cebada. Antiinflamatorio, antibacteriano y antifúngico. Útil en acné, rosácea y manchas. Puede irritar en pieles muy sensibles al inicio. Sin restricciones en embarazo — uno de los pocos activos antimancha seguros en gestación.', lactancia:'ok', afecciones_relevantes:['rosácea','acne','piel_sensible'] },
+  'AZELAIC ACID': { nombre_com:'Ácido azelaico', categorias:['irritante'], severidad:'amarillo', nota:'Ácido dicarboxílico presente de forma natural en el trigo, centeno y cebada. Antiinflamatorio, antibacteriano y antifúngico. Útil en acné, rosácea y manchas. Puede irritar en pieles muy sensibles al inicio. Sin restricciones en embarazo — uno de los pocos activos antimancha seguros en gestación.', lactancia:'ok', afecciones_relevantes:['piel_sensible'], afecciones_utiles:['acne','rosácea','manchas'] },
   'FERULIC ACID': { nombre_com:'Ácido ferúlico', categorias:[], severidad:'verde', nota:'Ácido fenólico antioxidante presente de forma natural en salvado de arroz, avena y manzana. Potencia y estabiliza la vitamina C y la vitamina E. Photoprotector complementario. Ampliamente aceptado en cosmética natural.', lactancia:'ok' },
   'RESVERATROL': { nombre_com:'Resveratrol', categorias:[], severidad:'verde', nota:'Polifenol antioxidante presente de forma natural en la piel de la uva, arándanos y frambuesas. Antiinflamatorio y activador de sirtuinas (genes de longevidad). Activo antiedad en cosmética natural. Sin restricciones.', lactancia:'ok' },
   'UBIQUINONE': { nombre_com:'Ubiquinona (Coenzima Q10)', categorias:[], severidad:'verde', nota:'Coenzima antioxidante presente de forma natural en el organismo. La usada en cosmética se obtiene por fermentación. Antiedad, protege la mitocondria celular. Ampliamente aceptado en cosmética natural. Sin restricciones.', lactancia:'ok' },
@@ -281,32 +281,32 @@ const INCI_DB = {
   'KOJIC ACID': { nombre_com:'Ácido kójico', categorias:['irritante'], severidad:'amarillo', nota:'Ácido producido por fermentación fúngica (Aspergillus). Inhibidor de la tirosinasa, despigmentante eficaz. Puede causar irritación y sensibilización en pieles sensibles con uso prolongado. No recomendado en embarazo.', lactancia:'precaucion', afecciones_relevantes:['piel_sensible'] },
   'TRANEXAMIC ACID': { nombre_com:'Ácido tranexámico', categorias:['no_cosmetica_natural'], severidad:'amarillo', nota:'Derivado sintético del aminoácido lisina. Activo despigmentante de nueva generación, muy bien tolerado y eficaz. No apto en cosmética orgánica certificada. Sin restricciones de seguridad conocidas.', lactancia:'ok' },
   'SODIUM PCA': { nombre_com:'PCA de sodio (NMF)', categorias:[], severidad:'verde', nota:'Sal sódica del ácido pirrolidona carboxílico. "Factor Natural de Hidratación" (NMF) no es un ingrediente único: es el nombre que se da al conjunto de sustancias que la propia piel produce para retener agua (aminoácidos, urea, PCA, ácido láctico...) — el Sodium PCA es el componente que más se usa suelto como ingrediente cosmético bajo esa etiqueta. Humectante potente, capta y retiene agua en la capa córnea. Puede obtenerse de fuentes naturales por fermentación. Ampliamente aceptado en cosmética natural.', lactancia:'ok' },
-  'ZINC GLUCONATE': { nombre_com:'Gluconato de zinc', categorias:[], severidad:'verde', nota:'Sal orgánica de zinc. Regulador del sebo y antibacteriano suave. Útil en cosmética para piel acneica y mixta. Sin restricciones.', lactancia:'ok', afecciones_relevantes:['acne'] },
+  'ZINC GLUCONATE': { nombre_com:'Gluconato de zinc', categorias:[], severidad:'verde', nota:'Sal orgánica de zinc. Regulador del sebo y antibacteriano suave. Útil en cosmética para piel acneica y mixta. Sin restricciones.', lactancia:'ok', afecciones_utiles:['acne'] },
   'COPPER GLUCONATE': { nombre_com:'Gluconato de cobre', categorias:[], severidad:'verde', nota:'Sal orgánica de cobre. Estimula la síntesis de colágeno y tiene propiedades antimicrobianas. Activo antiedad a bajas concentraciones.', lactancia:'ok' },
-  'ALPHA-BISABOLOL': { nombre_com:'Alfa-bisabolol', categorias:[], severidad:'verde', nota:'Sesquiterpeno natural presente en el aceite esencial de manzanilla alemana. Activo calmante, antiinflamatorio y promotor de la penetración de activos. Ampliamente usado en cosmética natural para pieles sensibles. Sin restricciones.', lactancia:'ok', afecciones_relevantes:['rosácea','piel_sensible'] },
+  'ALPHA-BISABOLOL': { nombre_com:'Alfa-bisabolol', categorias:[], severidad:'verde', nota:'Sesquiterpeno natural presente en el aceite esencial de manzanilla alemana. Activo calmante, antiinflamatorio y promotor de la penetración de activos. Ampliamente usado en cosmética natural para pieles sensibles. Sin restricciones.', lactancia:'ok', afecciones_utiles:['rosácea','piel_sensible'] },
   'BISABOLOL': { alias:'ALPHA-BISABOLOL' },
   '(-)-ALPHA-BISABOLOL': { alias:'ALPHA-BISABOLOL' },
   'ACETYL GLUCOSAMINE': { nombre_com:'Acetilglucosamina', categorias:[], severidad:'verde', nota:'Azúcar amino natural. Exfoliante suave, inhibidor de la tirosinasa (despigmentante). Habitual en cosmética natural para manchas y textura irregular.', lactancia:'ok' },
 
   // ── ACEITES VEGETALES ADICIONALES ────────────────────────────────────────
-  'OENOTHERA BIENNIS OIL': { nombre_com:'Aceite de onagra (primrose)', categorias:[], severidad:'verde', comedogenico:2, nota:'Aceite muy rico en GLA (ácido gamma-linolénico). Activo antiinflamatorio y reparador de la barrera cutánea. Especialmente beneficioso para piel seca, sensible y con eczema. Comedogenicidad moderada-baja (2/5).', lactancia:'ok', afecciones_relevantes:['piel_sensible','dermatitis'] },
+  'OENOTHERA BIENNIS OIL': { nombre_com:'Aceite de onagra (primrose)', categorias:[], severidad:'verde', comedogenico:2, nota:'Aceite muy rico en GLA (ácido gamma-linolénico). Activo antiinflamatorio y reparador de la barrera cutánea. Especialmente beneficioso para piel seca, sensible y con eczema. Comedogenicidad moderada-baja (2/5).', lactancia:'ok', afecciones_utiles:['piel_sensible','dermatitis'] },
   'EVENING PRIMROSE OIL': { alias:'OENOTHERA BIENNIS OIL' },
-  'BORAGO OFFICINALIS SEED OIL': { nombre_com:'Aceite de borraja', categorias:[], severidad:'verde', comedogenico:2, nota:'El aceite vegetal con mayor contenido en GLA (~24%). Antiinflamatorio potente y reparador de la barrera. Muy útil en piel seca, eccematosa y madura. Comedogenicidad moderada-baja (2/5). Usarlo en mezclas por su riqueza activa.', lactancia:'ok', afecciones_relevantes:['piel_sensible','dermatitis'] },
-  'CANNABIS SATIVA SEED OIL': { nombre_com:'Aceite de cáñamo', categorias:[], severidad:'verde', comedogenico:0, nota:'Aceite vegetal con ratio omega-6/omega-3 ideal (3:1). No contiene THC ni CBD (son compuestos de la planta, no de la semilla). Antiinflamatorio, regulador del sebo y reparador de la barrera. Comedogenicidad 0/5. Muy adecuado para pieles mixtas, grasas y con acné.', lactancia:'ok', afecciones_relevantes:['acne'] },
+  'BORAGO OFFICINALIS SEED OIL': { nombre_com:'Aceite de borraja', categorias:[], severidad:'verde', comedogenico:2, nota:'El aceite vegetal con mayor contenido en GLA (~24%). Antiinflamatorio potente y reparador de la barrera. Muy útil en piel seca, eccematosa y madura. Comedogenicidad moderada-baja (2/5). Usarlo en mezclas por su riqueza activa.', lactancia:'ok', afecciones_utiles:['piel_sensible','dermatitis'] },
+  'CANNABIS SATIVA SEED OIL': { nombre_com:'Aceite de cáñamo', categorias:[], severidad:'verde', comedogenico:0, nota:'Aceite vegetal con ratio omega-6/omega-3 ideal (3:1). No contiene THC ni CBD (son compuestos de la planta, no de la semilla). Antiinflamatorio, regulador del sebo y reparador de la barrera. Comedogenicidad 0/5. Muy adecuado para pieles mixtas, grasas y con acné.', lactancia:'ok', afecciones_utiles:['acne'] },
   'HEMP SEED OIL': { alias:'CANNABIS SATIVA SEED OIL' },
   'PUNICA GRANATUM SEED OIL': { nombre_com:'Aceite de granada', categorias:[], severidad:'verde', comedogenico:1, nota:'Único aceite vegetal con ácido punicínico (omega-5 conjugado). Antioxidante potente, regenerador y antiinflamatorio. Comedogenicidad baja (1/5). Activo antiedad en cosmética natural.', lactancia:'ok' },
   'OPUNTIA FICUS-INDICA SEED OIL': { nombre_com:'Aceite de higo chumbo', categorias:[], severidad:'verde', comedogenico:0, nota:'Excepcionalmente rico en vitamina E y esteroles vegetales. Antioxidante potente. Comedogenicidad 0/5. Uno de los aceites más valiosos de la cosmética natural (precio elevado por la extracción manual de semillas).', lactancia:'ok' },
   'SCLEROCARYA BIRREA SEED OIL': { nombre_com:'Aceite de marula', categorias:[], severidad:'verde', comedogenico:2, nota:'Aceite vegetal africano rico en ácido oleico (70%) y antioxidantes. Textura ligera y seca. Antiedad y nutritivo. Comedogenicidad moderada-baja (2/5). Bien tolerado por la mayoría de tipos de piel.', lactancia:'ok' },
   'ADANSONIA DIGITATA SEED OIL': { nombre_com:'Aceite de baobab', categorias:[], severidad:'verde', comedogenico:2, nota:'Aceite del árbol africano baobab. Rico en omega-3, 6 y 9. Nutritivo, emoliente y antioxidante. Absorción rápida. Comedogenicidad moderada-baja (2/5).', lactancia:'ok' },
   'MORINGA OLEIFERA SEED OIL': { nombre_com:'Aceite de moringa', categorias:[], severidad:'verde', comedogenico:2, nota:'Alto contenido en ácido oleico (70%) y ácido behénico, lo que le confiere estabilidad excepcional. Antioxidante y emoliente. Históricamente usado en Egipto antiguo. Comedogenicidad moderada (2/5).', lactancia:'ok' },
-  'NIGELLA SATIVA SEED OIL': { nombre_com:'Aceite de nigela (comino negro)', categorias:[], severidad:'verde', comedogenico:2, nota:'Rico en timoquinona, activo antiinflamatorio y antioxidante bien estudiado. Muy usado en cosmética natural para piel reactiva, rosácea y acné. Aroma intenso y característico. Comedogenicidad moderada-baja (2/5).', lactancia:'ok', afecciones_relevantes:['rosácea','acne','piel_sensible'] },
+  'NIGELLA SATIVA SEED OIL': { nombre_com:'Aceite de nigela (comino negro)', categorias:[], severidad:'verde', comedogenico:2, nota:'Rico en timoquinona, activo antiinflamatorio y antioxidante bien estudiado. Muy usado en cosmética natural para piel reactiva, rosácea y acné. Aroma intenso y característico. Comedogenicidad moderada-baja (2/5).', lactancia:'ok', afecciones_utiles:['rosácea','acne','piel_sensible'] },
   'PRUNUS ARMENIACA KERNEL OIL': { nombre_com:'Aceite de hueso de albaricoque', categorias:[], severidad:'verde', comedogenico:2, nota:'Aceite emoliente suave y ligero, rico en ácido oleico. Textura sedosa. Similar al aceite de almendra dulce pero con textura algo más seca. Comedogenicidad moderada-baja (2/5). Habitual en cosmética natural.', lactancia:'ok' },
   'APRICOT KERNEL OIL': { alias:'PRUNUS ARMENIACA KERNEL OIL' },
   'PRUNUS PERSICA KERNEL OIL': { nombre_com:'Aceite de hueso de melocotón', categorias:[], severidad:'verde', comedogenico:2, nota:'Muy similar al aceite de albaricoque. Suave, emoliente y ligero. Rico en ácido oleico. Bien tolerado por todo tipo de piel. Comedogenicidad moderada-baja (2/5).', lactancia:'ok' },
   'LIMNANTHES ALBA SEED OIL': { nombre_com:'Aceite de meadowfoam', categorias:[], severidad:'verde', comedogenico:1, nota:'Aceite de composición única (80% ácidos grasos de cadena muy larga, C20-C22). Extraordinariamente estable frente a la oxidación. Emoliente y formador de película protectora. Habitual en cosmética natural capilar.', lactancia:'ok' },
   'MACADAMIA TERNIFOLIA SEED OIL': { nombre_com:'Aceite de macadamia', categorias:[], severidad:'verde', comedogenico:2, nota:'Excepcionalmente rico en ácido palmitoleico (omega-7), componente natural del sebo joven. Nutritivo y regenerador. Ideal para piel madura y seca. Comedogenicidad moderada (2/5).', lactancia:'ok' },
   'MACADAMIA INTEGRIFOLIA SEED OIL': { alias:'MACADAMIA TERNIFOLIA SEED OIL' },
-  'PASSIFLORA EDULIS SEED OIL': { nombre_com:'Aceite de maracuyá', categorias:[], severidad:'verde', comedogenico:1, nota:'Aceite seco y ligero muy rico en ácido linoleico (omega-6). Baja comedogenicidad (1/5). Excelente para pieles mixtas y grasas. Antioxidante por su contenido en carotenoides.', lactancia:'ok', afecciones_relevantes:['acne'] },
+  'PASSIFLORA EDULIS SEED OIL': { nombre_com:'Aceite de maracuyá', categorias:[], severidad:'verde', comedogenico:1, nota:'Aceite seco y ligero muy rico en ácido linoleico (omega-6). Baja comedogenicidad (1/5). Excelente para pieles mixtas y grasas. Antioxidante por su contenido en carotenoides.', lactancia:'ok', afecciones_utiles:['acne'] },
   'PRUNUS AVIUM KERNEL OIL': { nombre_com:'Aceite de hueso de cereza', categorias:[], severidad:'verde', comedogenico:2, nota:'Aceite emoliente ligero extraído del hueso de la cereza. Rico en ácidos grasos insaturados. Comedogenicidad moderada-baja (2/5). Suave, habitual en cosmética natural.', lactancia:'ok' },
   'SQUALANE': { nombre_com:'Escualano', categorias:[], severidad:'verde', comedogenico:1, nota:'Forma saturada y estable del escualeno. Puede ser de origen vegetal (olivo, caña de azúcar — preferible) o marino (hígado de tiburón — evitar). Verificar el origen. Emoliente ligero y estable que imita los lípidos naturales de la piel. Baja comedogenicidad (1/5).', lactancia:'ok' },
   'PHYTOSQUALANE': { alias:'SQUALANE' },
@@ -328,7 +328,7 @@ const INCI_DB = {
   'JOJOBA ESTERS': { nombre_com:'Esteres de jojoba', categorias:[], severidad:'verde', nota:'Cera sólida derivada del aceite de jojoba hidrogenado e interesterificado. Alternativa vegana a la cera de abeja. Aceptada en cosmética natural.', lactancia:'ok' },
   'STEARYL ALCOHOL': { nombre_com:'Alcohol estearílico', categorias:[], severidad:'verde', nota:'Alcohol graso saturado de cadena larga (C18) de origen vegetal. No deseca. Emoliente y espesante en emulsiones. Aceptado en cosmética natural. No confundir con alcoholes desnaturalizantes.', lactancia:'ok' },
   'PALMITIC ACID': { nombre_com:'Ácido palmítico', categorias:[], severidad:'verde', comedogenico:2, nota:'Ácido graso saturado presente de forma natural en el sebo humano y muchos aceites vegetales. Emoliente y espesante. Comedogenicidad moderada (2/5). Natural y aceptado en cosmética.', lactancia:'ok' },
-  'LINOLEIC ACID': { nombre_com:'Ácido linoleico (omega-6)', categorias:[], severidad:'verde', comedogenico:0, nota:'Ácido graso esencial (omega-6) componente clave de la barrera cutánea. Deficitario en pieles acneicas y con barrera comprometida. De origen vegetal. Comedogenicidad 0/5. Reparador de la barrera lipídica.', lactancia:'ok', afecciones_relevantes:['acne'] },
+  'LINOLEIC ACID': { nombre_com:'Ácido linoleico (omega-6)', categorias:[], severidad:'verde', comedogenico:0, nota:'Ácido graso esencial (omega-6) componente clave de la barrera cutánea. Deficitario en pieles acneicas y con barrera comprometida. De origen vegetal. Comedogenicidad 0/5. Reparador de la barrera lipídica.', lactancia:'ok', afecciones_utiles:['acne'] },
   'HYDROXYETHYLCELLULOSE': { nombre_com:'Hidroxietilcelulosa', categorias:[], severidad:'verde', nota:'Celulosa modificada. Espesante y gelificante aceptado en cosmética natural certificada COSMOS. Forma texturas gel transparentes. Sin restricciones.', lactancia:'ok' },
   'HYDROXYPROPYL METHYLCELLULOSE': { nombre_com:'Hidroxipropil metilcelulosa (HPMC)', categorias:[], severidad:'verde', nota:'Celulosa modificada. Espesante y texturizante. Aceptado en cosmética natural.', lactancia:'ok' },
   'MICROCRYSTALLINE CELLULOSE': { nombre_com:'Celulosa microcristalina', categorias:[], severidad:'verde', nota:'Celulosa vegetal procesada. Texturizante y carga en polvos. Natural. Sin restricciones.', lactancia:'ok' },
@@ -359,7 +359,7 @@ const INCI_DB = {
   'ERYTHRITOL': { nombre_com:'Eritritol', categorias:[], severidad:'verde', nota:'Poliol natural presente en frutas y fermentación. Humectante suave. Aceptado en cosmética natural.', lactancia:'ok' },
   'FRUCTOSE': { nombre_com:'Fructosa', categorias:[], severidad:'verde', nota:'Azúcar simple natural de frutas. Humectante suave. Aceptado en cosmética natural.', lactancia:'ok' },
   'GLUCOSE': { nombre_com:'Glucosa', categorias:[], severidad:'verde', nota:'Azúcar simple natural. Humectante suave y fuente de energía celular. Aceptado en cosmética natural.', lactancia:'ok' },
-  'UREA': { nombre_com:'Urea', categorias:['no_cosmetica_natural'], severidad:'amarillo', nota:'Componente natural del NMF (Factor Natural de Hidratación), obtenido por síntesis. Humectante a bajas concentraciones (2-5%); queratolítico suave a concentraciones medias (5-10%); queratolítico intenso a altas (>10%). No aceptado en cosmética certificada aunque la molécula sea natural. Muy eficaz en piel seca y con hiperqueratosis.', lactancia:'ok', afecciones_relevantes:['piel_seca'] },
+  'UREA': { nombre_com:'Urea', categorias:['no_cosmetica_natural'], severidad:'amarillo', nota:'Componente natural del NMF (Factor Natural de Hidratación), obtenido por síntesis. Humectante a bajas concentraciones (2-5%); queratolítico suave a concentraciones medias (5-10%); queratolítico intenso a altas (>10%). No aceptado en cosmética certificada aunque la molécula sea natural. Muy eficaz en piel seca y con hiperqueratosis.', lactancia:'ok', afecciones_utiles:['piel_seca'] },
   'HYDROLYZED HYALURONIC ACID': { nombre_com:'Ácido hialurónico hidrolizado (bajo PM)', categorias:[], severidad:'verde', nota:'HA de bajo peso molecular. Mejor penetración cutánea que el hialuronato de sodio estándar — hidratación en capas más profundas. Aceptado en cosmética natural.', lactancia:'ok' },
   'HYDROLYZED COLLAGEN': { nombre_com:'Colágeno hidrolizado', categorias:[], severidad:'verde', nota:'Proteína hidrolizada de origen animal (bovino o marino). Condicionante y humectante de la piel. No sustituye al colágeno endógeno por vía tópica (molécula demasiado grande para penetrar las capas profundas). Natural de origen animal, no vegano.', lactancia:'ok' },
   'HYDROLYZED SILK': { nombre_com:'Seda hidrolizada', categorias:[], severidad:'verde', nota:'Proteína de seda fragmentada. Condicionante, suavizante y creadora de película protectora. Natural de origen animal. Habitual en cosmética natural capilar y facial.', lactancia:'ok' },
@@ -370,7 +370,7 @@ const INCI_DB = {
   'HAMAMELIS VIRGINIANA EXTRACT': { nombre_com:'Extracto de hamamelis', categorias:['irritante'], severidad:'amarillo', nota:'Extracto astringente rico en taninos. El extracto alcohólico puede irritar. El extracto sin alcohol es calmante y astringente suave, útil en pieles mixtas y grasas. Precaución en piel sensible y rosácea — el mentol y el alcohol de algunos preparados son el problema real.', lactancia:'ok', afecciones_relevantes:['piel_sensible','rosácea'] },
   'HAMAMELIS VIRGINIANA WATER': { nombre_com:'Agua floral de hamamelis (sin alcohol)', categorias:[], severidad:'verde', nota:'Hidrosol de hamamelis sin alcohol. Astringente y calmante suave. Bien tolerado incluyendo pieles sensibles. Diferente al extracto alcohólico.', lactancia:'ok' },
   'GLYCYRRHIZA GLABRA ROOT EXTRACT': { nombre_com:'Extracto de raíz de regaliz', categorias:[], severidad:'verde', nota:'Rico en glabridina, potente inhibidor de la tirosinasa. Despigmentante, antiinflamatorio y calmante. Usado en cosmética natural para manchas y pieles reactivas. Sin restricciones.', lactancia:'ok' },
-  'CURCUMA LONGA ROOT EXTRACT': { nombre_com:'Extracto de cúrcuma', categorias:[], severidad:'verde', nota:'Rico en curcuminoides. Antiinflamatorio, antioxidante y con propiedades despigmentantes. En concentraciones altas puede teñir levemente. Habitual en cosmética natural para piel inflamada y reactiva.', lactancia:'ok', afecciones_relevantes:['rosácea','acne'] },
+  'CURCUMA LONGA ROOT EXTRACT': { nombre_com:'Extracto de cúrcuma', categorias:[], severidad:'verde', nota:'Rico en curcuminoides. Antiinflamatorio, antioxidante y con propiedades despigmentantes. En concentraciones altas puede teñir levemente. Habitual en cosmética natural para piel inflamada y reactiva.', lactancia:'ok', afecciones_utiles:['rosácea','acne'] },
   'GINKGO BILOBA LEAF EXTRACT': { nombre_com:'Extracto de hoja de ginkgo', categorias:[], severidad:'verde', nota:'Antioxidante rico en flavonoides y terpenoides. Activa la circulación microvascular. Antiinflamatorio. Habitual en cosmética natural antiedad.', lactancia:'ok' },
   'COFFEA ARABICA SEED EXTRACT': { nombre_com:'Extracto de semilla de café', categorias:[], severidad:'verde', nota:'Rico en cafeína y polifenoles. Activo vasoconstrictor y drenante (base del efecto antiojeras y anticélulitis). Antioxidante potente. Aceptado en cosmética natural.', lactancia:'ok' },
   'VACCINIUM MYRTILLUS FRUIT EXTRACT': { nombre_com:'Extracto de arándano', categorias:[], severidad:'verde', nota:'Rico en antocianinas y AHAs suaves. Antioxidante, iluminador y con leve acción exfoliante natural. Habitual en cosmética natural antiedad y para manchas.', lactancia:'ok' },
@@ -379,12 +379,12 @@ const INCI_DB = {
   'CHONDRUS CRISPUS EXTRACT': { nombre_com:'Extracto de Irish moss (alga roja)', categorias:[], severidad:'verde', nota:'Alga roja rica en polisacáridos. Hidratante y formadora de película protectora. Precursor del carragenano. Activo hidratante en cosmética natural.', lactancia:'ok' },
   'SPIRULINA PLATENSIS EXTRACT': { nombre_com:'Extracto de espirulina', categorias:[], severidad:'verde', nota:'Microalga rica en ficocianinas, proteínas y minerales. Antioxidante y revitalizante. Creciente presencia en cosmética natural. Sin restricciones.', lactancia:'ok' },
   'ARTHROSPIRA PLATENSIS EXTRACT': { alias:'SPIRULINA PLATENSIS EXTRACT' },
-  'PORTULACA OLERACEA EXTRACT': { nombre_com:'Extracto de verdolaga', categorias:[], severidad:'verde', nota:'Planta suculenta rica en ácido linoléico y omega-3. Calmante, antioxidante y reparador de la barrera. Activo de interés en cosmética natural para pieles sensibles y reactivas.', lactancia:'ok', afecciones_relevantes:['piel_sensible','rosácea'] },
+  'PORTULACA OLERACEA EXTRACT': { nombre_com:'Extracto de verdolaga', categorias:[], severidad:'verde', nota:'Planta suculenta rica en ácido linoléico y omega-3. Calmante, antioxidante y reparador de la barrera. Activo de interés en cosmética natural para pieles sensibles y reactivas.', lactancia:'ok', afecciones_utiles:['piel_sensible','rosácea'] },
   'HIBISCUS SABDARIFFA FLOWER EXTRACT': { nombre_com:'Extracto de hibisco', categorias:[], severidad:'verde', nota:'Rico en AHAs naturales (ácido cítrico, tartárico, málico) y antocianinas. Suavemente exfoliante, iluminador y antioxidante. Activo antiedad natural.', lactancia:'ok' },
   'SAMBUCUS NIGRA FLOWER EXTRACT': { nombre_com:'Extracto de flor de saúco', categorias:[], severidad:'verde', nota:'Rico en flavonoides y ácidos fenólicos. Calmante, antiinflamatorio y levemente iluminador. Habitual en cosmética natural.', lactancia:'ok' },
 
   // ── AGUAS E HIDROSOLES ADICIONALES ──────────────────────────────────────
-  'CHAMOMILLA RECUTITA FLOWER WATER': { nombre_com:'Agua floral de manzanilla', categorias:[], severidad:'verde', nota:'Hidrosol de manzanilla. Calmante, antiinflamatorio y suavizante. Habitual en cosmética natural para pieles sensibles.', lactancia:'ok', afecciones_relevantes:['piel_sensible','rosácea'] },
+  'CHAMOMILLA RECUTITA FLOWER WATER': { nombre_com:'Agua floral de manzanilla', categorias:[], severidad:'verde', nota:'Hidrosol de manzanilla. Calmante, antiinflamatorio y suavizante. Habitual en cosmética natural para pieles sensibles.', lactancia:'ok', afecciones_utiles:['piel_sensible','rosácea'] },
   'CITRUS AURANTIUM AMARA FLOWER WATER': { nombre_com:'Agua floral de azahar (neroli)', categorias:[], severidad:'verde', nota:'Hidrosol de flor de naranjo amargo. Equilibrante, calmante y levemente astringente. Uno de los hidrosoles más apreciados en cosmética natural.', lactancia:'ok' },
   'MELISSA OFFICINALIS LEAF WATER': { nombre_com:'Agua floral de melisa', categorias:[], severidad:'verde', nota:'Hidrosol de melisa. Calmante, levemente astringente. Habitual en cosmética natural sensible.', lactancia:'ok' },
   'MENTHA PIPERITA WATER': { nombre_com:'Agua floral de menta', categorias:['irritante'], severidad:'amarillo', nota:'Hidrosol de menta. Refrescante. Puede irritar pieles muy sensibles. No usar en bebés ni niños.', lactancia:'precaucion', afecciones_relevantes:['piel_sensible','rosácea'] },
@@ -422,11 +422,11 @@ const INCI_DB = {
   // ── ACEITES ESENCIALES ADICIONALES ──────────────────────────────────────
   'LAVANDULA ANGUSTIFOLIA OIL': { nombre_com:'Aceite esencial de lavanda', categorias:['fragrance_ae'], severidad:'verde', nota:'AE calmante, cicatrizante y levemente antiséptico. Uno de los más seguros y versátiles. Contiene linalool y acetato de linalilo (Anexo III UE). Bien tolerado a concentraciones apropiadas en cosmética natural.', lactancia:'ok' },
   'LAVANDULA OFFICINALIS OIL': { alias:'LAVANDULA ANGUSTIFOLIA OIL' },
-  'MELALEUCA ALTERNIFOLIA LEAF OIL': { nombre_com:'Aceite esencial de árbol de té (tea tree)', categorias:['irritante'], severidad:'amarillo', nota:'AE con potentes propiedades antimicrobianas. Útil en acné y eccemas infectados. Puede irritar y sensibilizar con uso concentrado o prolongado — nunca puro sobre la piel. Contraindicado en niños y en embarazo a altas concentraciones.', lactancia:'precaucion', afecciones_relevantes:['acne','piel_sensible'] },
+  'MELALEUCA ALTERNIFOLIA LEAF OIL': { nombre_com:'Aceite esencial de árbol de té (tea tree)', categorias:['irritante'], severidad:'amarillo', nota:'AE con potentes propiedades antimicrobianas. Útil en acné y eccemas infectados. Puede irritar y sensibilizar con uso concentrado o prolongado — nunca puro sobre la piel. Contraindicado en niños y en embarazo a altas concentraciones.', lactancia:'precaucion', afecciones_relevantes:['piel_sensible'], afecciones_utiles:['acne'] },
   'PELARGONIUM GRAVEOLENS FLOWER OIL': { nombre_com:'Aceite esencial de geranio', categorias:['fragrance_ae'], severidad:'verde', nota:'AE equilibrante y levemente astringente. Habitual en cosmética natural. Contiene geraniol y citronelol (Anexo III UE). Bien tolerado a concentraciones apropiadas en cosmética orgánica.', lactancia:'ok' },
   'BOSWELLIA CARTERII OIL': { nombre_com:'Aceite esencial de incienso (olíbano)', categorias:[], severidad:'verde', nota:'AE antiinflamatorio, cicatrizante y antiedad. Activa la síntesis de colágeno. Muy apreciado en cosmética natural de lujo. Sin restricciones conocidas a concentraciones cosméticas.', lactancia:'ok' },
   'ROSA DAMASCENA FLOWER OIL': { nombre_com:'Aceite esencial de rosa', categorias:['fragrance_ae'], severidad:'verde', nota:'AE calmante, hidratante y antiinflamatorio. Contiene geraniol, citronelol y otros alérgenos del Anexo III UE. A concentraciones apropiadas, aceptado en cosmética orgánica. Uno de los AE más valiosos.', lactancia:'ok', afecciones_relevantes:['piel_sensible'] },
-  'CHAMOMILLA RECUTITA FLOWER OIL': { nombre_com:'Aceite esencial de manzanilla alemana', categorias:[], severidad:'verde', nota:'AE azul (camazuleno) con excepcionales propiedades antiinflamatorias y calmantes. Especialmente útil en pieles sensibles y con rosácea. Sin restricciones a concentraciones apropiadas.', lactancia:'ok', afecciones_relevantes:['rosácea','piel_sensible'] },
+  'CHAMOMILLA RECUTITA FLOWER OIL': { nombre_com:'Aceite esencial de manzanilla alemana', categorias:[], severidad:'verde', nota:'AE azul (camazuleno) con excepcionales propiedades antiinflamatorias y calmantes. Especialmente útil en pieles sensibles y con rosácea. Sin restricciones a concentraciones apropiadas.', lactancia:'ok', afecciones_utiles:['rosácea','piel_sensible'] },
   'CYMBOPOGON MARTINI OIL': { nombre_com:'Aceite esencial de palmarosa', categorias:['fragrance_ae'], severidad:'verde', nota:'AE con alto contenido en geraniol (>75%). Hidratante y equilibrante. Contiene geraniol (Anexo III UE). Aceptado en cosmética natural.', lactancia:'ok' },
   'POGOSTEMON CABLIN OIL': { nombre_com:'Aceite esencial de pachulí', categorias:['fragrance_ae'], severidad:'verde', nota:'AE terroso, antiinflamatorio y cicatrizante. Contiene patchoulol. Habitual en cosmética natural y perfumería orgánica.', lactancia:'ok' },
   'CANANGA ODORATA FLOWER OIL': { nombre_com:'Aceite esencial de ylang ylang', categorias:['fragrance_ae','irritante'], severidad:'amarillo', nota:'AE floral muy intenso. Puede causar cefaleas en altas concentraciones. Contiene geraniol, linalool, benzyl alcohol y benzyl benzoate (todos Anexo III UE). Precaución en pieles sensibles.', lactancia:'ok', afecciones_relevantes:['piel_sensible'] },
@@ -444,10 +444,10 @@ const INCI_DB = {
   'LAWSONIA INERMIS LEAF POWDER': { nombre_com:'Henna (polvo de Lawsonia inermis)', categorias:[], severidad:'verde', nota:'Colorante natural de la planta de la henna. Tinte capilar natural tradicional. Sin restricciones en la forma natural. Precaución: la "henna negra" contiene PPD (para-fenilendiamina), potente sensibilizante — este riesgo es del aditivo, no de la henna.', lactancia:'ok' },
 
   // ── ÁCIDOS Y ACTIVOS AMPLIACIÓN (14/9/2026) ──────────────────────────────
-  'MANDELIC ACID': { nombre_com:'Ácido mandélico (AHA)', categorias:[], severidad:'verde', nota:'AHA de molécula grande derivado de almendras amargas — penetra más lento que el glicólico, por lo que irrita mucho menos. Buena opción de exfoliación suave en piel sensible o acneica. Fotosensibilizante como el resto de AHAs — usar SPF.', lactancia:'precaucion', afecciones_relevantes:['piel_sensible','acne'] },
+  'MANDELIC ACID': { nombre_com:'Ácido mandélico (AHA)', categorias:[], severidad:'verde', nota:'AHA de molécula grande derivado de almendras amargas — penetra más lento que el glicólico, por lo que irrita mucho menos. Buena opción de exfoliación suave en piel sensible o acneica. Fotosensibilizante como el resto de AHAs — usar SPF.', lactancia:'precaucion', afecciones_utiles:['piel_sensible','acne'] },
   'LACTOBIONIC ACID': { nombre_com:'Ácido lactobiónico (PHA)', categorias:[], severidad:'verde', nota:'Polihidroxiácido derivado de la lactosa, con molécula aún mayor que la gluconolactona. Exfoliante muy suave, con acción humectante y antioxidante añadida (quelante de metales). El PHA mejor tolerado en piel muy reactiva o con la barrera dañada.', lactancia:'ok' },
-  'PHYTIC ACID': { nombre_com:'Ácido fítico', categorias:[], severidad:'verde', nota:'Ácido natural presente en semillas y cereales integrales. Actúa como quelante (capta metales que oxidan la fórmula) y como despigmentante suave al inhibir la tirosinasa. Bien tolerado, no fotosensibilizante como los AHA. Uso habitual hasta 2% en producto de uso continuado.', lactancia:'ok', afecciones_relevantes:['manchas'] },
-  'SULFUR': { nombre_com:'Azufre', categorias:[], severidad:'verde', nota:'Mineral con acción antibacteriana, antiinflamatoria y queratolítica suave — clásico en tratamientos de acné y rosácea desde hace más de un siglo (uso habitual 3-10%). Reseca la piel, conviene combinarlo con buena hidratación. Olor característico. Considerado seguro en embarazo.', lactancia:'ok', afecciones_relevantes:['acne','rosácea','piel_seca'] },
+  'PHYTIC ACID': { nombre_com:'Ácido fítico', categorias:[], severidad:'verde', nota:'Ácido natural presente en semillas y cereales integrales. Actúa como quelante (capta metales que oxidan la fórmula) y como despigmentante suave al inhibir la tirosinasa. Bien tolerado, no fotosensibilizante como los AHA. Uso habitual hasta 2% en producto de uso continuado.', lactancia:'ok', afecciones_utiles:['manchas'] },
+  'SULFUR': { nombre_com:'Azufre', categorias:[], severidad:'verde', nota:'Mineral con acción antibacteriana, antiinflamatoria y queratolítica suave — clásico en tratamientos de acné y rosácea desde hace más de un siglo (uso habitual 3-10%). Reseca la piel, conviene combinarlo con buena hidratación. Olor característico. Considerado seguro en embarazo.', lactancia:'ok', afecciones_utiles:['acne','rosácea'], afecciones_relevantes:['piel_seca'] },
   'ACETUM': { nombre_com:'Vinagre (de sidra de manzana)', categorias:['irritante'], severidad:'amarillo', nota:'Ácido acético de fermentación, tradicionalmente de sidra de manzana. Ayuda a equilibrar el pH de la piel y tiene cierta acción antibacteriana, pero es fácil de sobreusar: sin diluir puede irritar o dañar la barrera cutánea. Evitar en piel con la barrera comprometida o heridas abiertas.', lactancia:'ok', afecciones_relevantes:['piel_sensible','dermatitis'] },
   'VINEGAR': { alias:'ACETUM' },
   'NIACIN': { nombre_com:'Niacina / Vitamina PP (B3)', categorias:[], severidad:'amarillo', nota:'Forma ácida de la vitamina B3 — distinta de la niacinamida (la forma amida, mucho más usada en cosmética). A diferencia de la niacinamida, la niacina puede provocar enrojecimiento y sensación de calor pasajera ("flushing") al aplicarla, por eso se usa mucho menos en skincare de uso diario. Bien tolerada fuera de ese efecto puntual.', lactancia:'ok', afecciones_relevantes:['rosácea','piel_sensible'] },
@@ -455,8 +455,8 @@ const INCI_DB = {
   'RAPHANUS SATIVUS (RADISH) ROOT EXTRACT': { nombre_com:'Extracto de rábano blanco', categorias:[], severidad:'verde', nota:'Extracto de raíz de rábano. Su forma fermentada (Leuconostoc/Radish Root Ferment Filtrate, tipo "Leucidal") es uno de los conservantes naturales más usados hoy en cosmética limpia: antimicrobiano de amplio espectro, muy bien tolerado incluso en piel sensible o de bebé. Comprobar si el INCI del producto especifica la versión fermentada.', lactancia:'ok' },
   'CAPSICUM ANNUUM FRUIT EXTRACT': { nombre_com:'Extracto de guindilla/pimiento rojo', categorias:['irritante'], severidad:'amarillo', nota:'Extracto rico en capsaicina, usado en bajas concentraciones para estimular la microcirculación (sensación de calor). Puede irritar y no es apto para piel con rosácea, dermatitis o barrera comprometida — precaución también si hay alergia a pimientos/guindillas.', lactancia:'precaucion', afecciones_relevantes:['rosácea','piel_sensible','dermatitis'] },
   'MAGNESIUM CHLORIDE': { nombre_com:'Cloruro de magnesio', categorias:[], severidad:'verde', nota:'Sal mineral usada como aporte de magnesio tópico y texturizante. La evidencia sobre absorción transdérmica real ("magnesio que llega al músculo") es débil — el efecto principal demostrado es local, sobre la piel. Bien tolerado; puede dar escozor puntual sobre piel irritada o con heridas.', lactancia:'ok' },
-  'ARCTIUM LAPPA ROOT EXTRACT': { nombre_com:'Extracto de bardana', categorias:[], severidad:'verde', nota:'Extracto de raíz con antioxidantes (polifenoles) y acción antiinflamatoria, tradicionalmente usado en piel grasa/con tendencia acneica y para calmar irritación (eccema). Buen perfil de seguridad; precaución si hay alergia a plantas de la familia Asteraceae (como la manzanilla o la árnica).', lactancia:'ok', afecciones_relevantes:['acne','dermatitis'] },
-  'ARNICA MONTANA FLOWER EXTRACT': { nombre_com:'Extracto de árnica', categorias:[], severidad:'verde', nota:'Extracto floral con acción antiinflamatoria y calmante bien documentada, clásico para golpes/moratones y piel irritada. Solo para piel intacta — no aplicar sobre heridas abiertas. El uso tópico normal no tiene contraindicación clara en embarazo/lactancia (a diferencia del uso oral, sí contraindicado), pero se recomienda precaución por falta de estudios específicos.', lactancia:'precaucion', afecciones_relevantes:['piel_sensible'] },
+  'ARCTIUM LAPPA ROOT EXTRACT': { nombre_com:'Extracto de bardana', categorias:[], severidad:'verde', nota:'Extracto de raíz con antioxidantes (polifenoles) y acción antiinflamatoria, tradicionalmente usado en piel grasa/con tendencia acneica y para calmar irritación (eccema). Buen perfil de seguridad; precaución si hay alergia a plantas de la familia Asteraceae (como la manzanilla o la árnica).', lactancia:'ok', afecciones_utiles:['acne','dermatitis'] },
+  'ARNICA MONTANA FLOWER EXTRACT': { nombre_com:'Extracto de árnica', categorias:[], severidad:'verde', nota:'Extracto floral con acción antiinflamatoria y calmante bien documentada, clásico para golpes/moratones y piel irritada. Solo para piel intacta — no aplicar sobre heridas abiertas. El uso tópico normal no tiene contraindicación clara en embarazo/lactancia (a diferencia del uso oral, sí contraindicado), pero se recomienda precaución por falta de estudios específicos.', lactancia:'precaucion', afecciones_utiles:['piel_sensible'] },
 
 };
 
@@ -2949,10 +2949,7 @@ const DB_APUNTES = {
   "nombre_com": "Extracto de corteza de sauce",
   "categorias": [],
   "severidad": "verde",
-  "nota": "Contiene salicina, que se convierte en ácido salicílico al ingerirla, pero en la piel apenas se transforma: no exfolia como el ácido salicílico. Calmante y astringente suave.",
-  "afecciones_relevantes": [
-   "acne"
-  ],
+  "nota": "Contiene salicina, precursora del ácido salicílico al ingerirse, pero no en la piel (apenas se transforma): no exfolia como el ácido salicílico ni equivale a un «salicílico natural». Calmante y astringente suave.",
   "funcion": "calmante, astringente"
  },
  "SYMPHYTUM OFFICINALE ROOT EXTRACT": {
@@ -4280,8 +4277,8 @@ Object.entries(ALIAS_VEGETALES_V3).forEach(([k, v]) => { if (!INCI_DB[k]) INCI_D
 // Mismo dato y color que tenían allí; afecciones pasadas al vocabulario de esta base (rosácea, piel_sensible, piel_seca).
 const DB_RESCATE_ASESORIAS = {
   'POLYGLYCERYL-3 DISTEARATE': { nombre_com:'Poliglicerilo-3 diestearato', categorias:[], severidad:'verde', nota:'Emulsionante vegetal derivado de glicerina poliglicerolada y ácido esteárico. Habitual en sistemas de emulsión de cosmética natural y orgánica certificada.', lactancia:'ok' },
-  'ECTOIN': { nombre_com:'Ectoína', categorias:[], severidad:'verde', nota:'Uso: "extremolito" obtenido por fermentación de bacterias que viven en ambientes muy salinos — estas moléculas les permiten sobrevivir a la deshidratación, y aplicadas sobre la piel protegen las células del estrés osmótico y ayudan a reparar la barrera cutánea. Se usa como hidratante y protector celular (frente a contaminación, luz azul) hasta un 7% en fórmula. Riesgo: perfil de seguridad muy bueno, no irritante ni sensibilizante, apta para piel sensible o reactiva. Al obtenerse por fermentación (no de síntesis petroquímica), está aceptada en cosmética natural — con certificaciones COSMOS, NATRUE y Ecocert disponibles.', lactancia:'ok', afecciones_relevantes:['piel_sensible','piel_seca','rosácea'] },
-  'AVENA SATIVA KERNEL FLOUR': { nombre_com:'Avena coloidal (harina de avena)', categorias:[], severidad:'verde', nota:'Uso: uno de los pocos ingredientes reconocidos oficialmente por la FDA como "protector cutáneo" (desde 2003), con más de 50 años de uso dermatológico documentado en dermatitis atópica, psoriasis y piel de bebé. Contiene avenantramidas (antiinflamatorias, calman el picor), betaglucanos (forman película e hidratan) y saponinas (limpieza suave). Riesgo: excelente perfil de seguridad, hipoalergénica en la gran mayoría de los casos — la alergia a la avena existe pero es mucho más frecuente por vía oral/inhalada que por vía tópica; precaución solo si hay alergia conocida a la avena.', lactancia:'ok', afecciones_relevantes:['piel_sensible','dermatitis','piel_seca'] },
+  'ECTOIN': { nombre_com:'Ectoína', categorias:[], severidad:'verde', nota:'Uso: "extremolito" obtenido por fermentación de bacterias que viven en ambientes muy salinos — estas moléculas les permiten sobrevivir a la deshidratación, y aplicadas sobre la piel protegen las células del estrés osmótico y ayudan a reparar la barrera cutánea. Se usa como hidratante y protector celular (frente a contaminación, luz azul) hasta un 7% en fórmula. Riesgo: perfil de seguridad muy bueno, no irritante ni sensibilizante, apta para piel sensible o reactiva. Al obtenerse por fermentación (no de síntesis petroquímica), está aceptada en cosmética natural — con certificaciones COSMOS, NATRUE y Ecocert disponibles.', lactancia:'ok', afecciones_utiles:['piel_sensible','piel_seca','rosácea'] },
+  'AVENA SATIVA KERNEL FLOUR': { nombre_com:'Avena coloidal (harina de avena)', categorias:[], severidad:'verde', nota:'Uso: uno de los pocos ingredientes reconocidos oficialmente por la FDA como "protector cutáneo" (desde 2003), con más de 50 años de uso dermatológico documentado en dermatitis atópica, psoriasis y piel de bebé. Contiene avenantramidas (antiinflamatorias, calman el picor), betaglucanos (forman película e hidratan) y saponinas (limpieza suave). Riesgo: excelente perfil de seguridad, hipoalergénica en la gran mayoría de los casos — la alergia a la avena existe pero es mucho más frecuente por vía oral/inhalada que por vía tópica; precaución solo si hay alergia conocida a la avena.', lactancia:'ok', afecciones_utiles:['piel_sensible','dermatitis','piel_seca'] },
 };
 const ALIAS_RESCATE_ASESORIAS = { 'ECTOINE':'ECTOIN', 'CERAMIDE 1':'CERAMIDE NP', 'CERAMIDE 2':'CERAMIDE NP', 'CERAMIDE 3':'CERAMIDE NP', 'CERAMIDE 6 II':'CERAMIDE NP', 'COLLOIDAL OATMEAL':'AVENA SATIVA KERNEL FLOUR' };
 Object.entries(DB_RESCATE_ASESORIAS).forEach(([k, v]) => { if (!INCI_DB[k]) INCI_DB[k] = v; });
@@ -4295,6 +4292,13 @@ Object.entries(ALIAS_RESCATE_ASESORIAS).forEach(([k, v]) => { if (!INCI_DB[k]) I
   if (!(e.categorias || []).includes('no_cosmetica_natural')) e.categorias = [...(e.categorias || []), 'no_cosmetica_natural'];
 });
 // ── Fin ampliación 16/11/2026 ──
+// Decisión de Sarai 22/11/2026: los aceites esenciales SÍ son GAROA → siempre verde, con aviso de cuidado
+// (dependen de la piel). Se marcan con aceite_esencial:true para mostrarlos en «Natural, pero ojo con tu piel».
+Object.values(INCI_DB).forEach(e => {
+  if (!e || e.alias || !/^aceite esencial/i.test(e.nombre_com || '')) return;
+  e.severidad = 'verde';
+  e.aceite_esencial = true;
+});
 
 // ── Reglas por familia (para lo que no está en la base) — copiado de plantilla.html ──
 const MINERAL_CI = new Set(["75100", "75130", "75300", "75470", "75810", "77000", "77004", "77007", "77019", "77120", "77163", "77266", "77288", "77289", "77400", "77480", "77491", "77492", "77499", "77510", "77713", "77742", "77820", "77891", "77947"]);
@@ -4316,7 +4320,7 @@ function regla(n) {
   if (ci) return MINERAL_CI.has(ci[1]) ? r('verde', '', 'Pigmento mineral o de origen natural (colorante CI).')
                                        : r('amarillo', 'no_cosmetica_natural', 'Colorante sintético (CI). Autorizado en la UE, pero no se acepta en cosmética natural.');
   if (BOT_FIN.test(n) && !QUIM.test(n) && n.split(' ').length >= 2 && !/(PEG|PPG|SULFATE|ETH-)/.test(n)) {
-    if (/\b(PEEL|LEAF|FLOWER|HERB|BARK|WOOD|ROOT)\s+OIL\b/.test(n)) return r('verde', 'fragrance_ae', 'Aceite esencial de origen vegetal. Aporta aroma; en pieles reactivas puede ser sensibilizante.');
+    if (/\b(PEEL|LEAF|FLOWER|HERB|BARK|WOOD|ROOT)\s+OIL\b/.test(n)) return { ...r('verde', 'fragrance_ae', 'Aceite esencial de origen vegetal. Aporta aroma; en pieles reactivas puede ser sensibilizante.'), aceite_esencial: true };
     return r('verde', '', 'Ingrediente de origen vegetal (extracto, aceite, manteca o agua floral).');
   }
   return null;
@@ -4489,35 +4493,73 @@ function calcularSeveridadPersonalizada(data, clienta, ingredientesList) {
   return data.severidad;
 }
 
-function notaPersonalizada(data, clienta) {
-  if (!clienta) return null;
+// Etiqueta para la clienta (18/11/2026, criterio de Sarai). El color del ingrediente
+// no cambia por ser útil; la etiqueta va aparte:
+//   verde    → le viene bien y cumple el criterio GAROA (no sintético/petroquímico, aunque sea amarillo por irritante)
+//   amarillo → le viene bien, pero no cumple el criterio GAROA (y lo dice)
+//   rojo     → cuidado: le puede ir mal (afecciones_relevantes, embarazo/lactancia, comedogénico + acné)
+// afecciones_utiles = le viene bien · afecciones_relevantes = precaución.
+const AFECCION_LABELS_NOTA = {
+  acne:'acné', rosácea:'rosácea', piel_sensible:'piel sensible',
+  dermatitis:'dermatitis', piel_seca:'piel seca / deshidratada', manchas:'manchas',
+  poros:'poros visibles', embarazo:'embarazo', lactancia:'lactancia',
+};
+function notaPersonalizadaPartes(data, clienta) {
+  if (!clienta) return [];
   const afecciones = clienta.afecciones || [];
   const ciclo = clienta.ciclo || [];
+  const L = a => AFECCION_LABELS_NOTA[a] || a;
   const partes = [];
 
-  const AFECCION_LABELS = {
-    acne:'acné', rosácea:'rosácea', piel_sensible:'piel sensible',
-    dermatitis:'dermatitis', piel_seca:'piel seca', manchas:'manchas',
-    poros:'poros visibles', embarazo:'embarazo', lactancia:'lactancia',
-  };
-
-  if (ciclo.includes('embarazo') && data.lactancia === 'evitar')
-    partes.push('⚠ Contraindicado en embarazo.');
-  if (ciclo.includes('lactancia') && data.lactancia === 'evitar')
-    partes.push('⚠ Contraindicado en lactancia.');
-  if (ciclo.includes('embarazo') && data.lactancia === 'precaucion')
-    partes.push('Usar con precaución en embarazo.');
-
-  const relevantes = (data.afecciones_relevantes || []).filter(a => afecciones.includes(a));
-  if (relevantes.length) {
-    const nombres = relevantes.map(a => AFECCION_LABELS[a] || a).join(', ');
-    partes.push(`Relevante para ${clienta.nombre} por: ${nombres}.`);
+  const utiles = (data.afecciones_utiles || []).filter(a => afecciones.includes(a));
+  if (utiles.length) {
+    const base = `Le viene bien a ${clienta.nombre} por: ${utiles.map(L).join(', ')}.`;
+    // Criterio GAROA = mismas categorías que el veredicto «cosmética natural» de las herramientas
+    const NO_GAROA = ['derivado_petroleo','silicona','petroquimico','fragrance_sintetica','no_cosmetica_natural','disruptor_endocrino','formaldehido_liberador'];
+    const noGaroa = (data.categorias || []).some(c => NO_GAROA.includes(c));
+    if (!noGaroa) partes.push({ tono:'verde', texto: base });
+    else partes.push({ tono:'amarillo', texto: base + ' Pero no cumple el criterio GAROA.' });
   }
 
-  if ((data.comedogenico || 0) >= 4 && afecciones.includes('acne'))
-    partes.push(`Comedogenicidad alta ${data.comedogenico}/5 — precaución especial dado el historial de acné.`);
-  else if ((data.comedogenico || 0) === 3 && afecciones.includes('acne'))
-    partes.push(`Comedogenicidad media 3/5 — monitorizar en piel con tendencia al acné.`);
+  if (ciclo.includes('embarazo') && data.lactancia === 'evitar')
+    partes.push({ tono:'rojo', texto:'⚠ Contraindicado en embarazo.' });
+  if (ciclo.includes('lactancia') && data.lactancia === 'evitar')
+    partes.push({ tono:'rojo', texto:'⚠ Contraindicado en lactancia.' });
+  if (ciclo.includes('embarazo') && data.lactancia === 'precaucion')
+    partes.push({ tono:'rojo', texto:'Usar con precaución en embarazo.' });
 
-  return partes.length ? partes.join(' ') : null;
+  const relevantes = (data.afecciones_relevantes || []).filter(a => afecciones.includes(a));
+  if (relevantes.length)
+    partes.push({ tono:'rojo', texto:`Cuidado con ${clienta.nombre} por: ${relevantes.map(L).join(', ')}.` });
+
+  if ((data.comedogenico || 0) >= 4 && afecciones.includes('acne'))
+    partes.push({ tono:'rojo', texto:`Comedogenicidad alta ${data.comedogenico}/5 — precaución especial dado el historial de acné.` });
+  else if ((data.comedogenico || 0) === 3 && afecciones.includes('acne'))
+    partes.push({ tono:'rojo', texto:'Comedogenicidad media 3/5 — monitorizar en piel con tendencia al acné.' });
+
+  return partes;
+}
+
+// Texto plano (compatibilidad): todas las partes juntas
+function notaPersonalizada(data, clienta) {
+  const p = notaPersonalizadaPartes(data, clienta);
+  return p.length ? p.map(x => x.texto).join(' ') : null;
+}
+
+// Solo lo que pide cuidado (para el aviso «Revisar antes de recomendar»)
+function notaCuidado(data, clienta) {
+  const p = notaPersonalizadaPartes(data, clienta).filter(x => x.tono === 'rojo');
+  return p.length ? p.map(x => x.texto).join(' ') : null;
+}
+
+// Etiquetas de color bajo cada ingrediente
+const TONOS_NOTA = {
+  verde:    'background:#D4EDDA;color:#155724',
+  amarillo: 'background:#FFF3CD;color:#856404',
+  rojo:     'background:#F8D7DA;color:#721C24',
+};
+function htmlNotaClienta(data, clienta) {
+  const p = notaPersonalizadaPartes(data, clienta);
+  if (!p.length) return '';
+  return p.map(x => `<div style="margin-top:6px;padding:7px 12px;font-size:7.5pt;line-height:1.6;border-radius:2px;${TONOS_NOTA[x.tono]}">${x.texto}</div>`).join('');
 }
