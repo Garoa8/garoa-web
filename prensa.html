@@ -397,6 +397,18 @@
   .p-oferta .o-desc { font-size: 0.95rem; line-height: 1.8; color: var(--muted); }
   .p-donde { margin-top: 36px; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; }
   .p-donde a { color: var(--garnet); text-decoration: none; border-bottom: 1px solid var(--pink); padding-bottom: 4px; }
+  /* RESEÑAS — The Complete Skin Ritual */
+  .p-resenas { background: var(--pink); color: var(--dark); padding: 140px 48px; }
+  .p-resenas .p-label::after { background: rgba(84,11,14,0.2); }
+  .p-resenas h2 { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(2rem, 3.6vw, 3rem); line-height: 1.2; margin: 0 0 64px; max-width: 760px; color: var(--dark); }
+  .p-resenas h2 em { font-style: italic; color: var(--garnet); }
+  .p-resenas-lista { columns: 3; column-gap: 56px; }
+  .p-resena { break-inside: avoid; margin: 0 0 48px; padding-top: 22px; border-top: 1px solid rgba(84,11,14,0.2); }
+  .p-resena blockquote { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 400; font-size: 1.3rem; line-height: 1.6; color: var(--dark); }
+  .p-resena figcaption { margin-top: 16px; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--garnet); }
+  @media (max-width: 1000px) { .p-resenas-lista { columns: 2; } }
+  @media (max-width: 640px) { .p-resenas { padding: 96px 24px; } .p-resenas-lista { columns: 1; } }
+
   @media (max-width: 900px) { .p-oferta li { grid-template-columns: 1fr; gap: 10px; padding: 26px 0; } }
 
   /* IMÁGENES */
@@ -625,6 +637,36 @@
       <li class="reveal"><span class="o-nom">The Clean-Hair Ritual</span><span class="o-desc">Scrunchie y cinta de pelo de doble gasa 100 % algodón, rosa empolvado, con certificado OEKO-TEX® Clase 1, para recoger el pelo durante el cuidado de la piel.</span></li>
     </ul>
     <p class="p-donde reveal"><a href="tienda.html">Ver la tienda</a> &nbsp;·&nbsp; <a href="asesoria.html">Ver la asesoría</a></p>
+  </div>
+</section>
+
+<!-- RESEÑAS · THE COMPLETE SKIN RITUAL -->
+<section class="p-resenas">
+  <div class="p-wrap">
+    <p class="p-label reveal">Reseñas</p>
+    <h2 class="reveal">¿Qué dicen de <em>The Complete Skin Ritual?</em></h2>
+    <div class="p-resenas-lista">
+      <figure class="p-resena reveal">
+        <blockquote>«Después de probar muchas cosas, de gastar mucho dinero en cremas, he entendido que lo que hace brillar la piel es dedicar tiempo a entenderla en su esencia. He obtenido los resultados que buscaba desde hace años. ¡Ahora hasta me apetece desmaquillarme!»</blockquote>
+        <figcaption>N. · Asesoría 1:1</figcaption>
+      </figure>
+      <figure class="p-resena reveal">
+        <blockquote>«Sarai ofrece un trato cercano y personalizado, recomendándote los productos más adecuados para tu tipo de piel y teniendo en cuenta el momento vital en el que te encuentras. Se nota que sabe de lo que habla y que se preocupa por encontrar lo que realmente necesitas.»</blockquote>
+        <figcaption>M. · Asesoría 1:1</figcaption>
+      </figure>
+      <figure class="p-resena reveal">
+        <blockquote>«Estoy encantada con la experiencia. Una asesoría cercana, respetuosa y muy detallista. Ha acertado de lleno con lo que necesitaba. Se nota el cariño que pone en todo. ¡Totalmente recomendable!»</blockquote>
+        <figcaption>L. · Asesoría 1:1</figcaption>
+      </figure>
+      <figure class="p-resena reveal">
+        <blockquote>«Gracias a esta asesoría tengo una rutina sencilla de seguir, que se adapta a las necesidades de mi piel, con productos naturales que cuidan de mi piel y de mi salud. Destaco su trato cercano y que haya tenido la paciencia de explicarme todos los pasos y para qué sirve cada producto.»</blockquote>
+        <figcaption>Clienta · Asesoría 1:1</figcaption>
+      </figure>
+      <figure class="p-resena reveal">
+        <blockquote>«Llevo dos días haciendo el ritual de mañana y de tarde y ya he notado el cambio en mi piel. Está muchísimo más suave, no me voy a la cama con sensación de tener demasiado producto en la piel y encima la rutina es sencilla. Los productos se nota que son de muy buena calidad.»</blockquote>
+        <figcaption>A. · Asesoría 1:1</figcaption>
+      </figure>
+    </div>
   </div>
 </section>
 
